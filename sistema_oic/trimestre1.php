@@ -194,12 +194,13 @@ include('prcd/conn.php');
           <thead class="bg-dark text-light">
             <tr>
               <th>Nombre actividad</th>
+              <th>Responsable</th>
               <th>Fecha inicio</th>
               <th>Fecha finalización</th>
-              <th>Responsable</th>
+              <th>% avance</th>
               <th>Medio verificación</th>
               <th>Acción</th>
-              <th>% avance</th>
+              
             </tr>
           </thead>
           <tbody>
@@ -211,7 +212,7 @@ include('prcd/conn.php');
 //                    $tabla="SELECT usr.id,usr.nombre,usr.curp,archivos.link1,archivos.link2,archivos.link3,archivos.link4,archivos.link5,archivos.link6,archivos.link7,archivos.link8,archivos.link9 FROM usr
 // INNER JOIN archivos ON usr.curp = archivos.id_usr WHERE usr.priv = 1 ORDER BY usr.id";
 
-                    $tabla="SELECT * FROM dashboard ORDER BY prioridad ASC";
+                    $tabla="SELECT * FROM actividad";
                     // $tabla="SELECT * FROM usr INNER JOIN archivos ON usr.codigo = archivos.codigo_usr WHERE usr.priv = 1 AND usr.tematica=1 ORDER BY usr.id ASC";
                     $resultadotabla = $conn->query($tabla);
                     $numero=0;
@@ -221,12 +222,13 @@ include('prcd/conn.php');
                         echo '<tr>';
 
                             echo '<td><center>'.$row['actividad'].'</center></td>';
-                            echo '<td><center>'.$row['fecha_ini'].'</center></td>';
-                            echo '<td><center>'.$row['fecha_fin'].'</center></td>';
                             echo '<td><center>'.$row['responsable'].'</center></td>';
+                            echo '<td><center>'.$row['fecha_inicio'].'</center></td>';
+                            echo '<td><center>'.$row['fecha_final'].'</center></td>';
+                            echo '<td><center>'.$row['porcentaje'].'</center></td>';
                             echo '<td><center>'.$row['medio_verificacion'].'</center></td>';
                             echo '<td><a href="#" class="badge badge-info">Modificar</a></td>';
-                            echo '<td><center>'.$row['porcentaje'].'%</center></td>';
+                            // echo '<td><center>'.$row['porcentaje'].'%</center></td>';
                             
                         echo '</tr>';
                       

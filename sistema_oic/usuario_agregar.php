@@ -201,11 +201,18 @@ if (isset($_SESSION['usr'])) {
                 
                 <div class="form-group">
                     <label for="exampleFormControlSelect1">Seleccionar responsable de la actividad</label>
-                    <select class="form-control" id="exampleFormControlSelect1" name="usr" REQUIRED>
+                    <select class="form-control" id="exampleFormControlSelect1" name="area" REQUIRED>
                     <option value="">Seleccionar...</option>
-                        <option value="1">Usuario 1</option>
-                        <option value="2">Usuario 2</option>
-                        <option value="3">Usuario 3</option>
+                    <?php
+                    $tabla="SELECT * FROM area ORDER BY id ASC";
+                    $resultadotabla = $conn->query($tabla);
+                    $numero=0;
+                    while($row = $resultadotabla->fetch_assoc()){
+                        $numero++;
+
+                            echo '<option value="'.$row['id'].'">'.$row['area'].'</option>';
+                    }
+                ?>
 
                     </select>
                 </div>

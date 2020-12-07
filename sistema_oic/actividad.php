@@ -211,6 +211,11 @@ $nombre = $_SESSION['nombre'];
                 <th scope="col">Nombre de la actividad</th>
                 <th scope="col">Responsable</th>
                 <th scope="col">Descripción</th>
+                <th scope="col">Trimestre</th>
+                <th scope="col">Fecha de inicio</th>
+                <th scope="col">Fecha de finalización</th>
+                <th scope="col">% Avance</th>
+                <th scope="col">Medio Verificación</th>
               </tr>
             </thead>
             <tbody>
@@ -229,6 +234,11 @@ $nombre = $_SESSION['nombre'];
                             echo utf8_encode('<td><center>'.$row['actividad'].'</center></td>');
                             echo utf8_encode('<td><center>'.$row['responsable'].'</center></td>');
                             echo utf8_encode('<td><center>'.$row['descripcion'].'</center></td>');
+                            echo utf8_encode('<td><center>'.$row['trimestre'].'</center></td>');
+                            echo utf8_encode('<td><center>'.$row['fecha_inicio'].'</center></td>');
+                            echo utf8_encode('<td><center>'.$row['fecha_final'].'</center></td>');
+                            echo utf8_encode('<td><center>'.$row['porcentaje'].'</center></td>');
+                            echo utf8_encode('<td><center>'.$row['medio_verificacion'].'</center></td>');
                            
                             
                         echo '</tr>';
