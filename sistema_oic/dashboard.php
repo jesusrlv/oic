@@ -160,6 +160,63 @@ include('prcd/conn.php');
         </ul>
 
         <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+          <span>Departamentos responsables</span>
+          <a class="d-flex align-items-center text-muted" href="#" aria-label="Add a new report">
+            <span data-feather="plus-circle"></span>
+          </a>
+        </h6>
+        <ul class="nav flex-column mb-2">
+          <li class="nav-item">
+            <a class="nav-link" href="modificar.php">
+              <span data-feather="file-text"></span>
+              Recursos Humanos
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="modificar.php">
+              <span data-feather="file-text"></span>
+              Coordinación administrativa
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="modificar.php">
+              <span data-feather="file-text"></span>
+              Tecnologías de la información
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="modificar.php">
+              <span data-feather="file-text"></span>
+              Órgano interno de control
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="modificar.php">
+              <span data-feather="file-text"></span>
+              Comité Contraloría Social
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="modificar.php">
+              <span data-feather="file-text"></span>
+              Recursos Financieros
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="modificar.php">
+              <span data-feather="file-text"></span>
+              Unidad de Comunicación e Imagen 
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="modificar.php">
+              <span data-feather="file-text"></span>
+              Secretaría Técnica 
+            </a>
+          </li>
+          
+        </ul>
+        <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
           <span>Plantillas</span>
           <a class="d-flex align-items-center text-muted" href="#" aria-label="Add a new report">
             <span data-feather="plus-circle"></span>
@@ -174,6 +231,7 @@ include('prcd/conn.php');
           </li>
           
         </ul>
+
       </div>
     </nav>
 
