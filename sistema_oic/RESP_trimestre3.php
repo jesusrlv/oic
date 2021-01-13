@@ -30,7 +30,6 @@ $usuario = $_SESSION['usr'];
 $id = $_SESSION['id'];
 $perfil = $_SESSION['perfil'];
 $nombre = $_SESSION['nombre'];
-include('prcd/conn.php');
 ?>
 
 <!doctype html>
@@ -99,7 +98,6 @@ include('prcd/conn.php');
       
             </li>
         </ul>
-
         <h6 class="sidebar-heading d-flex justify-content-center text-center align-items-center px-3 mt-4 mb-1 text-muted">
           <span class="">
           bienvenido<br><i class="fas fa-user"></i> 
@@ -185,7 +183,7 @@ include('prcd/conn.php');
         </div>
       </div>
 
-      <h2>Segundo Trimestre</h2>
+      <h2>Tercer Trimestre</h2>
 
       <hr style="color: dimgrey;">
       <h2></h2>
@@ -193,67 +191,115 @@ include('prcd/conn.php');
         <table class="table table-bordered table-hover table-striped table-md" style="text-align: center;">
           <thead class="bg-dark text-light">
             <tr>
-              <th>Nombre actividad</th>
+              <th>Nombre</th>
+              <th>Fecha inicio</th>
+              <th>Fecha finalización</th>
               <th>Responsable</th>
-              <!-- <th>Fecha inicio</th>
-              <th>Fecha finalización</th> -->
-              <th>% avance</th>
               <th>Medio verificación</th>
               <th>Acción</th>
-              <th># de evidencias</th>
+              <th>% avance</th>
             </tr>
           </thead>
           <tbody>
-
-            <!-- inicio loop tabla -->
-
-            <?php
-                   //$tabla="SELECT * FROM archivos ORDER BY id_archivos ASC";
-//                    $tabla="SELECT usr.id,usr.nombre,usr.curp,archivos.link1,archivos.link2,archivos.link3,archivos.link4,archivos.link5,archivos.link6,archivos.link7,archivos.link8,archivos.link9 FROM usr
-// INNER JOIN archivos ON usr.curp = archivos.id_usr WHERE usr.priv = 1 ORDER BY usr.id";
-
-                    $tabla="SELECT * FROM actividad WHERE responsable='$id'";
-                    // $tabla="SELECT * FROM usr INNER JOIN archivos ON usr.codigo = archivos.codigo_usr WHERE usr.priv = 1 AND usr.tematica=1 ORDER BY usr.id ASC";
-                    $resultadotabla = $conn->query($tabla);
-                    $numero=0;
-                    while($row = $resultadotabla->fetch_assoc()){
-                        $numero++;
-                        $responsable=$row['responsable'];
-                        $verificacion=$row['medio_verificacion'];
-                        
-                        echo '<tr>';
-
-                            echo utf8_encode('<td><center>'.$row['actividad'].'</center></td>');
-
-                            $consulta1="SELECT id,nombre FROM usr WHERE id = '$responsable'";
-                            $resultado_consulta1 = $conn->query($consulta1);
-                            $trabajador_resultado = $resultado_consulta1->fetch_assoc();
-                            echo '<td><center>'.$trabajador_resultado['nombre'].'</center></td>';
-                            // echo '<td><center>'.$row['responsable'].'</center></td>';
-
-
-                            // echo '<td><center>'.$row['fecha_inicio'].'</center></td>';
-                            // echo '<td><center>'.$row['fecha_final'].'</center></td>';
-                            echo '<td><center>'.$row['porcentaje'].'</center></td>';
-
-                            $consulta2="SELECT id,medio FROM medio_verificacion WHERE id = '$verificacion'";
-                            $resultado_consulta2 = $conn->query($consulta2);
-                            $medio_resultado = $resultado_consulta2->fetch_assoc();
-                            echo utf8_encode('<td><center>'.$medio_resultado['medio'].'</center></td>');
-                            // echo '<td><center>'.$row['medio_verificacion'].'</center></td>';
-
-
-                            echo utf8_encode('<td><a href="#" class="badge badge-info"><i class="fas fa-plus-circle"></i> Modificar</a></td>');
-                            // echo '<td><center>'.$row['porcentaje'].'%</center></td>';
-                            echo '<td><center>0</center></td>';
-                        echo '</tr>';
-                      
-                    }
-                ?>
-
-            <!-- fin loop tabla -->
-
-            
+            <tr>
+              <td>Curso informativos de inducción</td>
+              <td>01/03/2020 </td>
+              <td>03/11/2020</td>
+              <td>Recursos humanos</td>
+              <td>Diagnóstico sobre el marco operativo de la institución. Objetivos. Misión, visión y valores.</td>
+              <td><a href="#" class="badge badge-info">Modificar</a></td>
+              <td>70%</td>
+            </tr>
+            <tr>
+              <td>Notificación oficial al empleado y al área correspondiente sobre los movimientos generados en el personal del instituto.</td>
+              <td>01/03/2020</td>
+              <td>30/11/2020</td>
+              <td>Coordinación administrativa</td>
+              <td>Memorándum de notificación de movimientos del personal del instituto.</td>
+              <td><a href="#" class="badge badge-info">Modificar</a></td>
+              <td>100%</td>
+            </tr>
+            <tr>
+              <td>Creación de software para el seguimiento de control operativo y financiero de las actividades del instituto.</td>
+              <td>01/03/2020</td>
+              <td>30/11/2020</td>
+              <td>Informática</td>
+              <td>Los reportes que contenga información de las mediciones correspondientes por acciones de control.</td>
+              <td><a href="#" class="badge badge-info">Modificar</a></td>
+              <td>100%</td>
+            </tr>
+            <tr>
+              <td>Actualización del manual de procedimientos conforme a la operatividad financiera de las actividades del instituto.</td>
+              <td>01/03/2020</td>
+              <td>31/09/2020</td>
+              <td>Coordinación administrativa</td>
+              <td>Manual aprobado por la Secretaría de la Función Pública y Junta de Gobierno.</td>
+              <td><a href="#" class="badge badge-info">Modificar</a></td>
+              <td>40%</td>
+            </tr>
+            <tr>
+              <td>Diagnóstico al personal sonre el manual de procedimientos.</td>
+              <td>01/10/2020</td>
+              <td>15/11/2020</td>
+              <td>Órgano interno de control</td>
+              <td>Resultados acorde al diagnóstico para la toma de decisiones.</td>
+              <td><a href="#" class="badge badge-info">Modificar</a></td>
+              <td>70%</td>
+            </tr>
+            <tr>
+              <td>Método de control y seguimiento a programas sociales vulnerables a la corrupción interna y externa.</td>
+              <td>01/03/2020</td>
+              <td>30/11/2020</td>
+              <td>Comité de contraloría social</td>
+              <td>Disgnóstico emitido según procesos correspondientes para determinar curso y acciones.</td>
+              <td><a href="#" class="badge badge-info">Modificar</a></td>
+              <td>30%</td>
+            </tr>
+            <tr>
+              <td>Reporte presupuestal mensual para toma de decisiones.</td>
+              <td>01/03/2020</td>
+              <td>30/11/2020</td>
+              <td>Recursos financieros</td>
+              <td>Estados de movimiento presupuestal y las modificaciones al mismo</td>
+              <td><a href="#" class="badge badge-info">Modificar</a></td>
+              <td>50%</td>
+            </tr>
+            <tr>
+              <td>Emisión de boletín mensual anticipando las convocatorias y actividades relevantes.</td>
+              <td>01/03/2020</td>
+              <td>05/12/2020</td>
+              <td>Unidad de comunicación social e imagen</td>
+              <td>Boletín medio digital</td>
+              <td><a href="#" class="badge badge-info">Modificar</a></td>
+              <td>40%</td>
+            </tr>
+            <tr>
+              <td>Encuesta de clima organizacional</td>
+              <td>01/03/2020</td>
+              <td>30/11/2020</td>
+              <td>Recursos humanos</td>
+              <td>Generación del índice a través de planillas elaboradas</td>
+              <td><a href="#" class="badge badge-info">Modificar</a></td>
+              <td>80%</td>
+            </tr>
+            <tr>
+              <td>Realizar diagnóstico sobre las necesidades de capacitación</td>
+              <td>01/03/2020</td>
+              <td>30/11/2020</td>
+              <td>Recursos humanos</td>
+              <td>Con base en resultados, la elaboración de plan de capacitaciones</td>
+              <td><a href="#" class="badge badge-info">Modificar</a></td>
+              <td>25%</td>
+            </tr>
+            <tr>
+              <td>Diagnóstico a los eventos públicos del instituto de manera previa y posterior en cuanto a su resultado de operación</td>
+              <td>01/03/2020</td>
+              <td>30/11/2020</td>
+              <td>Secretario técnico</td>
+              <td>Generación del índice a través de planillas elaboradas</td>
+              <td><a href="#" class="badge badge-info">Modificar</a></td>
+              <td>50%</td>
+            </tr>
   
           </tbody>
         </table>
