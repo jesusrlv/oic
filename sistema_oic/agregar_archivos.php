@@ -32,6 +32,7 @@ $perfil = $_SESSION['perfil'];
 $nombre = $_SESSION['nombre'];
 
 $id_trimestre=$_REQUEST['id'];
+$id_actividad=$_REQUEST['act'];
 
 ?>
 
@@ -149,7 +150,7 @@ $id_trimestre=$_REQUEST['id'];
    </li>
  </ul>
 
- <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+ <!-- <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
    <span>Plantillas</span>
    <a class="d-flex align-items-center text-muted" href="#" aria-label="Add a new report">
      <span data-feather="plus-circle"></span>
@@ -163,7 +164,7 @@ $id_trimestre=$_REQUEST['id'];
      </a>
    </li>
    
- </ul>    
+ </ul>     -->
       </div>
     </nav>
 
@@ -192,7 +193,10 @@ $id_trimestre=$_REQUEST['id'];
       <h2></h2>
           <div class="container-fluid">
         
-          <form action="prcd/proceso_agregar_evidencia.php" method="POST">
+          <form action="prcd/proceso_agregar_evidencia.php" method="POST" enctype="multipart/form-data">
+
+          <input type="hidden" name="trimestre" id="trimestre" value="<?php echo $id_trimestre ?>">
+          <input type="hidden" name="actividad" id="actividad" value="<?php echo $id_actividad ?>">
                 
 
                 <div class="input-group w-50 mb-3">
@@ -215,13 +219,10 @@ $id_trimestre=$_REQUEST['id'];
 
                             <div class="form-group">
                             <label for="exampleFormControlFile1"><h5>Cargar PDF</h5></label>
-                            <input type="file" class="form-control-file" id="exampleFormControlFile1" name="file1" accept="application/pdf, application/vnd.ms-excel">
+                            <input type="file" class="form-control-file" id="exampleFormControlFile1" name="file1" accept="application/pdf, application/vnd.ms-excel" require>
                             </div>
 
                     <hr class="my-4">
-
-                
-
 
                 <button type="submit" class="btn btn-primary"><i class="fas fa-save"></i> Guardar evidencia</button>
                 <a href="javascript:history.back()" type="submit" class="btn btn-danger"><i class="far fa-times-circle"></i> Cancelar</a>

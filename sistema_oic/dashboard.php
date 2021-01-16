@@ -113,11 +113,21 @@ include('prcd/conn.php');
             ?>
           </span>
         </h6>
-<hr>
-        <ul class="nav flex-column">
+      <hr>
+        
+        <?php
+        if($perfil == 1){
+          echo '<ul class="nav flex-column">';
+        }
+
+        else{
+          echo '<ul class="nav flex-column" hidden>';
+        }
+        
+        ?>
  
            <li class="nav-item">
-            <a class="nav-link active" href="dashboard.html">
+            <a class="nav-link active" href="#">
               <!-- <span data-feather="home"></span> -->
               <i class="fas fa-laptop-house"></i> 
               Dashboard <span class="sr-only">(current)</span>
@@ -126,7 +136,7 @@ include('prcd/conn.php');
           <hr style="color: dimgrey;">
           
           <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
-            <span>AÑO 2020</span>
+            <span>AÑO 2021</span>
             <a class="d-flex align-items-center text-muted" href="#" aria-label="Add a new report">
               <span data-feather="plus-circle"></span>
             </a>
@@ -159,70 +169,74 @@ include('prcd/conn.php');
           </li>
         </ul>
 
+        <?php
+        if($perfil == 2){
+          echo '<ul class="nav flex-column">';
+        }
+
+        else{
+          echo '<ul class="nav flex-column" hidden>';
+        }
+        
+        ?>
+        <!-- <ul class="nav flex-column mb-2"> -->
+        
+        
+          <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+            <span>Departamentos responsables</span>
+            <a class="d-flex align-items-center text-muted" href="#" aria-label="Add a new report">
+              <span data-feather="plus-circle"></span>
+            </a>
+          </h6>
+          <?php 
+          $tabla="SELECT * FROM area";
+                      $resultadotabla = $conn->query($tabla);
+                      while($row = $resultadotabla->fetch_assoc()){
+                          
+                        echo '<li class="nav-item">';
+                        echo utf8_encode('<a class="nav-link" href="area.php?area='.$row['resp'].'">
+                          <span data-feather="file-text"></span>
+                            '.$row['area'].'
+                            
+                            </a>');
+                        echo '</li>';                      
+                      }
+
+                      ?>
+          </ul>
+        
+
+       
         <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
-          <span>Departamentos responsables</span>
-          <a class="d-flex align-items-center text-muted" href="#" aria-label="Add a new report">
-            <span data-feather="plus-circle"></span>
-          </a>
-        </h6>
-        <ul class="nav flex-column mb-2">
-          <li class="nav-item">
-            <a class="nav-link" href="modificar.php">
-              <span data-feather="file-text"></span>
-              Recursos Humanos
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="modificar.php">
-              <span data-feather="file-text"></span>
-              Coordinación administrativa
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="modificar.php">
-              <span data-feather="file-text"></span>
-              Tecnologías de la información
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="modificar.php">
-              <span data-feather="file-text"></span>
-              Órgano interno de control
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="modificar.php">
-              <span data-feather="file-text"></span>
-              Comité Contraloría Social
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="modificar.php">
-              <span data-feather="file-text"></span>
-              Recursos Financieros
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="modificar.php">
-              <span data-feather="file-text"></span>
-              Unidad de Comunicación e Imagen 
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="modificar.php">
-              <span data-feather="file-text"></span>
-              Secretaría Técnica 
-            </a>
-          </li>
           
-        </ul>
-        <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
-          <span>Plantillas</span>
+        <?php
+        if($perfil == 2){
+          echo '<span>Plantillas</span>';
+        }
+
+        else{
+          echo '<span></span>';
+        }
+        
+        ?>
+          <!-- <span>Plantillas</span> -->
+          
           <a class="d-flex align-items-center text-muted" href="#" aria-label="Add a new report">
             <span data-feather="plus-circle"></span>
           </a>
         </h6>
-        <ul class="nav flex-column mb-2">
+
+        <?php
+        if($perfil == 2){
+          echo '<ul class="nav flex-column">';
+        }
+
+        else{
+          echo '<ul class="nav flex-column" hidden>';
+        }
+        
+        ?>
+        <!-- <ul class="nav flex-column mb-2"> -->
           <li class="nav-item">
             <a class="nav-link" href="modificar.php">
               <span data-feather="file-text"></span>
@@ -231,11 +245,15 @@ include('prcd/conn.php');
           </li>
           
         </ul>
+       
 
       </div>
+      
     </nav>
 
     <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-md-4">
+      
+   
       <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
         <h1 class="h3">DASHBOARD</h1>
         <div class="btn-toolbar mb-2 mb-md-0">
@@ -251,7 +269,18 @@ include('prcd/conn.php');
 
       <hr style="color: dimgrey;">
       <h2></h2>
-      <div class="container">
+
+      <?php
+        if($perfil == 1){
+          echo '<div class="container">';
+        }
+
+        else{
+          echo '<div class="container" hidden>';
+        }
+        
+        ?>
+      <!-- <div class="container"> -->
   
         <div class="row row-cols-1 row-cols-md-2">
           <div class="col mb-4">
@@ -298,10 +327,26 @@ include('prcd/conn.php');
           
 
       </div> <!-- container -->
+      
+      
       <div class="container">
 
+        
+
         <div class="col mb-12">
-          <div class="card text-white bg-warning mb-12 align-middle" style="max-width: 96rem;">
+          
+        <?php
+          if($perfil == 1){
+            echo '<div class="card text-white bg-warning mb-12 align-middle" style="max-width: 96rem;" hidden>';
+          }
+
+          elseif ($perfil == 2){
+            echo '<div class="card text-white bg-warning mb-12 align-middle" style="max-width: 96rem;">';
+          }
+          
+          ?>
+          
+          <!-- <div class="card text-white bg-warning mb-12 align-middle" style="max-width: 96rem;"> -->
             <div class="card-header">Opción:</div>
             <div class="card-body">
               <h1 class="card-title">Modificar:</h1>
@@ -318,7 +363,7 @@ include('prcd/conn.php');
         </div>
       </div>
 
-      </div>
+      </div> 
 
 
     </main>

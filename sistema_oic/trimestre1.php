@@ -70,17 +70,13 @@ include('prcd/conn.php');
     <link href="css/dashboard.css" rel="stylesheet">
   </head>
   <body>
-    <!-- <nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow"> -->
     <nav class="navbar navbar-light sticky-top flex-md-nowrap p-0 bg-info text-white">
         <a class="navbar-brand col-md-3 col-lg-2 mr-0 px-3 text-center text-light" href="#">
-    <!-- <img src="img/TrabajemosJuntosJuventud.png" width="30" height="30" class="d-inline-block align-top" alt="" loading="lazy">   -->
     <h6 class="text-center text-light display-7">OIC</h6>
     </a>
   <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-toggle="collapse" data-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
-  </button>
-  <!-- <input class="form-control form-control-dark w-30" type="text" placeholder="Search" aria-label="Search"> -->
-  
+  </button>  
   
   <ul class="navbar-nav px-3">
     <li class="nav-item text-nowrap">
@@ -113,8 +109,7 @@ include('prcd/conn.php');
 <hr>
 <ul class="nav flex-column">
   <li class="nav-item">
-    <a class="nav-link active" href="dashboard.php">
-     <!-- <span data-feather="home"></span> -->
+    <a class="nav-link" href="dashboard.php">
      <i class="fas fa-laptop-house"></i> 
      Dashboard <span class="sr-only">(current)</span>
    </a>
@@ -129,7 +124,7 @@ include('prcd/conn.php');
  </h6>
 
  <li class="nav-item">
-   <a class="nav-link" href="trimestre1.php">
+   <a class="nav-link active" href="trimestre1.php">
      <span data-feather="layers"></span>
       
      Primer trimestre
@@ -155,7 +150,7 @@ include('prcd/conn.php');
  </li>
 </ul>
 
-<h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+<!-- <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
  <span>Plantillas</span>
  <a class="d-flex align-items-center text-muted" href="#" aria-label="Add a new report">
    <span data-feather="plus-circle"></span>
@@ -169,7 +164,7 @@ include('prcd/conn.php');
    </a>
  </li>
  
-</ul>
+</ul> -->
       </div>
     </nav>
 
@@ -195,12 +190,11 @@ include('prcd/conn.php');
             <tr>
               <th>Nombre actividad</th>
               <th>Responsable</th>
-              <!-- <th>Fecha inicio</th>
-              <th>Fecha finalización</th> -->
-              <th>% avance</th>
               <th>Medio verificación</th>
               <th>Acción</th>
               <th># de evidencias</th>
+              <th>% avance</th>
+              
             </tr>
           </thead>
           <tbody>
@@ -208,18 +202,15 @@ include('prcd/conn.php');
             <!-- inicio loop tabla -->
 
             <?php
-                   //$tabla="SELECT * FROM archivos ORDER BY id_archivos ASC";
-//                    $tabla="SELECT usr.id,usr.nombre,usr.curp,archivos.link1,archivos.link2,archivos.link3,archivos.link4,archivos.link5,archivos.link6,archivos.link7,archivos.link8,archivos.link9 FROM usr
-// INNER JOIN archivos ON usr.curp = archivos.id_usr WHERE usr.priv = 1 ORDER BY usr.id";
-
+                   
                     $tabla="SELECT * FROM actividad WHERE responsable='$id'";
-                    // $tabla="SELECT * FROM usr INNER JOIN archivos ON usr.codigo = archivos.codigo_usr WHERE usr.priv = 1 AND usr.tematica=1 ORDER BY usr.id ASC";
                     $resultadotabla = $conn->query($tabla);
                     $numero=0;
                     while($row = $resultadotabla->fetch_assoc()){
                         $numero++;
                         $responsable=$row['responsable'];
                         $verificacion=$row['medio_verificacion'];
+                        $id_act=$row['id'];
                         
                         echo '<tr>';
 
@@ -228,33 +219,36 @@ include('prcd/conn.php');
                             $consulta1="SELECT id,nombre FROM usr WHERE id = '$responsable'";
                             $resultado_consulta1 = $conn->query($consulta1);
                             $trabajador_resultado = $resultado_consulta1->fetch_assoc();
-                            echo '<td><center>'.$trabajador_resultado['nombre'].'</center></td>';
-                            // echo '<td><center>'.$row['responsable'].'</center></td>';
-
-
-                            // echo '<td><center>'.$row['fecha_inicio'].'</center></td>';
-                            // echo '<td><center>'.$row['fecha_final'].'</center></td>';
-                            echo '<td><center>'.$row['porcentaje'].'</center></td>';
-
+                            echo utf8_encode('<td><center>'.$trabajador_resultado['nombre'].'</center></td>');
+            
                             $consulta2="SELECT id,medio FROM medio_verificacion WHERE id = '$verificacion'";
                             $resultado_consulta2 = $conn->query($consulta2);
                             $medio_resultado = $resultado_consulta2->fetch_assoc();
                             echo utf8_encode('<td><center>'.$medio_resultado['medio'].'</center></td>');
-                            // echo '<td><center>'.$row['medio_verificacion'].'</center></td>';
 
+                            if($row['porcentaje']!=100){
+                              echo utf8_encode('<td><a href="agregar_archivos.php?id=1&act='.$row['id'].'" class="badge badge-info"><i class="fas fa-plus-circle"></i> Evidencia</a></td>');
+                            }
+                            else{
+                              echo '<td><span class="badge badge-danger">Completado 100%</span></td>';
+                            }
+                            
+                            $tabla_cont="SELECT count(*) AS total FROM bitacora WHERE usr_vinculado = '$id' AND trimestre = 1 AND actividad_vinculada = '$id_act'";
+                            $resultadotabla_cont = $conn->query($tabla_cont);
+                            $cont_resultado = $resultadotabla_cont->fetch_assoc();
+                            $num_rows = $cont_resultado['total'];
 
-                            echo utf8_encode('<td><a href="#" class="badge badge-info"><i class="fas fa-plus-circle"></i> Modificar</a></td>');
-                            // echo '<td><center>'.$row['porcentaje'].'%</center></td>';
-                            echo '<td><center>0</center></td>';
+                            echo '<td><center><a href="evidencia_trimestre.php?ev=1&act='.$row['id'].'" class="badge badge-info"><i class="fas fa-eye"></i> '.$num_rows.'</a></center></td>';
+                            echo '<td><center>
+                            <div class="progress">
+                              <div class="progress-bar" role="progressbar" style="width: '.$row['porcentaje'].'%;" aria-valuenow="'.$row['porcentaje'].'" aria-valuemin="0" aria-valuemax="100">'.$row['porcentaje'].'%</div>
+                            </div>
+                            </center></td>';
                         echo '</tr>';
                       
                     }
                 ?>
-
             <!-- fin loop tabla -->
-
-            
-  
           </tbody>
         </table>
       </div>
