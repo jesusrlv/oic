@@ -226,7 +226,7 @@ include('prcd/conn.php');
                             $medio_resultado = $resultado_consulta2->fetch_assoc();
                             echo utf8_encode('<td><center>'.$medio_resultado['medio'].'</center></td>');
 
-                            if($row['porcentaje']!=100){
+                            if($row['porcentaje4']!=100){
                               echo utf8_encode('<td><a href="agregar_archivos.php?id=4&act='.$row['id'].'" class="badge badge-info"><i class="fas fa-plus-circle"></i> Evidencia</a></td>');
                             }
                             else{
@@ -241,7 +241,7 @@ include('prcd/conn.php');
                             echo '<td><center><a href="evidencia_trimestre.php?ev=4&act='.$row['id'].'" class="badge badge-info"><i class="fas fa-eye"></i> '.$num_rows.'</a></center></td>';
                             echo '<td><center>
                             <div class="progress">
-                              <div class="progress-bar" role="progressbar" style="width: '.$row['porcentaje'].'%;" aria-valuenow="'.$row['porcentaje'].'" aria-valuemin="0" aria-valuemax="100">'.$row['porcentaje'].'%</div>
+                              <div class="progress-bar" role="progressbar" style="width: '.$row['porcentaje4'].'%;" aria-valuenow="'.$row['porcentaje4'].'" aria-valuemin="0" aria-valuemax="100">'.$row['porcentaje4'].'%</div>
                             </div>
                             </center></td>';
                         echo '</tr>';
