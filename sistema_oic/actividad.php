@@ -124,7 +124,7 @@ $nombre = $_SESSION['nombre'];
    </li>
    <hr style="color: dimgrey;">
    
-   <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+   <!-- <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
      <span>AÑO 2020</span>
      <a class="d-flex align-items-center text-muted" href="#" aria-label="Add a new report">
        <span data-feather="plus-circle"></span>
@@ -155,7 +155,7 @@ $nombre = $_SESSION['nombre'];
        <span data-feather="layers"></span>
        Cuarto trimestre
      </a>
-   </li>
+   </li> -->
  </ul>
 
  <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
@@ -181,10 +181,13 @@ $nombre = $_SESSION['nombre'];
         <!-- <h1 class="h3">MODIFICAR ACTIVIDAD</h1> -->
         
 
-        <div class="alert alert-info" role="alert">
-        ACTIVIDAD
+        <div class="d-flex align-items-center p-3 my-3 text-white-50 bg-light rounded shadow-sm w-100">
+          <img class="mr-3" src="img/TrabajemosJuntosJuventud.png" alt="" width="48" height="48">
+          <div class="lh-100">
+            <h6 class="mb-0 text-muted lh-100">Instituto de la Juventud del Estado de Zacatecas</h6>
+            <small class="text-muted">Órgano de control interno</small>
+          </div>
         </div>
-        
         
         <div class="btn-toolbar mb-2 mb-md-0">
           <div class="btn-group mr-2">

@@ -25,6 +25,14 @@ if (isset($_SESSION['usr'])) {
     header('Location: prcd/sort.php');
     die();
 }
+// variables de sesión
+
+$usuario = $_SESSION['usr'];
+$id = $_SESSION['id'];
+$perfil = $_SESSION['perfil'];
+$nombre = $_SESSION['nombre'];
+
+
 ?>
 
 <!doctype html>
@@ -38,10 +46,7 @@ if (isset($_SESSION['usr'])) {
     <title>Dashboard | OIC</title>
 
     <link rel="icon" type="image/png" href="img/icon.ico"/>
-    <!-- <link rel="canonical" href="https://getbootstrap.com/docs/4.5/examples/dashboard/"> -->
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js" integrity="sha384-q2kxQ16AaE6UbzuKqyBE9/u/KzioAlnx2maXQHiDX9d4/zp8Ok3f+M7DPm+Ib6IU" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-pQQkAEnwaBkjpqZ8RU1fF1AKtTcHJwFl3pblpTlHXybJjHpMYo79HY3hIi4NKxyj" crossorigin="anonymous"></script>
-
+    <link rel="canonical" href="https://getbootstrap.com/docs/4.5/examples/dashboard/">
     <script src="https://kit.fontawesome.com/4d63b5ef28.js" crossorigin="anonymous"></script>
 
     <!-- Bootstrap core CSS -->
@@ -97,9 +102,21 @@ if (isset($_SESSION['usr'])) {
             </li>
         </ul>
 <hr>
+
+        <h6 class="sidebar-heading d-flex justify-content-center text-center align-items-center px-3 mt-4 mb-1 text-muted">
+          <span class="">
+          bienvenido<br><i class="fas fa-user"></i> 
+            <?php
+            
+              echo utf8_encode($nombre);
+            
+            ?>
+          </span>
+        </h6>
+
 <ul class="nav flex-column">
     <li class="nav-item">
-        <a class="nav-link active" href="modificar.php">
+        <a class="nav-link active" href="dashboard.php">
        <!-- <span data-feather="home"></span> -->
        <i class="fas fa-laptop-house"></i> 
        Dashboard <span class="sr-only">(current)</span>
@@ -107,7 +124,7 @@ if (isset($_SESSION['usr'])) {
    </li>
    <hr style="color: dimgrey;">
    
-   <!-- <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+   <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
      <span>AÑO 2020</span>
      <a class="d-flex align-items-center text-muted" href="#" aria-label="Add a new report">
        <span data-feather="plus-circle"></span>
@@ -138,7 +155,7 @@ if (isset($_SESSION['usr'])) {
        <span data-feather="layers"></span>
        Cuarto trimestre
      </a>
-   </li> -->
+   </li>
  </ul>
 
  <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
@@ -162,12 +179,10 @@ if (isset($_SESSION['usr'])) {
     <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-md-4">
       <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
         <!-- <h1 class="h3">MODIFICAR ACTIVIDAD</h1> -->
-        <div class="d-flex align-items-center p-3 my-3 text-white-50 bg-light rounded shadow-sm w-100">
-          <img class="mr-3" src="img/TrabajemosJuntosJuventud.png" alt="" width="48" height="48">
-          <div class="lh-100">
-            <h6 class="mb-0 text-muted lh-100">Instituto de la Juventud del Estado de Zacatecas</h6>
-            <small class="text-muted">Órgano de control interno</small>
-          </div>
+        
+
+        <div class="alert alert-info" role="alert">
+        ACTIVIDAD
         </div>
         
         
@@ -180,103 +195,73 @@ if (isset($_SESSION['usr'])) {
         </div>
       </div>
 
-      <h2></h2>
+      <h2>Primer trimestre 2021</h2>
 
-      <!-- <hr style="color: dimgrey;"> -->
+      <hr style="color: dimgrey;">
       <h2></h2>
-          <div class="container-fluid">
+      <!-- <div class="container-fluid"> -->
+        <div class="table-responsive">
         
-          <form action="prcd/proceso_agregar_actividad.php" method="POST">
-                <div class="form-group w-50">
-                    <label for="exampleInputEmail1">Nombre de la actividad</label>
-                    <input type="text" class="form-control" id="nombre_actv" aria-describedby="Text" name="actividad" REQUIRED>
-                    <small id="emailHelp" class="form-text text-muted">Agregar la actividad para tu perfil.</small>
-                </div>
-
-                <div class="form-group w-50">
-                    <label for="exampleFormControlSelect1">Seleccionar responsable de la actividad</label>
-                    <select class="form-control" id="exampleFormControlSelect1" name="usr" REQUIRED>
-                    <option value="">Seleccionar...</option>
-                    <?php
-                    $tabla="SELECT * FROM usr WHERE perfil = 1 ORDER BY id ASC";
+        <!-- <a href="actividad_agregar.php" type="button" class="btn btn-info" style="margin-bottom:3px;"><i class="fas fa-plus-circle"></i> Agregar actividad</a> -->
+          
+          <table class="table table-bordered table-hover table-striped table-md" style="text-align: center;">
+          <thead class="bg-dark text-light">
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Nombre de la actividad</th>
+                <th scope="col">Responsable</th>
+                <th scope="col">Descripción</th>
+                <th scope="col">Trimestre</th>
+                <th scope="col">Fecha de inicio</th>
+                <th scope="col">Fecha de finalización</th>
+                <th scope="col">% Avance</th>
+                <th scope="col">Medio Verificación</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+              <?php
+              $tabla="SELECT * FROM actividad WHERE trimestre = 3 ORDER BY id ASC";
+                    // $tabla="SELECT * FROM usr INNER JOIN archivos ON usr.codigo = archivos.codigo_usr WHERE usr.priv = 1 AND usr.tematica=1 ORDER BY usr.id ASC";
                     $resultadotabla = $conn->query($tabla);
                     $numero=0;
                     while($row = $resultadotabla->fetch_assoc()){
                         $numero++;
+                        
+                        echo '<tr>';
 
-                            echo '<option value="'.utf8_encode($row['id'].'">'.$row['nombre']).'</option>';
+                            echo '<td><center>'.$numero.'</center></td>';
+                            echo utf8_encode('<td><center>'.$row['actividad'].'</center></td>');
+                            // echo utf8_encode('<td><center>'.$row['responsable'].'</center></td>');
+                            $id_responsable=$row['responsable'];
+                            $responsable = "SELECT * FROM usr WHERE id ='$id_responsable'";
+                            $resultado_responsable= $conn->query($responsable);
+                            $row_responsable=$resultado_responsable->fetch_assoc();
+                            echo '<td>'.utf8_encode($row_responsable['nombre']).'</td>';
+
+                            echo utf8_encode('<td><center>'.$row['descripcion'].'</center></td>');
+                            echo utf8_encode('<td><center>'.$row['trimestre'].'</center></td>');
+                            echo utf8_encode('<td><center>'.$row['fecha_inicio'].'</center></td>');
+                            echo utf8_encode('<td><center>'.$row['fecha_final'].'</center></td>');
+                            echo utf8_encode('<td><center>'.$row['porcentaje'].'</center></td>');
+                            // echo utf8_encode('<td><center>'.$row['medio_verificacion'].'</center></td>');
+                            $id_verificacion=$row['medio_verificacion'];
+                            $verificacion = "SELECT * FROM medio_verificacion WHERE id ='$id_verificacion'";
+                            $resultado_verificacion= $conn->query($verificacion);
+                            $row_verificacion=$resultado_verificacion->fetch_assoc();
+                            echo '<td>'.utf8_encode($row_verificacion['medio']).'</td>';
+                           
+                            
+                        echo '</tr>';
+                      
                     }
-                     ?> <!-- fin loop tabla -->
-
-                  
-
-                    </select>
-                </div>
-
-                <div class="input-group w-50 mb-3">
-                  <span class="input-group-text">Descripción de la actividad</span>
-                  <textarea class="form-control" aria-label="With textarea" name="descripcion" require></textarea>
-                </div>
-
-
-                <!-- <div class="input-group mb-3 w-25">
-                  <span class="input-group-text" id="inputGroup-sizing-default">Fecha de inicio</span>
-                  <input type="date" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" name="fecha_inicio" require>
-                </div>
-                <div class="input-group mb-3 w-25">
-                  <span class="input-group-text" id="inputGroup-sizing-default">Fecha de finalización</span>
-                  <input type="date" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" name="fecha_finalizacion" require>
-                </div> -->
-
-                <div class="form-group w-50" >
-                    <label for="exampleFormControlSelect1">Seleccionar medio de verificación</label>
-                    <select class="form-control" id="exampleFormControlSelect1" name="medio_verificacion" REQUIRED>
-                    <option value="">Seleccionar...</option>
-                    <?php
-                    $tabla="SELECT * FROM medio_verificacion ORDER BY id ASC";
-                    $resultadotabla = $conn->query($tabla);
-                    $numero=0;
-                    while($row = $resultadotabla->fetch_assoc()){
-                        $numero++;
-
-                            echo '<option value="'.utf8_encode($row['id'].'">'.$row['medio']).'</option>';
-                    }
-                     ?> <!-- fin loop tabla -->
-                    </select>
-                </div>
-
-                <!-- <div class="input-group mb-3 w-25">
-                <span class="input-group-text" id="inputGroup-sizing-default">Trimestre</span>
-                  <select class="form-control" aria-label="Default select example" name="trimestre" require>
-                    <option selected>Seleccionar...</option>
-                    <option value="1">Primer trimestre</option>
-                    <option value="2">Segundo trimestre</option>
-                    <option value="3">Tercer trimestre</option>
-                    <option value="4">Cuarto trimestre</option>
-                  </select>
-                  </div> -->
-
-                <div class="input-group mb-3 w-25">
-                <span class="input-group-text" id="inputGroup-sizing-default">Año</span>
-                  <select class="form-control" aria-label="Default select example" name="annio" require>
-                    <option selected>Seleccionar...</option>
-                    <option value="1">2020</option>
-                    <option value="2">2021</option>
-                    <option value="3">2022</option>
-                    <option value="4">2023</option>
-                  </select>
-                </div>
-
-
-                <button type="submit" class="btn btn-primary"><i class="fas fa-save"></i> Guardar actividad</button>
-                <a href="javascript:history.back()" type="submit" class="btn btn-danger"><i class="far fa-times-circle"></i> Cancelar</a>
-            </form>
-        
-
-            </div> <!-- div container -->
-
-
+                ?>
+              </tr>
             
+            </tbody>
+          </table>
+
+      </div> <!-- div table-responsive -->
       
 
       </div>

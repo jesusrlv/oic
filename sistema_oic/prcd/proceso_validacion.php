@@ -44,7 +44,7 @@ if ($resultado=mysqli_fetch_array($proceso)){
     
     elseif($resultado['perfil']==2){
 
-        echo "<script type=\"text/javascript\">location.href='../dashboard.php';</script>";
+        echo "<script type=\"text/javascript\">location.href='../actividad_calificar.php';</script>";
         
     
     //echo "Sesión no exitosa";
@@ -53,7 +53,7 @@ if ($resultado=mysqli_fetch_array($proceso)){
 
     elseif($resultado['perfil']==3){
 
-        echo "<script type=\"text/javascript\">location.href='../dashboard.php';</script>";
+        echo "<script type=\"text/javascript\">location.href='../modificar.php';</script>";
     }
     
 

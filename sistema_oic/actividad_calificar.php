@@ -47,6 +47,10 @@ $nombre = $_SESSION['nombre'];
 
     <link rel="icon" type="image/png" href="img/icon.ico"/>
     <link rel="canonical" href="https://getbootstrap.com/docs/4.5/examples/dashboard/">
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js" integrity="sha384-SR1sx49pcuLnqZUnnPwx6FCym0wLsk5JZuNx2bPPENzswTNFaQU1RDvt3wT4gWFG" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.min.js" integrity="sha384-j0CNLUeiqtyaRmlzUHCPZ+Gy5fQu0dQ6eZ/xAww941Ai1SxSY+0EQqNXNE6DZiVc" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css">
+    
     <script src="https://kit.fontawesome.com/4d63b5ef28.js" crossorigin="anonymous"></script>
 
     <!-- Bootstrap core CSS -->
@@ -86,7 +90,7 @@ $nombre = $_SESSION['nombre'];
   
   <ul class="navbar-nav px-3">
     <li class="nav-item text-nowrap">
-        <a class="btn btn-outline-light" href="#" role="button"><i class="fas fa-sign-out-alt"></i> Salir</a>    </li>
+        <a class="btn btn-outline-light btn-sm" href="prcd/sort.php" role="button"><i class="fas fa-sign-out-alt"></i> Salir</a>    </li>
   </ul>
 </nav>
 
@@ -116,7 +120,7 @@ $nombre = $_SESSION['nombre'];
 
 <ul class="nav flex-column">
     <li class="nav-item">
-        <a class="nav-link active" href="dashboard.php">
+        <a class="nav-link active" href="#">
        <!-- <span data-feather="home"></span> -->
        <i class="fas fa-laptop-house"></i> 
        Dashboard <span class="sr-only">(current)</span>
@@ -124,14 +128,14 @@ $nombre = $_SESSION['nombre'];
    </li>
    <hr style="color: dimgrey;">
    
-   <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
-     <span>AÑO 2020</span>
+   <!-- <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+     <span>AÑO 2021</span>
      <a class="d-flex align-items-center text-muted" href="#" aria-label="Add a new report">
        <span data-feather="plus-circle"></span>
      </a>
-   </h6>
+   </h6> -->
 
-   <li class="nav-item">
+   <!-- <li class="nav-item">
      <a class="nav-link" href="trimestre1.php">
        <span data-feather="layers"></span>
         
@@ -155,10 +159,10 @@ $nombre = $_SESSION['nombre'];
        <span data-feather="layers"></span>
        Cuarto trimestre
      </a>
-   </li>
+   </li> -->
  </ul>
 
- <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+ <!-- <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
    <span>Plantillas</span>
    <a class="d-flex align-items-center text-muted" href="#" aria-label="Add a new report">
      <span data-feather="plus-circle"></span>
@@ -170,7 +174,7 @@ $nombre = $_SESSION['nombre'];
        <span data-feather="file-text"></span>
        Modificar
      </a>
-   </li>
+   </li> -->
    
  </ul>    
       </div>
@@ -181,10 +185,13 @@ $nombre = $_SESSION['nombre'];
         <!-- <h1 class="h3">MODIFICAR ACTIVIDAD</h1> -->
         
 
-        <div class="alert alert-info" role="alert">
-        ACTIVIDAD
+        <div class="d-flex align-items-center p-3 my-3 text-white-50 bg-light rounded shadow-sm w-100">
+          <img class="mr-3" src="img/TrabajemosJuntosJuventud.png" alt="" width="48" height="48">
+          <div class="lh-100">
+            <h6 class="mb-0 text-muted lh-100">Instituto de la Juventud del Estado de Zacatecas</h6>
+            <small class="text-muted">Órgano de control interno</small>
+          </div>
         </div>
-        
         
         <div class="btn-toolbar mb-2 mb-md-0">
           <div class="btn-group mr-2">
@@ -204,24 +211,26 @@ $nombre = $_SESSION['nombre'];
         
         <!-- <a href="actividad_agregar.php" type="button" class="btn btn-info" style="margin-bottom:3px;"><i class="fas fa-plus-circle"></i> Agregar actividad</a> -->
           
-          <table class="table table-bordered table-hover table-striped table-md" style="text-align: center;">
+          <table class="table table-bordered table-hover table-striped table-md align-middle table-sm" style="text-align: center;">
           <thead class="bg-dark text-light">
-              <tr>
-                <th scope="col">#</th>
-                <th scope="col">Nombre de la actividad</th>
-                <th scope="col">Responsable</th>
-                <th scope="col">Descripción</th>
-                <th scope="col">Trimestre</th>
-                <th scope="col">Fecha de inicio</th>
-                <th scope="col">Fecha de finalización</th>
-                <th scope="col">% Avance</th>
-                <th scope="col">Medio Verificación</th>
+              <tr class="align-middle">
+                <th scope="col" class="align-middle">#</th>
+                <th scope="col" class="align-middle">Nombre de la actividad</th>
+                <th scope="col" class="align-middle">Responsable</th>
+                <th scope="col" class="align-middle">Descripción</th>
+                <th scope="col" class="align-middle">Trimestre</th>
+                <th scope="col" class="align-middle">Fecha de inicio</th>
+                <th scope="col" class="align-middle">Fecha de finalización</th>
+                <th scope="col" class="align-middle">% Avance</th>
+                <th scope="col" class="align-middle"># Docs</th>
+                <th scope="col" class="align-middle">Acción</th>
+                <th scope="col" class="align-middle">Medio Verificación</th>
               </tr>
             </thead>
             <tbody>
               <tr>
               <?php
-              $tabla="SELECT * FROM actividad WHERE trimestre = 1 ORDER BY id ASC";
+              $tabla="SELECT * FROM actividad WHERE annio = 2 ORDER BY id ASC";
                     // $tabla="SELECT * FROM usr INNER JOIN archivos ON usr.codigo = archivos.codigo_usr WHERE usr.priv = 1 AND usr.tematica=1 ORDER BY usr.id ASC";
                     $resultadotabla = $conn->query($tabla);
                     $numero=0;
@@ -230,20 +239,36 @@ $nombre = $_SESSION['nombre'];
                         
                         echo '<tr>';
 
-                            echo '<td><center>'.$numero.'</center></td>';
-                            echo utf8_encode('<td><center>'.$row['actividad'].'</center></td>');
+                            echo '<td class="align-middle"><center>'.$numero.'</center></td>';
+                            echo utf8_encode('<td class="align-middle"><center>'.$row['actividad'].'</center></td>');
                             // echo utf8_encode('<td><center>'.$row['responsable'].'</center></td>');
                             $id_responsable=$row['responsable'];
                             $responsable = "SELECT * FROM usr WHERE id ='$id_responsable'";
                             $resultado_responsable= $conn->query($responsable);
                             $row_responsable=$resultado_responsable->fetch_assoc();
-                            echo '<td>'.utf8_encode($row_responsable['nombre']).'</td>';
+                            echo '<td class="align-middle">'.utf8_encode($row_responsable['nombre']).'</td>';
 
-                            echo utf8_encode('<td><center>'.$row['descripcion'].'</center></td>');
-                            echo utf8_encode('<td><center>'.$row['trimestre'].'</center></td>');
-                            echo utf8_encode('<td><center>'.$row['fecha_inicio'].'</center></td>');
-                            echo utf8_encode('<td><center>'.$row['fecha_final'].'</center></td>');
-                            echo utf8_encode('<td><center>'.$row['porcentaje'].'</center></td>');
+                            echo utf8_encode('<td class="align-middle"><center>'.$row['descripcion'].'</center></td>');
+                            // echo utf8_encode('<td class="align-middle"><center>'.$row['trimestre'].'</center></td>');
+                            echo utf8_encode('<td class="align-middle"><center>1</center></td>');
+                            $fecha_inicio = $row['fecha_inicio'];
+                            $fecha_inicio_mx = date("d/m/Y", strtotime($fecha_inicio));
+                            $fecha_final = $row['fecha_final'];
+                            $fecha_final_mx = date("d/m/Y", strtotime($fecha_final));
+
+                            echo utf8_encode('<td class="align-middle"><center>'.$fecha_inicio_mx.'</center></td>');
+                            echo utf8_encode('<td class="align-middle"><center>'.$fecha_final_mx.'</center></td>');
+                            echo utf8_encode('<td class="align-middle"><center>'.$row['porcentaje'].'</center></td>');
+                            
+                            $responsable = $row['responsable'];
+                            $id_row = $row['id'];
+                            $tabla_cont="SELECT count(*) AS total FROM bitacora WHERE trimestre = 1 AND actividad_vinculada = '$id_row'";
+                            $resultadotabla_cont = $conn->query($tabla_cont);
+                            $cont_resultado = $resultadotabla_cont->fetch_assoc();
+                            $num_rows = $cont_resultado['total'];
+                            echo '<td class="align-middle"><span class="badge bg-info text-light"><center><i class="bi bi-file-post"></i> '.$num_rows.'</center></span></td>';
+
+                            echo ('<td class="align-middle"><a href="calificar_evidencia_trimestre.php?act='.$row['id'].'&ev=1"><i class="bi bi-clipboard-check"></i> Calificar</center></a></td>');
                             // echo utf8_encode('<td><center>'.$row['medio_verificacion'].'</center></td>');
                             $id_verificacion=$row['medio_verificacion'];
                             $verificacion = "SELECT * FROM medio_verificacion WHERE id ='$id_verificacion'";
@@ -263,7 +288,259 @@ $nombre = $_SESSION['nombre'];
 
       </div> <!-- div table-responsive -->
       
+      <h2>Segundo trimestre 2021</h2>
 
+      <hr style="color: dimgrey;">
+      <h2></h2>
+      <!-- <div class="container-fluid"> -->
+        <div class="table-responsive">
+        
+        <!-- <a href="actividad_agregar.php" type="button" class="btn btn-info" style="margin-bottom:3px;"><i class="fas fa-plus-circle"></i> Agregar actividad</a> -->
+          
+          <table class="table table-bordered table-hover table-striped table-md align-middle table-sm" style="text-align: center;">
+          <thead class="bg-dark text-light">
+              <tr class="align-middle">
+                <th scope="col" class="align-middle">#</th>
+                <th scope="col" class="align-middle">Nombre de la actividad</th>
+                <th scope="col" class="align-middle">Responsable</th>
+                <th scope="col" class="align-middle">Descripción</th>
+                <th scope="col" class="align-middle">Trimestre</th>
+                <th scope="col" class="align-middle">Fecha de inicio</th>
+                <th scope="col" class="align-middle">Fecha de finalización</th>
+                <th scope="col" class="align-middle">% Avance</th>
+                <th scope="col" class="align-middle"># Docs</th>
+                <th scope="col" class="align-middle">Acción</th>
+                <th scope="col" class="align-middle">Medio Verificación</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+              <?php
+              $tabla="SELECT * FROM actividad WHERE annio = 2 ORDER BY id ASC";
+                    // $tabla="SELECT * FROM usr INNER JOIN archivos ON usr.codigo = archivos.codigo_usr WHERE usr.priv = 1 AND usr.tematica=1 ORDER BY usr.id ASC";
+                    $resultadotabla = $conn->query($tabla);
+                    $numero=0;
+                    while($row = $resultadotabla->fetch_assoc()){
+                        $numero++;
+                        
+                        echo '<tr>';
+
+                            echo '<td class="align-middle"><center>'.$numero.'</center></td>';
+                            echo utf8_encode('<td class="align-middle"><center>'.$row['actividad'].'</center></td>');
+                            // echo utf8_encode('<td><center>'.$row['responsable'].'</center></td>');
+                            $id_responsable=$row['responsable'];
+                            $responsable = "SELECT * FROM usr WHERE id ='$id_responsable'";
+                            $resultado_responsable= $conn->query($responsable);
+                            $row_responsable=$resultado_responsable->fetch_assoc();
+                            echo '<td class="align-middle">'.utf8_encode($row_responsable['nombre']).'</td>';
+
+                            echo utf8_encode('<td class="align-middle"><center>'.$row['descripcion'].'</center></td>');
+                            // echo utf8_encode('<td class="align-middle"><center>'.$row['trimestre'].'</center></td>');
+                            echo utf8_encode('<td class="align-middle"><center>2</center></td>');
+                            $fecha_inicio2 = $row['fecha_inicio2'];
+                            $fecha_inicio_mx2 = date("d/m/Y", strtotime($fecha_inicio2));
+                            $fecha_final2 = $row['fecha_final2'];
+                            $fecha_final_mx2 = date("d/m/Y", strtotime($fecha_final2));
+                            echo utf8_encode('<td class="align-middle"><center>'.$fecha_inicio_mx2.'</center></td>');
+                            echo utf8_encode('<td class="align-middle"><center>'.$fecha_final_mx2.'</center></td>');
+                            echo utf8_encode('<td class="align-middle"><center>'.$row['porcentaje2'].'</center></td>');
+                            $responsable = $row['responsable'];
+                            $id_row = $row['id'];
+                            $tabla_cont="SELECT count(*) AS total FROM bitacora WHERE trimestre = 2 AND actividad_vinculada = '$id_row'";
+                            $resultadotabla_cont = $conn->query($tabla_cont);
+                            $cont_resultado = $resultadotabla_cont->fetch_assoc();
+                            $num_rows = $cont_resultado['total'];
+                            echo '<td class="align-middle"><span class="badge bg-info text-light"><center><i class="bi bi-file-post"></i> '.$num_rows.'</center></span></td>';
+
+                            echo ('<td class="align-middle"><a href="calificar_evidencia_trimestre.php?act='.$row['id'].'&ev=2"><i class="bi bi-clipboard-check"></i> Calificar</center></a></td>');
+                            // echo utf8_encode('<td><center>'.$row['medio_verificacion'].'</center></td>');
+                            $id_verificacion=$row['medio_verificacion'];
+                            $verificacion = "SELECT * FROM medio_verificacion WHERE id ='$id_verificacion'";
+                            $resultado_verificacion= $conn->query($verificacion);
+                            $row_verificacion=$resultado_verificacion->fetch_assoc();
+                            echo '<td>'.utf8_encode($row_verificacion['medio']).'</td>';
+                           
+                            
+                        echo '</tr>';
+                      
+                    }
+                ?>
+              </tr>
+            
+            </tbody>
+          </table>
+
+      </div> <!-- div table-responsive -->
+
+      <h2>Tercer trimestre 2021</h2>
+
+<hr style="color: dimgrey;">
+<h2></h2>
+<!-- <div class="container-fluid"> -->
+  <div class="table-responsive">
+  
+  <!-- <a href="actividad_agregar.php" type="button" class="btn btn-info" style="margin-bottom:3px;"><i class="fas fa-plus-circle"></i> Agregar actividad</a> -->
+    
+    <table class="table table-bordered table-hover table-striped table-md align-middle table-sm" style="text-align: center;">
+    <thead class="bg-dark text-light">
+        <tr class="align-middle">
+          <th scope="col" class="align-middle">#</th>
+          <th scope="col" class="align-middle">Nombre de la actividad</th>
+          <th scope="col" class="align-middle">Responsable</th>
+          <th scope="col" class="align-middle">Descripción</th>
+          <th scope="col" class="align-middle">Trimestre</th>
+          <th scope="col" class="align-middle">Fecha de inicio</th>
+          <th scope="col" class="align-middle">Fecha de finalización</th>
+          <th scope="col" class="align-middle">% Avance</th>
+          <th scope="col" class="align-middle"># Docs</th>
+          <th scope="col" class="align-middle">Acción</th>
+          <th scope="col" class="align-middle">Medio Verificación</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+        <?php
+        $tabla="SELECT * FROM actividad WHERE annio = 2 ORDER BY id ASC";
+              // $tabla="SELECT * FROM usr INNER JOIN archivos ON usr.codigo = archivos.codigo_usr WHERE usr.priv = 1 AND usr.tematica=1 ORDER BY usr.id ASC";
+              $resultadotabla = $conn->query($tabla);
+              $numero=0;
+              while($row = $resultadotabla->fetch_assoc()){
+                  $numero++;
+                  
+                  echo '<tr>';
+
+                      echo '<td class="align-middle"><center>'.$numero.'</center></td>';
+                      echo utf8_encode('<td class="align-middle"><center>'.$row['actividad'].'</center></td>');
+                      // echo utf8_encode('<td><center>'.$row['responsable'].'</center></td>');
+                      $id_responsable=$row['responsable'];
+                      $responsable = "SELECT * FROM usr WHERE id ='$id_responsable'";
+                      $resultado_responsable= $conn->query($responsable);
+                      $row_responsable=$resultado_responsable->fetch_assoc();
+                      echo '<td class="align-middle">'.utf8_encode($row_responsable['nombre']).'</td>';
+
+                      echo utf8_encode('<td class="align-middle"><center>'.$row['descripcion'].'</center></td>');
+                      // echo utf8_encode('<td class="align-middle"><center>'.$row['trimestre'].'</center></td>');
+                      echo utf8_encode('<td class="align-middle"><center>3</center></td>');
+                      $fecha_inicio3 = $row['fecha_inicio3'];
+                      $fecha_inicio_mx3 = date("d/m/Y", strtotime($fecha_inicio3));
+                      $fecha_final3 = $row['fecha_final3'];
+                      $fecha_final_mx3 = date("d/m/Y", strtotime($fecha_final3));
+                      echo utf8_encode('<td class="align-middle"><center>'.$fecha_inicio_mx3.'</center></td>');
+                      echo utf8_encode('<td class="align-middle"><center>'.$fecha_final_mx3.'</center></td>');
+                      echo utf8_encode('<td class="align-middle"><center>'.$row['porcentaje3'].'</center></td>');
+                      
+                      $responsable = $row['responsable'];
+                      $id_row = $row['id'];
+                      $tabla_cont="SELECT count(*) AS total FROM bitacora WHERE trimestre = 3 AND actividad_vinculada = '$id_row'";
+                      $resultadotabla_cont = $conn->query($tabla_cont);
+                      $cont_resultado = $resultadotabla_cont->fetch_assoc();
+                      $num_rows = $cont_resultado['total'];
+                      echo '<td class="align-middle"><span class="badge bg-info text-light"><center><i class="bi bi-file-post"></i> '.$num_rows.'</center></span></td>';
+
+                      echo ('<td class="align-middle"><a href="calificar_evidencia_trimestre.php?act='.$row['id'].'&ev=3"><i class="bi bi-clipboard-check"></i> Calificar</center></a></td>');
+                      // echo utf8_encode('<td><center>'.$row['medio_verificacion'].'</center></td>');
+                      $id_verificacion=$row['medio_verificacion'];
+                      $verificacion = "SELECT * FROM medio_verificacion WHERE id ='$id_verificacion'";
+                      $resultado_verificacion= $conn->query($verificacion);
+                      $row_verificacion=$resultado_verificacion->fetch_assoc();
+                      echo '<td>'.utf8_encode($row_verificacion['medio']).'</td>';
+                     
+                      
+                  echo '</tr>';
+                
+              }
+          ?>
+        </tr>
+      
+      </tbody>
+    </table>
+
+</div> <!-- div table-responsive -->
+
+<h2>Cuarto trimestre 2021</h2>
+
+      <hr style="color: dimgrey;">
+      <h2></h2>
+      <!-- <div class="container-fluid"> -->
+        <div class="table-responsive">
+        
+        <!-- <a href="actividad_agregar.php" type="button" class="btn btn-info" style="margin-bottom:3px;"><i class="fas fa-plus-circle"></i> Agregar actividad</a> -->
+          
+          <table class="table table-bordered table-hover table-striped table-md align-middle table-sm" style="text-align: center;">
+          <thead class="bg-dark text-light">
+              <tr class="align-middle">
+                <th scope="col" class="align-middle">#</th>
+                <th scope="col" class="align-middle">Nombre de la actividad</th>
+                <th scope="col" class="align-middle">Responsable</th>
+                <th scope="col" class="align-middle">Descripción</th>
+                <th scope="col" class="align-middle">Trimestre</th>
+                <th scope="col" class="align-middle">Fecha de inicio</th>
+                <th scope="col" class="align-middle">Fecha de finalización</th>
+                <th scope="col" class="align-middle">% Avance</th>
+                <th scope="col" class="align-middle"># Docs</th>
+                <th scope="col" class="align-middle">Acción</th>
+                <th scope="col" class="align-middle">Medio Verificación</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+              <?php
+              $tabla="SELECT * FROM actividad WHERE annio = 2 ORDER BY id ASC";
+                    // $tabla="SELECT * FROM usr INNER JOIN archivos ON usr.codigo = archivos.codigo_usr WHERE usr.priv = 1 AND usr.tematica=1 ORDER BY usr.id ASC";
+                    $resultadotabla = $conn->query($tabla);
+                    $numero=0;
+                    while($row = $resultadotabla->fetch_assoc()){
+                        $numero++;
+                        
+                        echo '<tr>';
+
+                            echo '<td class="align-middle"><center>'.$numero.'</center></td>';
+                            echo utf8_encode('<td class="align-middle"><center>'.$row['actividad'].'</center></td>');
+                            // echo utf8_encode('<td><center>'.$row['responsable'].'</center></td>');
+                            $id_responsable=$row['responsable'];
+                            $responsable = "SELECT * FROM usr WHERE id ='$id_responsable'";
+                            $resultado_responsable= $conn->query($responsable);
+                            $row_responsable=$resultado_responsable->fetch_assoc();
+                            echo '<td class="align-middle">'.utf8_encode($row_responsable['nombre']).'</td>';
+
+                            echo utf8_encode('<td class="align-middle"><center>'.$row['descripcion'].'</center></td>');
+                            // echo utf8_encode('<td class="align-middle"><center>'.$row['trimestre'].'</center></td>');
+                            echo utf8_encode('<td class="align-middle"><center>4</center></td>');
+                            $fecha_inicio4 = $row['fecha_inicio4'];
+                            $fecha_inicio_mx4 = date("d/m/Y", strtotime($fecha_inicio4));
+                            $fecha_final4 = $row['fecha_final4'];
+                            $fecha_final_mx4 = date("d/m/Y", strtotime($fecha_final4));
+                            echo utf8_encode('<td class="align-middle"><center>'.$fecha_inicio_mx4.'</center></td>');
+                            echo utf8_encode('<td class="align-middle"><center>'.$fecha_final_mx4.'</center></td>');
+                            echo utf8_encode('<td class="align-middle"><center>'.$row['porcentaje4'].'</center></td>');
+                            
+                            $responsable = $row['responsable'];
+                            $id_row = $row['id'];
+                            $tabla_cont="SELECT count(*) AS total FROM bitacora WHERE trimestre = 4 AND actividad_vinculada = '$id_row'";
+                            $resultadotabla_cont = $conn->query($tabla_cont);
+                            $cont_resultado = $resultadotabla_cont->fetch_assoc();
+                            $num_rows = $cont_resultado['total'];
+                            echo '<td class="align-middle"><span class="badge bg-info text-light"><center><i class="bi bi-file-post"></i> '.$num_rows.'</center></span></td>';
+
+                            echo ('<td class="align-middle"><a href="calificar_evidencia_trimestre.php?act='.$row['id'].'&ev=4"><i class="bi bi-clipboard-check"></i> Calificar</center></a></td>');
+                            // echo utf8_encode('<td><center>'.$row['medio_verificacion'].'</center></td>');
+                            $id_verificacion=$row['medio_verificacion'];
+                            $verificacion = "SELECT * FROM medio_verificacion WHERE id ='$id_verificacion'";
+                            $resultado_verificacion= $conn->query($verificacion);
+                            $row_verificacion=$resultado_verificacion->fetch_assoc();
+                            echo '<td>'.utf8_encode($row_verificacion['medio']).'</td>';
+                           
+                            
+                        echo '</tr>';
+                      
+                    }
+                ?>
+              </tr>
+            
+            </tbody>
+          </table>
+
+      </div> <!-- div table-responsive -->
       </div>
 
 

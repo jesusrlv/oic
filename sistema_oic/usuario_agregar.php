@@ -105,7 +105,7 @@ if (isset($_SESSION['usr'])) {
    <hr style="color: dimgrey;">
    
    <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
-     <span>AÑO 2020</span>
+     <!-- <span>AÑO 2020</span>
      <a class="d-flex align-items-center text-muted" href="#" aria-label="Add a new report">
        <span data-feather="plus-circle"></span>
      </a>
@@ -135,7 +135,7 @@ if (isset($_SESSION['usr'])) {
        <span data-feather="layers"></span>
        Cuarto trimestre
      </a>
-   </li>
+   </li> -->
  </ul>
 
  <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
@@ -210,7 +210,7 @@ if (isset($_SESSION['usr'])) {
                     while($row = $resultadotabla->fetch_assoc()){
                         $numero++;
 
-                            echo '<option value="'.$row['id'].'">'.$row['area'].'</option>';
+                            echo '<option value="'.utf8_encode($row['id'].'">'.$row['area']).'</option>';
                     }
                 ?>
 

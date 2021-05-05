@@ -30,6 +30,10 @@ $usuario = $_SESSION['usr'];
 $id = $_SESSION['id'];
 $perfil = $_SESSION['perfil'];
 $nombre = $_SESSION['nombre'];
+
+$ev = $_REQUEST['ev'];
+$act = $_REQUEST['act'];
+
 include('prcd/conn.php');
 ?>
 
@@ -45,9 +49,7 @@ include('prcd/conn.php');
 
     <link rel="icon" type="image/png" href="img/icon.ico"/>
     <link rel="canonical" href="https://getbootstrap.com/docs/4.5/examples/dashboard/">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css">
-
     <script src="https://kit.fontawesome.com/4d63b5ef28.js" crossorigin="anonymous"></script>
 
     <!-- Bootstrap core CSS -->
@@ -73,13 +75,17 @@ include('prcd/conn.php');
     <link href="css/dashboard.css" rel="stylesheet">
   </head>
   <body>
+    <!-- <nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow"> -->
     <nav class="navbar navbar-light sticky-top flex-md-nowrap p-0 bg-info text-white">
         <a class="navbar-brand col-md-3 col-lg-2 mr-0 px-3 text-center text-light" href="#">
+    <!-- <img src="img/TrabajemosJuntosJuventud.png" width="30" height="30" class="d-inline-block align-top" alt="" loading="lazy">   -->
     <h6 class="text-center text-light display-7">OIC</h6>
     </a>
   <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-toggle="collapse" data-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
-  </button>  
+  </button>
+  <!-- <input class="form-control form-control-dark w-30" type="text" placeholder="Search" aria-label="Search"> -->
+  
   
   <ul class="navbar-nav px-3">
     <li class="nav-item text-nowrap">
@@ -112,14 +118,15 @@ include('prcd/conn.php');
 <hr>
 <ul class="nav flex-column">
   <li class="nav-item">
-    <a class="nav-link" href="dashboard.php">
+    <a class="nav-link active" href="actividad_calificar.php">
+     <!-- <span data-feather="home"></span> -->
      <i class="fas fa-laptop-house"></i> 
      Dashboard <span class="sr-only">(current)</span>
    </a>
  </li>
  <hr style="color: dimgrey;">
  
- <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+ <!-- <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
    <span>AÑO 2020</span>
    <a class="d-flex align-items-center text-muted" href="#" aria-label="Add a new report">
      <span data-feather="plus-circle"></span>
@@ -146,11 +153,11 @@ include('prcd/conn.php');
    </a>
  </li>
  <li class="nav-item">
-   <a class="nav-link active" href="trimestre4.php">
+   <a class="nav-link" href="trimestre4.php">
      <span data-feather="layers"></span>
      Cuarto trimestre
    </a>
- </li>
+ </li> -->
 </ul>
 
 <!-- <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
@@ -183,7 +190,25 @@ include('prcd/conn.php');
         </div>
       </div>
 
-      <h2>Cuarto Trimestre</h2>
+      
+<?php
+
+if($ev==1){
+    echo '<h2>Primer Trimestre</h2>';
+}
+elseif($ev==2){
+    echo '<h2>Segundo Trimestre</h2>';
+}
+elseif($ev==3){
+    echo '<h2>Tercer Trimestre</h2>';
+}
+elseif($ev==4){
+    echo '<h2>Cuarto Trimestre</h2>';
+}
+
+?>
+
+
 
       <hr style="color: dimgrey;">
       <h2></h2>
@@ -191,13 +216,13 @@ include('prcd/conn.php');
         <table class="table table-bordered table-hover table-striped table-md" style="text-align: center;">
           <thead class="bg-dark text-light">
             <tr>
-              <th>Nombre actividad</th>
-              <th>Responsable</th>
-              <th>Medio verificación</th>
-              <th>Acción</th>
-              <th># de evidencias</th>
-              <th>% avance</th>
-              <th>Fecha inicio / fin</th>
+              <th>#</th>
+              <th>Descripción</th>
+              <th>Fecha de registro</th>
+              <!-- <th>Fecha inicio</th>
+              <th>Fecha finalización</th> -->
+              <th>Archivo</th>
+            
             </tr>
           </thead>
           <tbody>
@@ -205,95 +230,42 @@ include('prcd/conn.php');
             <!-- inicio loop tabla -->
 
             <?php
-                   
-                    $tabla="SELECT * FROM actividad WHERE responsable='$id'";
+                  
+                    $tabla="SELECT * FROM bitacora WHERE trimestre = '$ev' AND actividad_vinculada = '$act'";
                     $resultadotabla = $conn->query($tabla);
                     $numero=0;
                     while($row = $resultadotabla->fetch_assoc()){
                         $numero++;
-                        $responsable=$row['responsable'];
-                        $verificacion=$row['medio_verificacion'];
-                        $id_act=$row['id'];
-                        
+
                         echo '<tr>';
-
-                            echo utf8_encode('<td><center>'.$row['actividad'].'</center></td>');
-
-                            $consulta1="SELECT id,nombre FROM usr WHERE id = '$responsable'";
-                            $resultado_consulta1 = $conn->query($consulta1);
-                            $trabajador_resultado = $resultado_consulta1->fetch_assoc();
-                            echo utf8_encode('<td><center>'.$trabajador_resultado['nombre'].'</center></td>');
-            
-                            $consulta2="SELECT id,medio FROM medio_verificacion WHERE id = '$verificacion'";
-                            $resultado_consulta2 = $conn->query($consulta2);
-                            $medio_resultado = $resultado_consulta2->fetch_assoc();
-                            echo utf8_encode('<td><center>'.$medio_resultado['medio'].'</center></td>');
-
-                            if($row['porcentaje4']!=100){
-                              echo utf8_encode('<td><a href="agregar_archivos.php?id=4&act='.$row['id'].'" class="badge badge-info"><i class="fas fa-plus-circle"></i> Evidencia</a></td>');
-                            }
-                            else{
-                              echo '<td><span class="badge badge-danger">Completado 100%</span></td>';
-                            }
-                            
-                            $tabla_cont="SELECT count(*) AS total FROM bitacora WHERE usr_vinculado = '$id' AND trimestre = 4 AND actividad_vinculada = '$id_act'";
-                            $resultadotabla_cont = $conn->query($tabla_cont);
-                            $cont_resultado = $resultadotabla_cont->fetch_assoc();
-                            $num_rows = $cont_resultado['total'];
-
-                            echo '<td><center><a href="evidencia_trimestre.php?ev=4&act='.$row['id'].'" class="badge badge-info"><i class="fas fa-eye"></i> '.$num_rows.'</a></center></td>';
-                            echo '<td><center>
-                            <div class="progress">
-                              <div class="progress-bar" role="progressbar" style="width: '.$row['porcentaje4'].'%;" aria-valuenow="'.$row['porcentaje4'].'" aria-valuemin="0" aria-valuemax="100">'.$row['porcentaje4'].'%</div>
-                            </div>
-                            </center></td>';
-                            // echo '<td><center><a href="evidencia_trimestre.php?ev=4&act='.$row['id'].'" class="badge badge-info"><i class="bi bi-calendar2-week-fill"></i> '.$row['fecha_inicio4'].'/'.$row['fecha_final4'].'</a></center></td>';
-                            $fecha_inicio = $row['fecha_inicio4'];
-                            $fecha_inicio_mx = date("d/m/Y", strtotime($fecha_inicio));
-                            $fecha_final = $row['fecha_final4'];
-                            $fecha_final_mx = date("d/m/Y", strtotime($fecha_final));
-                            echo '<td><center><button class="btn btn-info btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal'.$row['id'].'"><small><i class="bi bi-calendar2-week-fill"></i> '.$fecha_inicio_mx.' - '.$fecha_final_mx.'</button></center></small></td>';
-                            
-                            //MODAL
-                            echo '<div class="modal fade" id="exampleModal'.$row['id'].'" tabindex="-1" aria-labelledby="exampleModalLabel'.$row['id'].'" aria-hidden="true">
-                              <div class="modal-dialog modal-dialog-centered">
-                                <div class="modal-content">
-                                  <div class="modal-header">
-                                    <h5 class="modal-title" id="exampleModalLabel">Editar fechas de actividad semestral</h5>
-                                    <!-- <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button> -->
-                                  </div>
-                                  <div class="modal-body">
-
-                                  <form action="prcd/proceso_fecha.php" method="POST">
-                                    <div class="input-group mb-3 w-100">
-                                      <span class="input-group-text" id="inputGroup-sizing-default"><small><i class="bi bi-calendar-week"></i> Fecha de inicio</small></span>
-                                      <input type="date" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" name="fecha_inicio" required>
-                                    </div>
-                                    <div class="input-group mb-3 w-10">
-                                      <span class="input-group-text" id="inputGroup-sizing-default"><small><i class="bi bi-calendar-week"></i> Fecha de finalización</small></span>
-                                      <input type="date" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" name="fecha_finalizacion" required>
-                                    </div>
-                                  </div>
-                                  <input value="'.$row['id'].'" name="id" hidden>
-                                  <input value="4" name="trimestre" hidden>
-                                  <div class="modal-footer">
-                                    <button type="button" class="btn btn-danger btn-sm" data-bs-dismiss="modal"><i class="bi bi-x-circle-fill"></i> Cerrar</button>
-                                    <button type="submit" class="btn btn-primary btn-sm"><i class="bi bi-calendar-plus"></i> Guardar</button>
-
-                                  </form>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>';
-
+                            echo '<td>'.$numero.'</td>';
+                            echo '<td><center>'.$row['descripcion'].'</center></td>';
+                            echo '<td><center>'.$row['fecha'].'</center></td>';
+                            echo utf8_encode('<td><a href="./'.$row['url_doc'].'" class="badge badge-primary" target="_blank"><i class="fas fa-eye"></i> Visualizar</a></td>');
                         echo '</tr>';
                       
                     }
                 ?>
+
             <!-- fin loop tabla -->
+
+            
+  
           </tbody>
         </table>
+            
+            <form action="prcd/proceso_calificar_trimestre.php" method="POST">
+            <div class="input-group mb-3 w-25">
+            <input type="text" name="act" hidden value="<?php echo $act ?>">
+            <input type="text" name="ev" hidden value="<?php echo $ev ?>">
+                <input type="number" name="calificacion" class="form-control w-25" placeholder="Calificar" aria-label="Calificar" aria-describedby="Calificar" required>
+                <button class="btn btn-outline-info" type="submit" id="button-addon2"><i class="bi bi-bullseye"></i> Calificar</button>
+            </div>
+            </form>
+      
       </div>
+
+
     </main>
   </div>
 </div>
