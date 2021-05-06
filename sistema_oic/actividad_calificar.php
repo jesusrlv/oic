@@ -225,6 +225,7 @@ $nombre = $_SESSION['nombre'];
                 <th scope="col" class="align-middle"># Docs</th>
                 <th scope="col" class="align-middle">Acción</th>
                 <th scope="col" class="align-middle">Medio Verificación</th>
+                <th scope="col" class="align-middle">Observaciones</th>
               </tr>
             </thead>
             <tbody>
@@ -276,6 +277,8 @@ $nombre = $_SESSION['nombre'];
                             $row_verificacion=$resultado_verificacion->fetch_assoc();
                             echo '<td>'.utf8_encode($row_verificacion['medio']).'</td>';
                            
+                            echo utf8_encode('<td class="align-middle"><small>'.$row['observaciones'].'</small></td>');
+
                             
                         echo '</tr>';
                       
@@ -311,6 +314,7 @@ $nombre = $_SESSION['nombre'];
                 <th scope="col" class="align-middle"># Docs</th>
                 <th scope="col" class="align-middle">Acción</th>
                 <th scope="col" class="align-middle">Medio Verificación</th>
+                <th scope="col" class="align-middle">Observaciones</th>
               </tr>
             </thead>
             <tbody>
@@ -360,7 +364,8 @@ $nombre = $_SESSION['nombre'];
                             $row_verificacion=$resultado_verificacion->fetch_assoc();
                             echo '<td>'.utf8_encode($row_verificacion['medio']).'</td>';
                            
-                            
+                            echo utf8_encode('<td class="align-middle"><small>'.$row['observaciones2'].'</small></td>');
+
                         echo '</tr>';
                       
                     }
@@ -395,6 +400,7 @@ $nombre = $_SESSION['nombre'];
           <th scope="col" class="align-middle"># Docs</th>
           <th scope="col" class="align-middle">Acción</th>
           <th scope="col" class="align-middle">Medio Verificación</th>
+          <th scope="col" class="align-middle">Observaciones</th>
         </tr>
       </thead>
       <tbody>
@@ -445,7 +451,8 @@ $nombre = $_SESSION['nombre'];
                       $row_verificacion=$resultado_verificacion->fetch_assoc();
                       echo '<td>'.utf8_encode($row_verificacion['medio']).'</td>';
                      
-                      
+                      echo utf8_encode('<td class="align-middle"><small>'.$row['observaciones3'].'</small></td>');
+
                   echo '</tr>';
                 
               }
@@ -480,6 +487,7 @@ $nombre = $_SESSION['nombre'];
                 <th scope="col" class="align-middle"># Docs</th>
                 <th scope="col" class="align-middle">Acción</th>
                 <th scope="col" class="align-middle">Medio Verificación</th>
+                <th scope="col" class="align-middle">Observaciones</th>
               </tr>
             </thead>
             <tbody>
@@ -529,7 +537,9 @@ $nombre = $_SESSION['nombre'];
                             $resultado_verificacion= $conn->query($verificacion);
                             $row_verificacion=$resultado_verificacion->fetch_assoc();
                             echo '<td>'.utf8_encode($row_verificacion['medio']).'</td>';
-                           
+                            
+                            echo utf8_encode('<td class="align-middle"><small>'.$row['observaciones4'].'</small></td>');
+
                             
                         echo '</tr>';
                       

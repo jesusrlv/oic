@@ -255,12 +255,18 @@ include('prcd/conn.php');
       
    
       <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-        <h1 class="h3">DASHBOARD</h1>
+      <div class="d-flex align-items-center p-3 my-3 text-white-50 bg-light rounded shadow-sm w-100">
+          <img class="mr-3" src="img/TrabajemosJuntosJuventud.png" alt="" width="48" height="48">
+          <div class="lh-100">
+            <h6 class="mb-0 text-muted lh-100">Instituto de la Juventud del Estado de Zacatecas</h6>
+            <small class="text-muted">Órgano de control interno</small>
+          </div>
+        </div>
         <div class="btn-toolbar mb-2 mb-md-0">
-          <div class="btn-group mr-2">
+          <!-- <div class="btn-group mr-2">
             <button type="button" class="btn btn-sm btn-outline-secondary">Reporte PDF</button>
             <button type="button" class="btn btn-sm btn-outline-secondary">Reporte EXCEL</button>
-          </div>
+          </div> -->
          
         </div>
       </div>
@@ -288,7 +294,7 @@ include('prcd/conn.php');
               <div class="card-header">Enero-Marzo 2020</div>
               <div class="card-body"><br><br><br>
                 <h1 class="card-title">Primer trimestre</h1>
-                <p class="card-text">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Maiores aliquid, dolores distinctio similique excepturi omnis qui accusantium sit molestiae ad dignissimos voluptatem vitae! Ipsam molestiae culpa quia quas libero necessitatibus..</p>
+                <!-- <p class="card-text">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Maiores aliquid, dolores distinctio similique excepturi omnis qui accusantium sit molestiae ad dignissimos voluptatem vitae! Ipsam molestiae culpa quia quas libero necessitatibus..</p> -->
                 <p><a href="trimestre1.php" type="button" class="btn btn-warning"><i class="fas fa-edit"></i> Editar...</a></p>
               </div>
             </div>
@@ -298,7 +304,7 @@ include('prcd/conn.php');
               <div class="card-header">Abril-Junio 2020</div>
               <div class="card-body"><br><br><br>
                 <h1 class="card-title">Segundo trimestre</h1>
-                <p class="card-text">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Asperiores, fugit animi, fugiat fuga, iure quod adipisci a incidunt at dolorum ad est porro aut? Corporis nisi pariatur officiis sint repellat..</p>
+                <!-- <p class="card-text">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Asperiores, fugit animi, fugiat fuga, iure quod adipisci a incidunt at dolorum ad est porro aut? Corporis nisi pariatur officiis sint repellat..</p> -->
                 <p><a href="trimestre2.php" type="button" class="btn btn-warning"><i class="fas fa-edit"></i> Editar...</a></p>
               </div>
             </div>
@@ -308,7 +314,7 @@ include('prcd/conn.php');
               <div class="card-header">Julio-Septiembre 2020</div>
               <div class="card-body"><br><br><br>
                 <h1 class="card-title">Tercer trimestre</h1>
-                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium architecto iste blanditiis quo ipsa doloremque ab, quia delectus at obcaecati quos nesciunt animi minus ratione ea dolore magnam harum? Excepturi?.</p>
+                <!-- <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium architecto iste blanditiis quo ipsa doloremque ab, quia delectus at obcaecati quos nesciunt animi minus ratione ea dolore magnam harum? Excepturi?.</p> -->
                 <p><a href="trimestre3.php" type="button" class="btn btn-warning"><i class="fas fa-edit"></i> Editar...</a></p>
               </div>
             </div>
@@ -318,7 +324,7 @@ include('prcd/conn.php');
               <div class="card-header">Octubre-Diciembre 2020</div>
               <div class="card-body"><br><br><br>
                 <h1 class="card-title">Cuarto trimestre</h1>
-                <p class="card-text">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Consectetur omnis eaque, harum, non, deserunt vel vero esse est suscipit mollitia accusamus voluptatum. Harum, quod sit praesentium aperiam non minus beatae!.</p>
+                <!-- <p class="card-text">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Consectetur omnis eaque, harum, non, deserunt vel vero esse est suscipit mollitia accusamus voluptatum. Harum, quod sit praesentium aperiam non minus beatae!.</p> -->
                 <p><a href="trimestre4.php" type="button" class="btn btn-warning"><i class="fas fa-edit"></i> Editar...</a></p>
               </div>
             </div>

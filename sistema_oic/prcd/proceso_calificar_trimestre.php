@@ -5,6 +5,7 @@ include('conn.php');
 $actividad = $_POST['act'];
 $trimestre = $_POST['ev'];
 $calificacion = $_POST['calificacion'];
+$observaciones = $_POST['observaciones'];
 
 ?>
 
@@ -26,7 +27,7 @@ $calificacion = $_POST['calificacion'];
 
 if ($trimestre == 1){
 
-    $sql="UPDATE actividad SET porcentaje='$calificacion' WHERE id='$actividad'";
+    $sql="UPDATE actividad SET porcentaje='$calificacion',observaciones='$observaciones' WHERE id='$actividad'";
     $resultado= $conn->query($sql);
     if($resultado){
     echo "<script type=\"text/javascript\">
@@ -45,7 +46,7 @@ if ($trimestre == 1){
 
 elseif ($trimestre == 2){
 
-    $sql="UPDATE actividad SET porcentaje2='$calificacion' WHERE id='$actividad'";
+    $sql="UPDATE actividad SET porcentaje2='$calificacion',observaciones2='$observaciones' WHERE id='$actividad'";
     $resultado= $conn->query($sql);
     if($resultado){
     echo "<script type=\"text/javascript\">
@@ -64,7 +65,7 @@ elseif ($trimestre == 2){
 
 elseif ($trimestre == 3){
 
-    $sql="UPDATE actividad SET porcentaje3='$calificacion' WHERE id='$actividad'";
+    $sql="UPDATE actividad SET porcentaje3='$calificacion',observaciones3='$observaciones' WHERE id='$actividad'";
     $resultado= $conn->query($sql);
     if($resultado){
     echo "<script type=\"text/javascript\">
@@ -83,7 +84,7 @@ elseif ($trimestre == 3){
 
 elseif ($trimestre == 4){
 
-    $sql="UPDATE actividad SET porcentaje4='$calificacion' WHERE id='$actividad'";
+    $sql="UPDATE actividad SET porcentaje4='$calificacion',observaciones4='$observaciones' WHERE id='$actividad'";
     $resultado= $conn->query($sql);
     if($resultado){
     echo "<script type=\"text/javascript\">

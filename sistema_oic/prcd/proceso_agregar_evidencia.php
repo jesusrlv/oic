@@ -90,7 +90,7 @@ VALUES('$id','$trimestre','$descripcion','$fecha_ini','$fecha_final','$fecha_sis
     title: 'Acción correcta',
     text: 'Bitácora agregada',
     footer: 'INJUVENTUD</a>'
-  }).then(function(){window.location='../evidencia.php';});</script>";
+  }).then(function(){window.location='../dashboard.php';});</script>";
   
   // echo "<script type=\'text/javascript\'>
   //       Swal.fire({

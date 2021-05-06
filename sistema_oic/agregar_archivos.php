@@ -201,7 +201,7 @@ $id_actividad=$_REQUEST['act'];
                 
 
                 <div class="input-group w-50 mb-3">
-                  <span class="input-group-text">Descripción de la actividad</span>
+                  <span class="input-group-text">Observaciones de la actividad</span>
                   <textarea class="form-control" aria-label="With textarea" name="descripcion" require></textarea>
                 </div>
 
