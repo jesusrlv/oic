@@ -117,13 +117,12 @@ include('prcd/conn.php');
 <hr>
 <ul class="nav flex-column">
   <li class="nav-item">
-    <a class="nav-link active" href="actividad_calificar.php">
-     <!-- <span data-feather="home"></span> -->
+    <a class="nav-link" href="dashboard.php">
      <i class="fas fa-laptop-house"></i> 
      Dashboard <span class="sr-only">(current)</span>
    </a>
  </li>
- <!-- <hr style="color: dimgrey;">
+ <hr style="color: dimgrey;">
  
  <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
    <span>AÑO 2020</span>
@@ -133,7 +132,7 @@ include('prcd/conn.php');
  </h6>
 
  <li class="nav-item">
-   <a class="nav-link" href="trimestre1.php">
+   <a class="nav-link active" href="trimestre1.php">
      <span data-feather="layers"></span>
       
      Primer trimestre
@@ -156,7 +155,7 @@ include('prcd/conn.php');
      <span data-feather="layers"></span>
      Cuarto trimestre
    </a>
- </li> -->
+ </li>
 </ul>
 
 <!-- <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
