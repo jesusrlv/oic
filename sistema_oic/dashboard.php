@@ -294,6 +294,13 @@ include('prcd/conn.php');
               <div class="card-header">Enero-Marzo 2020</div>
               <div class="card-body"><br><br><br>
                 <h1 class="card-title">Primer trimestre</h1>
+                <?php
+                  $observaciones1 ="SELECT * FROM actividad WHERE responsable = '$id'";
+                  $resultado_observaciones1 = $conn->query($observaciones1);
+                      while($row_observaciones1 = $resultado_observaciones1->fetch_assoc()){
+                        echo '<p class="card-text"><i class="bi bi-info-circle-fill"></i> '.$row_observaciones1['observaciones'].'</p>';
+                      }
+                ?>
                 <!-- <p class="card-text">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Maiores aliquid, dolores distinctio similique excepturi omnis qui accusantium sit molestiae ad dignissimos voluptatem vitae! Ipsam molestiae culpa quia quas libero necessitatibus..</p> -->
                 <p><a href="trimestre1.php" type="button" class="btn btn-warning"><i class="fas fa-edit"></i> Editar...</a></p>
               </div>
@@ -304,8 +311,13 @@ include('prcd/conn.php');
               <div class="card-header">Abril-Junio 2020</div>
               <div class="card-body"><br><br><br>
                 <h1 class="card-title">Segundo trimestre</h1>
-                <!-- <p class="card-text">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Asperiores, fugit animi, fugiat fuga, iure quod adipisci a incidunt at dolorum ad est porro aut? Corporis nisi pariatur officiis sint repellat..</p> -->
-                <p><a href="trimestre2.php" type="button" class="btn btn-warning"><i class="fas fa-edit"></i> Editar...</a></p>
+                <?php
+                  $observaciones2 ="SELECT * FROM actividad WHERE responsable = '$id'";
+                  $resultado_observaciones2 = $conn->query($observaciones2);
+                      while($row_observaciones2 = $resultado_observaciones2->fetch_assoc()){
+                        echo '<p class="card-text"><i class="bi bi-info-circle-fill"></i> '.$row_observaciones2['observaciones2'].'</p>';
+                      }
+                ?>                <p><a href="trimestre2.php" type="button" class="btn btn-warning"><i class="fas fa-edit"></i> Editar...</a></p>
               </div>
             </div>
           </div>
@@ -314,7 +326,13 @@ include('prcd/conn.php');
               <div class="card-header">Julio-Septiembre 2020</div>
               <div class="card-body"><br><br><br>
                 <h1 class="card-title">Tercer trimestre</h1>
-                <!-- <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium architecto iste blanditiis quo ipsa doloremque ab, quia delectus at obcaecati quos nesciunt animi minus ratione ea dolore magnam harum? Excepturi?.</p> -->
+                <?php
+                  $observaciones3 ="SELECT * FROM actividad WHERE responsable = '$id'";
+                  $resultado_observaciones3 = $conn->query($observaciones3);
+                      while($row_observaciones3 = $resultado_observaciones3->fetch_assoc()){
+                        echo '<p class="card-text"><i class="bi bi-info-circle-fill"></i> '.$row_observaciones3['observaciones3'].'</p>';
+                      }
+                ?>                
                 <p><a href="trimestre3.php" type="button" class="btn btn-warning"><i class="fas fa-edit"></i> Editar...</a></p>
               </div>
             </div>
@@ -324,8 +342,13 @@ include('prcd/conn.php');
               <div class="card-header">Octubre-Diciembre 2020</div>
               <div class="card-body"><br><br><br>
                 <h1 class="card-title">Cuarto trimestre</h1>
-                <!-- <p class="card-text">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Consectetur omnis eaque, harum, non, deserunt vel vero esse est suscipit mollitia accusamus voluptatum. Harum, quod sit praesentium aperiam non minus beatae!.</p> -->
-                <p><a href="trimestre4.php" type="button" class="btn btn-warning"><i class="fas fa-edit"></i> Editar...</a></p>
+                <?php
+                  $observaciones4 ="SELECT * FROM actividad WHERE responsable = '$id'";
+                  $resultado_observaciones4 = $conn->query($observaciones4);
+                      while($row_observaciones4 = $resultado_observaciones4->fetch_assoc()){
+                        echo '<p class="card-text"><i class="bi bi-info-circle-fill"></i> '.$row_observaciones3['observaciones3'].'</p>';
+                      }
+                ?>                 <p><a href="trimestre4.php" type="button" class="btn btn-warning"><i class="fas fa-edit"></i> Editar...</a></p>
               </div>
             </div>
           </div>
