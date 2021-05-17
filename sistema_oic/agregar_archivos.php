@@ -202,17 +202,17 @@ $id_actividad=$_REQUEST['act'];
 
                 <div class="input-group w-50 mb-3">
                   <span class="input-group-text">Observaciones de la actividad</span>
-                  <textarea class="form-control" aria-label="With textarea" name="descripcion" require></textarea>
+                  <textarea class="form-control" aria-label="With textarea" name="descripcion" REQUIRED></textarea>
                 </div>
 
 
                 <div class="input-group mb-3 w-25">
                   <span class="input-group-text" id="inputGroup-sizing-default">Fecha de inicio</span>
-                  <input type="date" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" name="fecha_inicio" require>
+                  <input type="date" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" name="fecha_inicio" REQUIRED>
                 </div>
                 <div class="input-group mb-3 w-25">
                   <span class="input-group-text" id="inputGroup-sizing-default">Fecha de finalización</span>
-                  <input type="date" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" name="fecha_finalizacion" require>
+                  <input type="date" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" name="fecha_finalizacion" REQUIRED>
                 </div>
 
                 <p><h2><i class="fas fa-file-pdf"></i> Agregar evidencia</h2></p>
@@ -220,7 +220,7 @@ $id_actividad=$_REQUEST['act'];
 
                             <div class="form-group">
                             <label for="exampleFormControlFile1"><h5>Cargar PDF</h5></label>
-                            <input type="file" class="form-control-file" id="exampleFormControlFile1" name="file1" accept="application/pdf, application/vnd.ms-excel" require>
+                            <input type="file" class="form-control-file" id="exampleFormControlFile1" name="file1" accept="application/pdf, application/vnd.ms-excel" REQUIRED>
                             </div>
 
                     <hr class="my-4">
