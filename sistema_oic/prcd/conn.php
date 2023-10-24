@@ -2,10 +2,12 @@
 
 $servername="localhost";
 $database="oic"; //solo se quitó para conexión remota
-$username="jesusrlv_pej";
+$username="root";
 $password="";
 
 $conn= new mysqli ($servername,$username,$password,$database); //solo se quitó para conexión remota
+
+$conn->set_charset("utf8");
 
 // $servername="localhost";
 // $database="c2oic"; //solo se quitó para conexión remota

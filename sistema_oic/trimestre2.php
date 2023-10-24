@@ -43,7 +43,7 @@ include('prcd/conn.php');
     <meta name="generator" content="">
     <title>Dashboard | OIC</title>
 
-    <link rel="icon" type="image/png" href="img/icon.ico"/>
+    <link rel="icon" type="image/png" href="../icon.ico"/>
     <link rel="canonical" href="https://getbootstrap.com/docs/4.5/examples/dashboard/">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
 
@@ -95,7 +95,7 @@ include('prcd/conn.php');
         
         <ul class="navbar-nav px-3 text-center">
             <li class="align-middle">
-                   <img src="img/TrabajemosJuntosJuventud.png" width="35%" class="" alt="" loading="lazy">  
+                   <img src="../logo_injuventud_01.png" width="35%" class="" alt="" loading="lazy">  
       
             </li>
         </ul>
@@ -105,7 +105,7 @@ include('prcd/conn.php');
           bienvenido<br><i class="fas fa-user"></i> 
             <?php
             
-              echo utf8_encode($nombre);
+              echo ($nombre);
             
             ?>
           </span>
@@ -175,7 +175,7 @@ include('prcd/conn.php');
     <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-md-4">
       <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
       <div class="d-flex align-items-center p-3 my-3 text-white-50 bg-light rounded shadow-sm w-100">
-          <img class="mr-3" src="img/TrabajemosJuntosJuventud.png" alt="" width="48" height="48">
+          <img class="mr-3" src="../logo_injuventud_01.png" alt="" width="48" height="48">
           <div class="lh-100">
             <h6 class="mb-0 text-muted lh-100">Instituto de la Juventud del Estado de Zacatecas</h6>
             <small class="text-muted">Órgano de control interno</small>
@@ -222,20 +222,20 @@ include('prcd/conn.php');
                         
                         echo '<tr>';
 
-                            echo utf8_encode('<td><center>'.$row['actividad'].'</center></td>');
+                            echo ('<td><center>'.$row['actividad'].'</center></td>');
 
                             $consulta1="SELECT id,nombre FROM usr WHERE id = '$responsable'";
                             $resultado_consulta1 = $conn->query($consulta1);
                             $trabajador_resultado = $resultado_consulta1->fetch_assoc();
-                            echo utf8_encode('<td><center>'.$trabajador_resultado['nombre'].'</center></td>');
+                            echo ('<td><center>'.$trabajador_resultado['nombre'].'</center></td>');
             
                             $consulta2="SELECT id,medio FROM medio_verificacion WHERE id = '$verificacion'";
                             $resultado_consulta2 = $conn->query($consulta2);
                             $medio_resultado = $resultado_consulta2->fetch_assoc();
-                            echo utf8_encode('<td><center>'.$medio_resultado['medio'].'</center></td>');
+                            echo ('<td><center>'.$medio_resultado['medio'].'</center></td>');
 
                             if($row['porcentaje2']!=100){
-                              echo utf8_encode('<td><a href="agregar_archivos.php?id=2&act='.$row['id'].'" class="badge badge-info"><i class="fas fa-plus-circle"></i> Evidencia</a></td>');
+                              echo ('<td><a href="agregar_archivos.php?id=2&act='.$row['id'].'" class="badge badge-info"><i class="fas fa-plus-circle"></i> Evidencia</a></td>');
                             }
                             else{
                               echo '<td><span class="badge badge-danger">Completado 100%</span></td>';
@@ -258,7 +258,7 @@ include('prcd/conn.php');
                             $fecha_final = $row['fecha_final2'];
                             $fecha_final_mx = date("d/m/Y", strtotime($fecha_final));
                             echo '<td><center><button class="btn btn-info btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal'.$row['id'].'"><small><i class="bi bi-calendar2-week-fill"></i> '.$fecha_inicio_mx.' - '.$fecha_final_mx.'</button></center></small></td>';
-                            echo utf8_encode('<td><small>'.$row['observaciones2'].'</small></td>');
+                            echo ('<td><small>'.$row['observaciones2'].'</small></td>');
 
                             //MODAL
                             echo '<div class="modal fade" id="exampleModal'.$row['id'].'" tabindex="-1" aria-labelledby="exampleModalLabel'.$row['id'].'" aria-hidden="true">

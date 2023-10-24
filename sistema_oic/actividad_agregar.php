@@ -37,7 +37,7 @@ if (isset($_SESSION['usr'])) {
     <meta name="generator" content="">
     <title>Dashboard | OIC</title>
 
-    <link rel="icon" type="image/png" href="img/icon.ico"/>
+    <link rel="icon" type="image/png" href="../icon.ico"/>
     <!-- <link rel="canonical" href="https://getbootstrap.com/docs/4.5/examples/dashboard/"> -->
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js" integrity="sha384-q2kxQ16AaE6UbzuKqyBE9/u/KzioAlnx2maXQHiDX9d4/zp8Ok3f+M7DPm+Ib6IU" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-pQQkAEnwaBkjpqZ8RU1fF1AKtTcHJwFl3pblpTlHXybJjHpMYo79HY3hIi4NKxyj" crossorigin="anonymous"></script>
@@ -92,7 +92,7 @@ if (isset($_SESSION['usr'])) {
         
         <ul class="navbar-nav px-3 text-center">
             <li class="align-middle">
-                   <img src="img/TrabajemosJuntosJuventud.png" width="35%" class="" alt="" loading="lazy">  
+                   <img src="../logo_injuventud_01.png" width="35%" class="" alt="" loading="lazy">  
       
             </li>
         </ul>
@@ -163,7 +163,7 @@ if (isset($_SESSION['usr'])) {
       <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
         <!-- <h1 class="h3">MODIFICAR ACTIVIDAD</h1> -->
         <div class="d-flex align-items-center p-3 my-3 text-white-50 bg-light rounded shadow-sm w-100">
-          <img class="mr-3" src="img/TrabajemosJuntosJuventud.png" alt="" width="48" height="48">
+          <img class="mr-3" src="../logo_injuventud_01.png" alt="" width="48" height="48">
           <div class="lh-100">
             <h6 class="mb-0 text-muted lh-100">Instituto de la Juventud del Estado de Zacatecas</h6>
             <small class="text-muted">Órgano de control interno</small>
