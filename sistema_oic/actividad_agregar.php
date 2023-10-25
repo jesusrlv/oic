@@ -81,7 +81,7 @@ if (isset($_SESSION['usr'])) {
   
   <ul class="navbar-nav px-3">
     <li class="nav-item text-nowrap">
-        <a class="btn btn-outline-light" href="#" role="button"><i class="fas fa-sign-out-alt"></i> Salir</a>    </li>
+        <a class="btn btn-outline-light" href="prcd/sort.php" role="button"><i class="fas fa-sign-out-alt"></i> Salir</a>    </li>
   </ul>
 </nav>
 

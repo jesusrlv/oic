@@ -45,7 +45,7 @@ $nombre = $_SESSION['nombre'];
     <meta name="generator" content="">
     <title>Dashboard | OIC</title>
 
-    <link rel="icon" type="image/png" href="img/icon.ico"/>
+    <link rel="icon" type="image/png" href="../icon.ico"/>
     <link rel="canonical" href="https://getbootstrap.com/docs/4.5/examples/dashboard/">
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js" integrity="sha384-SR1sx49pcuLnqZUnnPwx6FCym0wLsk5JZuNx2bPPENzswTNFaQU1RDvt3wT4gWFG" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.min.js" integrity="sha384-j0CNLUeiqtyaRmlzUHCPZ+Gy5fQu0dQ6eZ/xAww941Ai1SxSY+0EQqNXNE6DZiVc" crossorigin="anonymous"></script>
@@ -101,7 +101,7 @@ $nombre = $_SESSION['nombre'];
         
         <ul class="navbar-nav px-3 text-center">
             <li class="align-middle">
-                   <img src="img/TrabajemosJuntosJuventud.png" width="35%" class="" alt="" loading="lazy">  
+                   <img src="../logo_injuventud_01.png" width="35%" class="" alt="" loading="lazy">  
       
             </li>
         </ul>
@@ -112,7 +112,7 @@ $nombre = $_SESSION['nombre'];
           bienvenido<br><i class="fas fa-user"></i> 
             <?php
             
-              echo utf8_encode($nombre);
+              echo ($nombre);
             
             ?>
           </span>
@@ -186,7 +186,7 @@ $nombre = $_SESSION['nombre'];
         
 
         <div class="d-flex align-items-center p-3 my-3 text-white-50 bg-light rounded shadow-sm w-100">
-          <img class="mr-3" src="img/TrabajemosJuntosJuventud.png" alt="" width="48" height="48">
+          <img class="mr-3" src="../logo_injuventud_01.png" alt="" width="48" height="48">
           <div class="lh-100">
             <h6 class="mb-0 text-muted lh-100">Instituto de la Juventud del Estado de Zacatecas</h6>
             <small class="text-muted">Órgano de control interno</small>
@@ -241,25 +241,25 @@ $nombre = $_SESSION['nombre'];
                         echo '<tr>';
 
                             echo '<td class="align-middle"><center>'.$numero.'</center></td>';
-                            echo utf8_encode('<td class="align-middle"><center>'.$row['actividad'].'</center></td>');
-                            // echo utf8_encode('<td><center>'.$row['responsable'].'</center></td>');
+                            echo ('<td class="align-middle"><center>'.$row['actividad'].'</center></td>');
+                            // echo ('<td><center>'.$row['responsable'].'</center></td>');
                             $id_responsable=$row['responsable'];
                             $responsable = "SELECT * FROM usr WHERE id ='$id_responsable'";
                             $resultado_responsable= $conn->query($responsable);
                             $row_responsable=$resultado_responsable->fetch_assoc();
-                            echo '<td class="align-middle">'.utf8_encode($row_responsable['nombre']).'</td>';
+                            echo '<td class="align-middle">'.($row_responsable['nombre']).'</td>';
 
-                            echo utf8_encode('<td class="align-middle"><center>'.$row['descripcion'].'</center></td>');
-                            // echo utf8_encode('<td class="align-middle"><center>'.$row['trimestre'].'</center></td>');
-                            echo utf8_encode('<td class="align-middle"><center>1</center></td>');
+                            echo ('<td class="align-middle"><center>'.$row['descripcion'].'</center></td>');
+                            // echo ('<td class="align-middle"><center>'.$row['trimestre'].'</center></td>');
+                            echo ('<td class="align-middle"><center>1</center></td>');
                             $fecha_inicio = $row['fecha_inicio'];
                             $fecha_inicio_mx = date("d/m/Y", strtotime($fecha_inicio));
                             $fecha_final = $row['fecha_final'];
                             $fecha_final_mx = date("d/m/Y", strtotime($fecha_final));
 
-                            echo utf8_encode('<td class="align-middle"><center>'.$fecha_inicio_mx.'</center></td>');
-                            echo utf8_encode('<td class="align-middle"><center>'.$fecha_final_mx.'</center></td>');
-                            echo utf8_encode('<td class="align-middle"><center>'.$row['porcentaje'].'</center></td>');
+                            echo ('<td class="align-middle"><center>'.$fecha_inicio_mx.'</center></td>');
+                            echo ('<td class="align-middle"><center>'.$fecha_final_mx.'</center></td>');
+                            echo ('<td class="align-middle"><center>'.$row['porcentaje'].'</center></td>');
                             
                             $responsable = $row['responsable'];
                             $id_row = $row['id'];
@@ -270,14 +270,14 @@ $nombre = $_SESSION['nombre'];
                             echo '<td class="align-middle"><span class="badge bg-info text-light"><center><i class="bi bi-file-post"></i> '.$num_rows.'</center></span></td>';
 
                             echo ('<td class="align-middle"><a href="calificar_evidencia_trimestre.php?act='.$row['id'].'&ev=1"><i class="bi bi-clipboard-check"></i> Calificar</center></a></td>');
-                            // echo utf8_encode('<td><center>'.$row['medio_verificacion'].'</center></td>');
+                            // echo ('<td><center>'.$row['medio_verificacion'].'</center></td>');
                             $id_verificacion=$row['medio_verificacion'];
                             $verificacion = "SELECT * FROM medio_verificacion WHERE id ='$id_verificacion'";
                             $resultado_verificacion= $conn->query($verificacion);
                             $row_verificacion=$resultado_verificacion->fetch_assoc();
-                            echo '<td>'.utf8_encode($row_verificacion['medio']).'</td>';
+                            echo '<td>'.($row_verificacion['medio']).'</td>';
                            
-                            echo utf8_encode('<td class="align-middle"><small>'.$row['observaciones'].'</small></td>');
+                            echo ('<td class="align-middle"><small>'.$row['observaciones'].'</small></td>');
 
                             
                         echo '</tr>';
@@ -330,24 +330,24 @@ $nombre = $_SESSION['nombre'];
                         echo '<tr>';
 
                             echo '<td class="align-middle"><center>'.$numero.'</center></td>';
-                            echo utf8_encode('<td class="align-middle"><center>'.$row['actividad'].'</center></td>');
-                            // echo utf8_encode('<td><center>'.$row['responsable'].'</center></td>');
+                            echo ('<td class="align-middle"><center>'.$row['actividad'].'</center></td>');
+                            // echo ('<td><center>'.$row['responsable'].'</center></td>');
                             $id_responsable=$row['responsable'];
                             $responsable = "SELECT * FROM usr WHERE id ='$id_responsable'";
                             $resultado_responsable= $conn->query($responsable);
                             $row_responsable=$resultado_responsable->fetch_assoc();
-                            echo '<td class="align-middle">'.utf8_encode($row_responsable['nombre']).'</td>';
+                            echo '<td class="align-middle">'.($row_responsable['nombre']).'</td>';
 
-                            echo utf8_encode('<td class="align-middle"><center>'.$row['descripcion'].'</center></td>');
-                            // echo utf8_encode('<td class="align-middle"><center>'.$row['trimestre'].'</center></td>');
-                            echo utf8_encode('<td class="align-middle"><center>2</center></td>');
+                            echo ('<td class="align-middle"><center>'.$row['descripcion'].'</center></td>');
+                            // echo ('<td class="align-middle"><center>'.$row['trimestre'].'</center></td>');
+                            echo ('<td class="align-middle"><center>2</center></td>');
                             $fecha_inicio2 = $row['fecha_inicio2'];
                             $fecha_inicio_mx2 = date("d/m/Y", strtotime($fecha_inicio2));
                             $fecha_final2 = $row['fecha_final2'];
                             $fecha_final_mx2 = date("d/m/Y", strtotime($fecha_final2));
-                            echo utf8_encode('<td class="align-middle"><center>'.$fecha_inicio_mx2.'</center></td>');
-                            echo utf8_encode('<td class="align-middle"><center>'.$fecha_final_mx2.'</center></td>');
-                            echo utf8_encode('<td class="align-middle"><center>'.$row['porcentaje2'].'</center></td>');
+                            echo ('<td class="align-middle"><center>'.$fecha_inicio_mx2.'</center></td>');
+                            echo ('<td class="align-middle"><center>'.$fecha_final_mx2.'</center></td>');
+                            echo ('<td class="align-middle"><center>'.$row['porcentaje2'].'</center></td>');
                             $responsable = $row['responsable'];
                             $id_row = $row['id'];
                             $tabla_cont="SELECT count(*) AS total FROM bitacora WHERE trimestre = 2 AND actividad_vinculada = '$id_row'";
@@ -357,14 +357,14 @@ $nombre = $_SESSION['nombre'];
                             echo '<td class="align-middle"><span class="badge bg-info text-light"><center><i class="bi bi-file-post"></i> '.$num_rows.'</center></span></td>';
 
                             echo ('<td class="align-middle"><a href="calificar_evidencia_trimestre.php?act='.$row['id'].'&ev=2"><i class="bi bi-clipboard-check"></i> Calificar</center></a></td>');
-                            // echo utf8_encode('<td><center>'.$row['medio_verificacion'].'</center></td>');
+                            // echo ('<td><center>'.$row['medio_verificacion'].'</center></td>');
                             $id_verificacion=$row['medio_verificacion'];
                             $verificacion = "SELECT * FROM medio_verificacion WHERE id ='$id_verificacion'";
                             $resultado_verificacion= $conn->query($verificacion);
                             $row_verificacion=$resultado_verificacion->fetch_assoc();
-                            echo '<td>'.utf8_encode($row_verificacion['medio']).'</td>';
+                            echo '<td>'.($row_verificacion['medio']).'</td>';
                            
-                            echo utf8_encode('<td class="align-middle"><small>'.$row['observaciones2'].'</small></td>');
+                            echo ('<td class="align-middle"><small>'.$row['observaciones2'].'</small></td>');
 
                         echo '</tr>';
                       
@@ -416,24 +416,24 @@ $nombre = $_SESSION['nombre'];
                   echo '<tr>';
 
                       echo '<td class="align-middle"><center>'.$numero.'</center></td>';
-                      echo utf8_encode('<td class="align-middle"><center>'.$row['actividad'].'</center></td>');
-                      // echo utf8_encode('<td><center>'.$row['responsable'].'</center></td>');
+                      echo ('<td class="align-middle"><center>'.$row['actividad'].'</center></td>');
+                      // echo ('<td><center>'.$row['responsable'].'</center></td>');
                       $id_responsable=$row['responsable'];
                       $responsable = "SELECT * FROM usr WHERE id ='$id_responsable'";
                       $resultado_responsable= $conn->query($responsable);
                       $row_responsable=$resultado_responsable->fetch_assoc();
-                      echo '<td class="align-middle">'.utf8_encode($row_responsable['nombre']).'</td>';
+                      echo '<td class="align-middle">'.($row_responsable['nombre']).'</td>';
 
-                      echo utf8_encode('<td class="align-middle"><center>'.$row['descripcion'].'</center></td>');
-                      // echo utf8_encode('<td class="align-middle"><center>'.$row['trimestre'].'</center></td>');
-                      echo utf8_encode('<td class="align-middle"><center>3</center></td>');
+                      echo ('<td class="align-middle"><center>'.$row['descripcion'].'</center></td>');
+                      // echo ('<td class="align-middle"><center>'.$row['trimestre'].'</center></td>');
+                      echo ('<td class="align-middle"><center>3</center></td>');
                       $fecha_inicio3 = $row['fecha_inicio3'];
                       $fecha_inicio_mx3 = date("d/m/Y", strtotime($fecha_inicio3));
                       $fecha_final3 = $row['fecha_final3'];
                       $fecha_final_mx3 = date("d/m/Y", strtotime($fecha_final3));
-                      echo utf8_encode('<td class="align-middle"><center>'.$fecha_inicio_mx3.'</center></td>');
-                      echo utf8_encode('<td class="align-middle"><center>'.$fecha_final_mx3.'</center></td>');
-                      echo utf8_encode('<td class="align-middle"><center>'.$row['porcentaje3'].'</center></td>');
+                      echo ('<td class="align-middle"><center>'.$fecha_inicio_mx3.'</center></td>');
+                      echo ('<td class="align-middle"><center>'.$fecha_final_mx3.'</center></td>');
+                      echo ('<td class="align-middle"><center>'.$row['porcentaje3'].'</center></td>');
                       
                       $responsable = $row['responsable'];
                       $id_row = $row['id'];
@@ -444,14 +444,14 @@ $nombre = $_SESSION['nombre'];
                       echo '<td class="align-middle"><span class="badge bg-info text-light"><center><i class="bi bi-file-post"></i> '.$num_rows.'</center></span></td>';
 
                       echo ('<td class="align-middle"><a href="calificar_evidencia_trimestre.php?act='.$row['id'].'&ev=3"><i class="bi bi-clipboard-check"></i> Calificar</center></a></td>');
-                      // echo utf8_encode('<td><center>'.$row['medio_verificacion'].'</center></td>');
+                      // echo ('<td><center>'.$row['medio_verificacion'].'</center></td>');
                       $id_verificacion=$row['medio_verificacion'];
                       $verificacion = "SELECT * FROM medio_verificacion WHERE id ='$id_verificacion'";
                       $resultado_verificacion= $conn->query($verificacion);
                       $row_verificacion=$resultado_verificacion->fetch_assoc();
-                      echo '<td>'.utf8_encode($row_verificacion['medio']).'</td>';
+                      echo '<td>'.($row_verificacion['medio']).'</td>';
                      
-                      echo utf8_encode('<td class="align-middle"><small>'.$row['observaciones3'].'</small></td>');
+                      echo ('<td class="align-middle"><small>'.$row['observaciones3'].'</small></td>');
 
                   echo '</tr>';
                 
@@ -503,24 +503,24 @@ $nombre = $_SESSION['nombre'];
                         echo '<tr>';
 
                             echo '<td class="align-middle"><center>'.$numero.'</center></td>';
-                            echo utf8_encode('<td class="align-middle"><center>'.$row['actividad'].'</center></td>');
-                            // echo utf8_encode('<td><center>'.$row['responsable'].'</center></td>');
+                            echo ('<td class="align-middle"><center>'.$row['actividad'].'</center></td>');
+                            // echo ('<td><center>'.$row['responsable'].'</center></td>');
                             $id_responsable=$row['responsable'];
                             $responsable = "SELECT * FROM usr WHERE id ='$id_responsable'";
                             $resultado_responsable= $conn->query($responsable);
                             $row_responsable=$resultado_responsable->fetch_assoc();
-                            echo '<td class="align-middle">'.utf8_encode($row_responsable['nombre']).'</td>';
+                            echo '<td class="align-middle">'.($row_responsable['nombre']).'</td>';
 
-                            echo utf8_encode('<td class="align-middle"><center>'.$row['descripcion'].'</center></td>');
-                            // echo utf8_encode('<td class="align-middle"><center>'.$row['trimestre'].'</center></td>');
-                            echo utf8_encode('<td class="align-middle"><center>4</center></td>');
+                            echo ('<td class="align-middle"><center>'.$row['descripcion'].'</center></td>');
+                            // echo ('<td class="align-middle"><center>'.$row['trimestre'].'</center></td>');
+                            echo ('<td class="align-middle"><center>4</center></td>');
                             $fecha_inicio4 = $row['fecha_inicio4'];
                             $fecha_inicio_mx4 = date("d/m/Y", strtotime($fecha_inicio4));
                             $fecha_final4 = $row['fecha_final4'];
                             $fecha_final_mx4 = date("d/m/Y", strtotime($fecha_final4));
-                            echo utf8_encode('<td class="align-middle"><center>'.$fecha_inicio_mx4.'</center></td>');
-                            echo utf8_encode('<td class="align-middle"><center>'.$fecha_final_mx4.'</center></td>');
-                            echo utf8_encode('<td class="align-middle"><center>'.$row['porcentaje4'].'</center></td>');
+                            echo ('<td class="align-middle"><center>'.$fecha_inicio_mx4.'</center></td>');
+                            echo ('<td class="align-middle"><center>'.$fecha_final_mx4.'</center></td>');
+                            echo ('<td class="align-middle"><center>'.$row['porcentaje4'].'</center></td>');
                             
                             $responsable = $row['responsable'];
                             $id_row = $row['id'];
@@ -531,14 +531,14 @@ $nombre = $_SESSION['nombre'];
                             echo '<td class="align-middle"><span class="badge bg-info text-light"><center><i class="bi bi-file-post"></i> '.$num_rows.'</center></span></td>';
 
                             echo ('<td class="align-middle"><a href="calificar_evidencia_trimestre.php?act='.$row['id'].'&ev=4"><i class="bi bi-clipboard-check"></i> Calificar</center></a></td>');
-                            // echo utf8_encode('<td><center>'.$row['medio_verificacion'].'</center></td>');
+                            // echo ('<td><center>'.$row['medio_verificacion'].'</center></td>');
                             $id_verificacion=$row['medio_verificacion'];
                             $verificacion = "SELECT * FROM medio_verificacion WHERE id ='$id_verificacion'";
                             $resultado_verificacion= $conn->query($verificacion);
                             $row_verificacion=$resultado_verificacion->fetch_assoc();
-                            echo '<td>'.utf8_encode($row_verificacion['medio']).'</td>';
+                            echo '<td>'.($row_verificacion['medio']).'</td>';
                             
-                            echo utf8_encode('<td class="align-middle"><small>'.$row['observaciones4'].'</small></td>');
+                            echo ('<td class="align-middle"><small>'.$row['observaciones4'].'</small></td>');
 
                             
                         echo '</tr>';
