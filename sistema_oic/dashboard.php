@@ -194,7 +194,7 @@ include('prcd/conn.php');
                       while($row = $resultadotabla->fetch_assoc()){
                           
                         echo '<li class="nav-item">';
-                        echo utf8_encode('<a class="nav-link" href="area.php?area='.$row['resp'].'">
+                        echo ('<a class="nav-link" href="area.php?area='.$row['resp'].'">
                           <span data-feather="file-text"></span>
                             '.$row['area'].'
                             

@@ -108,7 +108,7 @@ $nombre = $_SESSION['nombre'];
           bienvenido<br><i class="fas fa-user"></i> 
             <?php
             
-              echo utf8_encode($nombre);
+              echo ($nombre);
             
             ?>
           </span>
@@ -215,6 +215,7 @@ $nombre = $_SESSION['nombre'];
                 <th scope="col">Responsable</th>
                 <th scope="col">Descripción</th>
                 <th scope="col">Trimestre</th>
+                <th scope="col">Año</th>
                 <th scope="col">Fecha de inicio</th>
                 <th scope="col">Fecha de finalización</th>
                 <th scope="col">% Avance</th>
@@ -224,7 +225,7 @@ $nombre = $_SESSION['nombre'];
             <tbody>
               <tr>
               <?php
-              $tabla="SELECT * FROM actividad ORDER BY id ASC";
+              $tabla="SELECT * FROM actividad ORDER BY annio ASC";
                     // $tabla="SELECT * FROM usr INNER JOIN archivos ON usr.codigo = archivos.codigo_usr WHERE usr.priv = 1 AND usr.tematica=1 ORDER BY usr.id ASC";
                     $resultadotabla = $conn->query($tabla);
                     $numero=0;
@@ -234,14 +235,30 @@ $nombre = $_SESSION['nombre'];
                         echo '<tr>';
 
                             echo '<td><center>'.$numero.'</center></td>';
-                            echo utf8_encode('<td><center>'.$row['actividad'].'</center></td>');
-                            echo utf8_encode('<td><center>'.$row['responsable'].'</center></td>');
-                            echo utf8_encode('<td><center>'.$row['descripcion'].'</center></td>');
-                            echo utf8_encode('<td><center>'.$row['trimestre'].'</center></td>');
-                            echo utf8_encode('<td><center>'.$row['fecha_inicio'].'</center></td>');
-                            echo utf8_encode('<td><center>'.$row['fecha_final'].'</center></td>');
-                            echo utf8_encode('<td><center>'.$row['porcentaje'].'</center></td>');
-                            echo utf8_encode('<td><center>'.$row['medio_verificacion'].'</center></td>');
+                            echo ('<td><center>'.$row['actividad'].'</center></td>');
+                            echo ('<td><center>'.$row['responsable'].'</center></td>');
+                            echo ('<td><center>'.$row['descripcion'].'</center></td>');
+                            echo ('<td><center>'.$row['trimestre'].'</center></td>');
+                            if($row['annio'] == 1){
+                              echo ('<td><center>2020</center></td>');
+                            }
+                            if($row['annio'] == 2){
+                              echo ('<td><center>2021</center></td>');
+                            }
+                            if($row['annio'] == 3){
+                              echo ('<td><center>2022</center></td>');
+                            }
+                            if($row['annio'] == 4){
+                              echo ('<td><center>2023</center></td>');
+                            }
+                            if($row['annio'] == 5){
+                              echo ('<td><center>2024</center></td>');
+                            }
+                            
+                            echo ('<td><center>'.$row['fecha_inicio'].'</center></td>');
+                            echo ('<td><center>'.$row['fecha_final'].'</center></td>');
+                            echo ('<td><center>'.$row['porcentaje'].'</center></td>');
+                            echo ('<td><center>'.$row['medio_verificacion'].'</center></td>');
                            
                             
                         echo '</tr>';

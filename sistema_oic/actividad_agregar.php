@@ -204,7 +204,7 @@ if (isset($_SESSION['usr'])) {
                     while($row = $resultadotabla->fetch_assoc()){
                         $numero++;
 
-                            echo '<option value="'.utf8_encode($row['id'].'">'.$row['nombre']).'</option>';
+                            echo '<option value="'.($row['id'].'">'.$row['nombre']).'</option>';
                     }
                      ?> <!-- fin loop tabla -->
 
@@ -239,7 +239,7 @@ if (isset($_SESSION['usr'])) {
                     while($row = $resultadotabla->fetch_assoc()){
                         $numero++;
 
-                            echo '<option value="'.utf8_encode($row['id'].'">'.$row['medio']).'</option>';
+                            echo '<option value="'.($row['id'].'">'.$row['medio']).'</option>';
                     }
                      ?> <!-- fin loop tabla -->
                     </select>

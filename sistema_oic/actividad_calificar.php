@@ -32,6 +32,12 @@ $id = $_SESSION['id'];
 $perfil = $_SESSION['perfil'];
 $nombre = $_SESSION['nombre'];
 
+if(isset($_REQUEST['annio'])){
+  $annioQuery = $_REQUEST['annio'];
+}
+else{
+  $annioQuery = 4;
+}
 
 ?>
 
@@ -135,14 +141,25 @@ $nombre = $_SESSION['nombre'];
      </a>
    </h6> -->
 
-   <!-- <li class="nav-item">
-     <a class="nav-link" href="trimestre1.php">
+    <li class="nav-item">
+     <a class="nav-link" href="actividad_calificar.php?annio=2">
        <span data-feather="layers"></span>
-        
-       Primer trimestre
+       2021
      </a>
    </li>
-   <li class="nav-item">
+    <li class="nav-item">
+     <a class="nav-link" href="actividad_calificar.php?annio=3">
+       <span data-feather="layers"></span>
+       2022
+     </a>
+   </li>
+    <li class="nav-item">
+     <a class="nav-link" href="actividad_calificar.php?annio=4">
+       <span data-feather="layers"></span>
+       2023
+     </a>
+   </li>
+   <!--<li class="nav-item">
      <a class="nav-link" href="trimestre2.php">
        <span data-feather="layers"></span>
        Segundo trimestre
@@ -202,7 +219,7 @@ $nombre = $_SESSION['nombre'];
         </div>
       </div>
 
-      <h2>Primer trimestre 2021</h2>
+      <h2>Primer trimestre 2023</h2>
 
       <hr style="color: dimgrey;">
       <h2></h2>
@@ -231,7 +248,7 @@ $nombre = $_SESSION['nombre'];
             <tbody>
               <tr>
               <?php
-              $tabla="SELECT * FROM actividad WHERE annio = 2 ORDER BY id ASC";
+              $tabla="SELECT * FROM actividad WHERE annio = '$annioQuery' ORDER BY id ASC";
                     // $tabla="SELECT * FROM usr INNER JOIN archivos ON usr.codigo = archivos.codigo_usr WHERE usr.priv = 1 AND usr.tematica=1 ORDER BY usr.id ASC";
                     $resultadotabla = $conn->query($tabla);
                     $numero=0;
@@ -291,7 +308,7 @@ $nombre = $_SESSION['nombre'];
 
       </div> <!-- div table-responsive -->
       
-      <h2>Segundo trimestre 2021</h2>
+      <h2>Segundo trimestre 2023</h2>
 
       <hr style="color: dimgrey;">
       <h2></h2>
@@ -320,7 +337,7 @@ $nombre = $_SESSION['nombre'];
             <tbody>
               <tr>
               <?php
-              $tabla="SELECT * FROM actividad WHERE annio = 2 ORDER BY id ASC";
+              $tabla="SELECT * FROM actividad WHERE annio = '$annioQuery' ORDER BY id ASC";
                     // $tabla="SELECT * FROM usr INNER JOIN archivos ON usr.codigo = archivos.codigo_usr WHERE usr.priv = 1 AND usr.tematica=1 ORDER BY usr.id ASC";
                     $resultadotabla = $conn->query($tabla);
                     $numero=0;
@@ -377,7 +394,7 @@ $nombre = $_SESSION['nombre'];
 
       </div> <!-- div table-responsive -->
 
-      <h2>Tercer trimestre 2021</h2>
+      <h2>Tercer trimestre 2023</h2>
 
 <hr style="color: dimgrey;">
 <h2></h2>
@@ -406,7 +423,7 @@ $nombre = $_SESSION['nombre'];
       <tbody>
         <tr>
         <?php
-        $tabla="SELECT * FROM actividad WHERE annio = 2 ORDER BY id ASC";
+        $tabla="SELECT * FROM actividad WHERE annio = '$annioQuery' ORDER BY id ASC";
               // $tabla="SELECT * FROM usr INNER JOIN archivos ON usr.codigo = archivos.codigo_usr WHERE usr.priv = 1 AND usr.tematica=1 ORDER BY usr.id ASC";
               $resultadotabla = $conn->query($tabla);
               $numero=0;
@@ -464,7 +481,7 @@ $nombre = $_SESSION['nombre'];
 
 </div> <!-- div table-responsive -->
 
-<h2>Cuarto trimestre 2021</h2>
+<h2>Cuarto trimestre 2023</h2>
 
       <hr style="color: dimgrey;">
       <h2></h2>
@@ -493,7 +510,7 @@ $nombre = $_SESSION['nombre'];
             <tbody>
               <tr>
               <?php
-              $tabla="SELECT * FROM actividad WHERE annio = 2 ORDER BY id ASC";
+              $tabla="SELECT * FROM actividad WHERE annio = '$annioQuery' ORDER BY id ASC";
                     // $tabla="SELECT * FROM usr INNER JOIN archivos ON usr.codigo = archivos.codigo_usr WHERE usr.priv = 1 AND usr.tematica=1 ORDER BY usr.id ASC";
                     $resultadotabla = $conn->query($tabla);
                     $numero=0;

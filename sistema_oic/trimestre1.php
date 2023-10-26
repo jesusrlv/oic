@@ -211,7 +211,7 @@ include('prcd/conn.php');
 
             <?php
                    
-                    $tabla="SELECT * FROM actividad WHERE responsable='$id'";
+                    $tabla="SELECT * FROM actividad WHERE responsable='$id' AND annio = 4";
                     $resultadotabla = $conn->query($tabla);
                     $numero=0;
                     while($row = $resultadotabla->fetch_assoc()){

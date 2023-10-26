@@ -103,7 +103,7 @@ $nombre = $_SESSION['nombre'];
           bienvenido<br><i class="fas fa-user"></i> 
             <?php
             
-              echo utf8_encode($nombre);
+              echo ($nombre);
             
             ?>
           </span>
