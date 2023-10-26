@@ -45,7 +45,7 @@ $nombre = $_SESSION['nombre'];
     <meta name="generator" content="">
     <title>Dashboard | OIC</title>
 
-    <link rel="icon" type="image/png" href="img/icon.ico"/>
+    <link rel="icon" type="image/png" href="../icon.ico"/>
     <link rel="canonical" href="https://getbootstrap.com/docs/4.5/examples/dashboard/">
     <script src="https://kit.fontawesome.com/4d63b5ef28.js" crossorigin="anonymous"></script>
 
@@ -97,7 +97,7 @@ $nombre = $_SESSION['nombre'];
         
         <ul class="navbar-nav px-3 text-center">
             <li class="align-middle">
-                   <img src="img/TrabajemosJuntosJuventud.png" width="35%" class="" alt="" loading="lazy">  
+                   <img src="../logo_injuventud_01.png" width="35%" class="" alt="" loading="lazy">  
       
             </li>
         </ul>
@@ -182,7 +182,7 @@ $nombre = $_SESSION['nombre'];
         
 
         <div class="d-flex align-items-center p-3 my-3 text-white-50 bg-light rounded shadow-sm w-100">
-          <img class="mr-3" src="img/TrabajemosJuntosJuventud.png" alt="" width="48" height="48">
+          <img class="mr-3" src="../logo_injuventud_01.png" alt="" width="48" height="48">
           <div class="lh-100">
             <h6 class="mb-0 text-muted lh-100">Instituto de la Juventud del Estado de Zacatecas</h6>
             <small class="text-muted">Órgano de control interno</small>

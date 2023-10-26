@@ -114,6 +114,10 @@ include('prcd/conn.php');
           </span>
         </h6>
       <hr>
+
+      <?php
+        include('menu.php');
+      ?>
         
         <?php
         if($perfil == 1){
