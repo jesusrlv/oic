@@ -74,7 +74,7 @@ include('prcd/conn.php');
     <link href="css/dashboard.css" rel="stylesheet">
   </head>
   <body>
-    <nav class="navbar navbar-light sticky-top flex-md-nowrap p-0 bg-info text-white">
+    <nav class="navbar navbar-light sticky-top flex-md-nowrap p-0 text-white" style="background-color:#83272b;">
         <a class="navbar-brand col-md-3 col-lg-2 mr-0 px-3 text-center text-light" href="#">
     <h6 class="text-center text-light display-7">OIC</h6>
     </a>
@@ -115,7 +115,7 @@ include('prcd/conn.php');
   <li class="nav-item">
     <a class="nav-link" href="dashboard.php">
      <i class="fas fa-laptop-house"></i> 
-     Dashboard <span class="sr-only">(current)</span>
+     Inicio <span class="sr-only">(current)</span>
    </a>
  </li>
  <hr style="color: dimgrey;">

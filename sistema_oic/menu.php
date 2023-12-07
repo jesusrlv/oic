@@ -9,7 +9,7 @@ echo '
         <a class="nav-link active" href="dashboard.php">
        <!-- <span data-feather="home"></span> -->
        <i class="fas fa-laptop-house"></i> 
-       Dashboard <span class="sr-only">(current)</span>
+       Inicio <span class="sr-only">(current)</span>
      </a>
    </li>
    <hr style="color: dimgrey;">
@@ -60,7 +60,7 @@ echo '
         <a class="nav-link active" href="dashboard.php">
        <!-- <span data-feather="home"></span> -->
        <i class="fas fa-laptop-house"></i> 
-       Dashboard <span class="sr-only">(current)</span>
+       Inicio <span class="sr-only">(current)</span>
      </a>
    </li>
    <hr style="color: dimgrey;">
@@ -123,7 +123,7 @@ echo '
                         echo '</li>';                      
                       }
  
- ';
+
 
 }
 

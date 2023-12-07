@@ -76,7 +76,7 @@ include('prcd/conn.php');
   </head>
   <body>
     <!-- <nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow"> -->
-    <nav class="navbar navbar-light sticky-top flex-md-nowrap p-0 bg-info text-white">
+    <nav class="navbar navbar-light sticky-top flex-md-nowrap p-0 text-white" style="background-color:#83272b;">
         <a class="navbar-brand col-md-3 col-lg-2 mr-0 px-3 text-center text-light" href="#">
     <!-- <img src="img/TrabajemosJuntosJuventud.png" width="30" height="30" class="d-inline-block align-top" alt="" loading="lazy">   -->
     <h6 class="text-center text-light display-7">OIC</h6>
@@ -121,7 +121,7 @@ include('prcd/conn.php');
     <a class="nav-link active" href="actividad_calificar.php">
      <!-- <span data-feather="home"></span> -->
      <i class="fas fa-laptop-house"></i> 
-     Dashboard <span class="sr-only">(current)</span>
+     Inicio <span class="sr-only">(current)</span>
    </a>
  </li>
  <hr style="color: dimgrey;">
