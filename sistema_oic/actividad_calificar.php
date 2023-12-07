@@ -52,14 +52,18 @@ else{
     <title>Dashboard | OIC</title>
 
     <link rel="icon" type="image/png" href="../icon.ico"/>
-    <link rel="canonical" href="https://getbootstrap.com/docs/4.5/examples/dashboard/">
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js" integrity="sha384-SR1sx49pcuLnqZUnnPwx6FCym0wLsk5JZuNx2bPPENzswTNFaQU1RDvt3wT4gWFG" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.min.js" integrity="sha384-j0CNLUeiqtyaRmlzUHCPZ+Gy5fQu0dQ6eZ/xAww941Ai1SxSY+0EQqNXNE6DZiVc" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css">
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/dashboard/">
+    
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css">
     
     <script src="https://kit.fontawesome.com/4d63b5ef28.js" crossorigin="anonymous"></script>
 
     <!-- Bootstrap core CSS -->
+    <link href="assets/dist/css/bootstrap.min.css" rel="stylesheet">
+
     <link href="css/bootstrap.css" rel="stylesheet">
 
     <style>
@@ -82,18 +86,14 @@ else{
     <link href="css/dashboard.css" rel="stylesheet">
   </head>
   <body>
-    <!-- <nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow"> -->
     <nav class="navbar navbar-light sticky-top flex-md-nowrap p-0 text-white" style="background-color:#83272b;">
         <a class="navbar-brand col-md-3 col-lg-2 mr-0 px-3 text-center text-light" href="#">
-    <!-- <img src="img/TrabajemosJuntosJuventud.png" width="30" height="30" class="d-inline-block align-top" alt="" loading="lazy">   -->
     <h6 class="text-center text-light display-7">OIC</h6>
     </a>
   <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-toggle="collapse" data-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
-  <!-- <input class="form-control form-control-dark w-30" type="text" placeholder="Search" aria-label="Search"> -->
-  
-  
+ 
   <ul class="navbar-nav px-3">
     <li class="nav-item text-nowrap">
         <a class="btn btn-outline-light btn-sm" href="prcd/sort.php" role="button"><i class="fas fa-sign-out-alt"></i> Salir</a>    </li>
@@ -127,20 +127,12 @@ else{
 <ul class="nav flex-column">
     <li class="nav-item">
         <a class="nav-link active" href="#">
-       <!-- <span data-feather="home"></span> -->
        <i class="fas fa-laptop-house"></i> 
        Inicio <span class="sr-only">(current)</span>
      </a>
    </li>
    <hr style="color: dimgrey;">
-   
-   <!-- <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
-     <span>AÑO 2021</span>
-     <a class="d-flex align-items-center text-muted" href="#" aria-label="Add a new report">
-       <span data-feather="plus-circle"></span>
-     </a>
-   </h6> -->
-
+  
     <li class="nav-item">
      <a class="nav-link" href="actividad_calificar.php?annio=2">
        <span data-feather="layers"></span>
@@ -159,24 +151,7 @@ else{
        2023
      </a>
    </li>
-   <!--<li class="nav-item">
-     <a class="nav-link" href="trimestre2.php">
-       <span data-feather="layers"></span>
-       Segundo trimestre
-     </a>
-   </li>
-   <li class="nav-item">
-     <a class="nav-link" href="trimestre3.php">
-       <span data-feather="layers"></span>
-       Tercer trimestre
-     </a>
-   </li>
-   <li class="nav-item">
-     <a class="nav-link" href="trimestre4.php">
-       <span data-feather="layers"></span>
-       Cuarto trimestre
-     </a>
-   </li> -->
+   
  </ul>
 
  <!-- <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
@@ -212,22 +187,27 @@ else{
         
         <div class="btn-toolbar mb-2 mb-md-0">
           <div class="btn-group mr-2">
-            <!-- <button type="button" class="btn btn-sm btn-outline-secondary">Reporte PDF</button>
-            <button type="button" class="btn btn-sm btn-outline-secondary">Reporte EXCEL</button> -->
           </div>
          
         </div>
       </div>
 
-      <h2>Primer trimestre 2023</h2>
+      <h2>Revisar tableros</h2>
+
+      <div class="input-group mb-3">
+        <label class="input-group-text" for="inputGroupSelect01"><span data-feather="layers"></span></label>
+        <select class="form-select" id="inputGroupSelect01">
+          <option selected>Selecciona año ...</option>
+          <option value="1">One</option>
+          <option value="2">Two</option>
+          <option value="3">Three</option>
+        </select>
+      </div>
 
       <hr style="color: dimgrey;">
-      <h2></h2>
+      
       <!-- <div class="container-fluid"> -->
-        <div class="table-responsive">
-        
-        <!-- <a href="actividad_agregar.php" type="button" class="btn btn-info" style="margin-bottom:3px;"><i class="fas fa-plus-circle"></i> Agregar actividad</a> -->
-          
+        <div class="table-responsive">  
           <table class="table table-bordered table-hover table-striped table-md align-middle table-sm" style="text-align: center;">
           <thead class="bg-dark text-light">
               <tr class="align-middle">
