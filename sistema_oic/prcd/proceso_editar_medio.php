@@ -1,13 +1,11 @@
 <?php
 include ('conn.php');
 
-$usr = $_POST['usr'];
-$nombre = $_POST['nombre'];
-$pwd = $_POST['pwd'];
-$area = $_POST['area'];
-$perfil=1;
+$id = $_POST['id'];
+$medio = $_POST['medio'];
+$descripcion = $_POST['descripcion'];
 
-$sql_2="INSERT INTO usr(usr,nombre,pwd,area,perfil) VALUES('$usr','$nombre','$pwd','$area','$perfil')";
+$sql_2="UPDATE medio_verificacion SET medio = '$medio', descripcion = '$descripcion' WHERE id='$id'";
 $resultado2= $conn->query($sql_2);
 
 if($resultado2){

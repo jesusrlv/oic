@@ -1,13 +1,10 @@
 <?php
 include ('conn.php');
 
-$usr = $_POST['usr'];
-$nombre = $_POST['nombre'];
-$pwd = $_POST['pwd'];
-$area = $_POST['area'];
-$perfil=1;
+$medioN = $_POST['medioN'];
+$descripcionM = $_POST['descripcionM'];
 
-$sql_2="INSERT INTO usr(usr,nombre,pwd,area,perfil) VALUES('$usr','$nombre','$pwd','$area','$perfil')";
+$sql_2="INSERT INTO medio_verificacion(medio,descripcion) VALUES('$medioN','$descripcionM')";
 $resultado2= $conn->query($sql_2);
 
 if($resultado2){

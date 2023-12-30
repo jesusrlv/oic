@@ -1,13 +1,13 @@
 <?php
 include ('conn.php');
 
+$id = $_POST['id'];
 $usr = $_POST['usr'];
 $nombre = $_POST['nombre'];
 $pwd = $_POST['pwd'];
 $area = $_POST['area'];
-$perfil=1;
 
-$sql_2="INSERT INTO usr(usr,nombre,pwd,area,perfil) VALUES('$usr','$nombre','$pwd','$area','$perfil')";
+$sql_2="UPDATE usr SET usr = '$usr', nombre = '$nombre',pwd = '$pwd', area = '$area' WHERE id='$id'";
 $resultado2= $conn->query($sql_2);
 
 if($resultado2){

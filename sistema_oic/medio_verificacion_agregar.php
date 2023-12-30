@@ -52,7 +52,7 @@ if (isset($_SESSION['usr'])) {
 
     <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script> 
 
-    <script src="js/usuario.js"></script>
+    <script src="js/medios_verificacion.js"></script>
     <style>
       .bd-placeholder-img {
         font-size: 1.125rem;
@@ -72,7 +72,7 @@ if (isset($_SESSION['usr'])) {
     <!-- Custom styles for this template -->
     <link href="css/dashboard.css" rel="stylesheet">
   </head>
-  <body onload="usuariosQuery()">
+  <body onload="medioQuery()">
     <!-- <nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow"> -->
     <nav class="navbar navbar-light sticky-top flex-md-nowrap p-0 text-white" style="background-color:#83272b;">
         <a class="navbar-brand col-md-3 col-lg-2 mr-0 px-3 text-center text-light" href="#">
@@ -123,7 +123,7 @@ if (isset($_SESSION['usr'])) {
     <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-md-4">
       
         <div class="alert alert-info mt-3 text-center" role="alert">
-        <i class="bi bi-person-add"></i><strong> Usuarios </strong>
+        <i class="bi bi-pc-display"></i><strong> Medio verificación </strong>
         </div>
         <hr>
 
@@ -136,63 +136,38 @@ if (isset($_SESSION['usr'])) {
               <div class="row">
                   <div class="col-6">
                     <div class="form-group">
-                      <label for="exampleInputEmail1">Alias del usuario</label>
-                      <input type="text" class="form-control" aria-describedby="Text" name="usr" id="usr" REQUIRED>
-                      <small id="emailHelp" class="form-text text-muted">Nombre de usuario</small>
+                      <label for="exampleInputEmail1">Medio de verificación</label>
+                      <input type="text" class="form-control" aria-describedby="Text" name="medioN" id="medioN" REQUIRED>
+                      <small id="emailHelp" class="form-text text-muted">Medio de verificación</small>
                   </div>
                 </div>
                 <div class="col-6">
                   <div class="form-group">
-                      <label for="exampleInputEmail1">Nombre completo del usuario</label>
-                      <input type="text" class="form-control" aria-describedby="Text" name="nombre" id="nombre" REQUIRED>
-                      <small id="emailHelp" class="form-text text-muted">Nombre completo</small>
+                      <label for="exampleInputEmail1">Descripción</label>
+                      <input type="text" class="form-control" aria-describedby="Text" name="descripcionM" id="descripcionM" REQUIRED>
+                      <small id="emailHelp" class="form-text text-muted">Texto descriptivo</small>
                   </div>
                 </div>
-                <div class="col-6">
-                    <div class="form-group">
-                      <label for="exampleInputEmail1">Contraseña</label>
-                      <input type="password" class="form-control" aria-describedby="Text" name="pwd" id="pwd" REQUIRED>
-                      <small id="emailHelp" class="form-text text-muted">Contraseña</small>
-                  </div>
-                </div>
-                <div class="col-6"> 
-                  <div class="form-group">
-                    <label for="exampleFormControlSelect1">Seleccionar responsable de la actividad</label>
-                    <select class="form-control" id="area" name="area" REQUIRED>
-                    <option value="">Seleccionar...</option>
-                    <?php
-                    $tabla="SELECT * FROM area ORDER BY id ASC";
-                    $resultadotabla = $conn->query($tabla);
-                    $numero=0;
-                    while($row = $resultadotabla->fetch_assoc()){
-                        $numero++;
-
-                            echo '<option value="'.($row['id'].'">'.$row['area']).'</option>';
-                    }
-                ?>
-
-                    </select>
-                  </div>
-                </div>
+                
               </div>
                   
-              <button class="btn btn-primary" onclick="agregarUsr()"><i class="fas fa-save"></i> Registrar usuario</button>
+              <button class="btn btn-primary" onclick="agregarMedio()"><i class="fas fa-save"></i> Registrar medio</button>
               <a href="javascript:history.back()" type="submit" class="btn btn-danger"><i class="far fa-times-circle"></i> Cancelar</a>
 
             </div> <!-- div container -->
             <div class="container mt-4">
-              <h3>Usuarios registrados</h3>
+              <h3>Medios registrados</h3>
               <table class="table">
                 <thead>
                   <tr>
                     <th scope="col">#</th>
                     <th scope="col">Nombre</th>
-                    <th scope="col">Usuario</th>
-                    <th scope="col">Área</th>
-                    <th scope="col">Acción</th>
+                    <th scope="col">Descripción</th>
+                    <th scope="col">Editar</th>
+                    <th scope="col">Eliminar</th>
                   </tr>
                 </thead>
-                <tbody id="resultadoUsr">
+                <tbody id="resultadoDescripcion">
                  
                 </tbody>
               </table>
@@ -217,7 +192,7 @@ if (isset($_SESSION['usr'])) {
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h1 class="modal-title fs-5" id="exampleModalLabel">Editar usuario</h1>
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Editar medio de verificación</h1>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
@@ -225,50 +200,25 @@ if (isset($_SESSION['usr'])) {
         <input type="text" id="idEdit" hidden>
                   <div class="col-12">
                     <div class="form-group">
-                      <label for="exampleInputEmail1">Alias del usuario</label>
-                      <input type="text" class="form-control" aria-describedby="Text" name="usrEdit" id="usrEdit" REQUIRED>
-                      <small id="emailHelp" class="form-text text-muted">Nombre de usuario</small>
+                      <label for="exampleInputEmail1">Medio de verificación</label>
+                      <input type="text" class="form-control" aria-describedby="Text" name="medioEdit" id="medioEdit" REQUIRED>
+                      <small id="emailHelp" class="form-text text-muted">Medio</small>
                   </div>
                 </div>
                 <div class="col-12">
                   <div class="form-group">
-                      <label for="exampleInputEmail1">Nombre completo del usuario</label>
-                      <input type="text" class="form-control" aria-describedby="Text" name="nombreEdit" id="nombreEdit" REQUIRED>
-                      <small id="emailHelp" class="form-text text-muted">Nombre completo</small>
+                      <label for="exampleInputEmail1">Descripción del medio</label>
+                      <input type="text" class="form-control" aria-describedby="Text" name="descripcionEdit" id="descripcionEdit" REQUIRED>
+                      <small id="emailHelp" class="form-text text-muted">Descripción</small>
                   </div>
                 </div>
-                <div class="col-12">
-                    <div class="form-group">
-                      <label for="exampleInputEmail1">Contraseña</label>
-                      <input type="password" class="form-control" aria-describedby="Text" name="pwdEdit" id="pwdEdit" REQUIRED>
-                      <small id="emailHelp" class="form-text text-muted">Contraseña</small>
-                  </div>
-                </div>
-                <div class="col-12"> 
-                  <div class="form-group">
-                    <label for="exampleFormControlSelect1">Seleccionar responsable de la actividad</label>
-                    <select class="form-control" id="areaEdit" name="areaEdit" REQUIRED>
-                    <option value="">Seleccionar...</option>
-                    <?php
-                    $tabla="SELECT * FROM area ORDER BY id ASC";
-                    $resultadotabla = $conn->query($tabla);
-                    $numero=0;
-                    while($row = $resultadotabla->fetch_assoc()){
-                        $numero++;
-
-                            echo '<option value="'.($row['id'].'">'.$row['area']).'</option>';
-                    }
-                ?>
-
-                    </select>
-                  </div>
-                </div>
+                
               </div>
                   
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
-        <button type="button" class="btn btn-primary" onclick="edicionDatos()">Editar</button>
+        <button type="button" class="btn btn-primary" onclick="edicionMedio()">Editar</button>
       </div>
     </div>
   </div>
