@@ -207,9 +207,6 @@ if (isset($_SESSION['usr'])) {
                             echo '<option value="'.($row['id'].'">'.$row['nombre']).'</option>';
                     }
                      ?> <!-- fin loop tabla -->
-
-                  
-
                     </select>
                 </div>
 
@@ -258,13 +255,19 @@ if (isset($_SESSION['usr'])) {
 
                 <div class="input-group mb-3 w-25">
                 <span class="input-group-text" id="inputGroup-sizing-default">Año</span>
-                  <select class="form-control" aria-label="Default select example" name="annio" require>
-                    <option selected>Seleccionar...</option>
-                    <option value="1">2020</option>
-                    <option value="2">2021</option>
-                    <option value="3">2022</option>
-                    <option value="4">2023</option>
-                  </select>
+                <select class="form-control" id="exampleFormControlSelect1" name="usr" REQUIRED>
+                    <option value="">Seleccionar...</option>
+                    <?php
+                    $tabla2="SELECT * FROM annio ORDER BY id ASC";
+                    $resultadotabla2 = $conn->query($tabla2);
+                    $numero=0;
+                    while($row2 = $resultadotabla2->fetch_assoc()){
+                        $numero++;
+
+                            echo '<option value="'.($row2['annio'].'">'.$row2['annio']).'</option>';
+                    }
+                     ?> <!-- fin loop tabla -->
+                    </select>
                 </div>
 
 
