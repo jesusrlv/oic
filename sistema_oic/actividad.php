@@ -49,6 +49,9 @@ $nombre = $_SESSION['nombre'];
     <link rel="canonical" href="https://getbootstrap.com/docs/4.5/examples/dashboard/">
     <script src="https://kit.fontawesome.com/4d63b5ef28.js" crossorigin="anonymous"></script>
 
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
+
     <!-- Bootstrap core CSS -->
     <link href="css/bootstrap.css" rel="stylesheet">
 
@@ -123,39 +126,6 @@ $nombre = $_SESSION['nombre'];
      </a>
    </li>
    <hr style="color: dimgrey;">
-   
-   <!-- <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
-     <span>AÑO 2020</span>
-     <a class="d-flex align-items-center text-muted" href="#" aria-label="Add a new report">
-       <span data-feather="plus-circle"></span>
-     </a>
-   </h6>
-
-   <li class="nav-item">
-     <a class="nav-link" href="trimestre1.php">
-       <span data-feather="layers"></span>
-        
-       Primer trimestre
-     </a>
-   </li>
-   <li class="nav-item">
-     <a class="nav-link" href="trimestre2.php">
-       <span data-feather="layers"></span>
-       Segundo trimestre
-     </a>
-   </li>
-   <li class="nav-item">
-     <a class="nav-link" href="trimestre3.php">
-       <span data-feather="layers"></span>
-       Tercer trimestre
-     </a>
-   </li>
-   <li class="nav-item">
-     <a class="nav-link" href="trimestre4.php">
-       <span data-feather="layers"></span>
-       Cuarto trimestre
-     </a>
-   </li> -->
  </ul>
 
  <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
@@ -197,15 +167,21 @@ $nombre = $_SESSION['nombre'];
          
         </div>
       </div>
-
-      <h2>Listado de actividades registradas en el sistema</h2>
+      <div class="row">
+        <div class="col-9">
+          <h2>Listado de actividades registradas en el sistema</h2>
+        </div>
+        <div class="col-3 text-end">
+          <a href="actividad_agregar.php" type="button" class="btn btn-info text-end"><i class="fas fa-plus-circle"></i> Agregar actividad</a>
+        </div>
+      </div>
 
       <hr style="color: dimgrey;">
       <h2></h2>
       <!-- <div class="container-fluid"> -->
         <div class="table-responsive">
         
-        <a href="actividad_agregar.php" type="button" class="btn btn-info" style="margin-bottom:3px;"><i class="fas fa-plus-circle"></i> Agregar actividad</a>
+        
           
           <table class="table table-bordered table-hover table-striped table-md" style="text-align: center;">
           <thead class="bg-dark text-light">
@@ -239,22 +215,7 @@ $nombre = $_SESSION['nombre'];
                             echo ('<td><center>'.$row['responsable'].'</center></td>');
                             echo ('<td><center>'.$row['descripcion'].'</center></td>');
                             echo ('<td><center>'.$row['trimestre'].'</center></td>');
-                            if($row['annio'] == 1){
-                              echo ('<td><center>2020</center></td>');
-                            }
-                            if($row['annio'] == 2){
-                              echo ('<td><center>2021</center></td>');
-                            }
-                            if($row['annio'] == 3){
-                              echo ('<td><center>2022</center></td>');
-                            }
-                            if($row['annio'] == 4){
-                              echo ('<td><center>2023</center></td>');
-                            }
-                            if($row['annio'] == 5){
-                              echo ('<td><center>2024</center></td>');
-                            }
-                            
+                            echo ('<td><center>'.$row['annio'].'</center></td>');
                             echo ('<td><center>'.$row['fecha_inicio'].'</center></td>');
                             echo ('<td><center>'.$row['fecha_final'].'</center></td>');
                             echo ('<td><center>'.$row['porcentaje'].'</center></td>');
