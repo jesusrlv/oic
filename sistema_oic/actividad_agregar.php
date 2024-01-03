@@ -187,88 +187,81 @@ if (isset($_SESSION['usr'])) {
           <div class="container-fluid">
         
           <form action="prcd/proceso_agregar_actividad.php" method="POST">
-                <div class="form-group w-50">
-                    <label for="exampleInputEmail1">Nombre de la actividad</label>
-                    <input type="text" class="form-control" id="nombre_actv" aria-describedby="Text" name="actividad" REQUIRED>
-                    <small id="emailHelp" class="form-text text-muted">Agregar la actividad para tu perfil.</small>
+
+            <div class="row">
+                  <div class="col-6">
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Nombre de la actividad</label>
+                        <input type="text" class="form-control" id="nombre_actv" aria-describedby="Text" name="actividad" REQUIRED>
+                        <small id="emailHelp" class="form-text text-muted">Agregar la actividad para tu perfil.</small>
+                    </div>
+                  </div>
+                  <div class="col-6">
+                    <div class="form-group">
+                        <label for="exampleFormControlSelect1">Seleccionar responsable de la actividad</label>
+                        <select class="form-control" id="exampleFormControlSelect1" name="usr" REQUIRED>
+                        <option value="">Seleccionar...</option>
+                        <?php
+                        $tabla="SELECT * FROM usr WHERE perfil = 1 ORDER BY id ASC";
+                        $resultadotabla = $conn->query($tabla);
+                        $numero=0;
+                        while($row = $resultadotabla->fetch_assoc()){
+                            $numero++;
+    
+                                echo '<option value="'.($row['id'].'">'.$row['nombre']).'</option>';
+                        }
+                         ?> <!-- fin loop tabla -->
+                        </select>
+                    </div>
+                  </div>
+                  <div class="col-12">
+                    <div class="input-group mb-3">
+                      <span class="input-group-text">Descripción de la actividad</span>
+                      <textarea class="form-control" aria-label="With textarea" name="descripcion" require></textarea>
+                    </div>
+                  </div>
+                  <div class="col-6">
+                    <div class="form-group" >
+                        <label for="exampleFormControlSelect1">Seleccionar medio de verificación</label>
+                        <select class="form-control" id="exampleFormControlSelect1" name="medio_verificacion" REQUIRED>
+                        <option value="">Seleccionar...</option>
+                        <?php
+                        $tabla="SELECT * FROM medio_verificacion ORDER BY id ASC";
+                        $resultadotabla = $conn->query($tabla);
+                        $numero=0;
+                        while($row = $resultadotabla->fetch_assoc()){
+                            $numero++;
+    
+                                echo '<option value="'.($row['id'].'">'.$row['medio']).'</option>';
+                        }
+                         ?> <!-- fin loop tabla -->
+                        </select>
+                    </div>
+                  </div>
+                  <div class="col-6">
+                    <div class="form-group" >
+                        <label for="exampleFormControlSelect1">Seleccionar año</label>
+                        <select class="form-control" id="exampleFormControlSelect1" name="annio" REQUIRED>
+                        <option value="">Seleccionar...</option>
+                        <?php
+                        $tabla="SELECT * FROM annio ORDER BY id ASC";
+                        $resultadotabla = $conn->query($tabla);
+                        $numero=0;
+                        while($row = $resultadotabla->fetch_assoc()){
+                            $numero++;
+    
+                                echo '<option value="'.($row['annio'].'">'.$row['annio']).'</option>';
+                        }
+                         ?> <!-- fin loop tabla -->
+                        </select>
+                    </div>
+                  </div>
                 </div>
-
-                <div class="form-group w-50">
-                    <label for="exampleFormControlSelect1">Seleccionar responsable de la actividad</label>
-                    <select class="form-control" id="exampleFormControlSelect1" name="usr" REQUIRED>
-                    <option value="">Seleccionar...</option>
-                    <?php
-                    $tabla="SELECT * FROM usr WHERE perfil = 1 ORDER BY id ASC";
-                    $resultadotabla = $conn->query($tabla);
-                    $numero=0;
-                    while($row = $resultadotabla->fetch_assoc()){
-                        $numero++;
-
-                            echo '<option value="'.($row['id'].'">'.$row['nombre']).'</option>';
-                    }
-                     ?> <!-- fin loop tabla -->
-                    </select>
-                </div>
-
-                <div class="input-group w-50 mb-3">
-                  <span class="input-group-text">Descripción de la actividad</span>
-                  <textarea class="form-control" aria-label="With textarea" name="descripcion" require></textarea>
-                </div>
+                
 
 
-                <!-- <div class="input-group mb-3 w-25">
-                  <span class="input-group-text" id="inputGroup-sizing-default">Fecha de inicio</span>
-                  <input type="date" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" name="fecha_inicio" require>
-                </div>
-                <div class="input-group mb-3 w-25">
-                  <span class="input-group-text" id="inputGroup-sizing-default">Fecha de finalización</span>
-                  <input type="date" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" name="fecha_finalizacion" require>
-                </div> -->
 
-                <div class="form-group w-50" >
-                    <label for="exampleFormControlSelect1">Seleccionar medio de verificación</label>
-                    <select class="form-control" id="exampleFormControlSelect1" name="medio_verificacion" REQUIRED>
-                    <option value="">Seleccionar...</option>
-                    <?php
-                    $tabla="SELECT * FROM medio_verificacion ORDER BY id ASC";
-                    $resultadotabla = $conn->query($tabla);
-                    $numero=0;
-                    while($row = $resultadotabla->fetch_assoc()){
-                        $numero++;
 
-                            echo '<option value="'.($row['id'].'">'.$row['medio']).'</option>';
-                    }
-                     ?> <!-- fin loop tabla -->
-                    </select>
-                </div>
-
-                <!-- <div class="input-group mb-3 w-25">
-                <span class="input-group-text" id="inputGroup-sizing-default">Trimestre</span>
-                  <select class="form-control" aria-label="Default select example" name="trimestre" require>
-                    <option selected>Seleccionar...</option>
-                    <option value="1">Primer trimestre</option>
-                    <option value="2">Segundo trimestre</option>
-                    <option value="3">Tercer trimestre</option>
-                    <option value="4">Cuarto trimestre</option>
-                  </select>
-                  </div> -->
-
-                <div class="input-group mb-3 w-25">
-                <span class="input-group-text" id="inputGroup-sizing-default">Año</span>
-                <select class="form-control" id="exampleFormControlSelect1" name="usr" REQUIRED>
-                    <option value="">Seleccionar...</option>
-                    <?php
-                    $tabla2="SELECT * FROM annio ORDER BY id ASC";
-                    $resultadotabla2 = $conn->query($tabla2);
-                    $numero=0;
-                    while($row2 = $resultadotabla2->fetch_assoc()){
-                        $numero++;
-
-                            echo '<option value="'.($row2['annio'].'">'.$row2['annio']).'</option>';
-                    }
-                     ?> <!-- fin loop tabla -->
-                    </select>
-                </div>
 
 
                 <button type="submit" class="btn btn-primary"><i class="fas fa-save"></i> Guardar actividad</button>
