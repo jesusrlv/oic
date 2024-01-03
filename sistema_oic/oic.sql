@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.1
+-- version 5.1.3
 -- https://www.phpmyadmin.net/
 --
--- Servidor: 127.0.0.1
--- Tiempo de generación: 03-01-2024 a las 08:02:31
--- Versión del servidor: 10.4.28-MariaDB
--- Versión de PHP: 8.2.4
+-- Servidor: localhost
+-- Tiempo de generación: 03-01-2024 a las 22:39:41
+-- Versión del servidor: 10.4.21-MariaDB
+-- Versión de PHP: 7.4.28
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -33,10 +33,10 @@ CREATE TABLE `actividad` (
   `responsable` int(11) NOT NULL,
   `descripcion` varchar(255) CHARACTER SET utf16 COLLATE utf16_unicode_ci NOT NULL,
   `medio_verificacion` int(11) NOT NULL,
-  `porcentaje` int(11) NOT NULL,
-  `porcentaje2` int(11) NOT NULL,
-  `porcentaje3` int(11) NOT NULL,
-  `porcentaje4` int(11) NOT NULL,
+  `porcentaje` int(11) DEFAULT NULL,
+  `porcentaje2` int(11) DEFAULT NULL,
+  `porcentaje3` int(11) DEFAULT NULL,
+  `porcentaje4` int(11) DEFAULT NULL,
   `fecha_inicio` date DEFAULT NULL,
   `fecha_final` date DEFAULT NULL,
   `fecha_inicio2` date DEFAULT NULL,
@@ -45,13 +45,13 @@ CREATE TABLE `actividad` (
   `fecha_final3` date DEFAULT NULL,
   `fecha_inicio4` date DEFAULT NULL,
   `fecha_final4` date DEFAULT NULL,
-  `trimestre` int(11) NOT NULL,
+  `trimestre` int(11) DEFAULT NULL,
   `annio` int(11) NOT NULL,
   `hora_registro` datetime NOT NULL,
-  `observaciones` varchar(300) DEFAULT NULL,
-  `observaciones2` varchar(300) DEFAULT NULL,
-  `observaciones3` varchar(300) DEFAULT NULL,
-  `observaciones4` varchar(300) DEFAULT NULL
+  `observaciones` varchar(300) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `observaciones2` varchar(300) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `observaciones3` varchar(300) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `observaciones4` varchar(300) COLLATE utf8_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
@@ -74,7 +74,9 @@ INSERT INTO `actividad` (`id`, `actividad`, `responsable`, `descripcion`, `medio
 (27, 'Una actividad', 7, 'ddd', 11, 0, 0, 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 4, '2023-12-28 18:21:12', NULL, NULL, NULL, NULL),
 (28, 'ACT X', 10, 'SSS', 1, 0, 0, 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 4, '2024-01-01 19:33:23', NULL, NULL, NULL, NULL),
 (29, 'xxxxx', 10, 'xxxxxx', 7, 0, 0, 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 2020, '2024-01-03 00:45:50', NULL, NULL, NULL, NULL),
-(30, 'dddd', 10, 'ddddd', 11, 0, 0, 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 2024, '2024-01-03 00:46:34', NULL, NULL, NULL, NULL);
+(30, 'dddd', 10, 'ddddd', 11, 0, 0, 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 2024, '2024-01-03 00:46:34', NULL, NULL, NULL, NULL),
+(31, 'sdads', 7, 'd', 3, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 2021, '2024-01-03 13:53:24', NULL, NULL, NULL, NULL),
+(32, 'Nueva actividad', 5, 'acabar actividad de OIC', 3, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 2024, '2024-01-03 13:54:12', NULL, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -106,7 +108,7 @@ INSERT INTO `annio` (`id`, `annio`) VALUES
 
 CREATE TABLE `area` (
   `id` int(11) NOT NULL,
-  `area` varchar(100) NOT NULL,
+  `area` varchar(100) COLLATE utf16_unicode_ci NOT NULL,
   `resp` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf16 COLLATE=utf16_unicode_ci;
 
@@ -132,10 +134,10 @@ INSERT INTO `area` (`id`, `area`, `resp`) VALUES
 
 CREATE TABLE `bitacora` (
   `id` int(11) NOT NULL,
-  `descripcion` varchar(500) NOT NULL,
+  `descripcion` varchar(500) COLLATE utf16_unicode_ci NOT NULL,
   `fecha_ini` datetime NOT NULL,
   `fecha_fin` datetime NOT NULL,
-  `url_doc` varchar(300) NOT NULL,
+  `url_doc` varchar(300) COLLATE utf16_unicode_ci NOT NULL,
   `fecha` datetime NOT NULL,
   `trimestre` int(11) NOT NULL,
   `usr_vinculado` int(11) NOT NULL,
@@ -205,8 +207,8 @@ INSERT INTO `dashboard` (`id`, `fecha_ini`, `fecha_fin`, `responsable`, `medio_v
 
 CREATE TABLE `medio_verificacion` (
   `id` int(11) NOT NULL,
-  `medio` varchar(255) NOT NULL,
-  `descripcion` varchar(255) NOT NULL
+  `medio` varchar(255) COLLATE utf16_unicode_ci NOT NULL,
+  `descripcion` varchar(255) COLLATE utf16_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf16 COLLATE=utf16_unicode_ci;
 
 --
@@ -241,7 +243,7 @@ CREATE TABLE `principal` (
   `medio_verificacion` int(11) NOT NULL,
   `fecha` datetime NOT NULL,
   `usr` int(11) NOT NULL,
-  `url` varchar(100) NOT NULL
+  `url` varchar(100) COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
@@ -252,9 +254,9 @@ CREATE TABLE `principal` (
 
 CREATE TABLE `usr` (
   `id` int(11) NOT NULL,
-  `usr` varchar(255) NOT NULL,
-  `nombre` varchar(255) NOT NULL,
-  `pwd` varchar(100) NOT NULL,
+  `usr` varchar(255) COLLATE utf16_unicode_ci NOT NULL,
+  `nombre` varchar(255) COLLATE utf16_unicode_ci NOT NULL,
+  `pwd` varchar(100) COLLATE utf16_unicode_ci NOT NULL,
   `area` int(11) NOT NULL,
   `perfil` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf16 COLLATE=utf16_unicode_ci;
@@ -334,7 +336,7 @@ ALTER TABLE `usr`
 -- AUTO_INCREMENT de la tabla `actividad`
 --
 ALTER TABLE `actividad`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
 
 --
 -- AUTO_INCREMENT de la tabla `annio`
