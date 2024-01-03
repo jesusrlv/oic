@@ -154,11 +154,9 @@ if (isset($_SESSION['usr'])) {
         <h3>Agregar actividad</h3>
       </div>
 
-      <!-- <hr style="color: dimgrey;"> -->
-      <h2></h2>
           <div class="container-fluid">
-        
-          <form action="prcd/proceso_agregar_actividad.php" method="POST">
+
+          <input type="text" id="usr" value="<?php echo $_SESSION['id'] ?>" hidden>
 
             <div class="row">
                   <div class="col-6">
@@ -170,8 +168,8 @@ if (isset($_SESSION['usr'])) {
                   </div>
                   <div class="col-6">
                     <div class="form-group">
-                        <label for="exampleFormControlSelect1">Seleccionar responsable de la actividad</label>
-                        <select class="form-control" id="exampleFormControlSelect1" name="usr" REQUIRED>
+                        <label for="responsable">Seleccionar responsable de la actividad</label>
+                        <select class="form-control" id="responsable" name="usr" REQUIRED>
                         <option value="">Seleccionar...</option>
                         <?php
                         $tabla="SELECT * FROM usr WHERE perfil = 1 ORDER BY id ASC";
@@ -189,13 +187,13 @@ if (isset($_SESSION['usr'])) {
                   <div class="col-12">
                     <div class="input-group mb-3">
                       <span class="input-group-text">Descripción de la actividad</span>
-                      <textarea class="form-control" aria-label="With textarea" name="descripcion" required></textarea>
+                      <textarea class="form-control" aria-label="With textarea" name="descripcion" id="descripcion" required></textarea>
                     </div>
                   </div>
                   <div class="col-6">
                     <div class="form-group" >
                         <label for="exampleFormControlSelect1">Seleccionar medio de verificación</label>
-                        <select class="form-control" id="exampleFormControlSelect1" name="medio_verificacion" REQUIRED>
+                        <select class="form-control" id="medio_verificacion" name="medio_verificacion" REQUIRED>
                         <option value="">Seleccionar...</option>
                         <?php
                         $tabla="SELECT * FROM medio_verificacion ORDER BY id ASC";
@@ -213,7 +211,7 @@ if (isset($_SESSION['usr'])) {
                   <div class="col-6">
                     <div class="form-group" >
                         <label for="exampleFormControlSelect1">Seleccionar año</label>
-                        <select class="form-control" id="exampleFormControlSelect1" name="annio" REQUIRED>
+                        <select class="form-control" id="annio" name="annio" REQUIRED>
                         <option value="">Seleccionar...</option>
                         <?php
                         $tabla="SELECT * FROM annio ORDER BY id ASC";
@@ -230,9 +228,9 @@ if (isset($_SESSION['usr'])) {
                   </div>
                 </div>
         
-                <button type="submit" class="btn btn-primary"><i class="fas fa-save"></i> Guardar actividad</button>
+                <button type="button" class="btn btn-primary" onclick="agregarActividad2()"><i class="fas fa-save"></i> Guardar actividad</button>
                 <a href="javascript:history.back()" type="submit" class="btn btn-danger"><i class="far fa-times-circle"></i> Cancelar</a>
-            </form>
+     
         
 
             </div> <!-- div container -->

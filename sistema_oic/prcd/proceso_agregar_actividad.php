@@ -4,13 +4,10 @@ include ('conn.php');
 date_default_timezone_set('America/Mexico_City');
                   setlocale(LC_TIME, 'es_MX.UTF-8');
 
-$actividad = $_POST['actividad'];
-$responsable = $_POST['usr'];
+$responsable = $_POST['responsable'];
+$actividad = $_POST['nombre_actv'];
 $descripcion = $_POST['descripcion'];
-// $finicio = $_POST['fecha_inicio'];
-// $ffinalizacion = $_POST['fecha_finalizacion'];
 $medio_verificacion = $_POST['medio_verificacion'];
-// $trimestre = $_POST['trimestre'];
 $annio = $_POST['annio'];
 $porcentaje =  0;
 // $hora_registro = date("Y/m/d H:i:s");
@@ -22,12 +19,18 @@ $resultado2= $conn->query($sql_2);
 
 if($resultado2){
 
-    header ('Location:../actividad.php');
+    /*     header ('Location:../actividad.php');
+     */
+    echo json_encode(array(
+        'success'=>1
+    ));
 }
 
 else{
 
-    echo 'No se registró la actividad';
+    /* echo 'No se registró la actividad'; */
+    echo json_encode(array(
+        'success'=>0
+    ));
 }
-
 ?>

@@ -152,3 +152,35 @@ function areaQuery(){
         }
     });
  }
+
+ function agregarActividad2(){
+        var nombre_actv = document.getElementById('nombre_actv').value;
+        var responsable =  document.getElementById('responsable').value;
+        var descripcion =  document.getElementById('descripcion').value;
+        var medio_verificacion =  document.getElementById('medio_verificacion').value;
+        var annio =  document.getElementById('annio').value;
+       
+        $.ajax({
+            type: "POST",
+            url: "prcd/proceso_agregar_actividad.php",
+            data:{ 
+                nombre_actv:nombre_actv,
+                responsable:responsable,
+                medio_verificacion:medio_verificacion,
+                descripcion:descripcion,
+                annio:annio
+            },
+            dataType: "json",
+            success: function(data) {
+                var jsonData = JSON.parse(JSON.stringify(data));
+                if(jsonData.success == 1){
+                   alert("Actividad agregada");
+                   queryActividad();
+                }
+                else{
+                    alert("No se agregó actividad");
+                }
+    
+            }
+        });
+ }
