@@ -141,3 +141,14 @@ function areaQuery(){
             }
         });
  }
+
+ function queryActividad(){
+    $.ajax({
+        type: "POST",
+        url: "query/query_actividad.php",
+        dataType: "html",
+        success: function(data) {
+            $('#actividad').fadeIn(1000).html(data);
+        }
+    });
+ }

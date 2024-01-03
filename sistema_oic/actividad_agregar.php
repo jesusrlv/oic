@@ -39,14 +39,16 @@ if (isset($_SESSION['usr'])) {
 
     <link rel="icon" type="image/png" href="../icon.ico"/>
     <!-- <link rel="canonical" href="https://getbootstrap.com/docs/4.5/examples/dashboard/"> -->
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js" integrity="sha384-q2kxQ16AaE6UbzuKqyBE9/u/KzioAlnx2maXQHiDX9d4/zp8Ok3f+M7DPm+Ib6IU" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-pQQkAEnwaBkjpqZ8RU1fF1AKtTcHJwFl3pblpTlHXybJjHpMYo79HY3hIi4NKxyj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
 
     <script src="https://kit.fontawesome.com/4d63b5ef28.js" crossorigin="anonymous"></script>
 
+    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script> 
+
     <!-- Bootstrap core CSS -->
     <link href="css/bootstrap.css" rel="stylesheet">
-
+    
     <style>
       .bd-placeholder-img {
         font-size: 1.125rem;
@@ -65,8 +67,10 @@ if (isset($_SESSION['usr'])) {
     </style>
     <!-- Custom styles for this template -->
     <link href="css/dashboard.css" rel="stylesheet">
+    <script src="css/dashboard.js"></script>
+    <script src="js/actividad.js"></script>
   </head>
-  <body>
+  <body onload="queryActividad()">
     <!-- <nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow"> -->
     <nav class="navbar navbar-light sticky-top flex-md-nowrap p-0 text-white" style="background-color:#83272b;">
         <a class="navbar-brand col-md-3 col-lg-2 mr-0 px-3 text-center text-light" href="#">
@@ -106,39 +110,6 @@ if (isset($_SESSION['usr'])) {
      </a>
    </li>
    <hr style="color: dimgrey;">
-   
-   <!-- <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
-     <span>AÑO 2020</span>
-     <a class="d-flex align-items-center text-muted" href="#" aria-label="Add a new report">
-       <span data-feather="plus-circle"></span>
-     </a>
-   </h6>
-
-   <li class="nav-item">
-     <a class="nav-link" href="trimestre1.php">
-       <span data-feather="layers"></span>
-        
-       Primer trimestre
-     </a>
-   </li>
-   <li class="nav-item">
-     <a class="nav-link" href="trimestre2.php">
-       <span data-feather="layers"></span>
-       Segundo trimestre
-     </a>
-   </li>
-   <li class="nav-item">
-     <a class="nav-link" href="trimestre3.php">
-       <span data-feather="layers"></span>
-       Tercer trimestre
-     </a>
-   </li>
-   <li class="nav-item">
-     <a class="nav-link" href="trimestre4.php">
-       <span data-feather="layers"></span>
-       Cuarto trimestre
-     </a>
-   </li> -->
  </ul>
 
  <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
@@ -170,7 +141,6 @@ if (isset($_SESSION['usr'])) {
           </div>
         </div>
         
-        
         <div class="btn-toolbar mb-2 mb-md-0">
           <div class="btn-group mr-2">
             <!-- <button type="button" class="btn btn-sm btn-outline-secondary">Reporte PDF</button>
@@ -180,7 +150,9 @@ if (isset($_SESSION['usr'])) {
         </div>
       </div>
 
-      <h2></h2>
+      <div class="container-fluid text-start mt-4">
+        <h3>Agregar actividad</h3>
+      </div>
 
       <!-- <hr style="color: dimgrey;"> -->
       <h2></h2>
@@ -217,7 +189,7 @@ if (isset($_SESSION['usr'])) {
                   <div class="col-12">
                     <div class="input-group mb-3">
                       <span class="input-group-text">Descripción de la actividad</span>
-                      <textarea class="form-control" aria-label="With textarea" name="descripcion" require></textarea>
+                      <textarea class="form-control" aria-label="With textarea" name="descripcion" required></textarea>
                     </div>
                   </div>
                   <div class="col-6">
@@ -257,21 +229,42 @@ if (isset($_SESSION['usr'])) {
                     </div>
                   </div>
                 </div>
-                
-
-
-
-
-
-
+        
                 <button type="submit" class="btn btn-primary"><i class="fas fa-save"></i> Guardar actividad</button>
                 <a href="javascript:history.back()" type="submit" class="btn btn-danger"><i class="far fa-times-circle"></i> Cancelar</a>
             </form>
         
 
             </div> <!-- div container -->
+            <hr>
+            <div class="container-fluid text-start mt-4">
+              <h3>Actividades agregadas</h3>
+            </div>
 
+            <div class="table-responsive">
+          
+                <table class="table table-bordered table-hover table-striped table-md" style="text-align: center;">
+                <thead class="bg-dark text-light">
+                    <tr>
+                      <th scope="col">#</th>
+                      <th scope="col">Nombre de la actividad</th>
+                      <th scope="col">Responsable</th>
+                      <th scope="col">Descripción</th>
+                      <th scope="col">Trimestre</th>
+                      <th scope="col">Año</th>
+                      <th scope="col">Fecha de inicio</th>
+                      <th scope="col">Fecha de finalización</th>
+                      <th scope="col">% Avance</th>
+                      <th scope="col">Medio Verificación</th>
+                    </tr>
+                  </thead>
+                  <tbody id="actividad">
+                    
+                  
+                  </tbody>
+                </table>
 
+            </div> <!-- div table-responsive -->
             
       
 
@@ -281,9 +274,9 @@ if (isset($_SESSION['usr'])) {
     </main>
   </div>
 </div>
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<!-- <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
       <script>window.jQuery || document.write('<script src="../assets/js/vendor/jquery.slim.min.js"><\/script>')</script><script src="css/bootstrap.bundle.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.9.0/feather.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.min.js"></script>
-        <script src="css/dashboard.js"></script></body>
+        <script src="css/dashboard.js"></script></body> -->
 </html>
