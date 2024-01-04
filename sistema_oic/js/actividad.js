@@ -184,3 +184,29 @@ function areaQuery(){
             }
         });
  }
+
+ function consultarActividad(id){
+    $.ajax({
+        type: "POST",
+        url: "query/query_consultar_actividad.php",
+        data:{ 
+            id:id
+        },
+        dataType: "json",
+        success: function(data) {
+            var jsonData = JSON.parse(JSON.stringify(data));
+            if(jsonData.success == 1){
+                document.getElementById('idEdit').value = jsonData.id;
+                document.getElementById('actividadEdit').value = jsonData.nombre;
+                document.getElementById('responsableEdit').value = jsonData.responsable;
+                document.getElementById('descripcionEdit').value = jsonData.descripcion;
+                document.getElementById('medio_verificacionEdit').value = jsonData.medio_verificacion;
+                document.getElementById('annioEdit').value = jsonData.annio;
+            }
+            else{
+                alert("No se agregó actividad");
+            }
+
+        }
+    });
+ }

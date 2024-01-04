@@ -161,14 +161,14 @@ if (isset($_SESSION['usr'])) {
           <input type="text" id="usr" value="<?php echo $_SESSION['id'] ?>" hidden>
 
             <div class="row">
-                  <div class="col-6">
+                  <div class="col-12">
                     <div class="form-group">
                         <label for="exampleInputEmail1">Nombre de la actividad</label>
                         <input type="text" class="form-control" id="nombre_actv" aria-describedby="Text" name="actividad" REQUIRED>
                         <small id="emailHelp" class="form-text text-muted">Agregar la actividad para tu perfil.</small>
                     </div>
                   </div>
-                  <div class="col-6">
+                  <div class="col-12">
                     <div class="form-group">
                         <label for="responsable">Seleccionar responsable de la actividad</label>
                         <select class="form-control" id="responsable" name="usr" REQUIRED>
@@ -192,7 +192,7 @@ if (isset($_SESSION['usr'])) {
                       <textarea class="form-control" aria-label="With textarea" name="descripcion" id="descripcion" required></textarea>
                     </div>
                   </div>
-                  <div class="col-6">
+                  <div class="col-12">
                     <div class="form-group" >
                         <label for="exampleFormControlSelect1">Seleccionar medio de verificación</label>
                         <select class="form-control" id="medio_verificacion" name="medio_verificacion" REQUIRED>
@@ -210,7 +210,7 @@ if (isset($_SESSION['usr'])) {
                         </select>
                     </div>
                   </div>
-                  <div class="col-6">
+                  <div class="col-12">
                     <div class="form-group" >
                         <label for="exampleFormControlSelect1">Seleccionar año</label>
                         <select class="form-control" id="annio" name="annio" REQUIRED>
@@ -273,9 +273,100 @@ if (isset($_SESSION['usr'])) {
     </main>
   </div>
 </div>
-<!-- <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-      <script>window.jQuery || document.write('<script src="../assets/js/vendor/jquery.slim.min.js"><\/script>')</script><script src="css/bootstrap.bundle.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.9.0/feather.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.min.js"></script>
-        <script src="css/dashboard.js"></script></body> -->
 </html>
+
+<!-- Modal editar -->
+<div class="modal fade" id="modalEditar" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Editar actividad</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+
+        <div class="container-fluid">
+
+          <input type="text" id="idEdit" hidden>
+          
+            <div class="row">
+                  <div class="col-12">
+                    <div class="form-group">
+                        <label for="actividadEdit">Nombre de la actividad</label>
+                        <input type="text" class="form-control" id="actividadEdit" aria-describedby="Text" name="actividadEdit" REQUIRED>
+                        <small id="emailHelp" class="form-text text-muted">Agregar la actividad para tu perfil.</small>
+                    </div>
+                  </div>
+                  <div class="col-12">
+                    <div class="form-group">
+                        <label for="responsable">Seleccionar responsable de la actividad</label>
+                        <select class="form-control" id="responsableEdit" name="responsableEdit" REQUIRED>
+                        <option value="">Seleccionar...</option>
+                        <?php
+                        $tabla="SELECT * FROM usr WHERE perfil = 1 ORDER BY id ASC";
+                        $resultadotabla = $conn->query($tabla);
+                        $numero=0;
+                        while($row = $resultadotabla->fetch_assoc()){
+                            $numero++;
+
+                                echo '<option value="'.($row['id'].'">'.$row['nombre']).'</option>';
+                        }
+                        ?> <!-- fin loop tabla -->
+                        </select>
+                    </div>
+                  </div>
+                  <div class="col-12">
+                    <div class="input-group mb-3">
+                      <span class="input-group-text">Descripción de la actividad</span>
+                      <textarea class="form-control" aria-label="With textarea" name="descripcionEdit" id="descripcionEdit" required></textarea>
+                    </div>
+                  </div>
+                  <div class="col-12">
+                    <div class="form-group" >
+                        <label for="exampleFormControlSelect1">Seleccionar medio de verificación</label>
+                        <select class="form-control" id="medio_verificacionEdit" name="medio_verificacionEdit" REQUIRED>
+                        <option value="">Seleccionar...</option>
+                        <?php
+                        $tabla="SELECT * FROM medio_verificacion ORDER BY id ASC";
+                        $resultadotabla = $conn->query($tabla);
+                        $numero=0;
+                        while($row = $resultadotabla->fetch_assoc()){
+                            $numero++;
+
+                                echo '<option value="'.($row['id'].'">'.$row['medio']).'</option>';
+                        }
+                        ?> <!-- fin loop tabla -->
+                        </select>
+                    </div>
+                  </div>
+                  <div class="col-12">
+                    <div class="form-group" >
+                        <label for="exampleFormControlSelect1">Seleccionar año</label>
+                        <select class="form-control" id="annioEdit" name="annioEdit" REQUIRED>
+                        <option value="">Seleccionar...</option>
+                        <?php
+                        $tabla="SELECT * FROM annio ORDER BY id ASC";
+                        $resultadotabla = $conn->query($tabla);
+                        $numero=0;
+                        while($row = $resultadotabla->fetch_assoc()){
+                            $numero++;
+
+                                echo '<option value="'.($row['annio'].'">'.$row['annio']).'</option>';
+                        }
+                        ?> <!-- fin loop tabla -->
+                        </select>
+                    </div>
+                  </div>
+                </div>
+
+        </div> <!-- div container --> 
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
+        <button type="button" class="btn btn-primary">Guardar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
