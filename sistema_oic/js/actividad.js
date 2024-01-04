@@ -210,3 +210,37 @@ function areaQuery(){
         }
     });
  }
+
+ function editarActividad(){
+    var id = document.getElementById('idEdit').value;
+    var nombre = document.getElementById('actividadEdit').value;
+    var responsable = document.getElementById('responsableEdit').value;
+    var descripcion = document.getElementById('descripcionEdit').value;
+    var medio_verificacion = document.getElementById('medio_verificacionEdit').value;
+    var annio = document.getElementById('annioEdit').value;
+    $.ajax({
+        type: "POST",
+        url: "prcd/proceso_editar_actividad.php",
+        data:{ 
+            id:id,
+            nombre:nombre,
+            responsable:responsable,
+            descripcion:descripcion,
+            medio_verificacion:medio_verificacion,
+            annio:annio
+        },
+        dataType: "json",
+        success: function(data) {
+            var jsonData = JSON.parse(JSON.stringify(data));
+            if(jsonData.success == 1){
+                alert("Se editó actividad");
+                $('#modalEditar').modal('hide'); 
+                queryActividad();
+            }
+            else{
+                alert("No se editó actividad");
+            }
+
+        }
+    });
+ }

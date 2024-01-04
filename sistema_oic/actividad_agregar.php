@@ -288,7 +288,7 @@ if (isset($_SESSION['usr'])) {
         <div class="container-fluid">
 
           <input type="text" id="idEdit" hidden>
-          
+
             <div class="row">
                   <div class="col-12">
                     <div class="form-group">
@@ -364,7 +364,7 @@ if (isset($_SESSION['usr'])) {
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
-        <button type="button" class="btn btn-primary">Guardar</button>
+        <button type="button" class="btn btn-primary" onclick="editarActividad()">Editar</button>
       </div>
     </div>
   </div>
