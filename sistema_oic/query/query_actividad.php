@@ -10,14 +10,18 @@ include ('../prcd/conn.php');
 
                     echo '<td><center>'.$numero.'</center></td>';
                     echo ('<td><center>'.$row['actividad'].'</center></td>');
-                    echo ('<td><center>'.$row['responsable'].'</center></td>');
+                    $responsable = $row['responsable'];
+                    $sqlR = "SELECT * FROM usr WHERE id = '$responsable'";
+                    $resultadoR = $conn->query($sqlR);
+                    $rowR = $resultadoR->fetch_assoc();
+                    echo ('<td><center>'.$rowR['nombre'].'</center></td>');
                     echo ('<td><center>'.$row['descripcion'].'</center></td>');
-                    echo ('<td><center>'.$row['trimestre'].'</center></td>');
+                    $medioV = $row['medio_verificacion'];
+                    $queryV = "SELECT * FROM medio_verificacion WHERE id = '$medioV'";
+                    $resultadoV = $conn->query($queryV);
+                    $rowV = $resultadoV->fetch_assoc();
+                    echo ('<td><center>'.$rowV['medio'].'</center></td>');
                     echo ('<td><center>'.$row['annio'].'</center></td>');
-                    echo ('<td><center>'.$row['fecha_inicio'].'</center></td>');
-                    echo ('<td><center>'.$row['fecha_final'].'</center></td>');
-                    echo ('<td><center>'.$row['porcentaje'].'</center></td>');
-                    echo ('<td><center>'.$row['medio_verificacion'].'</center></td>');
                     
                     
                 echo '</tr>';

@@ -248,12 +248,8 @@ if (isset($_SESSION['usr'])) {
                       <th scope="col">Nombre de la actividad</th>
                       <th scope="col">Responsable</th>
                       <th scope="col">Descripción</th>
-                      <th scope="col">Trimestre</th>
-                      <th scope="col">Año</th>
-                      <th scope="col">Fecha de inicio</th>
-                      <th scope="col">Fecha de finalización</th>
-                      <th scope="col">% Avance</th>
                       <th scope="col">Medio Verificación</th>
+                      <th scope="col">Año</th>
                     </tr>
                   </thead>
                   <tbody id="actividad">
