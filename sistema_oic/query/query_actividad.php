@@ -24,13 +24,13 @@ include ('../prcd/conn.php');
                     echo '<td class="text-center">'.$row['annio'].'</td>';
                     echo '<td class="text-center"><a href="" data-bs-toggle="modal" data-bs-target="#modalEditar" onclick="consultarActividad('.$row['id'].')"><i class="bi bi-pencil-square"></i></a></td>';
                     if($row['estatus'] == 0 || $row['estatus'] == NULL){
-                        echo '<td class="text-center"><i class="bi bi-caret-down-square-fill text-danger"></i></td>';
+                        echo '<td class="text-center"><a href="" data-bs-toggle="modal" data-bs-target="#modalEstatus"><i class="bi bi-caret-down-square-fill text-danger"></i></a></td>';
                     }
                     else if($row['estatus'] == 1){
                         echo '<td class="text-center"><a href="" data-bs-toggle="modal" data-bs-target="#modalEstatus"><i class="bi bi-caret-up-square-fill text-success"></i></a></td>';
                     }
                     
-                    echo '<td class="text-center"><i class="bi bi-trash3-fill text-danger"></i></td>';
+                    echo '<td class="text-center"><a href="" data-bs-toggle="modal" data-bs-target="#modalEliminar" onclick="eliminarActividad('.$row['id'].')"><i class="bi bi-trash3-fill text-danger"></i></a></td>';
                     
                 echo '</tr>';
             
