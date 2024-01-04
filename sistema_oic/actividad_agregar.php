@@ -370,3 +370,98 @@ if (isset($_SESSION['usr'])) {
   </div>
 </div>
 
+<!-- Modal estatus -->
+<div class="modal fade" id="modalEstatus" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Cambiar estatus</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+
+        <div class="container-fluid">
+
+          <input type="text" id="idEdit" hidden>
+
+            <div class="row">
+                  <div class="col-12">
+                    <div class="form-group">
+                        <label for="actividadEdit">Nombre de la actividad</label>
+                        <input type="text" class="form-control" id="actividadEdit" aria-describedby="Text" name="actividadEdit" REQUIRED>
+                        <small id="emailHelp" class="form-text text-muted">Agregar la actividad para tu perfil.</small>
+                    </div>
+                  </div>
+                  <div class="col-12">
+                    <div class="form-group">
+                        <label for="responsable">Seleccionar responsable de la actividad</label>
+                        <select class="form-control" id="responsableEdit" name="responsableEdit" REQUIRED>
+                        <option value="">Seleccionar...</option>
+                        <?php
+                        $tabla="SELECT * FROM usr WHERE perfil = 1 ORDER BY id ASC";
+                        $resultadotabla = $conn->query($tabla);
+                        $numero=0;
+                        while($row = $resultadotabla->fetch_assoc()){
+                            $numero++;
+
+                                echo '<option value="'.($row['id'].'">'.$row['nombre']).'</option>';
+                        }
+                        ?> <!-- fin loop tabla -->
+                        </select>
+                    </div>
+                  </div>
+                  <div class="col-12">
+                    <div class="input-group mb-3">
+                      <span class="input-group-text">Descripción de la actividad</span>
+                      <textarea class="form-control" aria-label="With textarea" name="descripcionEdit" id="descripcionEdit" required></textarea>
+                    </div>
+                  </div>
+                  <div class="col-12">
+                    <div class="form-group" >
+                        <label for="exampleFormControlSelect1">Seleccionar medio de verificación</label>
+                        <select class="form-control" id="medio_verificacionEdit" name="medio_verificacionEdit" REQUIRED>
+                        <option value="">Seleccionar...</option>
+                        <?php
+                        $tabla="SELECT * FROM medio_verificacion ORDER BY id ASC";
+                        $resultadotabla = $conn->query($tabla);
+                        $numero=0;
+                        while($row = $resultadotabla->fetch_assoc()){
+                            $numero++;
+
+                                echo '<option value="'.($row['id'].'">'.$row['medio']).'</option>';
+                        }
+                        ?> <!-- fin loop tabla -->
+                        </select>
+                    </div>
+                  </div>
+                  <div class="col-12">
+                    <div class="form-group" >
+                        <label for="exampleFormControlSelect1">Seleccionar año</label>
+                        <select class="form-control" id="annioEdit" name="annioEdit" REQUIRED>
+                        <option value="">Seleccionar...</option>
+                        <?php
+                        $tabla="SELECT * FROM annio ORDER BY id ASC";
+                        $resultadotabla = $conn->query($tabla);
+                        $numero=0;
+                        while($row = $resultadotabla->fetch_assoc()){
+                            $numero++;
+
+                                echo '<option value="'.($row['annio'].'">'.$row['annio']).'</option>';
+                        }
+                        ?> <!-- fin loop tabla -->
+                        </select>
+                    </div>
+                  </div>
+                </div>
+
+        </div> <!-- div container --> 
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
+        <button type="button" class="btn btn-primary" onclick="editarActividad()">Editar</button>
+      </div>
+    </div>
+  </div>
+</div>
+

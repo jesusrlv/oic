@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost
--- Tiempo de generación: 03-01-2024 a las 22:39:41
+-- Tiempo de generación: 04-01-2024 a las 20:11:27
 -- Versión del servidor: 10.4.21-MariaDB
 -- Versión de PHP: 7.4.28
 
@@ -51,32 +51,33 @@ CREATE TABLE `actividad` (
   `observaciones` varchar(300) COLLATE utf8_unicode_ci DEFAULT NULL,
   `observaciones2` varchar(300) COLLATE utf8_unicode_ci DEFAULT NULL,
   `observaciones3` varchar(300) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `observaciones4` varchar(300) COLLATE utf8_unicode_ci DEFAULT NULL
+  `observaciones4` varchar(300) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `estatus` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Volcado de datos para la tabla `actividad`
 --
 
-INSERT INTO `actividad` (`id`, `actividad`, `responsable`, `descripcion`, `medio_verificacion`, `porcentaje`, `porcentaje2`, `porcentaje3`, `porcentaje4`, `fecha_inicio`, `fecha_final`, `fecha_inicio2`, `fecha_final2`, `fecha_inicio3`, `fecha_final3`, `fecha_inicio4`, `fecha_final4`, `trimestre`, `annio`, `hora_registro`, `observaciones`, `observaciones2`, `observaciones3`, `observaciones4`) VALUES
-(1, 'Curso informativos de inducción', 5, 'Curso informativos de inducción', 1, 0, 0, 0, 0, '0000-00-00', '0000-00-00', '0000-00-00', '0000-00-00', '0000-00-00', '0000-00-00', '0000-00-00', '0000-00-00', 1, 2, '0000-00-00 00:00:00', '', NULL, NULL, NULL),
-(2, 'Notificación oficial al empleado y al área correspondiente sobre los movimientos generados en el personal del instituto.', 6, 'Notificación oficial al empleado y al área correspondiente sobre los movimientos generados en el personal del instituto.', 2, 0, 0, 0, 0, '0000-00-00', '0000-00-00', '0000-00-00', '0000-00-00', '0000-00-00', '0000-00-00', '0000-00-00', '0000-00-00', 1, 2, '0000-00-00 00:00:00', '', NULL, NULL, NULL),
-(3, 'Creación de software para el seguimiento de control operativo y financiero de las actividades del instituto.', 7, 'Creación de software para el seguimiento de control operativo y financiero de las actividades del instituto.', 3, 0, 0, 0, 0, '0000-00-00', '0000-00-00', '0000-00-00', '0000-00-00', '0000-00-00', '0000-00-00', '0000-00-00', '0000-00-00', 1, 1, '0000-00-00 00:00:00', '', NULL, NULL, NULL),
-(4, 'Actualización del manual de procedimientos conforme a la operatividad financiera de las actividades del instituto.', 6, 'Actualización del manual de procedimientos conforme a la operatividad financiera de las actividades del instituto.', 4, 0, 0, 0, 0, '0000-00-00', '0000-00-00', '0000-00-00', '0000-00-00', '0000-00-00', '0000-00-00', '0000-00-00', '0000-00-00', 1, 2, '0000-00-00 00:00:00', '', NULL, NULL, NULL),
-(5, 'Diagnóstico al personal sonre el manual de procedimientos.', 8, 'Diagnóstico al personal sonre el manual de procedimientos.', 11, 0, 0, 0, 0, '0000-00-00', '0000-00-00', '0000-00-00', '0000-00-00', '0000-00-00', '0000-00-00', '0000-00-00', '0000-00-00', 1, 2, '0000-00-00 00:00:00', '', NULL, NULL, NULL),
-(6, 'Método de control y seguimiento a programas sociales vulnerables a la corrupción interna y externa.', 9, 'Método de control y seguimiento a programas sociales vulnerables a la corrupción interna y externa.', 5, 0, 0, 0, 0, '0000-00-00', '0000-00-00', '0000-00-00', '0000-00-00', '0000-00-00', '0000-00-00', '0000-00-00', '0000-00-00', 1, 2, '0000-00-00 00:00:00', '', NULL, NULL, NULL),
-(7, 'Reporte presupuestal mensual para toma de decisiones.', 10, 'Reporte presupuestal mensual para toma de decisiones.', 6, 0, 0, 0, 0, '0000-00-00', '0000-00-00', '2024-01-04', '2024-01-04', '2024-01-09', '2024-01-24', '0000-00-00', '0000-00-00', 1, 2, '0000-00-00 00:00:00', '', NULL, NULL, NULL),
-(8, 'Emisión de boletín mensual anticipando las convocatorias y actividades relevantes.', 11, 'Emisión de boletín mensual anticipando las convocatorias y actividades relevantes.', 7, 0, 0, 0, 0, '0000-00-00', '0000-00-00', '0000-00-00', '0000-00-00', '0000-00-00', '0000-00-00', '0000-00-00', '0000-00-00', 1, 2, '0000-00-00 00:00:00', '', NULL, NULL, NULL),
-(9, 'Encuesta de clima organizacional', 5, 'Encuesta de clima organizacional', 8, 0, 0, 0, 0, '0000-00-00', '0000-00-00', '0000-00-00', '0000-00-00', '0000-00-00', '0000-00-00', '0000-00-00', '0000-00-00', 1, 2, '0000-00-00 00:00:00', '', NULL, NULL, NULL),
-(10, 'Realizar diagnóstico sobre las necesidades de capacitación', 5, 'Realizar diagnóstico sobre las necesidades de capacitación', 9, 0, 0, 0, 0, '0000-00-00', '0000-00-00', '0000-00-00', '0000-00-00', '0000-00-00', '0000-00-00', '0000-00-00', '0000-00-00', 1, 2, '0000-00-00 00:00:00', '', NULL, NULL, NULL),
-(11, 'Diagnóstico a los eventos públicos del instituto de manera previa y posterior en cuanto a su resultado de operación', 12, 'Diagnóstico a los eventos públicos del instituto de manera previa y posterior en cuanto a su resultado de operación', 10, 0, 0, 0, 0, '0000-00-00', '0000-00-00', '0000-00-00', '0000-00-00', '0000-00-00', '0000-00-00', '0000-00-00', '0000-00-00', 1, 2, '0000-00-00 00:00:00', '', NULL, NULL, NULL),
-(25, 'Nombre de actividad de prueba', 3, 'Una actividad de grupo', 7, 0, 0, 0, 0, '0000-00-00', '0000-00-00', '0000-00-00', '0000-00-00', '0000-00-00', '0000-00-00', '0000-00-00', '0000-00-00', 2, 1, '0000-00-00 00:00:00', '', NULL, NULL, NULL),
-(27, 'Una actividad', 7, 'ddd', 11, 0, 0, 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 4, '2023-12-28 18:21:12', NULL, NULL, NULL, NULL),
-(28, 'ACT X', 10, 'SSS', 1, 0, 0, 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 4, '2024-01-01 19:33:23', NULL, NULL, NULL, NULL),
-(29, 'xxxxx', 10, 'xxxxxx', 7, 0, 0, 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 2020, '2024-01-03 00:45:50', NULL, NULL, NULL, NULL),
-(30, 'dddd', 10, 'ddddd', 11, 0, 0, 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 2024, '2024-01-03 00:46:34', NULL, NULL, NULL, NULL),
-(31, 'sdads', 7, 'd', 3, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 2021, '2024-01-03 13:53:24', NULL, NULL, NULL, NULL),
-(32, 'Nueva actividad', 5, 'acabar actividad de OIC', 3, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 2024, '2024-01-03 13:54:12', NULL, NULL, NULL, NULL);
+INSERT INTO `actividad` (`id`, `actividad`, `responsable`, `descripcion`, `medio_verificacion`, `porcentaje`, `porcentaje2`, `porcentaje3`, `porcentaje4`, `fecha_inicio`, `fecha_final`, `fecha_inicio2`, `fecha_final2`, `fecha_inicio3`, `fecha_final3`, `fecha_inicio4`, `fecha_final4`, `trimestre`, `annio`, `hora_registro`, `observaciones`, `observaciones2`, `observaciones3`, `observaciones4`, `estatus`) VALUES
+(1, 'Curso informativos de inducción', 5, 'Curso informativos de inducción', 1, 0, 0, 0, 0, '0000-00-00', '0000-00-00', '0000-00-00', '0000-00-00', '0000-00-00', '0000-00-00', '0000-00-00', '0000-00-00', 1, 2, '0000-00-00 00:00:00', '', NULL, NULL, NULL, 1),
+(2, 'Notificación oficial al empleado y al área correspondiente sobre los movimientos generados en el personal del instituto.', 6, 'Notificación oficial al empleado y al área correspondiente sobre los movimientos generados en el personal del instituto.', 2, 0, 0, 0, 0, '0000-00-00', '0000-00-00', '0000-00-00', '0000-00-00', '0000-00-00', '0000-00-00', '0000-00-00', '0000-00-00', 1, 2, '0000-00-00 00:00:00', '', NULL, NULL, NULL, 0),
+(3, 'Creación de software para el seguimiento de control operativo y financiero de las actividades del instituto.', 7, 'Creación de software para el seguimiento de control operativo y financiero de las actividades del instituto.', 3, 0, 0, 0, 0, '0000-00-00', '0000-00-00', '0000-00-00', '0000-00-00', '0000-00-00', '0000-00-00', '0000-00-00', '0000-00-00', 1, 1, '0000-00-00 00:00:00', '', NULL, NULL, NULL, 0),
+(4, 'Actualización del manual de procedimientos conforme a la operatividad financiera de las actividades del instituto.', 6, 'Actualización del manual de procedimientos conforme a la operatividad financiera de las actividades del instituto.', 4, 0, 0, 0, 0, '0000-00-00', '0000-00-00', '0000-00-00', '0000-00-00', '0000-00-00', '0000-00-00', '0000-00-00', '0000-00-00', 1, 2, '0000-00-00 00:00:00', '', NULL, NULL, NULL, 0),
+(5, 'Diagnóstico al personal sonre el manual de procedimientos.', 8, 'Diagnóstico al personal sonre el manual de procedimientos.', 11, 0, 0, 0, 0, '0000-00-00', '0000-00-00', '0000-00-00', '0000-00-00', '0000-00-00', '0000-00-00', '0000-00-00', '0000-00-00', 1, 2, '0000-00-00 00:00:00', '', NULL, NULL, NULL, 0),
+(6, 'Método de control y seguimiento a programas sociales vulnerables a la corrupción interna y externa.', 9, 'Método de control y seguimiento a programas sociales vulnerables a la corrupción interna y externa.', 5, 0, 0, 0, 0, '0000-00-00', '0000-00-00', '0000-00-00', '0000-00-00', '0000-00-00', '0000-00-00', '0000-00-00', '0000-00-00', 1, 2, '0000-00-00 00:00:00', '', NULL, NULL, NULL, 0),
+(7, 'Reporte presupuestal mensual para toma de decisiones.', 10, 'Reporte presupuestal mensual para toma de decisiones.', 6, 0, 0, 0, 0, '0000-00-00', '0000-00-00', '2024-01-04', '2024-01-04', '2024-01-09', '2024-01-24', '0000-00-00', '0000-00-00', 1, 2, '0000-00-00 00:00:00', '', NULL, NULL, NULL, 0),
+(8, 'Emisión de boletín mensual anticipando las convocatorias y actividades relevantes.', 11, 'Emisión de boletín mensual anticipando las convocatorias y actividades relevantes.', 7, 0, 0, 0, 0, '0000-00-00', '0000-00-00', '0000-00-00', '0000-00-00', '0000-00-00', '0000-00-00', '0000-00-00', '0000-00-00', 1, 2, '0000-00-00 00:00:00', '', NULL, NULL, NULL, 0),
+(9, 'Encuesta de clima organizacional', 5, 'Encuesta de clima organizacional', 8, 0, 0, 0, 0, '0000-00-00', '0000-00-00', '0000-00-00', '0000-00-00', '0000-00-00', '0000-00-00', '0000-00-00', '0000-00-00', 1, 2, '0000-00-00 00:00:00', '', NULL, NULL, NULL, 0),
+(10, 'Realizar diagnóstico sobre las necesidades de capacitación', 5, 'Realizar diagnóstico sobre las necesidades de capacitación', 9, 0, 0, 0, 0, '0000-00-00', '0000-00-00', '0000-00-00', '0000-00-00', '0000-00-00', '0000-00-00', '0000-00-00', '0000-00-00', 1, 2, '0000-00-00 00:00:00', '', NULL, NULL, NULL, 0),
+(11, 'Diagnóstico a los eventos públicos del instituto de manera previa y posterior en cuanto a su resultado de operación', 12, 'Diagnóstico a los eventos públicos del instituto de manera previa y posterior en cuanto a su resultado de operación', 10, 0, 0, 0, 0, '0000-00-00', '0000-00-00', '0000-00-00', '0000-00-00', '0000-00-00', '0000-00-00', '0000-00-00', '0000-00-00', 1, 2, '0000-00-00 00:00:00', '', NULL, NULL, NULL, 0),
+(25, 'Nombre de actividad de prueba', 3, 'Una actividad de grupo', 7, 0, 0, 0, 0, '0000-00-00', '0000-00-00', '0000-00-00', '0000-00-00', '0000-00-00', '0000-00-00', '0000-00-00', '0000-00-00', 2, 1, '0000-00-00 00:00:00', '', NULL, NULL, NULL, 0),
+(27, 'Una actividad', 7, 'ddd', 11, 0, 0, 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 4, '2023-12-28 18:21:12', NULL, NULL, NULL, NULL, 0),
+(28, 'Elaboración de estados financieros', 7, 'Plan anual', 5, 0, 0, 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 2023, '2024-01-01 19:33:23', NULL, NULL, NULL, NULL, 0),
+(29, 'xxxxx', 10, 'xxxxxx', 7, 0, 0, 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 2020, '2024-01-03 00:45:50', NULL, NULL, NULL, NULL, 0),
+(30, 'Desarrollo web', 10, 'Programación', 8, 0, 0, 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 2021, '2024-01-03 00:46:34', NULL, NULL, NULL, NULL, 0),
+(31, 'sdads', 7, 'd', 3, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 2021, '2024-01-03 13:53:24', NULL, NULL, NULL, NULL, 0),
+(32, 'Actividad en municipios', 6, 'Envío de boletines', 7, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 2024, '2024-01-03 13:54:12', NULL, NULL, NULL, NULL, 1);
 
 -- --------------------------------------------------------
 

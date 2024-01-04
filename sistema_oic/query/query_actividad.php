@@ -27,7 +27,7 @@ include ('../prcd/conn.php');
                         echo '<td class="text-center"><i class="bi bi-caret-down-square-fill text-danger"></i></td>';
                     }
                     else if($row['estatus'] == 1){
-                        echo '<td class="text-center"><i class="bi bi-caret-up-square-fill text-success"></i></td>';
+                        echo '<td class="text-center"><a href="" data-bs-toggle="modal" data-bs-target="#modalEstatus"><i class="bi bi-caret-up-square-fill text-success"></i></a></td>';
                     }
                     
                     echo '<td class="text-center"><i class="bi bi-trash3-fill text-danger"></i></td>';
