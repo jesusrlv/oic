@@ -42,6 +42,8 @@ if (isset($_SESSION['usr'])) {
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
 
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
     <script src="https://kit.fontawesome.com/4d63b5ef28.js" crossorigin="anonymous"></script>
 
     <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script> 
@@ -241,7 +243,7 @@ if (isset($_SESSION['usr'])) {
 
             <div class="table-responsive">
           
-                <table class="table table-bordered table-hover table-striped table-md" style="text-align: center;">
+                <table class="table table-bordered table-hover table-striped table-md align-middle" style="text-align: center;">
                 <thead class="bg-dark text-light">
                     <tr>
                       <th scope="col">#</th>
@@ -250,6 +252,9 @@ if (isset($_SESSION['usr'])) {
                       <th scope="col">Descripción</th>
                       <th scope="col">Medio Verificación</th>
                       <th scope="col">Año</th>
+                      <th scope="col">Editar</th>
+                      <th scope="col">Alta/Baja</th>
+                      <th scope="col">Eliminar</th>
                     </tr>
                   </thead>
                   <tbody id="actividad">

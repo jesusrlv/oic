@@ -22,6 +22,9 @@ include ('../prcd/conn.php');
                     $rowV = $resultadoV->fetch_assoc();
                     echo ('<td><center>'.$rowV['medio'].'</center></td>');
                     echo ('<td><center>'.$row['annio'].'</center></td>');
+                    echo '<td><center><i class="bi bi-pencil-square"></i></center></td>';
+                    echo '<td><center><i class="bi bi-caret-down-square-fill"></i></center></td>';
+                    echo '<td><center><i class="bi bi-trash3-fill"></i></center></td>';
                     
                     
                 echo '</tr>';
