@@ -120,21 +120,21 @@ $nombre = $_SESSION['nombre'];
           </span>
         </h6>
         <hr style="color: dimgrey;">
-<ul class="nav flex-column">
-    <li class="nav-item">
-        <a class="nav-link active" href="#">
-       <i class="fas fa-laptop-house"></i> 
-       Inicio <span class="sr-only">(current)</span>
-     </a>
-   </li>
-  
-    <li class="nav-item">
-      <a class="nav-link" href="modificar.php">
-        <i class="bi bi-app-indicator"></i>
-       Modificar
-     </a>
-   </li>
- </ul>  
+        <ul class="nav flex-column">
+            <li class="nav-item">
+                <a class="nav-link active" href="#">
+              <i class="fas fa-laptop-house"></i> 
+              Inicio <span class="sr-only">(current)</span>
+            </a>
+          </li>
+          
+            <li class="nav-item">
+              <a class="nav-link" href="modificar.php">
+                <i class="bi bi-app-indicator"></i>
+              Modificar
+            </a>
+          </li>
+        </ul>  
       </div>
     </nav>
 
@@ -239,8 +239,6 @@ $nombre = $_SESSION['nombre'];
                 <button type="button" class="btn btn-primary" onclick="agregarActividad2()"><i class="fas fa-save"></i> Guardar actividad</button>
                 <a href="javascript:history.back()" type="submit" class="btn btn-danger"><i class="far fa-times-circle"></i> Cancelar</a>
      
-        
-
             </div> <!-- div container -->
             <hr>
             <div class="container-fluid text-start mt-4">
@@ -271,10 +269,7 @@ $nombre = $_SESSION['nombre'];
 
             </div> <!-- div table-responsive -->
             
-      
-
       </div>
-
 
     </main>
   </div>

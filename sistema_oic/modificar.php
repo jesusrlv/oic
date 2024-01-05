@@ -42,7 +42,7 @@ $nombre = $_SESSION['nombre'];
     <meta name="generator" content="">
     <title>Dashboard | OIC</title>
 
-    <link rel="icon" type="image/png" href="img/icon.ico"/>
+    <link rel="icon" type="image/png" href="../icon.ico"/>
     <link rel="canonical" href="https://getbootstrap.com/docs/4.5/examples/dashboard/">
     <script src="https://kit.fontawesome.com/4d63b5ef28.js" crossorigin="anonymous"></script>
 
@@ -107,7 +107,7 @@ $nombre = $_SESSION['nombre'];
             bienvenido<br><i class="fas fa-user"></i> 
             <?php
             
-            echo ($nombre);
+              echo ($nombre);
             
             ?>
           </span>
@@ -135,7 +135,7 @@ $nombre = $_SESSION['nombre'];
       <div class="alert alert-primary mt-3 text-center" role="alert">
       <i class="bi bi-app-indicator"></i> <strong>Opciones para editar el sistema</strong>
       </div>
-      <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+      <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-2 border-bottom">
         <div class="btn-toolbar mb-2 mb-md-0">
           <div class="btn-group mr-2">
             <!-- <button type="button" class="btn btn-sm btn-outline-secondary">Reporte PDF</button>
@@ -187,16 +187,7 @@ $nombre = $_SESSION['nombre'];
               </div>
             </div>
           </div>
-          <div class="col mb-4">
-            <div class="card text-white bg-dark mb-6" style="max-width: 36rem;height: 27rem;">
-              <div class="card-header">Opción para editar:</div>
-              <div class="card-body"><br><br><br>
-                <h1 class="card-title">Usuarios</h1>
-                <p class="card-text">Agregar usuarios del sistema.</p>
-                <p><a href="usuario_agregar.php" type="button" class="btn btn-warning"><i class="fas fa-edit"></i> Editar...</a></p>
-              </div>
-            </div>
-          </div>
+          
       </div> <!-- container -->
       
       </div>

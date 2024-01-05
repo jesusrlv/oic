@@ -32,3 +32,17 @@ function tablero(){
         });
     }   
 }
+
+function datosPrincipales(annio){
+    $.ajax({
+        type: "POST",
+        url: "query/query_tablero.php",
+        data: {
+            annio:annio
+        },
+        dataType: "html",
+        success: function(data) {
+            $('#resultadoTablero').fadeIn(1000).html(data)
+        }
+    });
+}
