@@ -244,3 +244,49 @@ function areaQuery(){
         }
     });
  }
+
+ function editarEstatus(estatus){
+    if(estatus == 1){
+        var idEstatus = document.getElementById('valorId0').value;
+    }else if(estatus == 0){
+        var idEstatus = document.getElementById('valorId1').value; 
+    }
+   
+    $.ajax({
+        type: "POST",
+        url: "prcd/proceso_editar_estatus.php",
+        data:{ 
+            estatus:estatus,
+            idEstatus:idEstatus
+        },
+        dataType: "json",
+        success: function(data) {
+            var jsonData = JSON.parse(JSON.stringify(data));
+            if(jsonData.success == 1){
+                alert("Se editó el estatus");
+                if(estatus == 1){
+                    $('#modalEstatus0').modal('hide'); 
+                }else{
+                    $('#modalEstatus1').modal('hide'); 
+                }
+                queryActividad();
+            }
+            else{
+                alert("No se editó el estatus");
+            }
+
+        }
+    });
+ }
+
+ function mostrarModal(estatus,id){
+    
+    if(estatus == 1){
+        $('#modalEstatus0').modal('show');
+        document.getElementById('valorId0').value = id; 
+    }else{
+        $('#modalEstatus1').modal('show'); 
+        document.getElementById('valorId1').value = id; 
+    }
+
+ }

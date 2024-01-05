@@ -31,7 +31,7 @@ if (isset($_SESSION['usr'])) {
 <html lang="es">
   <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
     <meta name="generator" content="">
@@ -243,21 +243,21 @@ if (isset($_SESSION['usr'])) {
 
             <div class="table-responsive">
           
-                <table class="table table-bordered table-hover table-striped table-md align-middle" style="text-align: center;">
+                <table class="table table-bordered table-hover table-striped table-md" style="text-align: center;">
                 <thead class="bg-dark text-light">
                     <tr>
-                      <th scope="col">#</th>
-                      <th scope="col">Nombre de la actividad</th>
-                      <th scope="col">Responsable</th>
-                      <th scope="col">Descripción</th>
-                      <th scope="col">Medio Verificación</th>
-                      <th scope="col">Año</th>
-                      <th scope="col">Editar</th>
-                      <th scope="col">Alta/Baja</th>
-                      <th scope="col">Eliminar</th>
+                      <th scope="col" class="align-middle">#</th>
+                      <th scope="col" class="align-middle">Nombre de la actividad</th>
+                      <th scope="col" class="align-middle">Responsable</th>
+                      <th scope="col" class="align-middle">Descripción</th>
+                      <th scope="col" class="align-middle">Medio Verificación</th>
+                      <th scope="col" class="align-middle">Año</th>
+                      <th scope="col" class="align-middle">Editar</th>
+                      <th scope="col" class="align-middle">Alta/Baja</th>
+                      <th scope="col" class="align-middle">Eliminar</th>
                     </tr>
                   </thead>
-                  <tbody id="actividad">
+                  <tbody class="align-middle" id="actividad">
                     
                   
                   </tbody>
@@ -370,8 +370,8 @@ if (isset($_SESSION['usr'])) {
   </div>
 </div>
 
-<!-- Modal estatus -->
-<div class="modal fade bg-warning" id="modalEstatus" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<!-- Modal estatus 0-->
+<div class="modal fade bg-warning" id="modalEstatus0" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
       <div class="modal-header">
@@ -379,13 +379,35 @@ if (isset($_SESSION['usr'])) {
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-
-        <h3 class="text-center">¿Desea cambiar el estatus?</h3>
+        <input type="text" name="" id="valorId0" hidden>
+        <h3 class="text-center">¿Desea cambiar el estatus? Dar de alta</h3>
 
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
-        <button type="button" class="btn btn-primary" onclick="editarActividad()">Cambiar estatus</button>
+        <button type="button" class="btn btn-primary" onclick="editarEstatus(1)">Cambiar estatus</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Modal estatus 1-->
+<div class="modal fade bg-warning" id="modalEstatus1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title fs-5" id="exampleModalLabel">Cambiar estatus</h4>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <input type="text" id="valEstatus" hidden>
+        <input type="text" name="" id="valorId1" hidden>
+
+        <h3 class="text-center">¿Desea cambiar el estatus? Dar de baja</h3>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
+        <button type="button" class="btn btn-primary" onclick="editarEstatus(0)">Cambiar estatus</button>
       </div>
     </div>
   </div>
