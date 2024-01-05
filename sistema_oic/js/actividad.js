@@ -290,3 +290,33 @@ function areaQuery(){
     }
 
  }
+
+ function previoEliminar(id){
+    $('#modalEliminar').modal('show');
+    document.getElementById('idEliminar').value = id;
+ }
+
+ function eliminarActividad(){
+    var id = document.getElementById('idEliminar').value;
+
+    $.ajax({
+        type: "POST",
+        url: "prcd/proceso_eliminar_actividad.php",
+        data:{ 
+            id:id
+        },
+        dataType: "json",
+        success: function(data) {
+            var jsonData = JSON.parse(JSON.stringify(data));
+            if(jsonData.success == 1){
+                alert("Se eliminó la actividad");
+                $('#modalEliminar').modal('hide');
+                queryActividad();
+            }
+            else{
+                alert("No se eliminó la actividad");
+            }
+
+        }
+    });
+ }

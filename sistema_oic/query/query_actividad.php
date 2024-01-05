@@ -32,7 +32,7 @@ include ('../prcd/conn.php');
                         
                     }
                     
-                    echo '<td class="text-center align-middle"><a href="" data-bs-toggle="modal" data-bs-target="#modalEliminar" onclick="eliminarActividad('.$row['id'].')"><i class="bi bi-trash3-fill text-danger"></i></a></td>';
+                    echo '<td class="text-center align-middle"><a onclick="previoEliminar('.$row['id'].')"><i class="bi bi-trash3-fill text-danger"></i></a></td>';
                     
                 echo '</tr>';
             

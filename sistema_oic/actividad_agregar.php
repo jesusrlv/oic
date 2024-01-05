@@ -422,13 +422,14 @@ if (isset($_SESSION['usr'])) {
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-
+        <input type="text" name="" id="idEliminar" hidden>
         <h3 class="text-center">¿Desea eliminar la actividad?</h3>
+        <p><h5>Se eliminarán todos los documentos en los perfiles asignados a esta actividad</h5></p>
 
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
-        <button type="button" class="btn btn-primary" onclick="editarActividad()">Eliminar</button>
+        <button type="button" class="btn btn-primary" onclick="eliminarActividad()">Eliminar</button>
       </div>
     </div>
   </div>
