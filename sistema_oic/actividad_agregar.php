@@ -25,6 +25,12 @@ if (isset($_SESSION['usr'])) {
     header('Location: prcd/sort.php');
     die();
 }
+// variables de sesión
+
+$usuario = $_SESSION['usr'];
+$id = $_SESSION['id'];
+$perfil = $_SESSION['perfil'];
+$nombre = $_SESSION['nombre'];
 ?>
 
 <!doctype html>
@@ -102,33 +108,33 @@ if (isset($_SESSION['usr'])) {
       
             </li>
         </ul>
-<hr>
+        <hr style="color: dimgrey;">
+        <h6 class="sidebar-heading d-flex justify-content-center text-center align-items-center px-3 mt-2 mb-1 text-muted">
+          <span class="">
+            bienvenido<br><i class="fas fa-user"></i> 
+            <?php
+            
+            echo ($nombre);
+            
+            ?>
+          </span>
+        </h6>
+        <hr style="color: dimgrey;">
 <ul class="nav flex-column">
     <li class="nav-item">
-        <a class="nav-link active" href="modificar.php">
-       <!-- <span data-feather="home"></span> -->
+        <a class="nav-link active" href="#">
        <i class="fas fa-laptop-house"></i> 
        Inicio <span class="sr-only">(current)</span>
      </a>
    </li>
-   <hr style="color: dimgrey;">
- </ul>
-
- <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
-   <span>Plantillas</span>
-   <a class="d-flex align-items-center text-muted" href="#" aria-label="Add a new report">
-     <span data-feather="plus-circle"></span>
-   </a>
- </h6>
- <ul class="nav flex-column mb-2">
-   <li class="nav-item">
-     <a class="nav-link" href="modificar.php">
-       <span data-feather="file-text"></span>
+  
+    <li class="nav-item">
+      <a class="nav-link" href="modificar.php">
+        <i class="bi bi-app-indicator"></i>
        Modificar
      </a>
    </li>
-   
- </ul>    
+ </ul>  
       </div>
     </nav>
 

@@ -50,6 +50,10 @@ include('prcd/conn.php');
     <link rel="canonical" href="https://getbootstrap.com/docs/4.5/examples/dashboard/">
     <script src="https://kit.fontawesome.com/4d63b5ef28.js" crossorigin="anonymous"></script>
 
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css">
+    
     <!-- Bootstrap core CSS -->
     <link href="css/bootstrap.css" rel="stylesheet">
 
@@ -103,156 +107,34 @@ include('prcd/conn.php');
             </li>
         </ul>
 
-        <h6 class="sidebar-heading d-flex justify-content-center text-center align-items-center px-3 mt-4 mb-1 text-muted">
+        <hr style="color: dimgrey;">
+        <h6 class="sidebar-heading d-flex justify-content-center text-center align-items-center px-3 mt-2 mb-1 text-muted">
           <span class="">
-          bienvenido<br><i class="fas fa-user"></i> 
+            bienvenido<br><i class="fas fa-user"></i> 
             <?php
             
-              echo $nombre;
+            echo ($nombre);
             
             ?>
           </span>
         </h6>
-      <hr>
-
-      <?php
-        include('menu.php');
-      ?>
-        
-        <?php
-        if($perfil == 1){
-          echo '<ul class="nav flex-column">';
-        }
-
-        else{
-          echo '<ul class="nav flex-column" hidden>';
-        }
-        
-        ?>
- 
-           <li class="nav-item">
-            <a class="nav-link active" href="#">
-              <!-- <span data-feather="home"></span> -->
-              <i class="fas fa-laptop-house"></i> 
-              Inicio <span class="sr-only">(current)</span>
-            </a>
-          </li>
-          <hr style="color: dimgrey;">
-          
-          <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
-            <span>AÑO 2021</span>
-            <a class="d-flex align-items-center text-muted" href="#" aria-label="Add a new report">
-              <span data-feather="plus-circle"></span>
-            </a>
-          </h6>
-
-          <li class="nav-item">
-            <a class="nav-link" href="trimestre1.php">
-              <span data-feather="layers"></span>
-               
-              Primer trimestre
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="trimestre2.php">
-              <span data-feather="layers"></span>
-              Segundo trimestre
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="trimestre3.php">
-              <span data-feather="layers"></span>
-              Tercer trimestre
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="trimestre4.php">
-              <span data-feather="layers"></span>
-              Cuarto trimestre
-            </a>
-          </li>
-        </ul>
-
-        <?php
-        if($perfil == 2){
-          echo '<ul class="nav flex-column">';
-        }
-
-        else{
-          echo '<ul class="nav flex-column" hidden>';
-        }
-        
-        ?>
-        <!-- <ul class="nav flex-column mb-2"> -->
-        
-        
-          <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
-            <span>Departamentos responsables</span>
-            <a class="d-flex align-items-center text-muted" href="#" aria-label="Add a new report">
-              <span data-feather="plus-circle"></span>
-            </a>
-          </h6>
-          <?php 
-          $tabla="SELECT * FROM area";
-                      $resultadotabla = $conn->query($tabla);
-                      while($row = $resultadotabla->fetch_assoc()){
-                          
-                        echo '<li class="nav-item">';
-                        echo ('<a class="nav-link" href="area.php?area='.$row['resp'].'">
-                          <span data-feather="file-text"></span>
-                            '.$row['area'].'
-                            
-                            </a>');
-                        echo '</li>';                      
-                      }
-
-                      ?>
-          </ul>
-        
-
-       
-        <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
-          
-        <?php
-        if($perfil == 2){
-          echo '<span>Plantillas</span>';
-        }
-
-        else{
-          echo '<span></span>';
-        }
-        
-        ?>
-          <!-- <span>Plantillas</span> -->
-          
-          <a class="d-flex align-items-center text-muted" href="#" aria-label="Add a new report">
-            <span data-feather="plus-circle"></span>
-          </a>
-        </h6>
-
-        <?php
-        if($perfil == 2){
-          echo '<ul class="nav flex-column">';
-        }
-
-        else{
-          echo '<ul class="nav flex-column" hidden>';
-        }
-        
-        ?>
-        <!-- <ul class="nav flex-column mb-2"> -->
-          <li class="nav-item">
-            <a class="nav-link" href="modificar.php">
-              <span data-feather="file-text"></span>
-              Modificar
-            </a>
-          </li>
-          
-        </ul>
-       
-
+        <hr style="color: dimgrey;">
+<ul class="nav flex-column">
+    <li class="nav-item">
+        <a class="nav-link active" href="#">
+       <i class="fas fa-laptop-house"></i> 
+       Inicio <span class="sr-only">(current)</span>
+     </a>
+   </li>
+  
+    <li class="nav-item">
+      <a class="nav-link" href="modificar.php">
+        <i class="bi bi-app-indicator"></i>
+       Modificar
+     </a>
+   </li>
+ </ul>  
       </div>
-      
     </nav>
 
     <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-md-4">

@@ -46,6 +46,10 @@ $nombre = $_SESSION['nombre'];
     <link rel="canonical" href="https://getbootstrap.com/docs/4.5/examples/dashboard/">
     <script src="https://kit.fontawesome.com/4d63b5ef28.js" crossorigin="anonymous"></script>
 
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css">
+
     <!-- Bootstrap core CSS -->
     <link href="css/bootstrap.css" rel="stylesheet">
 
@@ -91,90 +95,47 @@ $nombre = $_SESSION['nombre'];
   <div class="row">
     <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
       <div class="sidebar-sticky pt-3">
-        
-        <ul class="navbar-nav px-3 text-center">
+      <ul class="navbar-nav px-3 text-center">
             <li class="align-middle">
-                   <img src="img/TrabajemosJuntosJuventud.png" width="35%" class="" alt="" loading="lazy">  
+                   <img src="../logo_injuventud_01.png" width="35%" class="" alt="" loading="lazy">  
       
             </li>
         </ul>
-        <h6 class="sidebar-heading d-flex justify-content-center text-center align-items-center px-3 mt-4 mb-1 text-muted">
+        <hr style="color: dimgrey;">
+        <h6 class="sidebar-heading d-flex justify-content-center text-center align-items-center px-3 mt-2 mb-1 text-muted">
           <span class="">
-          bienvenido<br><i class="fas fa-user"></i> 
+            bienvenido<br><i class="fas fa-user"></i> 
             <?php
             
-              echo ($nombre);
+            echo ($nombre);
             
             ?>
           </span>
         </h6>
-
-<hr>
+        <hr style="color: dimgrey;">
 <ul class="nav flex-column">
     <li class="nav-item">
-        <a class="nav-link active" href="dashboard.php">
-       <!-- <span data-feather="home"></span> -->
+        <a class="nav-link active" href="#">
        <i class="fas fa-laptop-house"></i> 
        Inicio <span class="sr-only">(current)</span>
      </a>
    </li>
-   <hr style="color: dimgrey;">
-   
-   <!-- <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
-     <span>AÑO 2020</span>
-     <a class="d-flex align-items-center text-muted" href="#" aria-label="Add a new report">
-       <span data-feather="plus-circle"></span>
-     </a>
-   </h6>
-
-   <li class="nav-item">
-     <a class="nav-link" href="trimestre1.php">
-       <span data-feather="layers"></span>
-        
-       Primer trimestre
-     </a>
-   </li>
-   <li class="nav-item">
-     <a class="nav-link" href="trimestre2.php">
-       <span data-feather="layers"></span>
-       Segundo trimestre
-     </a>
-   </li>
-   <li class="nav-item">
-     <a class="nav-link" href="trimestre3.php">
-       <span data-feather="layers"></span>
-       Tercer trimestre
-     </a>
-   </li>
-   <li class="nav-item">
-     <a class="nav-link" href="trimestre4.php">
-       <span data-feather="layers"></span>
-       Cuarto trimestre
-     </a>
-   </li> -->
- </ul>
-
- <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
-   <span>Plantillas</span>
-   <a class="d-flex align-items-center text-muted" href="#" aria-label="Add a new report">
-     <span data-feather="plus-circle"></span>
-   </a>
- </h6>
- <ul class="nav flex-column mb-2">
-   <li class="nav-item">
-     <a class="nav-link" href="modificar.php">
-       <span data-feather="file-text"></span>
+  
+    <li class="nav-item">
+      <a class="nav-link" href="modificar.php">
+        <i class="bi bi-app-indicator"></i>
        Modificar
      </a>
    </li>
-   
- </ul>    
+ </ul>  
       </div>
     </nav>
 
     <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-md-4">
+      <div class="alert alert-primary mt-3 text-center" role="alert">
+      <i class="bi bi-app-indicator"></i> <strong>Opciones para editar el sistema</strong>
+      </div>
       <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-        <h1 class="h3">MODIFICAR</h1>
         <div class="btn-toolbar mb-2 mb-md-0">
           <div class="btn-group mr-2">
             <!-- <button type="button" class="btn btn-sm btn-outline-secondary">Reporte PDF</button>
@@ -184,13 +145,7 @@ $nombre = $_SESSION['nombre'];
         </div>
       </div>
 
-      <h2>Modificar las siguientes opciones:</h2>
-
-      <hr style="color: dimgrey;">
-      <h2></h2>
       <div class="container">
-
-
         <div class="row row-cols-1 row-cols-md-2">
           <div class="col mb-4">
             <div class="card text-white bg-dark mb-6" style="max-width: 36rem; height: 27rem;">
@@ -198,7 +153,7 @@ $nombre = $_SESSION['nombre'];
               <div class="card-body"><br><br><br>
                 <h1 class="card-title">Actividad</h1>
                 <p class="card-text">Agregar actividad relacionada con los informes.</p>
-                <p><a href="actividad.php" type="button" class="btn btn-warning"><i class="fas fa-edit"></i> Editar...</a></p>
+                <p><a href="actividad_agregar.php" type="button" class="btn btn-warning"><i class="fas fa-edit"></i> Editar...</a></p>
               </div>
             </div>
           </div>
@@ -218,7 +173,7 @@ $nombre = $_SESSION['nombre'];
               <div class="card-body"><br><br><br>
                 <h1 class="card-title">Medio de verificación</h1>
                 <p class="card-text">Agregar medio de verificación.</p>
-                <p><a href="#" type="button" class="btn btn-warning"><i class="fas fa-edit"></i> Editar...</a></p>
+                <p><a href="medio_verificacion_agregar.php" type="button" class="btn btn-warning"><i class="fas fa-edit"></i> Editar...</a></p>
               </div>
             </div>
           </div>
@@ -228,27 +183,25 @@ $nombre = $_SESSION['nombre'];
               <div class="card-body"><br><br><br>
                 <h1 class="card-title">Área responsable</h1>
                 <p class="card-text">Agregar área responsable.</p>
-                <p><a href="#" type="button" class="btn btn-warning"><i class="fas fa-edit"></i> Editar...</a></p>
+                <p><a href="area_agregar.php" type="button" class="btn btn-warning"><i class="fas fa-edit"></i> Editar...</a></p>
               </div>
             </div>
           </div>
-          
-          
-
-          
-
+          <div class="col mb-4">
+            <div class="card text-white bg-dark mb-6" style="max-width: 36rem;height: 27rem;">
+              <div class="card-header">Opción para editar:</div>
+              <div class="card-body"><br><br><br>
+                <h1 class="card-title">Usuarios</h1>
+                <p class="card-text">Agregar usuarios del sistema.</p>
+                <p><a href="usuario_agregar.php" type="button" class="btn btn-warning"><i class="fas fa-edit"></i> Editar...</a></p>
+              </div>
+            </div>
+          </div>
       </div> <!-- container -->
       
-
       </div>
-
-
     </main>
   </div>
 </div>
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-      <script>window.jQuery || document.write('<script src="../assets/js/vendor/jquery.slim.min.js"><\/script>')</script><script src="css/bootstrap.bundle.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.9.0/feather.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.min.js"></script>
-        <script src="css/dashboard.js"></script></body>
+</body>
 </html>
