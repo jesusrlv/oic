@@ -46,19 +46,28 @@ include('prcd/conn.php');
 
     <link rel="icon" type="image/png" href="../icon.ico"/>
 
-    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
    
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/dashboard/">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3">
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
 
     <!-- Bootstrap core CSS -->
-    <link href="css/bootstrap.css" rel="stylesheet">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
 
      <!-- Custom styles for this template -->
      <link href="css/dashboard.css" rel="stylesheet">
+
+     <script src="css/bootstrap.bundle.min.js"></script>
+     <script src="js/querys.js"></script>         
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.3.2/dist/chart.umd.js" integrity="sha384-eI7PSr3L1XLISH8JdDII5YN/njoSsxfbrkCTnJrzXt+ENP5MOVBxD+l6sEG4zoLp" crossorigin="anonymous"></script><script src="css/dashboard.js"></script>
 
     <style>
       .bd-placeholder-img {
@@ -78,7 +87,7 @@ include('prcd/conn.php');
     </style>
    
   </head>
-  <body>
+  <body onload="annio()">
     <nav class="navbar navbar-light sticky-top flex-md-nowrap p-0 text-white" style="background-color:#83272b;">
         <a class="navbar-brand col-md-3 col-lg-2 mr-0 px-3 text-center text-light" href="#">
     <h6 class="text-center text-light display-7">OIC</h6>
@@ -107,7 +116,7 @@ include('prcd/conn.php');
 
         <h6 class="sidebar-heading d-flex justify-content-center text-center align-items-center px-3 mt-4 mb-1 text-muted">
           <span class="">
-          bienvenido<br><i class="fas fa-user"></i> 
+          Bienvenido<br><i class="bi bi-person"></i>
             <?php
             
               echo ($nombre);
@@ -119,46 +128,17 @@ include('prcd/conn.php');
 <ul class="nav flex-column">
   <li class="nav-item">
     <a class="nav-link" href="dashboard.php">
-     <i class="fas fa-laptop-house"></i> 
-     Inicio <span class="sr-only">(current)</span>
+    <i class="bi bi-house"></i>
+     Inicio </span>
    </a>
  </li>
+ <li class="nav-item">
+     <a class="nav-link" href="prcd/sort.php">
+     <i class="bi bi-door-open"></i> Salir
+     </a>
+   </li>
  <hr style="color: dimgrey;">
  
- <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
-   <span>AÑO 2020</span>
-   <a class="d-flex align-items-center text-muted" href="#" aria-label="Add a new report">
-     <span data-feather="plus-circle"></span>
-   </a>
- </h6>
-
- <li class="nav-item">
-   <a class="nav-link" href="trimestre1.php">
-     <span data-feather="layers"></span>
-      
-     Primer trimestre
-   </a>
- </li>
- <li class="nav-item">
-   <a class="nav-link" href="trimestre2.php">
-     <span data-feather="layers"></span>
-     Segundo trimestre
-   </a>
- </li>
- <li class="nav-item">
-   <a class="nav-link" href="trimestre3.php">
-     <span data-feather="layers"></span>
-     Tercer trimestre
-   </a>
- </li>
- <li class="nav-item">
-   <a class="nav-link active" href="trimestre4.php">
-     <span data-feather="layers"></span>
-     Cuarto trimestre
-   </a>
- </li>
-</ul>
-      </div>
     </nav>
 
     <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-md-4">
@@ -175,21 +155,17 @@ include('prcd/conn.php');
         </div>
       </div>
 
-      <h2>Tablero de usuario <i class="bi bi-people-fill mb-2"></i></h2>
+      <h2><i class="bi bi-people-fill me-3"></i> Tablero de usuario</h2>
 
       <hr style="color: dimgrey;">
       <div class="container-fluid">
       <div class="input-group mb-3">
-  <span class="input-group-text" id="basic-addon1">@</span>
-  <select class="form-select" aria-label="Default select example">
-            <option selected>Open this select menu</option>
-            <option value="1">One</option>
-            <option value="2">Two</option>
-            <option value="3">Three</option>
+        <span class="input-group-text" id="basic-addon1">@</span>
+        <select class="form-select" id="selectAnnio" aria-label="Default select example">
+           
         </select>
-</div>
+      </div>
 
-        
       </div>
       <div class="table-responsive">
         <table class="table table-bordered table-hover table-striped table-sm" style="text-align: center;">
