@@ -9,7 +9,7 @@
         $rowAnnio = $resultadoAnnio->fetch_assoc()
     ){
         echo'
-        <option value="'.$rowAnnio['id'].'">'.$rowAnnio['annio'].'</option>
+        <option value="'.$rowAnnio['annio'].'">'.$rowAnnio['annio'].'</option>
         ';
     }
 

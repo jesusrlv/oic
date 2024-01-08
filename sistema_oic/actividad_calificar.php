@@ -32,12 +32,12 @@ $id = $_SESSION['id'];
 $perfil = $_SESSION['perfil'];
 $nombre = $_SESSION['nombre'];
 
-if(isset($_REQUEST['annio'])){
+/* if(isset($_REQUEST['annio'])){
   $annioQuery = $_REQUEST['annio'];
 }
 else{
-  $annioQuery = 2024;
-}
+  $annioQuery = 2023;
+} */
 // variables de sesión
 
 $usuario = $_SESSION['usr'];
@@ -77,9 +77,10 @@ $nombre = $_SESSION['nombre'];
     <!-- Bootstrap core CSS -->
     <link href="assets/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="css/bootstrap.css" rel="stylesheet">
-    <script src="js/querys.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css">
-
+    
+    <script src="js/querys.js"></script>         
+    <script src="js/actividades_admin.js"></script>
 
     <style>
       .bd-placeholder-img {
@@ -160,9 +161,6 @@ $nombre = $_SESSION['nombre'];
 
     <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-md-4">
       <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-        <!-- <h1 class="h3">MODIFICAR ACTIVIDAD</h1> -->
-        
-
         <div class="d-flex align-items-center p-3 my-3 text-white-50 bg-light rounded shadow-sm w-100">
           <img class="mr-3" src="../logo_injuventud_01.png" alt="" width="48" height="48">
           <div class="lh-100">
@@ -182,14 +180,12 @@ $nombre = $_SESSION['nombre'];
 
       <div class="input-group mb-3">
         <label class="input-group-text" for="inputGroupSelect01"><i class="bi bi-stack"></i></label>
-        <select class="form-select" id="selectAnnio">
+        <select class="form-select" id="selectAnnio" onchange="trimestre1(this.value);trimestre2(this.value);trimestre3(this.value);trimestre4(this.value);">
           
         </select>
       </div>
 
       <hr style="color: dimgrey;">
-      
-      <!-- <div class="container-fluid"> -->
         <div class="table-responsive">  
           <table class="table table-bordered table-hover table-striped table-md align-middle table-sm" style="text-align: center;">
           <thead class="bg-dark text-light">
@@ -208,8 +204,8 @@ $nombre = $_SESSION['nombre'];
                 <th scope="col" class="align-middle">Observaciones</th>
               </tr>
             </thead>
-            <tbody id="tablero1">
-            
+            <tbody id="semestre1">
+             
             </tbody>
           </table>
 
@@ -219,11 +215,7 @@ $nombre = $_SESSION['nombre'];
 
       <hr style="color: dimgrey;">
       <h2></h2>
-      <!-- <div class="container-fluid"> -->
         <div class="table-responsive">
-        
-        <!-- <a href="actividad_agregar.php" type="button" class="btn btn-info" style="margin-bottom:3px;"><i class="fas fa-plus-circle"></i> Agregar actividad</a> -->
-          
           <table class="table table-bordered table-hover table-striped table-md align-middle table-sm" style="text-align: center;">
           <thead class="bg-dark text-light">
               <tr class="align-middle">
@@ -241,61 +233,8 @@ $nombre = $_SESSION['nombre'];
                 <th scope="col" class="align-middle">Observaciones</th>
               </tr>
             </thead>
-            <tbody>
-              <tr>
-              <?php
-              $tabla="SELECT * FROM actividad WHERE annio = '$annioQuery' ORDER BY id ASC";
-                    // $tabla="SELECT * FROM usr INNER JOIN archivos ON usr.codigo = archivos.codigo_usr WHERE usr.priv = 1 AND usr.tematica=1 ORDER BY usr.id ASC";
-                    $resultadotabla = $conn->query($tabla);
-                    $numero=0;
-                    while($row = $resultadotabla->fetch_assoc()){
-                        $numero++;
-                        
-                        echo '<tr>';
-
-                            echo '<td class="align-middle"><center>'.$numero.'</center></td>';
-                            echo ('<td class="align-middle"><center>'.$row['actividad'].'</center></td>');
-                            // echo ('<td><center>'.$row['responsable'].'</center></td>');
-                            $id_responsable=$row['responsable'];
-                            $responsable = "SELECT * FROM usr WHERE id ='$id_responsable'";
-                            $resultado_responsable= $conn->query($responsable);
-                            $row_responsable=$resultado_responsable->fetch_assoc();
-                            echo '<td class="align-middle">'.($row_responsable['nombre']).'</td>';
-
-                            echo ('<td class="align-middle"><center>'.$row['descripcion'].'</center></td>');
-                            // echo ('<td class="align-middle"><center>'.$row['trimestre'].'</center></td>');
-                            echo ('<td class="align-middle"><center>2</center></td>');
-                            $fecha_inicio2 = $row['fecha_inicio2'];
-                            $fecha_inicio_mx2 = date("d/m/Y", strtotime($fecha_inicio2));
-                            $fecha_final2 = $row['fecha_final2'];
-                            $fecha_final_mx2 = date("d/m/Y", strtotime($fecha_final2));
-                            echo ('<td class="align-middle"><center>'.$fecha_inicio_mx2.'</center></td>');
-                            echo ('<td class="align-middle"><center>'.$fecha_final_mx2.'</center></td>');
-                            echo ('<td class="align-middle"><center>'.$row['porcentaje2'].'</center></td>');
-                            $responsable = $row['responsable'];
-                            $id_row = $row['id'];
-                            $tabla_cont="SELECT count(*) AS total FROM bitacora WHERE trimestre = 2 AND actividad_vinculada = '$id_row'";
-                            $resultadotabla_cont = $conn->query($tabla_cont);
-                            $cont_resultado = $resultadotabla_cont->fetch_assoc();
-                            $num_rows = $cont_resultado['total'];
-                            echo '<td class="align-middle"><span class="badge bg-info text-light"><center><i class="bi bi-file-post"></i> '.$num_rows.'</center></span></td>';
-
-                            echo ('<td class="align-middle"><a href="calificar_evidencia_trimestre.php?act='.$row['id'].'&ev=2"><i class="bi bi-clipboard-check"></i> Calificar</center></a></td>');
-                            // echo ('<td><center>'.$row['medio_verificacion'].'</center></td>');
-                            $id_verificacion=$row['medio_verificacion'];
-                            $verificacion = "SELECT * FROM medio_verificacion WHERE id ='$id_verificacion'";
-                            $resultado_verificacion= $conn->query($verificacion);
-                            $row_verificacion=$resultado_verificacion->fetch_assoc();
-                            echo '<td>'.($row_verificacion['medio']).'</td>';
-                           
-                            echo ('<td class="align-middle"><small>'.$row['observaciones2'].'</small></td>');
-
-                        echo '</tr>';
-                      
-                    }
-                ?>
-              </tr>
-            
+            <tbody id="semestre2">
+             
             </tbody>
           </table>
 
@@ -305,11 +244,7 @@ $nombre = $_SESSION['nombre'];
 
 <hr style="color: dimgrey;">
 <h2></h2>
-<!-- <div class="container-fluid"> -->
   <div class="table-responsive">
-  
-  <!-- <a href="actividad_agregar.php" type="button" class="btn btn-info" style="margin-bottom:3px;"><i class="fas fa-plus-circle"></i> Agregar actividad</a> -->
-    
     <table class="table table-bordered table-hover table-striped table-md align-middle table-sm" style="text-align: center;">
     <thead class="bg-dark text-light">
         <tr class="align-middle">
@@ -327,62 +262,8 @@ $nombre = $_SESSION['nombre'];
           <th scope="col" class="align-middle">Observaciones</th>
         </tr>
       </thead>
-      <tbody>
-        <tr>
-        <?php
-        $tabla="SELECT * FROM actividad WHERE annio = '$annioQuery' ORDER BY id ASC";
-              // $tabla="SELECT * FROM usr INNER JOIN archivos ON usr.codigo = archivos.codigo_usr WHERE usr.priv = 1 AND usr.tematica=1 ORDER BY usr.id ASC";
-              $resultadotabla = $conn->query($tabla);
-              $numero=0;
-              while($row = $resultadotabla->fetch_assoc()){
-                  $numero++;
-                  
-                  echo '<tr>';
-
-                      echo '<td class="align-middle"><center>'.$numero.'</center></td>';
-                      echo ('<td class="align-middle"><center>'.$row['actividad'].'</center></td>');
-                      // echo ('<td><center>'.$row['responsable'].'</center></td>');
-                      $id_responsable=$row['responsable'];
-                      $responsable = "SELECT * FROM usr WHERE id ='$id_responsable'";
-                      $resultado_responsable= $conn->query($responsable);
-                      $row_responsable=$resultado_responsable->fetch_assoc();
-                      echo '<td class="align-middle">'.($row_responsable['nombre']).'</td>';
-
-                      echo ('<td class="align-middle"><center>'.$row['descripcion'].'</center></td>');
-                      // echo ('<td class="align-middle"><center>'.$row['trimestre'].'</center></td>');
-                      echo ('<td class="align-middle"><center>3</center></td>');
-                      $fecha_inicio3 = $row['fecha_inicio3'];
-                      $fecha_inicio_mx3 = date("d/m/Y", strtotime($fecha_inicio3));
-                      $fecha_final3 = $row['fecha_final3'];
-                      $fecha_final_mx3 = date("d/m/Y", strtotime($fecha_final3));
-                      echo ('<td class="align-middle"><center>'.$fecha_inicio_mx3.'</center></td>');
-                      echo ('<td class="align-middle"><center>'.$fecha_final_mx3.'</center></td>');
-                      echo ('<td class="align-middle"><center>'.$row['porcentaje3'].'</center></td>');
-                      
-                      $responsable = $row['responsable'];
-                      $id_row = $row['id'];
-                      $tabla_cont="SELECT count(*) AS total FROM bitacora WHERE trimestre = 3 AND actividad_vinculada = '$id_row'";
-                      $resultadotabla_cont = $conn->query($tabla_cont);
-                      $cont_resultado = $resultadotabla_cont->fetch_assoc();
-                      $num_rows = $cont_resultado['total'];
-                      echo '<td class="align-middle"><span class="badge bg-info text-light"><center><i class="bi bi-file-post"></i> '.$num_rows.'</center></span></td>';
-
-                      echo ('<td class="align-middle"><a href="calificar_evidencia_trimestre.php?act='.$row['id'].'&ev=3"><i class="bi bi-clipboard-check"></i> Calificar</center></a></td>');
-                      // echo ('<td><center>'.$row['medio_verificacion'].'</center></td>');
-                      $id_verificacion=$row['medio_verificacion'];
-                      $verificacion = "SELECT * FROM medio_verificacion WHERE id ='$id_verificacion'";
-                      $resultado_verificacion= $conn->query($verificacion);
-                      $row_verificacion=$resultado_verificacion->fetch_assoc();
-                      echo '<td>'.($row_verificacion['medio']).'</td>';
-                     
-                      echo ('<td class="align-middle"><small>'.$row['observaciones3'].'</small></td>');
-
-                  echo '</tr>';
-                
-              }
-          ?>
-        </tr>
-      
+      <tbody id="semestre3">
+       
       </tbody>
     </table>
 
@@ -392,11 +273,8 @@ $nombre = $_SESSION['nombre'];
 
       <hr style="color: dimgrey;">
       <h2></h2>
-      <!-- <div class="container-fluid"> -->
         <div class="table-responsive">
-        
-        <!-- <a href="actividad_agregar.php" type="button" class="btn btn-info" style="margin-bottom:3px;"><i class="fas fa-plus-circle"></i> Agregar actividad</a> -->
-          
+   
           <table class="table table-bordered table-hover table-striped table-md align-middle table-sm" style="text-align: center;">
           <thead class="bg-dark text-light">
               <tr class="align-middle">
@@ -414,63 +292,8 @@ $nombre = $_SESSION['nombre'];
                 <th scope="col" class="align-middle">Observaciones</th>
               </tr>
             </thead>
-            <tbody>
-              <tr>
-              <?php
-              $tabla="SELECT * FROM actividad WHERE annio = '$annioQuery' ORDER BY id ASC";
-                    // $tabla="SELECT * FROM usr INNER JOIN archivos ON usr.codigo = archivos.codigo_usr WHERE usr.priv = 1 AND usr.tematica=1 ORDER BY usr.id ASC";
-                    $resultadotabla = $conn->query($tabla);
-                    $numero=0;
-                    while($row = $resultadotabla->fetch_assoc()){
-                        $numero++;
+            <tbody id="semestre4">
                         
-                        echo '<tr>';
-
-                            echo '<td class="align-middle"><center>'.$numero.'</center></td>';
-                            echo ('<td class="align-middle"><center>'.$row['actividad'].'</center></td>');
-                            // echo ('<td><center>'.$row['responsable'].'</center></td>');
-                            $id_responsable=$row['responsable'];
-                            $responsable = "SELECT * FROM usr WHERE id ='$id_responsable'";
-                            $resultado_responsable= $conn->query($responsable);
-                            $row_responsable=$resultado_responsable->fetch_assoc();
-                            echo '<td class="align-middle">'.($row_responsable['nombre']).'</td>';
-
-                            echo ('<td class="align-middle"><center>'.$row['descripcion'].'</center></td>');
-                            // echo ('<td class="align-middle"><center>'.$row['trimestre'].'</center></td>');
-                            echo ('<td class="align-middle"><center>4</center></td>');
-                            $fecha_inicio4 = $row['fecha_inicio4'];
-                            $fecha_inicio_mx4 = date("d/m/Y", strtotime($fecha_inicio4));
-                            $fecha_final4 = $row['fecha_final4'];
-                            $fecha_final_mx4 = date("d/m/Y", strtotime($fecha_final4));
-                            echo ('<td class="align-middle"><center>'.$fecha_inicio_mx4.'</center></td>');
-                            echo ('<td class="align-middle"><center>'.$fecha_final_mx4.'</center></td>');
-                            echo ('<td class="align-middle"><center>'.$row['porcentaje4'].'</center></td>');
-                            
-                            $responsable = $row['responsable'];
-                            $id_row = $row['id'];
-                            $tabla_cont="SELECT count(*) AS total FROM bitacora WHERE trimestre = 4 AND actividad_vinculada = '$id_row'";
-                            $resultadotabla_cont = $conn->query($tabla_cont);
-                            $cont_resultado = $resultadotabla_cont->fetch_assoc();
-                            $num_rows = $cont_resultado['total'];
-                            echo '<td class="align-middle"><span class="badge bg-info text-light"><center><i class="bi bi-file-post"></i> '.$num_rows.'</center></span></td>';
-
-                            echo ('<td class="align-middle"><a href="calificar_evidencia_trimestre.php?act='.$row['id'].'&ev=4"><i class="bi bi-clipboard-check"></i> Calificar</center></a></td>');
-                            // echo ('<td><center>'.$row['medio_verificacion'].'</center></td>');
-                            $id_verificacion=$row['medio_verificacion'];
-                            $verificacion = "SELECT * FROM medio_verificacion WHERE id ='$id_verificacion'";
-                            $resultado_verificacion= $conn->query($verificacion);
-                            $row_verificacion=$resultado_verificacion->fetch_assoc();
-                            echo '<td>'.($row_verificacion['medio']).'</td>';
-                            
-                            echo ('<td class="align-middle"><small>'.$row['observaciones4'].'</small></td>');
-
-                            
-                        echo '</tr>';
-                      
-                    }
-                ?>
-              </tr>
-            
             </tbody>
           </table>
 
@@ -481,7 +304,6 @@ $nombre = $_SESSION['nombre'];
     </main>
   </div>
 </div>
-
         <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.min.js"></script> 
         <script src="css/dashboard.js"></script></body>
 </html>
