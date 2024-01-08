@@ -298,8 +298,8 @@ $nombre = $_SESSION['nombre'];
           </table>
 
       </div> <!-- div table-responsive -->
-      </div>
 
+      </div><!-- class="d-flex -->
 
     </main>
   </div>

@@ -66,6 +66,7 @@ include('prcd/conn.php');
 
      <script src="css/bootstrap.bundle.min.js"></script>
      <script src="js/querys.js"></script>         
+     <script src="js/tablero_usr.js"></script>         
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.3.2/dist/chart.umd.js" integrity="sha384-eI7PSr3L1XLISH8JdDII5YN/njoSsxfbrkCTnJrzXt+ENP5MOVBxD+l6sEG4zoLp" crossorigin="anonymous"></script><script src="css/dashboard.js"></script>
 
@@ -157,16 +158,18 @@ include('prcd/conn.php');
 
       <h2><i class="bi bi-people-fill me-3"></i> Tablero de usuario</h2>
 
-      <hr style="color: dimgrey;">
-      <div class="container-fluid">
       <div class="input-group mb-3">
-        <span class="input-group-text" id="basic-addon1">@</span>
-        <select class="form-select" id="selectAnnio" aria-label="Default select example">
-           
+        <span class="input-group-text" id="basic-addon1"><i class="bi bi-calendar2-check-fill"></i></span>
+        <select class="form-select" id="selectAnnio" aria-label="Default select example" onchange="trimestre1(this.value,<?php echo $id ?>);trimestre2(this.value,<?php echo $id ?>);trimestre3(this.value,<?php echo $id ?>);trimestre4(this.value,<?php echo $id ?>);">
         </select>
       </div>
+      <hr style="color: dimgrey;">
+      <div class="container-fluid">
+
 
       </div>
+      
+      <h3>Primer trimestre</h3>
       <div class="table-responsive">
         <table class="table table-bordered table-hover table-striped table-sm" style="text-align: center;">
           <thead class="bg-dark text-light">
@@ -181,101 +184,75 @@ include('prcd/conn.php');
               <th>Observaciones</th>
             </tr>
           </thead>
-          <tbody>
+          <tbody id="semestre1">
 
-            <!-- inicio loop tabla -->
-
-            <?php
-                   
-                    $tabla="SELECT * FROM actividad WHERE responsable='$id'";
-                    $resultadotabla = $conn->query($tabla);
-                    $numero=0;
-                    while($row = $resultadotabla->fetch_assoc()){
-                        $numero++;
-                        $responsable=$row['responsable'];
-                        $verificacion=$row['medio_verificacion'];
-                        $id_act=$row['id'];
-                        
-                        echo '<tr>';
-
-                            echo ('<td><center>'.$row['actividad'].'</center></td>');
-
-                            $consulta1="SELECT id,nombre FROM usr WHERE id = '$responsable'";
-                            $resultado_consulta1 = $conn->query($consulta1);
-                            $trabajador_resultado = $resultado_consulta1->fetch_assoc();
-                            echo ('<td><center>'.$trabajador_resultado['nombre'].'</center></td>');
-            
-                            $consulta2="SELECT id,medio FROM medio_verificacion WHERE id = '$verificacion'";
-                            $resultado_consulta2 = $conn->query($consulta2);
-                            $medio_resultado = $resultado_consulta2->fetch_assoc();
-                            echo ('<td><center>'.$medio_resultado['medio'].'</center></td>');
-
-                            if($row['porcentaje4']!=100){
-                              echo ('<td><a href="agregar_archivos.php?id=4&act='.$row['id'].'" class="badge badge-info"><i class="fas fa-plus-circle"></i> Evidencia</a></td>');
-                            }
-                            else{
-                              echo '<td><span class="badge badge-danger">Completado 100%</span></td>';
-                            }
-                            
-                            $tabla_cont="SELECT count(*) AS total FROM bitacora WHERE usr_vinculado = '$id' AND trimestre = 4 AND actividad_vinculada = '$id_act'";
-                            $resultadotabla_cont = $conn->query($tabla_cont);
-                            $cont_resultado = $resultadotabla_cont->fetch_assoc();
-                            $num_rows = $cont_resultado['total'];
-
-                            echo '<td><center><a href="evidencia_trimestre.php?ev=4&act='.$row['id'].'" class="badge badge-info"><i class="fas fa-eye"></i> '.$num_rows.'</a></center></td>';
-                            echo '<td><center>
-                            <div class="progress">
-                              <div class="progress-bar" role="progressbar" style="width: '.$row['porcentaje4'].'%;" aria-valuenow="'.$row['porcentaje4'].'" aria-valuemin="0" aria-valuemax="100">'.$row['porcentaje4'].'%</div>
-                            </div>
-                            </center></td>';
-                            // echo '<td><center><a href="evidencia_trimestre.php?ev=4&act='.$row['id'].'" class="badge badge-info"><i class="bi bi-calendar2-week-fill"></i> '.$row['fecha_inicio4'].'/'.$row['fecha_final4'].'</a></center></td>';
-                            $fecha_inicio = $row['fecha_inicio4'];
-                            $fecha_inicio_mx = date("d/m/Y", strtotime($fecha_inicio));
-                            $fecha_final = $row['fecha_final4'];
-                            $fecha_final_mx = date("d/m/Y", strtotime($fecha_final));
-                            echo '<td><center><button class="btn btn-info btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal'.$row['id'].'"><small><i class="bi bi-calendar2-week-fill"></i> '.$fecha_inicio_mx.' - '.$fecha_final_mx.'</button></center></small></td>';
-                            echo ('<td><small>'.$row['observaciones4'].'</small></td>');
-
-                            //MODAL
-                            echo '<div class="modal fade" id="exampleModal'.$row['id'].'" tabindex="-1" aria-labelledby="exampleModalLabel'.$row['id'].'" aria-hidden="true">
-                              <div class="modal-dialog modal-dialog-centered">
-                                <div class="modal-content">
-                                  <div class="modal-header">
-                                    <h5 class="modal-title" id="exampleModalLabel">Editar fechas de actividad semestral</h5>
-                                    <!-- <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button> -->
-                                  </div>
-                                  <div class="modal-body">
-
-                                  <form action="prcd/proceso_fecha.php" method="POST">
-                                    <div class="input-group mb-3 w-100">
-                                      <span class="input-group-text" id="inputGroup-sizing-default"><small><i class="bi bi-calendar-week"></i> Fecha de inicio</small></span>
-                                      <input type="date" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" name="fecha_inicio" required>
-                                    </div>
-                                    <div class="input-group mb-3 w-10">
-                                      <span class="input-group-text" id="inputGroup-sizing-default"><small><i class="bi bi-calendar-week"></i> Fecha de finalización</small></span>
-                                      <input type="date" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" name="fecha_finalizacion" required>
-                                    </div>
-                                  </div>
-                                  <input value="'.$row['id'].'" name="id" hidden>
-                                  <input value="4" name="trimestre" hidden>
-                                  <div class="modal-footer">
-                                    <button type="button" class="btn btn-danger btn-sm" data-bs-dismiss="modal"><i class="bi bi-x-circle-fill"></i> Cerrar</button>
-                                    <button type="submit" class="btn btn-primary btn-sm"><i class="bi bi-calendar-plus"></i> Guardar</button>
-
-                                  </form>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>';
-
-                        echo '</tr>';
-                      
-                    }
-                ?>
-            <!-- fin loop tabla -->
           </tbody>
         </table>
       </div>
+      
+      <h3>Segundo trimestre</h3>
+      <div class="table-responsive">
+        <table class="table table-bordered table-hover table-striped table-sm" style="text-align: center;">
+          <thead class="bg-dark text-light">
+            <tr>
+              <th>Nombre actividad</th>
+              <th>Responsable</th>
+              <th>Medio verificación</th>
+              <th>Acción</th>
+              <th># de evidencias</th>
+              <th>% avance</th>
+              <th>Fecha inicio / fin</th>
+              <th>Observaciones</th>
+            </tr>
+          </thead>
+          <tbody id="semestre2">
+
+          </tbody>
+        </table>
+      </div>
+      
+      <h3>Tercer trimestre</h3>
+      <div class="table-responsive">
+        <table class="table table-bordered table-hover table-striped table-sm" style="text-align: center;">
+          <thead class="bg-dark text-light">
+            <tr>
+              <th>Nombre actividad</th>
+              <th>Responsable</th>
+              <th>Medio verificación</th>
+              <th>Acción</th>
+              <th># de evidencias</th>
+              <th>% avance</th>
+              <th>Fecha inicio / fin</th>
+              <th>Observaciones</th>
+            </tr>
+          </thead>
+          <tbody id="semestre3">
+
+          </tbody>
+        </table>
+      </div>
+
+      <h3>Cuarto trimestre</h3>
+      <div class="table-responsive">
+        <table class="table table-bordered table-hover table-striped table-sm" style="text-align: center;">
+          <thead class="bg-dark text-light">
+            <tr>
+              <th>Nombre actividad</th>
+              <th>Responsable</th>
+              <th>Medio verificación</th>
+              <th>Acción</th>
+              <th># de evidencias</th>
+              <th>% avance</th>
+              <th>Fecha inicio / fin</th>
+              <th>Observaciones</th>
+            </tr>
+          </thead>
+          <tbody id="semestre4">
+
+          </tbody>
+        </table>
+      </div>
+
     </main>
   </div>
 </div>

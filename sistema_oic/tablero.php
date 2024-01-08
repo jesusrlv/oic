@@ -150,29 +150,13 @@ else{
    </li>
  </ul>
 
- <!-- <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
-   <span>Plantillas</span>
-   <a class="d-flex align-items-center text-muted" href="#" aria-label="Add a new report">
-     <span data-feather="plus-circle"></span>
-   </a>
- </h6>
- <ul class="nav flex-column mb-2">
-   <li class="nav-item">
-     <a class="nav-link" href="modificar.php">
-       <span data-feather="file-text"></span>
-       Modificar
-     </a>
-   </li> -->
-   
  </ul>    
       </div>
     </nav>
 
     <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-md-4">
       <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-        <!-- <h1 class="h3">MODIFICAR ACTIVIDAD</h1> -->
-        
-
+  
         <div class="d-flex align-items-center p-3 my-3 text-white-50 bg-light rounded shadow-sm w-100">
           <img class="mr-3" src="../logo_injuventud_01.png" alt="" width="48" height="48">
           <div class="lh-100">
@@ -213,7 +197,6 @@ else{
 
       <hr style="color: dimgrey;">
       
-      <!-- <div class="container-fluid"> -->
         <div class="table-responsive">  
           <table class="table table-bordered table-hover table-striped table-md align-middle table-sm" style="text-align: center;">
           <thead class="bg-dark text-light">
