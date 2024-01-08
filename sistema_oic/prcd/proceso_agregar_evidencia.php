@@ -82,8 +82,6 @@ VALUES('$id','$trimestre','$descripcion','$fecha_ini','$fecha_final','$fecha_sis
 
  if($resultado2){
    
-  // echo "<script type=\"text/javascript\">
-  // Swal.fire('Bitácora cargada correctamente').then(function(){window.location='../perfiles/super_usr/revision_bitacora.php';});</script>";
   echo "<script type=\"text/javascript\">
   Swal.fire({
     icon: 'success',
@@ -108,26 +106,8 @@ VALUES('$id','$trimestre','$descripcion','$fecha_ini','$fecha_final','$fecha_sis
   }
 
  else{
-
- echo 'No se registró la actividad';
-//  error(query($resultado2));
+  echo 'No se registró la actividad';
  }
- // fin consulta
-
-// $sql_2="INSERT INTO usuarios(usr,pwd,priv,nombre_completo,fecha_reg_dia,fecha_reg_mes,fecha_reg_annio,fecha_sistema) 
-// VALUES('$usr','$pwd','$priv','$nombre','$fecha_dia','$fecha_mes','$fecha_annio','$fecha_sistema')";
-// $resultado2= $conn->query($sql_2);
-
-// if($resultado2){
-
-//     header ('Location:../dashboard.php');
-// }
-
-// else{
-
-//     echo 'No se registró la actividad';
-// }
-
 
 
 ?>

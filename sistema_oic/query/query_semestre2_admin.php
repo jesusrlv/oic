@@ -4,7 +4,6 @@ include ('../prcd/conn.php');
 $annioQuery = $_POST['annio'];
 
 $tabla="SELECT * FROM actividad WHERE annio = '$annioQuery' ORDER BY id ASC";
-// $tabla="SELECT * FROM usr INNER JOIN archivos ON usr.codigo = archivos.codigo_usr WHERE usr.priv = 1 AND usr.tematica=1 ORDER BY usr.id ASC";
 $resultadotabla = $conn->query($tabla);
 $numero=0;
 while($row = $resultadotabla->fetch_assoc()){
@@ -14,7 +13,6 @@ while($row = $resultadotabla->fetch_assoc()){
 
         echo '<td class="align-middle"><center>'.$numero.'</center></td>';
         echo ('<td class="align-middle"><center>'.$row['actividad'].'</center></td>');
-        // echo ('<td><center>'.$row['responsable'].'</center></td>');
         $id_responsable=$row['responsable'];
         $responsable = "SELECT * FROM usr WHERE id ='$id_responsable'";
         $resultado_responsable= $conn->query($responsable);
@@ -22,7 +20,6 @@ while($row = $resultadotabla->fetch_assoc()){
         echo '<td class="align-middle">'.($row_responsable['nombre']).'</td>';
 
         echo ('<td class="align-middle"><center>'.$row['descripcion'].'</center></td>');
-        // echo ('<td class="align-middle"><center>'.$row['trimestre'].'</center></td>');
         echo ('<td class="align-middle"><center>2</center></td>');
         $fecha_inicio2 = $row['fecha_inicio2'];
         $fecha_inicio_mx2 = date("d/m/Y", strtotime($fecha_inicio2));
@@ -40,7 +37,6 @@ while($row = $resultadotabla->fetch_assoc()){
         echo '<td class="align-middle"><span class="badge bg-info text-light"><center><i class="bi bi-file-post"></i> '.$num_rows.'</center></span></td>';
 
         echo ('<td class="align-middle"><a href="calificar_evidencia_trimestre.php?act='.$row['id'].'&ev=2"><i class="bi bi-clipboard-check"></i> Calificar</center></a></td>');
-        // echo ('<td><center>'.$row['medio_verificacion'].'</center></td>');
         $id_verificacion=$row['medio_verificacion'];
         $verificacion = "SELECT * FROM medio_verificacion WHERE id ='$id_verificacion'";
         $resultado_verificacion= $conn->query($verificacion);
