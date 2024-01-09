@@ -28,7 +28,8 @@ $tabla="SELECT * FROM actividad WHERE responsable='$id' AND annio = '$annio'";
                             echo ('<td><center>'.$medio_resultado['medio'].'</center></td>');
 
                             if($row['porcentaje4']!=100){
-                              echo ('<td><a href="agregar_archivos.php?id=4&act='.$row['id'].'" class="badge badge-info"><i class="fas fa-plus-circle"></i> Evidencia</a></td>');
+                              echo ('<td class="text-dark"><a href="agregar_archivos.php?id=4&act='.$row['id'].'"><span class="badge rounded-pill text-bg-primary"><i class="bi bi-file-earmark-medical"></i> Evidencia</span>
+                              </a></td>');
                             }
                             else{
                               echo '<td><span class="badge badge-danger">Completado 100%</span></td>';
@@ -39,7 +40,8 @@ $tabla="SELECT * FROM actividad WHERE responsable='$id' AND annio = '$annio'";
                             $cont_resultado = $resultadotabla_cont->fetch_assoc();
                             $num_rows = $cont_resultado['total'];
 
-                            echo '<td><center><a href="evidencia_trimestre.php?ev=4&act='.$row['id'].'" class="badge badge-info"><i class="fas fa-eye"></i> '.$num_rows.'</a></center></td>';
+                            echo '<td><center><a href="evidencia_trimestre.php?ev=4&act='.$row['id'].'">
+                            <span class="badge rounded-pill text-bg-primary"><i class="bi bi-eye-fill"></i> '.$num_rows.'</span></a></td>';
                             echo '<td><center>
                             <div class="progress">
                               <div class="progress-bar" role="progressbar" style="width: '.$row['porcentaje4'].'%;" aria-valuenow="'.$row['porcentaje4'].'" aria-valuemin="0" aria-valuemax="100">'.$row['porcentaje4'].'%</div>

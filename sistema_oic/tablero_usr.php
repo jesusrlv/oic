@@ -171,7 +171,7 @@ include('prcd/conn.php');
       
       <h3>Primer trimestre</h3>
       <div class="table-responsive">
-        <table class="table table-bordered table-hover table-striped table-sm" style="text-align: center;">
+        <table class="table table-bordered table-hover table-striped table-sm align-middle" style="text-align: center;">
           <thead class="bg-dark text-light">
             <tr>
               <th>Nombre actividad</th>
@@ -192,7 +192,7 @@ include('prcd/conn.php');
       
       <h3>Segundo trimestre</h3>
       <div class="table-responsive">
-        <table class="table table-bordered table-hover table-striped table-sm" style="text-align: center;">
+        <table class="table table-bordered table-hover table-striped table-sm align-middle" style="text-align: center;">
           <thead class="bg-dark text-light">
             <tr>
               <th>Nombre actividad</th>
@@ -213,7 +213,7 @@ include('prcd/conn.php');
       
       <h3>Tercer trimestre</h3>
       <div class="table-responsive">
-        <table class="table table-bordered table-hover table-striped table-sm" style="text-align: center;">
+        <table class="table table-bordered table-hover table-striped table-sm align-middle" style="text-align: center;">
           <thead class="bg-dark text-light">
             <tr>
               <th>Nombre actividad</th>
@@ -234,7 +234,7 @@ include('prcd/conn.php');
 
       <h3>Cuarto trimestre</h3>
       <div class="table-responsive">
-        <table class="table table-bordered table-hover table-striped table-sm" style="text-align: center;">
+        <table class="table table-bordered table-hover table-striped table-sm align-middle" style="text-align: center;">
           <thead class="bg-dark text-light">
             <tr>
               <th>Nombre actividad</th>
