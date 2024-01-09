@@ -27,7 +27,7 @@ $tabla="SELECT * FROM actividad WHERE responsable='$id' AND annio = '$annio'";
                             $medio_resultado = $resultado_consulta2->fetch_assoc();
                             echo ('<td><center>'.$medio_resultado['medio'].'</center></td>');
 
-                            if($row['porcentaje4']!=100){
+                            if($row['porcentaje2']!=100){
                               echo ('<td class="text-dark"><a href="agregar_archivos.php?id=2&act='.$row['id'].'"><span class="badge rounded-pill text-bg-primary"><i class="bi bi-file-earmark-medical"></i> Evidencia</span>
                               </a></td>');
                             }
@@ -44,7 +44,7 @@ $tabla="SELECT * FROM actividad WHERE responsable='$id' AND annio = '$annio'";
                             <span class="badge rounded-pill text-bg-primary"><i class="bi bi-eye-fill"></i> '.$num_rows.'</span></a></td>';
                             echo '<td><center>
                             <div class="progress">
-                              <div class="progress-bar" role="progressbar" style="width: '.$row['porcentaje4'].'%;" aria-valuenow="'.$row['porcentaje4'].'" aria-valuemin="0" aria-valuemax="100">'.$row['porcentaje4'].'%</div>
+                              <div class="progress-bar" role="progressbar" style="width: '.$row['porcentaje2'].'%;" aria-valuenow="'.$row['porcentaje2'].'" aria-valuemin="0" aria-valuemax="100">'.$row['porcentaje2'].'%</div>
                             </div>
                             </center></td>';
                             $fecha_inicio = $row['fecha_inicio4'];
