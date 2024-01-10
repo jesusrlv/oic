@@ -51,41 +51,8 @@ $tabla="SELECT * FROM actividad WHERE responsable='$id' AND annio = '$annio'";
                             $fecha_inicio_mx = date("d/m/Y", strtotime($fecha_inicio));
                             $fecha_final = $row['fecha_final4'];
                             $fecha_final_mx = date("d/m/Y", strtotime($fecha_final));
-                            echo '<td><center><button class="btn btn-info btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal'.$row['id'].'"><small><i class="bi bi-calendar2-week-fill"></i> '.$fecha_inicio_mx.' - '.$fecha_final_mx.'</button></center></small></td>';
+                            echo '<td><center><button class="btn btn-info btn-sm" onclick="fechas('.$row['id'].',4)"><small><i class="bi bi-calendar2-week-fill"></i> '.$fecha_inicio_mx.' - '.$fecha_final_mx.'</button></center></small></td>';
                             echo ('<td><small>'.$row['observaciones4'].'</small></td>');
-
-                            //MODAL
-                            echo '<div class="modal fade" id="exampleModal'.$row['id'].'" tabindex="-1" aria-labelledby="exampleModalLabel'.$row['id'].'" aria-hidden="true">
-                              <div class="modal-dialog modal-dialog-centered">
-                                <div class="modal-content">
-                                  <div class="modal-header">
-                                    <h5 class="modal-title" id="exampleModalLabel">Editar fechas de actividad semestral</h5>
-                                    <!-- <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button> -->
-                                  </div>
-                                  <div class="modal-body">
-
-                                  <form action="prcd/proceso_fecha.php" method="POST">
-                                    <div class="input-group mb-3 w-100">
-                                      <span class="input-group-text" id="inputGroup-sizing-default"><small><i class="bi bi-calendar-week"></i> Fecha de inicio</small></span>
-                                      <input type="date" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" name="fecha_inicio" required>
-                                    </div>
-                                    <div class="input-group mb-3 w-10">
-                                      <span class="input-group-text" id="inputGroup-sizing-default"><small><i class="bi bi-calendar-week"></i> Fecha de finalización</small></span>
-                                      <input type="date" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" name="fecha_finalizacion" required>
-                                    </div>
-                                  </div>
-                                  <input value="'.$row['id'].'" name="id" hidden>
-                                  <input value="4" name="trimestre" hidden>
-                                  <div class="modal-footer">
-                                    <button type="button" class="btn btn-danger btn-sm" data-bs-dismiss="modal"><i class="bi bi-x-circle-fill"></i> Cerrar</button>
-                                    <button type="submit" class="btn btn-primary btn-sm"><i class="bi bi-calendar-plus"></i> Guardar</button>
-
-                                  </form>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>';
-
                         echo '</tr>';
                       
                     }

@@ -126,55 +126,9 @@ include('prcd/conn.php');
  </li>
  <hr style="color: dimgrey;">
  
- <!-- <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
-   <span>AÑO 2020</span>
-   <a class="d-flex align-items-center text-muted" href="#" aria-label="Add a new report">
-     <span data-feather="plus-circle"></span>
-   </a>
- </h6>
-
- <li class="nav-item">
-   <a class="nav-link" href="trimestre1.php">
-     <span data-feather="layers"></span>
-      
-     Primer trimestre
-   </a>
- </li>
- <li class="nav-item">
-   <a class="nav-link" href="trimestre2.php">
-     <span data-feather="layers"></span>
-     Segundo trimestre
-   </a>
- </li>
- <li class="nav-item">
-   <a class="nav-link" href="trimestre3.php">
-     <span data-feather="layers"></span>
-     Tercer trimestre
-   </a>
- </li>
- <li class="nav-item">
-   <a class="nav-link" href="trimestre4.php">
-     <span data-feather="layers"></span>
-     Cuarto trimestre
-   </a>
- </li> -->
 </ul>
 
-<!-- <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
- <span>Plantillas</span>
- <a class="d-flex align-items-center text-muted" href="#" aria-label="Add a new report">
-   <span data-feather="plus-circle"></span>
- </a>
-</h6>
-<ul class="nav flex-column mb-2">
- <li class="nav-item">
-   <a class="nav-link" href="modificar.php">
-     <span data-feather="file-text"></span>
-     Modificar
-   </a>
- </li>
- 
-</ul> -->
+
       </div>
     </nav>
 
@@ -188,10 +142,6 @@ include('prcd/conn.php');
           </div>
         </div>
         <div class="btn-toolbar mb-2 mb-md-0">
-          <!-- <div class="btn-group mr-2">
-            <button type="button" class="btn btn-sm btn-outline-secondary">Reporte PDF</button>
-            <button type="button" class="btn btn-sm btn-outline-secondary">Reporte EXCEL</button>
-          </div> -->
          
         </div>
       </div>
@@ -225,8 +175,6 @@ elseif($ev==4){
               <th>#</th>
               <th>Descripción</th>
               <th>Fecha de registro</th>
-              <!-- <th>Fecha inicio</th>
-              <th>Fecha finalización</th> -->
               <th>Archivo</th>
             
             </tr>

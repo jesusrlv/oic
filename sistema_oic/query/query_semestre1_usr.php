@@ -47,12 +47,12 @@ $tabla="SELECT * FROM actividad WHERE responsable='$id' AND annio = '$annio'";
                               <div class="progress-bar" role="progressbar" style="width: '.$row['porcentaje'].'%;" aria-valuenow="'.$row['porcentaje'].'" aria-valuemin="0" aria-valuemax="100">'.$row['porcentaje'].'%</div>
                             </div>
                             </center></td>';
-                            $fecha_inicio = $row['fecha_inicio4'];
+                            $fecha_inicio = $row['fecha_inicio'];
                             $fecha_inicio_mx = date("d/m/Y", strtotime($fecha_inicio));
-                            $fecha_final = $row['fecha_final4'];
+                            $fecha_final = $row['fecha_final'];
                             $fecha_final_mx = date("d/m/Y", strtotime($fecha_final));
-                            echo '<td><center><button class="btn btn-info btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal"><small><i class="bi bi-calendar2-week-fill"></i> '.$fecha_inicio_mx.' - '.$fecha_final_mx.'</button></center></small></td>';
-                            echo ('<td><small>'.$row['observaciones4'].'</small></td>');
+                            echo '<td><center><button class="btn btn-info btn-sm" onclick="fechas('.$row['id'].',1)"><small><i class="bi bi-calendar2-week-fill"></i> '.$fecha_inicio_mx.' - '.$fecha_final_mx.'</button></center></small></td>';
+                            echo ('<td><small>'.$row['observaciones'].'</small></td>');
 
                             
 

@@ -128,7 +128,7 @@ include('prcd/conn.php');
 <hr>
 <ul class="nav flex-column">
   <li class="nav-item">
-    <a class="nav-link" href="dashboard.php">
+    <a class="nav-link" href="#">
     <i class="bi bi-house"></i>
      Inicio </span>
    </a>
@@ -258,18 +258,19 @@ include('prcd/conn.php');
 </div>
 
 </html>
-
-//MODAL
-                        echo '<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel'.$row['id'].'" aria-hidden="true">
+<!-- modal de fechas -->
+          <div class="modal fade" id="modalFechas" tabindex="-1" aria-labelledby="modalFechas" aria-hidden="true">
                         <div class="modal-dialog modal-dialog-centered">
                           <div class="modal-content">
                             <div class="modal-header">
                               <h5 class="modal-title" id="exampleModalLabel">Editar fechas de actividad semestral</h5>
-                              <!-- <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button> -->
+                              
                             </div>
                             <div class="modal-body">
 
                             <form action="prcd/proceso_fecha.php" method="POST">
+                              <input type="text" name="idFecha" id="idFecha" hidden>
+                              <input name="trimestreModal" id="trimestreModal" hidden>
                               <div class="input-group mb-3 w-100">
                                 <span class="input-group-text" id="inputGroup-sizing-default"><small><i class="bi bi-calendar-week"></i> Fecha de inicio</small></span>
                                 <input type="date" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" name="fecha_inicio" required>
@@ -279,8 +280,7 @@ include('prcd/conn.php');
                                 <input type="date" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" name="fecha_finalizacion" required>
                               </div>
                             </div>
-                            <input value="'.$row['id'].'" name="id" hidden>
-                            <input value="4" name="trimestre" hidden>
+                            <!-- <input value="'.$row['id'].'" name="id" hidden> -->
                             <div class="modal-footer">
                               <button type="button" class="btn btn-danger btn-sm" data-bs-dismiss="modal"><i class="bi bi-x-circle-fill"></i> Cerrar</button>
                               <button type="submit" class="btn btn-primary btn-sm"><i class="bi bi-calendar-plus"></i> Guardar</button>
@@ -289,4 +289,4 @@ include('prcd/conn.php');
                             </div>
                           </div>
                         </div>
-                      </div>';
+                      </div>

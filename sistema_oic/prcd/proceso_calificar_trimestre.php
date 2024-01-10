@@ -21,8 +21,7 @@ $observaciones = $_POST['observaciones'];
 </header>
 
 <?php 
-
-     
+  
  // inicia consulta
 
 if ($trimestre == 1){
@@ -36,12 +35,11 @@ if ($trimestre == 1){
         title: 'Acción correcta',
         text: 'Calificado correctamente',
         footer: 'INJUVENTUD</a>'
-    }).then(function(){window.location='../actividad_calificar.php';});</script>";
+    }).then(function(){window.location='../tablero_admin.php';});</script>";
     }
     else{
     echo 'No se registró la actividad';
     }
-
 }
 
 elseif ($trimestre == 2){
@@ -55,12 +53,11 @@ elseif ($trimestre == 2){
         title: 'Acción correcta',
         text: 'Calificado correctamente',
         footer: 'INJUVENTUD</a>'
-    }).then(function(){window.location='../actividad_calificar.php';});</script>";
+    }).then(function(){window.location='../tablero_admin.php';});</script>";
     }
     else{
     echo 'No se registró la actividad';
     }
-
 }
 
 elseif ($trimestre == 3){
@@ -74,12 +71,11 @@ elseif ($trimestre == 3){
         title: 'Acción correcta',
         text: 'Calificado correctamente',
         footer: 'INJUVENTUD</a>'
-    }).then(function(){window.location='../actividad_calificar.php';});</script>";
+    }).then(function(){window.location='../tablero_admin.php';});</script>";
     }
     else{
     echo 'No se registró la actividad';
     }
-
 }
 
 elseif ($trimestre == 4){
@@ -93,15 +89,12 @@ elseif ($trimestre == 4){
         title: 'Acción correcta',
         text: 'Calificado correctamente',
         footer: 'INJUVENTUD</a>'
-    }).then(function(){window.location='../actividad_calificar.php';});</script>";
+    }).then(function(){window.location='../tablero_admin.php';});</script>";
     }
     else{
     echo 'No se registró la actividad';
     }
-
 }
-
-
 ?>
 
 </html>

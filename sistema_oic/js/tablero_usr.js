@@ -54,3 +54,9 @@ function trimestre4(annio,usr){
         }
     });
 }
+
+function fechas(id,trimestre){
+    $('#modalFechas').modal('show');
+    document.getElementById('idFecha').value = id;
+    document.getElementById('trimestreModal').value = trimestre;
+}
