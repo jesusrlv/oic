@@ -115,9 +115,9 @@ $nombre = $_SESSION['nombre'];
         <hr style="color: dimgrey;">
 <ul class="nav flex-column">
     <li class="nav-item">
-        <a class="nav-link active" href="#">
+        <a class="nav-link active" href="tablero_admin.php">
        <i class="fas fa-laptop-house"></i> 
-       Inicio <span class="sr-only">(current)</span>
+       Inicio <span class="sr-only"></span>
      </a>
    </li>
   
@@ -138,8 +138,6 @@ $nombre = $_SESSION['nombre'];
       <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-2 border-bottom">
         <div class="btn-toolbar mb-2 mb-md-0">
           <div class="btn-group mr-2">
-            <!-- <button type="button" class="btn btn-sm btn-outline-secondary">Reporte PDF</button>
-            <button type="button" class="btn btn-sm btn-outline-secondary">Reporte EXCEL</button> -->
           </div>
          
         </div>

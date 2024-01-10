@@ -111,7 +111,7 @@ $nombre = $_SESSION['nombre'];
         <hr style="color: dimgrey;">
         <h6 class="sidebar-heading d-flex justify-content-center text-center align-items-center px-3 mt-2 mb-1 text-muted">
           <span class="">
-            bienvenido<br><i class="fas fa-user"></i> 
+            Bienvenido<br><i class="fas fa-user"></i> 
             <?php
             
             echo ($nombre);
@@ -122,9 +122,9 @@ $nombre = $_SESSION['nombre'];
         <hr style="color: dimgrey;">
 <ul class="nav flex-column">
     <li class="nav-item">
-        <a class="nav-link active" href="#">
+        <a class="nav-link active" href="tablero_admin.php">
        <i class="fas fa-laptop-house"></i> 
-       Inicio <span class="sr-only">(current)</span>
+       Inicio <span class="sr-only"></span>
      </a>
    </li>
   
