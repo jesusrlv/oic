@@ -1,6 +1,6 @@
 <?php
 include ('../prcd/conn.php');
-    $tabla="SELECT * FROM actividad ORDER BY annio ASC";
+    $tabla="SELECT * FROM actividad ORDER BY estatus DESC";
             $resultadotabla = $conn->query($tabla);
             $numero=0;
             while($row = $resultadotabla->fetch_assoc()){

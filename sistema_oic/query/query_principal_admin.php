@@ -9,7 +9,7 @@ if(!isset($_POST['annio'])){
     $mes = substr($fecha_sistema, 5, 2); 
 
 }
-              $tabla="SELECT * FROM actividad WHERE annio = '$annioQuery' ORDER BY id ASC";
+              $tabla="SELECT * FROM actividad WHERE annio = '$annioQuery' AND estatus = 1 ORDER BY id ASC";
                     // $tabla="SELECT * FROM usr INNER JOIN archivos ON usr.codigo = archivos.codigo_usr WHERE usr.priv = 1 AND usr.tematica=1 ORDER BY usr.id ASC";
                     $resultadotabla = $conn->query($tabla);
                     $numero=0;

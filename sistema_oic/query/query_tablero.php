@@ -4,7 +4,7 @@
     $annio = $_POST['annio'];
     $trimestre = $_POST['trimestre'];
 
-    $tabla="SELECT * FROM actividad WHERE annio = '$annio' AND trimestre = '$trimestre' ORDER BY id ASC";
+    $tabla="SELECT * FROM actividad WHERE annio = '$annio' AND trimestre = '$trimestre' AND estatus = 1  ORDER BY id ASC";
                     $resultadotabla = $conn->query($tabla);
                     $numero=0;
                     while($row = $resultadotabla->fetch_assoc()){

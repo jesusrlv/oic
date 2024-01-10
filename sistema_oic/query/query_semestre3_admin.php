@@ -3,7 +3,7 @@ include ('../prcd/conn.php');
 
 $annioQuery = $_POST['annio'];
 
-$tabla="SELECT * FROM actividad WHERE annio = '$annioQuery' ORDER BY id ASC";
+$tabla="SELECT * FROM actividad WHERE annio = '$annioQuery' AND estatus = 1 ORDER BY id ASC";
               $resultadotabla = $conn->query($tabla);
               $numero=0;
               while($row = $resultadotabla->fetch_assoc()){

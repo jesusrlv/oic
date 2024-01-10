@@ -4,7 +4,7 @@ include ('../prcd/conn.php');
 $annio = $_POST['annio'];
 $id = $_POST['usr'];
 
-$tabla="SELECT * FROM actividad WHERE responsable='$id' AND annio = '$annio'";
+$tabla="SELECT * FROM actividad WHERE responsable='$id' AND annio = '$annio' AND estatus = 1";
                     $resultadotabla = $conn->query($tabla);
                     $numero=0;
                     while($row = $resultadotabla->fetch_assoc()){

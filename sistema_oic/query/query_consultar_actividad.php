@@ -1,7 +1,7 @@
 <?php
     include ('../prcd/conn.php');
     $id = $_POST['id'];
-    $sqlActividad = "SELECT * FROM actividad WHERE id = '$id'";
+    $sqlActividad = "SELECT * FROM actividad WHERE estatus = 1 AND id = '$id'";
     $resultadoActividad = $conn->query($sqlActividad);
     $rowActividad =  $resultadoActividad -> fetch_assoc();
 
