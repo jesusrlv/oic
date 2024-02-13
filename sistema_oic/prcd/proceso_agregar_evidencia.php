@@ -43,7 +43,7 @@ date_default_timezone_set('America/Mexico_City');
     return $key;
 }    */
 /* $codigo = generarCodigo(9); */
-$codigo = "codigoX";
+// $codigo = "codigoX";
  // genera un código de 9 caracteres de longitud.
 
 $trimestre = $_POST['trimestre'];
@@ -68,9 +68,9 @@ $fecha_sistema = strftime("%Y-%m-%d,%H:%M:%S");
                 $archivo_ext=$_FILES['file1']['name'];
                 $extension = pathinfo($archivo_ext, PATHINFO_EXTENSION);
 
-              if(move_uploaded_file($_FILES["file1"]["tmp_name"],"../files/".$link.'_'.$codigo.'_evidencia_'.$id.'_trimestre_'.$trimestre.'.'.$extension)){
+              if(move_uploaded_file($_FILES["file1"]["tmp_name"],"../files/".$link.'_evidencia_'.$id.'_trimestre_'.$trimestre.'.'.$extension)){
                   
-                  $ruta = "files/".$link.'_'.$codigo.'_evidencia_'.$id.'_trimestre_'.$trimestre.'.'.$extension;
+                  $ruta = "files/".$link.'_evidencia_'.$id.'_trimestre_'.$trimestre.'.'.$extension;
   
               } else {
                   echo "move_uploaded_file function failed";
@@ -89,19 +89,7 @@ VALUES('$id','$trimestre','$descripcion','$fecha_ini','$fecha_final','$fecha_sis
     title: 'Acción correcta',
     text: 'Bitácora agregada',
     footer: 'INJUVENTUD</a>'
-  }).then(function(){window.location='../dashboard.php';});</script>";
-  
-  // echo "<script type=\'text/javascript\'>
-  //       Swal.fire({
-  //           icon: 'success',
-  //           title: 'Acción correcta',
-  //           text: 'Bitácora agregada'
-  //       }).then(function(){window.location='../perfiles/super_usr/revision_bitacora.php';});
-
-  // </script>";
-  
-  // header ('Location:../perfiles/super_usr/revision_bitacora.php');
- 
+  }).then(function(){window.location='../tablero_usr.php';});</script>";
   
 
   }

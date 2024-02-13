@@ -32,7 +32,7 @@ $tabla="SELECT * FROM actividad WHERE responsable='$id' AND annio = '$annio' AND
                               </a></td>');
                             }
                             else{
-                              echo '<td><span class="badge badge-danger">Completado 100%</span></td>';
+                              echo '<td><span class="badge rounded-pill text-bg-danger">Completado 100%</span></td>';
                             }
                             
                             $tabla_cont="SELECT count(*) AS total FROM bitacora WHERE usr_vinculado = '$id' AND trimestre = 3 AND actividad_vinculada = '$id_act'";

@@ -13,8 +13,26 @@ $porcentaje =  0;
 // $hora_registro = date("Y/m/d H:i:s");
 $hora_registro = strftime("%Y-%m-%d,%H:%M:%S");
 
-$sql_2="INSERT INTO actividad(actividad,responsable,descripcion,medio_verificacion,porcentaje,annio,hora_registro) 
-VALUES('$actividad','$responsable','$descripcion','$medio_verificacion','$porcentaje','$annio','$hora_registro')";
+$sql_2="INSERT INTO actividad(
+    actividad,
+    responsable,
+    descripcion,
+    medio_verificacion,
+    porcentaje,
+    annio,
+    hora_registro,
+    estatus
+    ) 
+VALUES(
+    '$actividad',
+    '$responsable',
+    '$descripcion',
+    '$medio_verificacion',
+    '$porcentaje',
+    '$annio',
+    '$hora_registro',
+    1
+    )";
 $resultado2= $conn->query($sql_2);
 
 if($resultado2){

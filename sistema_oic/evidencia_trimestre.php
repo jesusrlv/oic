@@ -81,14 +81,11 @@ include('prcd/conn.php');
     <!-- <nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow"> -->
     <nav class="navbar navbar-light sticky-top flex-md-nowrap p-0 text-white" style="background-color:#83272b;">
         <a class="navbar-brand col-md-3 col-lg-2 mr-0 px-3 text-center text-light" href="#">
-    <!-- <img src="img/TrabajemosJuntosJuventud.png" width="30" height="30" class="d-inline-block align-top" alt="" loading="lazy">   -->
     <h6 class="text-center text-light display-7">OIC</h6>
     </a>
   <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-toggle="collapse" data-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
-  </button>
-  <!-- <input class="form-control form-control-dark w-30" type="text" placeholder="Search" aria-label="Search"> -->
-  
+  </button>  
   
   <ul class="navbar-nav px-3">
     <li class="nav-item text-nowrap">
@@ -108,20 +105,9 @@ include('prcd/conn.php');
             </li>
         </ul>
 
-        <h6 class="sidebar-heading d-flex justify-content-center text-center align-items-center px-3 mt-4 mb-1 text-muted">
-          <span class="">
-          bienvenido<br><i class="fas fa-user"></i> 
-            <?php
-            
-              echo utf8_encode($nombre);
-            
-            ?>
-          </span>
-        </h6>
-        <hr style="color: dimgrey;">
         <h6 class="sidebar-heading d-flex justify-content-center text-center align-items-center px-3 mt-2 mb-1 text-muted">
           <span class="">
-            bienvenido<br><i class="fas fa-user"></i> 
+            Bienvenido<br><i class="fas fa-user"></i> 
             <?php
             
             echo ($nombre);
@@ -132,13 +118,27 @@ include('prcd/conn.php');
         <hr style="color: dimgrey;">
 <ul class="nav flex-column">
     <li class="nav-item">
-        <a class="nav-link active" href="#">
+    <?php 
+    if ($perfil == 1){
+      echo '<a class="nav-link active" href="tablero_usr.php">';
+    }
+    else{
+      echo '<a class="nav-link active" href="tablero_admin.php">';
+    }
+    ?>
        <i class="fas fa-laptop-house"></i> 
        Inicio <span class="sr-only">(current)</span>
      </a>
    </li>
   
-    <li class="nav-item">
+   <?php 
+    if ($perfil == 1){
+      echo '<li class="nav-item" hidden>';
+    }
+    else{
+      echo '<li class="nav-item" >';
+    }
+    ?>
       <a class="nav-link" href="modificar.php">
         <i class="bi bi-app-indicator"></i>
        Modificar
@@ -184,9 +184,6 @@ elseif($ev==4){
 }
 
 ?>
-
-
-
       <hr style="color: dimgrey;">
       <h2></h2>
       <div class="table-responsive">
@@ -196,20 +193,12 @@ elseif($ev==4){
               <th>#</th>
               <th>Descripción</th>
               <th>Fecha de registro</th>
-              <!-- <th>Fecha inicio</th>
-              <th>Fecha finalización</th> -->
               <th>Archivo</th>
-            
             </tr>
           </thead>
           <tbody>
-
             <!-- inicio loop tabla -->
-
             <?php
-                   //$tabla="SELECT * FROM archivos ORDER BY id_archivos ASC";
-//                    $tabla="SELECT usr.id,usr.nombre,usr.curp,archivos.link1,archivos.link2,archivos.link3,archivos.link4,archivos.link5,archivos.link6,archivos.link7,archivos.link8,archivos.link9 FROM usr
-// INNER JOIN archivos ON usr.curp = archivos.id_usr WHERE usr.priv = 1 ORDER BY usr.id";
 
                     $tabla="SELECT * FROM bitacora WHERE usr_vinculado='$id' AND trimestre = '$ev' AND actividad_vinculada = '$act'";
                     // $tabla="SELECT * FROM usr INNER JOIN archivos ON usr.codigo = archivos.codigo_usr WHERE usr.priv = 1 AND usr.tematica=1 ORDER BY usr.id ASC";
@@ -217,45 +206,16 @@ elseif($ev==4){
                     $numero=0;
                     while($row = $resultadotabla->fetch_assoc()){
                         $numero++;
-                        // $responsable=$row['responsable'];
-                        // $verificacion=$row['medio_verificacion'];
-                        
                         echo '<tr>';
                             echo '<td>'.$numero.'</td>';
                             echo '<td><center>'.$row['descripcion'].'</center></td>';
-
-                            // $consulta1="SELECT id,nombre FROM usr WHERE id = '$responsable'";
-                            // $resultado_consulta1 = $conn->query($consulta1);
-                            // $trabajador_resultado = $resultado_consulta1->fetch_assoc();
-                            // echo '<td><center>'.$trabajador_resultado['nombre'].'</center></td>';
-
-                            // echo '<td><center>'.$row['responsable'].'</center></td>';
-
-
-                            // echo '<td><center>'.$row['fecha_inicio'].'</center></td>';
-                            // echo '<td><center>'.$row['fecha_final'].'</center></td>';
                             echo '<td><center>'.$row['fecha'].'</center></td>';
-
-                            // $consulta2="SELECT id,medio FROM medio_verificacion WHERE id = '$verificacion'";
-                            // $resultado_consulta2 = $conn->query($consulta2);
-                            // $medio_resultado = $resultado_consulta2->fetch_assoc();
-                            // echo utf8_encode('<td><center>'.$medio_resultado['medio'].'</center></td>');
-
-                            // echo '<td><center>'.$row['medio_verificacion'].'</center></td>';
-
-
                             echo utf8_encode('<td><a href="./'.$row['url_doc'].'" class="badge badge-primary" target="_blank"><i class="fas fa-eye"></i> Visualizar</a></td>');
-                            // echo '<td><center>'.$row['porcentaje'].'%</center></td>';
-                            // echo '<td><center>0</center></td>';
                         echo '</tr>';
                       
                     }
                 ?>
-
             <!-- fin loop tabla -->
-
-            
-  
           </tbody>
         </table>
       </div>

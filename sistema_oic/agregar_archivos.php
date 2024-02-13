@@ -122,13 +122,27 @@ $id_actividad=$_REQUEST['act'];
         <hr style="color: dimgrey;">
 <ul class="nav flex-column">
     <li class="nav-item">
-        <a class="nav-link active" href="#">
+    <?php 
+    if ($perfil == 1){
+      echo '<a class="nav-link active" href="tablero_usr.php">';
+    }
+    else{
+      echo '<a class="nav-link active" href="tablero_admin.php">';
+    }
+    ?>
        <i class="fas fa-laptop-house"></i> 
        Inicio <span class="sr-only">(current)</span>
      </a>
    </li>
-  
-    <li class="nav-item">
+
+  <?php 
+  if ($perfil == 1){
+    echo '<li class="nav-item" hidden>';
+  }
+  else{
+    echo '<li class="nav-item" >';
+  }
+  ?>
       <a class="nav-link" href="modificar.php">
         <i class="bi bi-app-indicator"></i>
        Modificar

@@ -176,6 +176,11 @@ function areaQuery(){
                 if(jsonData.success == 1){
                    alert("Actividad agregada");
                    queryActividad();
+                    document.getElementById('nombre_actv').value = "";
+                    document.getElementById('responsable').value = "";
+                    document.getElementById('descripcion').value = "";
+                    document.getElementById('medio_verificacion').value = "";
+                    document.getElementById('annio').value = "";
                 }
                 else{
                     alert("No se agregó actividad");
