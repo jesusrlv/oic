@@ -38,7 +38,7 @@ $annioQuery = $_POST['annio'];
                             $num_rows = $cont_resultado['total'];
                             echo '<td class="align-middle"><span class="badge bg-info text-light"><center><i class="bi bi-file-post"></i> '.$num_rows.'</center></span></td>';
 
-                            echo ('<td class="align-middle"><a href="calificar_evidencia_trimestre.php?act='.$row['id'].'&ev=1"><i class="bi bi-clipboard-check"></i> Calificar</center></a></td>');
+                            echo ('<td class="align-middle"><a href="calificar_evidencia_trimestre.php?act='.$row['id'].'&ev=1"><i class="bi bi-clipboard-check"></i> Visualizar</center></a></td>');
                             $id_verificacion=$row['medio_verificacion'];
                             $verificacion = "SELECT * FROM medio_verificacion WHERE id ='$id_verificacion'";
                             $resultado_verificacion= $conn->query($verificacion);

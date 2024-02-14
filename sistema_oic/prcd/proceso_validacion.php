@@ -47,6 +47,30 @@ if ($resultado=mysqli_fetch_array($proceso)){
             }).then(function(){window.location='../tablero_admin.php';});</script>";
         
     }
+    
+    elseif($resultado['perfil']==3){
+
+        echo "<script type=\"text/javascript\">
+            Swal.fire({
+                icon: 'success',
+                title: 'Usuario correcto',
+                text: 'Bienvenido ".$_SESSION['nombre']."',
+                footer: 'INJUVENTUD</a>'
+            }).then(function(){window.location='../tablero_admin.php';});</script>";
+        
+    }
+    
+    elseif($resultado['perfil']==4){
+
+        echo "<script type=\"text/javascript\">
+            Swal.fire({
+                icon: 'success',
+                title: 'Usuario correcto',
+                text: 'Bienvenido ".$_SESSION['nombre']."',
+                footer: 'INJUVENTUD</a>'
+            }).then(function(){window.location='../tablero_admin.php';});</script>";
+        
+    }
 
     elseif($resultado['perfil']==3){
 

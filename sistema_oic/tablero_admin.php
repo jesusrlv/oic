@@ -148,8 +148,14 @@ $nombre = $_SESSION['nombre'];
        Inicio <span class="sr-only">(current)</span>
      </a>
    </li>
-  
-    <li class="nav-item">
+  <?php
+  if($perfil == 3 || $perfil == 4){
+    echo '<li class="nav-item" hidden>'; 
+  }
+  else{
+    echo '<li class="nav-item">';
+  }
+  ?>
       <a class="nav-link" href="modificar.php">
         <i class="bi bi-app-indicator"></i>
        Modificar

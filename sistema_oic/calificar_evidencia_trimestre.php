@@ -75,17 +75,13 @@ include('prcd/conn.php');
     <link href="css/dashboard.css" rel="stylesheet">
   </head>
   <body>
-    <!-- <nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow"> -->
     <nav class="navbar navbar-light sticky-top flex-md-nowrap p-0 text-white" style="background-color:#83272b;">
         <a class="navbar-brand col-md-3 col-lg-2 mr-0 px-3 text-center text-light" href="#">
-    <!-- <img src="img/TrabajemosJuntosJuventud.png" width="30" height="30" class="d-inline-block align-top" alt="" loading="lazy">   -->
     <h6 class="text-center text-light display-7">OIC</h6>
     </a>
   <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-toggle="collapse" data-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
-  </button>
-  <!-- <input class="form-control form-control-dark w-30" type="text" placeholder="Search" aria-label="Search"> -->
-  
+  </button>  
   
   <ul class="navbar-nav px-3">
     <li class="nav-item text-nowrap">
@@ -119,7 +115,6 @@ include('prcd/conn.php');
 <ul class="nav flex-column">
   <li class="nav-item">
     <a class="nav-link active" href="actividad_calificar.php">
-     <!-- <span data-feather="home"></span> -->
      <i class="fas fa-laptop-house"></i> 
      Inicio <span class="sr-only">(current)</span>
    </a>
@@ -164,8 +159,6 @@ elseif($ev==4){
 
 ?>
 
-
-
       <hr style="color: dimgrey;">
       <h2></h2>
       <div class="table-responsive">
@@ -208,6 +201,14 @@ elseif($ev==4){
   
           </tbody>
         </table>
+        <?php
+          if($perfil == 3 || $perfil == 4){
+            echo '<form action="prcd/proceso_calificar_trimestre.php" method="POST" hidden>'; 
+          }
+          else{
+            echo '<form action="prcd/proceso_calificar_trimestre.php" method="POST">';
+          }
+          ?>
         
             <form action="prcd/proceso_calificar_trimestre.php" method="POST">
             <p><input type="text" name="observaciones" class="form-control w-50" placeholder="Observaciones" aria-label="Observaciones" aria-describedby="Observaciones" required></p>
