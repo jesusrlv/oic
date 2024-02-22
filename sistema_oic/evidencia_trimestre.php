@@ -31,8 +31,9 @@ $id = $_SESSION['id'];
 $perfil = $_SESSION['perfil'];
 $nombre = $_SESSION['nombre'];
 
-$ev = $_REQUEST['ev'];
+$ev = $_REQUEST['ev']; //trimestre
 $act = $_REQUEST['act'];
+$annio = $_REQUEST['annio'];
 
 include('prcd/conn.php');
 ?>
@@ -219,7 +220,9 @@ elseif($ev==4){
           </tbody>
         </table>
       </div>
-
+      <div class="d-grid gap-2">
+            <a href="tablero_usr.php?annio=<?php echo $annio?>" class="btn btn-primary" type="button">Regresar</a>
+          </div>
 
     </main>
   </div>

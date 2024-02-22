@@ -49,6 +49,9 @@ include('prcd/conn.php');
 
     <link rel="icon" type="image/png" href="../icon.ico"/>
     <link rel="canonical" href="https://getbootstrap.com/docs/4.5/examples/dashboard/">
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
+    
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css">
     <script src="https://kit.fontawesome.com/4d63b5ef28.js" crossorigin="anonymous"></script>
 
@@ -114,7 +117,7 @@ include('prcd/conn.php');
 <hr>
 <ul class="nav flex-column">
   <li class="nav-item">
-    <a class="nav-link active" href="actividad_calificar.php">
+    <a class="nav-link active" href="tablero_admin.php">
      <i class="fas fa-laptop-house"></i> 
      Inicio <span class="sr-only">(current)</span>
    </a>
@@ -220,9 +223,23 @@ elseif($ev==4){
             </div>
             </form>
       
+      <?php
+      if($perfil==1){
+          echo '
+          <div class="d-grid gap-2">
+            <a href="" class="btn btn-primary" type="button">Regresar</a>
+          </div>
+          ';
+      }
+      elseif($perfil==2){
+          echo '
+          <div class="d-grid gap-2">
+            <a href="" class="btn btn-primary" type="button">Regresar</a>
+          </div>
+          ';
+      }
+      ?>
       </div>
-
-
     </main>
   </div>
 </div>

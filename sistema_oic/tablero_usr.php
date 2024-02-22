@@ -1,5 +1,8 @@
 <?php
 session_start();
+date_default_timezone_set('America/Mexico_City');
+setlocale(LC_TIME, 'es_MX.UTF-8');
+$fecha = strftime("%Y-%m-%d,%H:%M:%S");
 
 if (isset($_SESSION['usr'])) {
     if($_SESSION['perfil']==1){
@@ -31,6 +34,13 @@ $id = $_SESSION['id'];
 $perfil = $_SESSION['perfil'];
 $nombre = $_SESSION['nombre'];
 include('prcd/conn.php');
+if(isset($_REQUEST['annio'])){
+  $annio = $_REQUEST['annio'];
+}
+else{
+  $annio =  date('Y', strtotime($fecha));
+}
+
 ?>
 
 <!doctype html>
@@ -69,6 +79,19 @@ include('prcd/conn.php');
      <script src="js/tablero_usr.js"></script>         
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.3.2/dist/chart.umd.js" integrity="sha384-eI7PSr3L1XLISH8JdDII5YN/njoSsxfbrkCTnJrzXt+ENP5MOVBxD+l6sEG4zoLp" crossorigin="anonymous"></script><script src="css/dashboard.js"></script>
+    <?php
+
+echo
+'
+<script>
+  trimestre1('.$annio.','.$id.');
+  trimestre2('.$annio.','.$id.');
+  trimestre3('.$annio.','.$id.');
+  trimestre4('.$annio.','.$id.');
+</script>
+';
+
+?>
 
     <style>
       .bd-placeholder-img {
