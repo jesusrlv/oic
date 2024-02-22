@@ -32,8 +32,8 @@ $perfil = $_SESSION['perfil'];
 $nombre = $_SESSION['nombre'];
 
 $ev = $_REQUEST['ev']; //trimestre
-$act = $_REQUEST['act'];
-$annio = $_REQUEST['annio'];
+$act = $_REQUEST['act'];//actividad
+$annio = $_REQUEST['annio']; //annio
 
 include('prcd/conn.php');
 ?>
@@ -58,6 +58,7 @@ include('prcd/conn.php');
     
     <!-- Bootstrap core CSS -->
     <link href="css/bootstrap.css" rel="stylesheet">
+    <script src="js/documentos.js"></script>
 
     <style>
       .bd-placeholder-img {
@@ -78,7 +79,12 @@ include('prcd/conn.php');
     <!-- Custom styles for this template -->
     <link href="css/dashboard.css" rel="stylesheet">
   </head>
-  <body>
+  <body onload="documentosUsr()">
+
+  <input type="text" value="<?php echo $ev ?>" id="trimestre">
+  <input type="text" value="<?php echo $act ?>" id="actividad">
+  <input type="text" value="<?php echo $annio ?>" id="annio">
+
     <!-- <nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow"> -->
     <nav class="navbar navbar-light sticky-top flex-md-nowrap p-0 text-white" style="background-color:#83272b;">
         <a class="navbar-brand col-md-3 col-lg-2 mr-0 px-3 text-center text-light" href="#">
@@ -197,7 +203,7 @@ elseif($ev==4){
               <th>Archivo</th>
             </tr>
           </thead>
-          <tbody>
+          <tbody id="actividadTrim">
             <!-- inicio loop tabla -->
             <?php
 

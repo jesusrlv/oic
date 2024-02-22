@@ -40,7 +40,7 @@ $tabla="SELECT * FROM actividad WHERE responsable='$id' AND annio = '$annio' AND
                             $cont_resultado = $resultadotabla_cont->fetch_assoc();
                             $num_rows = $cont_resultado['total'];
 
-                            echo '<td><center><a href="evidencia_trimestre.php?ev=2&act='.$row['id'].'">
+                            echo '<td><center><a href="evidencia_trimestre.php?ev=2&act='.$row['id'].'&annio='.$row['annio'].'">
                             <span class="badge rounded-pill text-bg-primary"><i class="bi bi-eye-fill"></i> '.$num_rows.'</span></a></td>';
                             echo '<td><center>
                             <div class="progress">
