@@ -49,7 +49,7 @@ include('prcd/conn.php');
     <title>Dashboard | OIC</title>
 
     <link rel="icon" type="image/png" href="../icon.ico"/>
-    <link rel="canonical" href="https://getbootstrap.com/docs/4.5/examples/dashboard/">
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/dashboard/">
     <script src="https://kit.fontawesome.com/4d63b5ef28.js" crossorigin="anonymous"></script>
 
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
@@ -59,6 +59,7 @@ include('prcd/conn.php');
     <!-- Bootstrap core CSS -->
     <link href="css/bootstrap.css" rel="stylesheet">
     <script src="js/documentos.js"></script>
+    <script src="js/evidencia.js"></script>
 
     <style>
       .bd-placeholder-img {
@@ -81,9 +82,9 @@ include('prcd/conn.php');
   </head>
   <body onload="documentosUsr()">
 
-  <input type="text" value="<?php echo $ev ?>" id="trimestre">
-  <input type="text" value="<?php echo $act ?>" id="actividad">
-  <input type="text" value="<?php echo $annio ?>" id="annio">
+  <input type="text" value="<?php echo $ev ?>" id="trimestre" hidden>
+  <input type="text" value="<?php echo $act ?>" id="actividad" hidden>
+  <input type="text" value="<?php echo $annio ?>" id="annio" hidden>
 
     <!-- <nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow"> -->
     <nav class="navbar navbar-light sticky-top flex-md-nowrap p-0 text-white" style="background-color:#83272b;">
@@ -165,13 +166,13 @@ include('prcd/conn.php');
           </div>
         </div>
         
-        <div class="btn-toolbar mb-2 mb-md-0">
+        <!-- <div class="btn-toolbar mb-2 mb-md-0">
           <div class="btn-group mr-2">
             <button type="button" class="btn btn-sm btn-outline-secondary">Reporte PDF</button>
             <button type="button" class="btn btn-sm btn-outline-secondary">Reporte EXCEL</button>
           </div>
          
-        </div>
+        </div> -->
       </div>
 
       
@@ -194,34 +195,20 @@ elseif($ev==4){
       <hr style="color: dimgrey;">
       <h2></h2>
       <div class="table-responsive">
-        <table class="table table-bordered table-hover table-striped table-md" style="text-align: center;">
+        <table class="table table-bordered table-hover table-striped table-md align-middle" style="text-align: center;">
           <thead class="bg-dark text-light">
             <tr>
-              <th>#</th>
-              <th>Descripción</th>
-              <th>Fecha de registro</th>
-              <th>Archivo</th>
+              <th class="align-middle">#</th>
+              <th class="align-middle">Descripción</th>
+              <th class="align-middle">Fecha de registro</th>
+              <th class="align-middle"><i class="fas fa-eye"></i></th>
+              <th class="align-middle"><i class="bi bi-pencil-square"></i></th>
+              <th class="align-middle"><i class="fas fa-trash"></i></th>
             </tr>
           </thead>
           <tbody id="actividadTrim">
             <!-- inicio loop tabla -->
-            <?php
-
-                    $tabla="SELECT * FROM bitacora WHERE usr_vinculado='$id' AND trimestre = '$ev' AND actividad_vinculada = '$act'";
-                    // $tabla="SELECT * FROM usr INNER JOIN archivos ON usr.codigo = archivos.codigo_usr WHERE usr.priv = 1 AND usr.tematica=1 ORDER BY usr.id ASC";
-                    $resultadotabla = $conn->query($tabla);
-                    $numero=0;
-                    while($row = $resultadotabla->fetch_assoc()){
-                        $numero++;
-                        echo '<tr>';
-                            echo '<td>'.$numero.'</td>';
-                            echo '<td><center>'.$row['descripcion'].'</center></td>';
-                            echo '<td><center>'.$row['fecha'].'</center></td>';
-                            echo utf8_encode('<td><a href="./'.$row['url_doc'].'" class="badge badge-primary" target="_blank"><i class="fas fa-eye"></i> Visualizar</a></td>');
-                        echo '</tr>';
-                      
-                    }
-                ?>
+            
             <!-- fin loop tabla -->
           </tbody>
         </table>
@@ -232,9 +219,32 @@ elseif($ev==4){
 
     </main>
   </div>
+
+
+<!-- Modal editar-->
+<div class="modal fade" id="editarFiles" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="staticBackdropLabel">Editar</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body" id="evidenciaEdit">
+     
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+        <button type="button" class="btn btn-primary" onclick="actualizarEvidencia()">Actualizar</button>
+      </div>
+    </div>
+  </div>
 </div>
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-      <script>window.jQuery || document.write('<script src="../assets/js/vendor/jquery.slim.min.js"><\/script>')</script><script src="css/bootstrap.bundle.js"></script>
+
+</div>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.9.0/feather.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.min.js"></script>
         <script src="css/dashboard.js"></script></body>

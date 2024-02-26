@@ -17,34 +17,11 @@ session_start();
 
 </header>
 
-<?php
-
-// ini_set('display_errors', 1);
-
-// ini_set('display_startup_errors', 1);
-
-// error_reporting(E_ALL);
-
-?>
-
 <?php 
 include('conn.php');
 
 date_default_timezone_set('America/Mexico_City');
                   setlocale(LC_TIME, 'es_MX.UTF-8');
-
-//codigo aleatorio
-     
-/* function generarCodigo($longitud) {
-    $key = '';
-    $pattern = '1234567890abcdefghijklmnopqrstuvwxyz';
-    $max = strlen($pattern)-1;
-    for($i=0;$i < $longitud;$i++) $key .= $pattern{mt_rand(0,$max)};
-    return $key;
-}    */
-/* $codigo = generarCodigo(9); */
-// $codigo = "codigoX";
- // genera un código de 9 caracteres de longitud.
 
 $trimestre = $_POST['trimestre'];
 $actividad = $_POST['actividad'];
@@ -52,6 +29,14 @@ $descripcion = $_POST['descripcion'];
 $fecha_ini = $_POST['fecha_inicio'];
 $fecha_final = $_POST['fecha_finalizacion'];
 $fecha_sistema = strftime("%Y-%m-%d,%H:%M:%S");
+
+$sqlCount = "SELECT COUNT(*) AS cuenta FROM bitacora WHERE trimestre = '$trimestre' AND actividad_vinculada = '$actividad'";
+ $resultadoCount = $conn->query($sqlCount);
+ $rowCuenta = $resultadoCount->fetch_assoc();
+
+ $cuentaFiles = $rowCuenta['cuenta'];
+ $cuenta = $cuentaFiles + 1;
+
 
     $link= 'bitacora';
     $fileName = $_FILES["file1"]["name"]; // The file name
@@ -68,17 +53,17 @@ $fecha_sistema = strftime("%Y-%m-%d,%H:%M:%S");
                 $archivo_ext=$_FILES['file1']['name'];
                 $extension = pathinfo($archivo_ext, PATHINFO_EXTENSION);
 
-              if(move_uploaded_file($_FILES["file1"]["tmp_name"],"../files/".$link.'_evidencia_'.$id.'_trimestre_'.$trimestre.'.'.$extension)){
+              if(move_uploaded_file($_FILES["file1"]["tmp_name"],"../files/".$link.'_'.$cuenta.'_evidencia_'.$id.'_trimestre_'.$trimestre.'.'.$extension)){
                   
-                  $ruta = "files/".$link.'_evidencia_'.$id.'_trimestre_'.$trimestre.'.'.$extension;
+                  $ruta = "files/".$link.'_'.$cuenta.'_evidencia_'.$id.'_trimestre_'.$trimestre.'.'.$extension;
   
               } else {
                   echo "move_uploaded_file function failed";
               }
 
  // inicia consulta
- $sql_2="INSERT INTO bitacora(usr_vinculado,trimestre,descripcion,fecha_ini,fecha_fin,fecha,url_doc,actividad_vinculada) 
-VALUES('$id','$trimestre','$descripcion','$fecha_ini','$fecha_final','$fecha_sistema','$ruta','$actividad')";
+ $sql_2="INSERT INTO bitacora(usr_vinculado,trimestre,descripcion,fecha_ini,fecha_fin,fecha,url_doc,actividad_vinculada,cuenta) 
+VALUES('$id','$trimestre','$descripcion','$fecha_ini','$fecha_final','$fecha_sistema','$ruta','$actividad','$cuenta')";
  $resultado2= $conn->query($sql_2);
 
  if($resultado2){
@@ -86,7 +71,7 @@ VALUES('$id','$trimestre','$descripcion','$fecha_ini','$fecha_final','$fecha_sis
   echo "<script type=\"text/javascript\">
   Swal.fire({
     icon: 'success',
-    title: 'Acción correcta',
+    title: 'Acción correcta, es tu actividad #".$cuenta." del trimestre ".$trimestre."',
     text: 'Bitácora agregada',
     footer: 'INJUVENTUD</a>'
   }).then(function(){window.location='../tablero_usr.php';});</script>";
