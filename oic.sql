@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost
--- Tiempo de generación: 07-12-2023 a las 23:27:01
+-- Tiempo de generación: 28-02-2024 a las 00:30:05
 -- Versión del servidor: 10.4.21-MariaDB
 -- Versión de PHP: 7.4.28
 
@@ -33,10 +33,10 @@ CREATE TABLE `actividad` (
   `responsable` int(11) NOT NULL,
   `descripcion` varchar(255) CHARACTER SET utf16 COLLATE utf16_unicode_ci NOT NULL,
   `medio_verificacion` int(11) NOT NULL,
-  `porcentaje` int(11) NOT NULL,
-  `porcentaje2` int(11) NOT NULL,
-  `porcentaje3` int(11) NOT NULL,
-  `porcentaje4` int(11) NOT NULL,
+  `porcentaje` int(11) DEFAULT NULL,
+  `porcentaje2` int(11) DEFAULT NULL,
+  `porcentaje3` int(11) DEFAULT NULL,
+  `porcentaje4` int(11) DEFAULT NULL,
   `fecha_inicio` date DEFAULT NULL,
   `fecha_final` date DEFAULT NULL,
   `fecha_inicio2` date DEFAULT NULL,
@@ -45,32 +45,33 @@ CREATE TABLE `actividad` (
   `fecha_final3` date DEFAULT NULL,
   `fecha_inicio4` date DEFAULT NULL,
   `fecha_final4` date DEFAULT NULL,
-  `trimestre` int(11) NOT NULL,
+  `trimestre` int(11) DEFAULT NULL,
   `annio` int(11) NOT NULL,
   `hora_registro` datetime NOT NULL,
   `observaciones` varchar(300) COLLATE utf8_unicode_ci DEFAULT NULL,
   `observaciones2` varchar(300) COLLATE utf8_unicode_ci DEFAULT NULL,
   `observaciones3` varchar(300) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `observaciones4` varchar(300) COLLATE utf8_unicode_ci DEFAULT NULL
+  `observaciones4` varchar(300) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `estatus` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Volcado de datos para la tabla `actividad`
 --
 
-INSERT INTO `actividad` (`id`, `actividad`, `responsable`, `descripcion`, `medio_verificacion`, `porcentaje`, `porcentaje2`, `porcentaje3`, `porcentaje4`, `fecha_inicio`, `fecha_final`, `fecha_inicio2`, `fecha_final2`, `fecha_inicio3`, `fecha_final3`, `fecha_inicio4`, `fecha_final4`, `trimestre`, `annio`, `hora_registro`, `observaciones`, `observaciones2`, `observaciones3`, `observaciones4`) VALUES
-(1, 'Curso informativos de inducción', 5, 'Curso informativos de inducción', 1, 0, 0, 0, 0, '0000-00-00', '0000-00-00', '0000-00-00', '0000-00-00', '0000-00-00', '0000-00-00', '0000-00-00', '0000-00-00', 1, 2, '0000-00-00 00:00:00', '', NULL, NULL, NULL),
-(2, 'Notificación oficial al empleado y al área correspondiente sobre los movimientos generados en el personal del instituto.', 6, 'Notificación oficial al empleado y al área correspondiente sobre los movimientos generados en el personal del instituto.', 2, 0, 0, 0, 0, '0000-00-00', '0000-00-00', '0000-00-00', '0000-00-00', '0000-00-00', '0000-00-00', '0000-00-00', '0000-00-00', 1, 2, '0000-00-00 00:00:00', '', NULL, NULL, NULL),
-(3, 'Creación de software para el seguimiento de control operativo y financiero de las actividades del instituto.', 7, 'Creación de software para el seguimiento de control operativo y financiero de las actividades del instituto.', 3, 0, 0, 0, 0, '0000-00-00', '0000-00-00', '0000-00-00', '0000-00-00', '0000-00-00', '0000-00-00', '0000-00-00', '0000-00-00', 1, 1, '0000-00-00 00:00:00', '', NULL, NULL, NULL),
-(4, 'Actualización del manual de procedimientos conforme a la operatividad financiera de las actividades del instituto.', 6, 'Actualización del manual de procedimientos conforme a la operatividad financiera de las actividades del instituto.', 4, 0, 0, 0, 0, '0000-00-00', '0000-00-00', '0000-00-00', '0000-00-00', '0000-00-00', '0000-00-00', '0000-00-00', '0000-00-00', 1, 2, '0000-00-00 00:00:00', '', NULL, NULL, NULL),
-(5, 'Diagnóstico al personal sonre el manual de procedimientos.', 8, 'Diagnóstico al personal sonre el manual de procedimientos.', 11, 0, 0, 0, 0, '0000-00-00', '0000-00-00', '0000-00-00', '0000-00-00', '0000-00-00', '0000-00-00', '0000-00-00', '0000-00-00', 1, 2, '0000-00-00 00:00:00', '', NULL, NULL, NULL),
-(6, 'Método de control y seguimiento a programas sociales vulnerables a la corrupción interna y externa.', 9, 'Método de control y seguimiento a programas sociales vulnerables a la corrupción interna y externa.', 5, 0, 0, 0, 0, '0000-00-00', '0000-00-00', '0000-00-00', '0000-00-00', '0000-00-00', '0000-00-00', '0000-00-00', '0000-00-00', 1, 2, '0000-00-00 00:00:00', '', NULL, NULL, NULL),
-(7, 'Reporte presupuestal mensual para toma de decisiones.', 10, 'Reporte presupuestal mensual para toma de decisiones.', 6, 0, 0, 0, 0, '0000-00-00', '0000-00-00', '0000-00-00', '0000-00-00', '0000-00-00', '0000-00-00', '0000-00-00', '0000-00-00', 1, 2, '0000-00-00 00:00:00', '', NULL, NULL, NULL),
-(8, 'Emisión de boletín mensual anticipando las convocatorias y actividades relevantes.', 11, 'Emisión de boletín mensual anticipando las convocatorias y actividades relevantes.', 7, 0, 0, 0, 0, '0000-00-00', '0000-00-00', '0000-00-00', '0000-00-00', '0000-00-00', '0000-00-00', '0000-00-00', '0000-00-00', 1, 2, '0000-00-00 00:00:00', '', NULL, NULL, NULL),
-(9, 'Encuesta de clima organizacional', 5, 'Encuesta de clima organizacional', 8, 0, 0, 0, 0, '0000-00-00', '0000-00-00', '0000-00-00', '0000-00-00', '0000-00-00', '0000-00-00', '0000-00-00', '0000-00-00', 1, 2, '0000-00-00 00:00:00', '', NULL, NULL, NULL),
-(10, 'Realizar diagnóstico sobre las necesidades de capacitación', 5, 'Realizar diagnóstico sobre las necesidades de capacitación', 9, 0, 0, 0, 0, '0000-00-00', '0000-00-00', '0000-00-00', '0000-00-00', '0000-00-00', '0000-00-00', '0000-00-00', '0000-00-00', 1, 2, '0000-00-00 00:00:00', '', NULL, NULL, NULL),
-(11, 'Diagnóstico a los eventos públicos del instituto de manera previa y posterior en cuanto a su resultado de operación', 12, 'Diagnóstico a los eventos públicos del instituto de manera previa y posterior en cuanto a su resultado de operación', 10, 0, 0, 0, 0, '0000-00-00', '0000-00-00', '0000-00-00', '0000-00-00', '0000-00-00', '0000-00-00', '0000-00-00', '0000-00-00', 1, 2, '0000-00-00 00:00:00', '', NULL, NULL, NULL),
-(25, 'Nombre de actividad de prueba', 3, 'Una actividad de grupo', 7, 0, 0, 0, 0, '0000-00-00', '0000-00-00', '0000-00-00', '0000-00-00', '0000-00-00', '0000-00-00', '0000-00-00', '0000-00-00', 2, 1, '0000-00-00 00:00:00', '', NULL, NULL, NULL);
+INSERT INTO `actividad` (`id`, `actividad`, `responsable`, `descripcion`, `medio_verificacion`, `porcentaje`, `porcentaje2`, `porcentaje3`, `porcentaje4`, `fecha_inicio`, `fecha_final`, `fecha_inicio2`, `fecha_final2`, `fecha_inicio3`, `fecha_final3`, `fecha_inicio4`, `fecha_final4`, `trimestre`, `annio`, `hora_registro`, `observaciones`, `observaciones2`, `observaciones3`, `observaciones4`, `estatus`) VALUES
+(1, 'CURSO DE INDUCCIÓN', 9, 'CURSO DE INDUCCIÓN', 1, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2023-04-01', '2023-06-30', NULL, 2023, '2024-02-13 17:10:14', NULL, NULL, NULL, NULL, 1),
+(2, 'CURSO DE INTEGRACIÓN DEL PERSONAL', 9, 'CURSO DE INTEGRACIÓN DEL PERSONAL', 14, 0, NULL, NULL, NULL, '2023-01-01', '2023-03-31', NULL, NULL, NULL, NULL, '2023-04-01', '2023-12-15', NULL, 2023, '2024-02-13 17:13:27', NULL, NULL, NULL, NULL, 1),
+(3, 'REALIZAR DIAGNÓSTICO SOBRE LAS NECESIDADES DE CAPACITACIÓN', 9, 'REALIZAR DIAGNÓSTICO SOBRE LAS NECESIDADES DE CAPACITACIÓN', 9, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2023-04-01', '2023-12-15', NULL, 2023, '2024-02-13 17:14:33', NULL, NULL, NULL, NULL, 1),
+(4, 'DIAGNÓSTICO DE LA COMPILACIÓN DE DOCUMENTOS JURÍDICOS QUE AMPAREN  LOS PROCESOS OPERATIVOS Y ADMINISTRATIVOS.', 11, 'DIAGNÓSTICO DE LA COMPILACIÓN DE DOCUMENTOS JURÍDICOS QUE AMPAREN  LOS PROCESOS OPERATIVOS Y ADMINISTRATIVOS.', 8, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2023-04-01', '2023-12-16', NULL, 2023, '2024-02-13 17:15:06', NULL, NULL, NULL, NULL, 1),
+(5, 'AGENDA PARQUE VEHICULAR', 19, 'AGENDA PARQUE VEHICULAR', 16, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 2023, '2024-02-13 17:21:54', NULL, NULL, NULL, NULL, 1),
+(6, 'SISTEMA ELECTRÓNICO DE ALMACÉN', 19, 'SISTEMA ELECTRÓNICO DE ALMACÉN', 17, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 2023, '2024-02-13 17:22:53', NULL, NULL, NULL, NULL, 1),
+(7, 'MECANISMOS DE COMUNICACIÓN INTERNA DE LA INFORMACIÓN RELEVANTE Y DE CALIDAD.', 6, 'MECANISMOS DE COMUNICACIÓN INTERNA DE LA INFORMACIÓN RELEVANTE Y DE CALIDAD.', 18, 0, NULL, NULL, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 2023, '2024-02-13 17:24:04', NULL, NULL, NULL, 'otra calificación', 1),
+(8, 'MECANISMOS DE COMUNICACIÓN EXTERNA DE LA INFORMACIÓN RELEVANTE Y DE CALIDAD.', 6, 'MECANISMOS DE COMUNICACIÓN EXTERNA DE LA INFORMACIÓN RELEVANTE Y DE CALIDAD.', 19, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 2023, '2024-02-13 17:25:39', NULL, NULL, NULL, NULL, 1),
+(9, 'DIAGNÓSTICO A LOS EVENTOS PÚBLICOS DEL INSTITUTO DE MANERA PREVIA Y POSTERIOR EN CUANTO A SU RESULTADOS DE OPERACIÓN', 11, 'DIAGNÓSTICO A LOS EVENTOS PÚBLICOS DEL INSTITUTO DE MANERA PREVIA Y POSTERIOR EN CUANTO A SU RESULTADOS DE OPERACIÓN', 8, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2023-04-01', '2023-12-16', NULL, 2023, '2024-02-13 17:26:14', NULL, NULL, NULL, NULL, 1),
+(10, 'REUNIÓN OPERATIVA SEMANAL DE LAS ACTIVIDADES A REALIZAR DENTRO DE LA DIRECCIÓN', 11, 'REUNIÓN OPERATIVA SEMANAL DE LAS ACTIVIDADES A REALIZAR DENTRO DE LA DIRECCIÓN', 20, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2023-04-01', '2023-12-16', NULL, 2023, '2024-02-13 17:27:13', NULL, NULL, NULL, NULL, 1),
+(11, 'SISTEMA ELECTRÓNICO DE PROVEEDORES', 19, 'SISTEMA ELECTRÓNICO DE PROVEEDORES', 17, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 2023, '2024-02-20 14:31:57', NULL, NULL, NULL, NULL, 1),
+(12, 'CARÁTULA DE DOCUMENTOS PARA BENEFICIARIOS DE PROGRAMAS SOCIALES', 7, 'CARÁTULA DE DOCUMENTOS PARA BENEFICIARIOS DE PROGRAMAS SOCIALES', 15, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 2023, '2024-02-20 14:32:40', NULL, NULL, NULL, NULL, 1);
 
 -- --------------------------------------------------------
 
@@ -118,7 +119,8 @@ INSERT INTO `area` (`id`, `area`, `resp`) VALUES
 (5, 'Comité de contraloría social', 9),
 (6, 'Recursos financieros', 10),
 (7, 'Unidad de comunicación social e imagen', 11),
-(9, 'Secretaría técnica', 12);
+(9, 'Secretaría técnica', 12),
+(13, 'Recursos materiales', 19);
 
 -- --------------------------------------------------------
 
@@ -129,43 +131,50 @@ INSERT INTO `area` (`id`, `area`, `resp`) VALUES
 CREATE TABLE `bitacora` (
   `id` int(11) NOT NULL,
   `descripcion` varchar(500) COLLATE utf16_unicode_ci NOT NULL,
-  `fecha_ini` datetime NOT NULL,
-  `fecha_fin` datetime NOT NULL,
+  `fecha_ini` date NOT NULL,
+  `fecha_fin` date NOT NULL,
   `url_doc` varchar(300) COLLATE utf16_unicode_ci NOT NULL,
   `fecha` datetime NOT NULL,
   `trimestre` int(11) NOT NULL,
   `usr_vinculado` int(11) NOT NULL,
-  `actividad_vinculada` int(11) NOT NULL
+  `actividad_vinculada` int(11) NOT NULL,
+  `cuenta` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf16 COLLATE=utf16_unicode_ci;
 
 --
 -- Volcado de datos para la tabla `bitacora`
 --
 
-INSERT INTO `bitacora` (`id`, `descripcion`, `fecha_ini`, `fecha_fin`, `url_doc`, `fecha`, `trimestre`, `usr_vinculado`, `actividad_vinculada`) VALUES
-(1, 'DescripciÃ³n 2', '2021-01-14 00:00:00', '2021-01-15 00:00:00', './files/bitacora_pz5tw37k4_2882.pdf', '2021-01-14 16:05:20', 1, 7, 2),
-(2, 'DescripciÃ³n 2', '2021-01-14 00:00:00', '2021-01-15 00:00:00', './files/bitacora_0d7pp187d_2882.pdf', '2021-01-14 16:05:44', 4, 7, 3),
-(3, 'DescripciÃ³n 2', '2021-01-14 00:00:00', '2021-01-15 00:00:00', 'files/bitacora_kvl3hg75d_2882.pdf', '2021-01-14 16:06:35', 1, 7, 2),
-(4, 'DescripciÃ³n bitÃ¡cora 15012021', '2021-01-15 00:00:00', '2021-01-15 00:00:00', 'files/bitacora_0y5krzpyh_Acuse.pdf', '2021-01-15 14:11:36', 4, 7, 3),
-(5, 'Evidencia #4', '2021-01-15 00:00:00', '2021-01-15 00:00:00', 'files/bitacora_4p6cont9n_evidencia_7_trimestre_4', '2021-01-15 14:14:15', 4, 7, 3),
-(6, 'Evidencia #5', '2021-01-15 00:00:00', '2021-01-15 00:00:00', 'files/bitacora_cq6xoes0i_evidencia_7_trimestre_4', '2021-01-15 14:18:32', 4, 7, 3),
-(7, 'Evidencia #5', '2021-01-15 00:00:00', '2021-01-15 00:00:00', 'files/bitacora_7z2bbmdmz_evidencia_7_trimestre_4', '2021-01-15 14:19:00', 4, 7, 3),
-(8, 'ExtensiÃ³n', '2021-01-15 00:00:00', '2021-01-15 00:00:00', 'files/bitacora_kznga4d7b_evidencia_7_trimestre_4', '2021-01-15 14:23:59', 4, 7, 3),
-(9, 'ExtensiÃ³n 2', '2021-01-15 00:00:00', '2021-01-15 00:00:00', 'files/bitacora_duopu91e7_evidencia_7_trimestre_4_pdf', '2021-01-15 14:24:43', 4, 7, 3),
-(10, 'ExtensiÃ³n 3', '2021-01-15 00:00:00', '2021-01-15 00:00:00', 'files/bitacora_t6w1ghv2y_evidencia_7_trimestre_4.pdf', '2021-01-15 14:25:22', 4, 7, 3),
-(11, 'Evidencia #5', '2021-01-15 00:00:00', '2021-01-15 00:00:00', 'files/bitacora_oplo5qv66_evidencia_7_trimestre_4.pdf', '2021-01-15 15:34:25', 4, 7, 3),
-(12, 'Evidencia 1', '2021-01-15 00:00:00', '2021-01-15 00:00:00', 'files/bitacora_dt0pkbalh_evidencia_6_trimestre_4.pdf', '2021-01-15 15:35:41', 4, 6, 0),
-(13, 'Evidencia con actividad', '2021-01-15 00:00:00', '2021-01-15 00:00:00', 'files/bitacora_dabg10kn5_evidencia_6_trimestre_4.pdf', '2021-01-15 15:44:29', 4, 6, 2),
-(14, 'Actividad', '2021-01-15 00:00:00', '2021-01-15 00:00:00', 'files/bitacora_d2ivfoeno_evidencia_6_trimestre_4.pdf', '2021-01-15 15:45:24', 4, 6, 4),
-(15, 'Act 2', '2021-01-21 00:00:00', '2021-01-27 00:00:00', 'files/bitacora_dd5128tbj_evidencia_6_trimestre_4.pdf', '2021-01-15 15:48:16', 4, 6, 2),
-(16, 'Actividad nueva INJUVENTUD', '2021-01-02 00:00:00', '2021-01-30 00:00:00', 'files/bitacora_l76zdfu1s_evidencia_6_trimestre_4.pdf', '2021-01-15 15:50:03', 4, 6, 2),
-(17, 'ComitÃ© 1', '2021-01-15 00:00:00', '2021-01-15 00:00:00', 'files/bitacora_d7frgdxdx_evidencia_9_trimestre_4.pdf', '2021-01-15 15:54:17', 4, 9, 6),
-(18, 'Evidencia 1 trimestre', '2021-01-15 00:00:00', '2021-01-22 00:00:00', 'files/bitacora_nnoxsp5bd_evidencia_7_trimestre_1.pdf', '2021-01-15 17:00:50', 1, 7, 3),
-(19, 'evidencia 2', '2021-01-15 00:00:00', '2021-01-15 00:00:00', 'files/bitacora_f4xunkpm0_evidencia_7_trimestre_2.pdf', '2021-01-15 17:01:32', 2, 7, 3),
-(20, 'Tercer trimestre evidencia', '2021-01-15 00:00:00', '2021-01-17 00:00:00', 'files/bitacora_t5gg8ut4p_evidencia_7_trimestre_3.pdf', '2021-01-15 17:03:06', 3, 7, 3),
-(21, 'Evidencia 1', '2021-01-15 00:00:00', '2021-01-15 00:00:00', 'files/bitacora_t43mjja4f_evidencia_9_trimestre_1.pdf', '2021-01-15 18:09:13', 1, 9, 6),
-(22, 'Evidencia', '2021-01-20 00:00:00', '2021-01-21 00:00:00', 'files/bitacora_20phu4p7i_evidencia_6_trimestre_1.pdf', '2021-01-20 13:18:11', 1, 6, 2),
-(23, 'd', '2021-04-28 00:00:00', '2021-04-29 00:00:00', 'files/bitacora_ki0qdqc0r_evidencia_6_trimestre_1.pdf', '2021-04-28 14:21:49', 1, 6, 4);
+INSERT INTO `bitacora` (`id`, `descripcion`, `fecha_ini`, `fecha_fin`, `url_doc`, `fecha`, `trimestre`, `usr_vinculado`, `actividad_vinculada`, `cuenta`) VALUES
+(3, 'ENCUESTA ORGANIZACIONAL DEL PRIMER TRIMESTRE', '2023-01-01', '2023-03-31', 'files/bitacora_evidencia_9_trimestre_1.pdf', '2024-02-16 11:06:45', 1, 9, 2, 0),
+(4, '1ER. TRIMESTRE.- Se adjunta como evidencia del primer trimestre, el documento donde se solicitó la aprobación de las planillas a utilizarse en las evaluaciones de los procesos operativos y administrativos de la dependencia de manera mensual. ', '2023-04-01', '2023-12-16', 'files/bitacora_evidencia_11_trimestre_4.pdf', '2024-02-21 09:53:55', 4, 11, 4, 1),
+(5, '1ER. TRIMESTRE.- Se adjunta como evidencia el documento mediante el cual se solicitó la aprobación de las planillas a utilizar para la evaluación de los eventos públicos de la dependencia. ', '2023-02-01', '2023-12-16', 'files/bitacora_evidencia_11_trimestre_4.pdf', '2024-02-21 09:56:55', 4, 11, 9, 2),
+(6, '2d. TRIMESTRE.- Se adjunta como evidencia correspondiente al primer trimestre, lista de asistencia de reunión semanal de trabajo.', '2023-04-01', '2023-12-16', 'files/bitacora_evidencia_11_trimestre_4.pdf', '2024-02-21 09:59:15', 4, 11, 10, 3),
+(7, '2DO. TRIMESTRE.- Se adjunta como evidencia del segundo trimestre, dos diagnósticos elaborados a dos áreas de la dependencia, correspondientes al mes de abril de 2023. ', '2023-04-01', '2023-12-16', 'files/bitacora_evidencia_11_trimestre_4.pdf', '2024-02-21 10:05:33', 4, 11, 4, 1),
+(8, '2DO. TRIMESTRE.- Se adjunta como evidencia del segundo trimestre, el diagnóstico elaborado al evento denominado \"De la calle a la cancha: Street Soccer\", realizado el 06 y 07 de mayo de 2023.', '2023-04-01', '2023-12-16', 'files/bitacora_evidencia_11_trimestre_4.pdf', '2024-02-21 10:13:54', 4, 11, 9, 2),
+(9, '2d. TRIMESTRE.- Se adjunta como evidencia correspondiente al primer trimestre, lista de asistencia de reunión semanal de trabajo.', '2023-04-01', '2023-12-16', 'files/bitacora_evidencia_11_trimestre_4.pdf', '2024-02-21 10:16:13', 4, 11, 10, 3),
+(10, '3ER. TRIMESTRE.- Se adjunta como evidencia del tercer trimestre, los diagnósticos elaborados a dos áreas de la dependencia correspondientes al mes de agosto de 2023.', '2023-04-01', '2023-12-16', 'files/bitacora_evidencia_11_trimestre_4.pdf', '2024-02-21 10:19:56', 4, 11, 4, 1),
+(11, '3ER. TRIMESTRE.- Se adjunta como evidencia del tercer trimestre, el diagnóstico elaborado al evento denominado \"Premio Estatal de la Juventud 2023\", realizado en el mes de agosto de 2023. ', '2023-04-01', '2023-12-16', 'files/bitacora_evidencia_11_trimestre_4.pdf', '2024-02-21 10:22:07', 4, 11, 9, 2),
+(12, '2d. TRIMESTRE.- Se adjunta como evidencia correspondiente al primer trimestre, lista de asistencia de reunión semanal de trabajo.', '2023-04-01', '2023-12-16', 'files/bitacora_evidencia_11_trimestre_4.pdf', '2024-02-21 10:24:23', 4, 11, 10, 3),
+(13, 'EVIDENCIA FOTOGRÁFICA DE LOS CURSOS DE INDUCCIÓN HACIA EL PERSONAL DE LA DEPENDENCIA', '2023-04-01', '2023-06-30', 'files/bitacora_evidencia_9_trimestre_4.pdf', '2024-02-21 13:02:48', 4, 9, 1, 0),
+(14, 'PRESENTACIÓN REALIZADA PARA EL CURSO DE INDUCCIÓN DE LA DEPENDENCIA', '2023-04-01', '2023-06-30', 'files/bitacora_evidencia_9_trimestre_4.pdf', '2024-02-21 13:03:38', 4, 9, 1, 0),
+(15, 'EVIDENCIA FOTOGRÁFICA DEL PRIMER TRIMESTRE QUE REFUERZAN LA INTEGRACIÓN DEL PERSONAL', '2023-01-01', '2023-03-30', 'files/bitacora_evidencia_9_trimestre_4.pdf', '2024-02-21 13:08:53', 4, 9, 2, 0),
+(16, 'PRESENTACIÓN REALIZADA PARA CURSO DE INDUCCIÓN ', '2023-04-01', '2023-06-30', 'files/bitacora_evidencia_9_trimestre_4.pdf', '2024-02-21 13:11:46', 4, 9, 1, 0),
+(17, '4TO. TRIMESTRE.- Se adjunta como evidencia del cuarto trimestre, los diagnósticos realizados a dos de las áreas de la dependencia, correspondientes al mes de noviembre de 2023.', '2023-04-01', '2023-12-16', 'files/bitacora_evidencia_11_trimestre_4.pdf', '2024-02-21 13:47:09', 4, 11, 4, 1),
+(18, '4TO. TRIMESTRE.- Se adjunta como evidencia del cuarto trimestre, el diagnóstico elaborado al evento denominado \"Inauguración Transformando Espacios por las Juventudes\", realizado en el mes de noviembre de 2023 en el municipio de Loreto, Zacatecas.', '2023-04-01', '2023-12-16', 'files/bitacora_evidencia_11_trimestre_4.pdf', '2024-02-21 13:49:35', 4, 11, 9, 2),
+(19, '2d. TRIMESTRE.- Se adjunta como evidencia correspondiente al primer trimestre, lista de asistencia de reunión semanal de trabajo.', '2023-04-01', '2023-12-16', 'files/bitacora_evidencia_11_trimestre_4.pdf', '2024-02-21 13:50:29', 4, 11, 10, 3),
+(20, 'ENCUESTA ORGANIZACIONAL DEL PRIMER TRIMESTRE', '2023-01-01', '2023-03-31', 'files/bitacora_evidencia_9_trimestre_4.pdf', '2024-02-21 14:39:26', 4, 9, 2, 0),
+(21, 'EVIDENCIA FOTOGRÁFICA DEL SEGUNDO TRIMESTRE QUE REFUERZAN LA INTEGRACIÓN DEL PERSONAL', '2023-04-01', '2023-06-30', 'files/bitacora_evidencia_9_trimestre_4.pdf', '2024-02-21 14:41:31', 4, 9, 2, 0),
+(22, 'ENCUESTA ORGANIZACIONAL SEGUNDO TRIMESTRE', '2023-04-01', '2023-06-30', 'files/bitacora_evidencia_9_trimestre_4.pdf', '2024-02-21 14:42:14', 4, 9, 2, 0),
+(23, 'EVIDENCIA FOTOGRÁFICA DEL TERCER TRIMESTRE QUE REFUERZAN LA INTEGRACIÓN DEL PERSONAL', '2023-07-01', '2023-09-30', 'files/bitacora_evidencia_9_trimestre_4.pdf', '2024-02-21 14:43:22', 4, 9, 2, 0),
+(24, 'ENCUESTA ORGANIZACIONAL TERCER TRIMESTRE', '2023-07-01', '2023-09-30', 'files/bitacora_evidencia_9_trimestre_4.pdf', '2024-02-21 14:44:22', 4, 9, 2, 0),
+(25, 'EVIDENCIA FOTOGRÁFICA DEL CUARTO TRIMESTRE QUE REFUERZAN LA INTEGRACIÓN DEL PERSONAL', '2023-10-01', '2023-12-15', 'files/bitacora_evidencia_9_trimestre_4.pdf', '2024-02-21 14:45:07', 4, 9, 2, 0),
+(26, 'ENCUESTA ORGANIZACIONAL CUARTO TRIMESTRE', '2023-10-01', '2023-12-15', 'files/bitacora_evidencia_9_trimestre_4.pdf', '2024-02-21 14:45:42', 4, 9, 2, 0),
+(27, 'act', '2024-02-13', '2024-02-13', 'files/bitacora_evidencia_11_trimestre_4.pdf', '2024-02-26 16:30:27', 4, 11, 10, 5),
+(28, '2', '2024-02-12', '2024-02-18', 'files/bitacora_evidencia_11_trimestre_4.pdf', '2024-02-26 16:31:12', 4, 11, 10, 6),
+(29, 'Actividad 1', '2024-02-21', '2024-02-21', 'files/bitacora_evidencia_11_trimestre_4.pdf', '2024-02-26 16:32:51', 4, 11, 10, 7),
+(30, 'www', '2024-02-11', '2024-02-13', 'files/bitacora_evidencia_11_trimestre_3.pdf', '2024-02-26 16:33:13', 3, 11, 4, 1),
+(31, 'asdadas', '2024-02-20', '2024-02-14', 'files/bitacora_8_evidencia_11_trimestre_4.pdf', '2024-02-26 16:36:27', 4, 11, 10, 8);
 
 -- --------------------------------------------------------
 
@@ -185,13 +194,6 @@ CREATE TABLE `dashboard` (
   `annio` int(11) NOT NULL,
   `prioridad` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf16 COLLATE=utf16_unicode_ci;
-
---
--- Volcado de datos para la tabla `dashboard`
---
-
-INSERT INTO `dashboard` (`id`, `fecha_ini`, `fecha_fin`, `responsable`, `medio_verificacion`, `actividad`, `porcentaje`, `trimestre`, `annio`, `prioridad`) VALUES
-(1, '2020-11-09', '2020-11-18', 1, 1, 2, 12, 1, 2020, 1);
 
 -- --------------------------------------------------------
 
@@ -220,7 +222,32 @@ INSERT INTO `medio_verificacion` (`id`, `medio`, `descripcion`) VALUES
 (8, 'Generación del índice a través de planillas elaboradas', 'Generación del índice a través de planillas elaboradas'),
 (9, 'Con base en resultados, la elaboración de plan de capacitaciones', 'Con base en resultados, la elaboración de plan de capacitaciones'),
 (10, 'Generación del índice a través de planillas elaboradas', 'Generación del índice a través de planillas elaboradas'),
-(11, 'Resultados acorde al diagnóstico para la toma de decisiones.', 'Resultados acorde al diagnóstico para la toma de decisiones.');
+(11, 'Resultados acorde al diagnóstico para la toma de decisiones.', 'Resultados acorde al diagnóstico para la toma de decisiones.'),
+(14, 'EVIDENCIA FOTOGRÁFICA DE LAS ACTIVIDADES QUE REFUERCEN LA INTEGRACIÓN Y UNA ENCUESTA ORGANIZACIONAL', 'EVIDENCIA FOTOGRÁFICA DE LAS ACTIVIDADES QUE REFUERCEN LA INTEGRACIÓN Y UNA ENCUESTA ORGANIZACIONAL'),
+(15, 'FORMATO EN LISTA ELABORADO, REQUISITADO, FIRMADO Y SELLADO, CON EL CUMPLIMIENTO DE EXPEDIENTE COMPLETO, ANTES DE LIBERACIÓN DE APOYO.', 'FORMATO EN LISTA ELABORADO, REQUISITADO, FIRMADO Y SELLADO, CON EL CUMPLIMIENTO DE EXPEDIENTE COMPLETO, ANTES DE LIBERACIÓN DE APOYO.'),
+(16, 'A TRAVÉS DEL SISTEMA ELECTRÓNICO IMPLEMENTADO Y SU CAPACITACIÓN PARA LA SOLICITUD Y USO DE VEHÍCULOS.', 'A TRAVÉS DEL SISTEMA ELECTRÓNICO IMPLEMENTADO Y SU CAPACITACIÓN PARA LA SOLICITUD Y USO DE VEHÍCULOS.'),
+(17, 'A TRAVÉS DEL SISTEMA ELECTRÓNICO IMPLEMENTADO Y SU CAPACITACIÓN PARA ENTRADAS, SALIDAS, COSTEO, INVENTARIO, REQUISICIONES, APROBACIONES Y ENTREGAS CON FIRMA ELECTRÓNICA AUTORIZADA.', 'A TRAVÉS DEL SISTEMA ELECTRÓNICO IMPLEMENTADO Y SU CAPACITACIÓN PARA ENTRADAS, SALIDAS, COSTEO, INVENTARIO, REQUISICIONES, APROBACIONES Y ENTREGAS CON FIRMA ELECTRÓNICA AUTORIZADA.'),
+(18, 'BOLETÍN EN MEDIO DIGITAL,MEMORÁNDUM, PERIÓDICO MURAL, REUNIONES, CIRCULARES, Y ANÁLOGOS.', 'BOLETÍN EN MEDIO DIGITAL,MEMORÁNDUM, PERIÓDICO MURAL, REUNIONES, CIRCULARES, Y ANÁLOGOS.'),
+(19, 'SISTEMAS, CONVENIOS, GUÍAS, PROCEDIMIENTOS O CÓDIGOS ELECTRÓNICOS Y FÍSICOS VALIDADOS POR LA DIRECCIÓN GENERAL', 'SISTEMAS, CONVENIOS, GUÍAS, PROCEDIMIENTOS O CÓDIGOS ELECTRÓNICOS Y FÍSICOS VALIDADOS POR LA DIRECCIÓN GENERAL'),
+(20, 'LISTA DE ASISTENCIA Y CALENDARIO ELECTRÓNICO IMPLEMENTADO', 'LISTA DE ASISTENCIA Y CALENDARIO ELECTRÓNICO IMPLEMENTADO');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `principal`
+--
+
+CREATE TABLE `principal` (
+  `id` int(11) NOT NULL,
+  `actividad` int(11) NOT NULL,
+  `trimestre` int(11) NOT NULL,
+  `annio` int(11) NOT NULL,
+  `area` int(11) NOT NULL,
+  `medio_verificacion` int(11) NOT NULL,
+  `fecha` datetime NOT NULL,
+  `usr` int(11) NOT NULL,
+  `url` varchar(100) COLLATE utf8_unicode_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -242,15 +269,15 @@ CREATE TABLE `usr` (
 --
 
 INSERT INTO `usr` (`id`, `usr`, `nombre`, `pwd`, `area`, `perfil`) VALUES
-(1, 'jesusrlv', 'rodolfo leaños', '123456789', 0, 2),
-(5, 'RHumanos', 'Recursos Humanos', '123456789', 1, 1),
-(6, 'CAdmin', 'Coordinación Administrativa', '123456789', 2, 1),
-(7, 'Inf', 'Informática', '123456789', 3, 1),
-(8, 'OIC', 'Órgano Interno de Control', '123456789', 4, 1),
-(9, 'CSocial', 'Comité Contraloría Social', '123456789', 5, 1),
-(10, 'RFinancieros', 'Recursos Financieros', '123456789', 6, 1),
-(11, 'UComunicacion', 'Unidad de Imagen y Comunicación Social', '123456789', 7, 1),
-(12, 'STecnica', 'Secretaría Técnica', '123456789', 9, 1);
+(6, 'Ucomunicacion', 'Unidad de comunicación social e imagen', 'UCom01', 7, 1),
+(7, 'Rfinancieros', 'Recursos Financieros', 'Rfinan01', 6, 1),
+(9, 'RHumanos', 'Recursos Humanos', 'RHum01', 1, 1),
+(10, 'Inf', 'Informática', '123456789', 3, 1),
+(11, 'STecnica', 'Secretaría Técnica', 'STecn01', 9, 1),
+(12, 'CAdmin', 'Coordinación Administrativa', 'CAdmin01', 2, 1),
+(14, 'Admin', 'Administrador del sistema', '123456789', 0, 2),
+(19, 'RecMateriales', 'Recursos Materiales', 'RMat01', 13, 1),
+(20, 'OIC', 'Órgano Interno de Control', 'OIC01', 4, 1);
 
 --
 -- Índices para tablas volcadas
@@ -293,6 +320,12 @@ ALTER TABLE `medio_verificacion`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indices de la tabla `principal`
+--
+ALTER TABLE `principal`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indices de la tabla `usr`
 --
 ALTER TABLE `usr`
@@ -306,43 +339,49 @@ ALTER TABLE `usr`
 -- AUTO_INCREMENT de la tabla `actividad`
 --
 ALTER TABLE `actividad`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT de la tabla `annio`
 --
 ALTER TABLE `annio`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT de la tabla `area`
 --
 ALTER TABLE `area`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT de la tabla `bitacora`
 --
 ALTER TABLE `bitacora`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 
 --
 -- AUTO_INCREMENT de la tabla `dashboard`
 --
 ALTER TABLE `dashboard`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `medio_verificacion`
 --
 ALTER TABLE `medio_verificacion`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+
+--
+-- AUTO_INCREMENT de la tabla `principal`
+--
+ALTER TABLE `principal`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `usr`
 --
 ALTER TABLE `usr`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
