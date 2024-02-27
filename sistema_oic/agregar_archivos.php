@@ -33,6 +33,7 @@ $nombre = $_SESSION['nombre'];
 
 $id_trimestre=$_REQUEST['id'];
 $id_actividad=$_REQUEST['act'];
+$annio=$_REQUEST['annio'];
 
 ?>
 
@@ -182,6 +183,7 @@ $id_actividad=$_REQUEST['act'];
 
           <input type="hidden" name="trimestre" id="trimestre" value="<?php echo $id_trimestre ?>">
           <input type="hidden" name="actividad" id="actividad" value="<?php echo $id_actividad ?>">
+          <input type="hidden" name="annio" id="annio" value="<?php echo $annio ?>">
                 
 
                 <div class="input-group w-50 mb-3">

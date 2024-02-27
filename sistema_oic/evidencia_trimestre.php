@@ -223,7 +223,7 @@ elseif($ev==4){
 
 <!-- Modal editar-->
 <div class="modal fade" id="editarFiles" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-  <div class="modal-dialog">
+  <div class="modal-dialog modal-lg">
     <div class="modal-content">
       <div class="modal-header">
         <h1 class="modal-title fs-5" id="staticBackdropLabel">Editar</h1>
@@ -235,7 +235,8 @@ elseif($ev==4){
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-        <button type="button" class="btn btn-primary" onclick="actualizarEvidencia()">Actualizar</button>
+        <!-- <button type="button" class="btn btn-primary" onclick="actualizarEvidencia()">Actualizar</button> -->
+        <button type="submit" class="btn btn-primary">Actualizar</button>
       </div>
     </div>
   </div>
