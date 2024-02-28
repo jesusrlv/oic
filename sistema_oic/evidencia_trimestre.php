@@ -60,6 +60,7 @@ include('prcd/conn.php');
     <link href="css/bootstrap.css" rel="stylesheet">
     <script src="js/documentos.js"></script>
     <script src="js/evidencia.js"></script>
+    <script src="js/eliminar.js"></script>
 
     <style>
       .bd-placeholder-img {
