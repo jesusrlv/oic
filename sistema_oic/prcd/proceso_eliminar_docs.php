@@ -7,25 +7,40 @@ session_start();
     $cuenta = $_POST['cuenta'];
     $idRegistro = $_POST['id']; // se va a relacionar con id del registro
 
-$sql_2 = "DELETE FROM bitacora WHERE 
-usr_vinculado = '$id'
-AND trimestre = '$trimestre'
-AND actividad_vinculada = '$actividad'
-AND id = '$idRegistro'
-AND cuenta = '$cuenta'";
+    $sql_1 = "SELECT * FROM bitacora WHERE 
+    usr_vinculado = '$id'
+    AND trimestre = '$trimestre'
+    AND actividad_vinculada = '$actividad'
+    AND id = '$idRegistro'
+    AND cuenta = '$cuenta'";
 
-$resultado2= $conn->query($sql_2);
+    $result = $conn->query($sql_1);
 
-if($resultado2){
+if ($result) {
+    $row = $result->fetch_assoc();
 
-    echo json_encode(array(
-        'success'=>1
-    ));
-}
-else{
+    $sql_2 = "DELETE FROM bitacora WHERE 
+    usr_vinculado = '$id'
+    AND trimestre = '$trimestre'
+    AND actividad_vinculada = '$actividad'
+    AND id = '$idRegistro'
+    AND cuenta = '$cuenta'";
 
-    echo json_encode(array(
-        'success'=>0
-    ));
+    unlink('../'.$row['url_doc']);
+
+    $resultado2= $conn->query($sql_2);
+
+    if($resultado2){
+
+        echo json_encode(array(
+            'success'=>1
+        ));
+    }
+    else{
+
+        echo json_encode(array(
+            'success'=>0
+        ));
+    }
 }
 ?>
