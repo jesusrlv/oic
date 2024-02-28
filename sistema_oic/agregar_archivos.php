@@ -33,8 +33,6 @@ $nombre = $_SESSION['nombre'];
 
 $id_trimestre=$_REQUEST['id'];
 $id_actividad=$_REQUEST['act'];
-$annio=$_REQUEST['annio'];
-
 ?>
 
 <!doctype html>

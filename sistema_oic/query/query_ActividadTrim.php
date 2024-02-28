@@ -23,7 +23,7 @@ $id = $_SESSION['id'];
                                 <button onclick="editarFile('.$row['usr_vinculado'].','.$row['trimestre'].','.$row['actividad_vinculada'].','.$row['id'].','.$row['cuenta'].','.$annio.')" class="btn btn-outline-danger btn-sm" target="_blank"><i class="bi bi-pencil-square"></i></button>
                             </td>');
                             echo ('<td class="align-middle">
-                                    <button onclick="eliminarFile('.$id.','.$ev.','.$act.','.$row['id'].','.$row['cuenta'].','.$annio.')" class="btn btn-outline-primary btn-sm" target="_blank"><i class="fas fa-trash"></i></button>
+                                    <button onclick="eliminarFile('.$row['usr_vinculado'].','.$row['trimestre'].','.$row['actividad_vinculada'].','.$row['id'].','.$row['cuenta'].','.$annio.')" class="btn btn-outline-primary btn-sm" target="_blank"><i class="fas fa-trash"></i></button>
                             </td>');
                         echo '</tr>';
                       

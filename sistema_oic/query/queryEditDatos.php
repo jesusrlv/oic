@@ -5,20 +5,24 @@ include ('../prcd/conn.php');
 $id = $_POST['id'];
 $trimestre = $_POST['trimestre'];
 $actividad = $_POST['actividad'];
-$annio = $_POST['annio'];
-
 $idActividad = $_POST['idActividad'];
 $cuenta = $_POST['cuenta'];
+$annio = $_POST['annio'];
 
-$sql = "SELECT * FROM bitacora WHERE id = '$idActividad' AND usr_vinculado = '$id' AND actividad_vinculada = '$actividad' AND trimestre = '$trimestre' AND cuenta = '$cuenta'";
+$sql = "SELECT * FROM bitacora WHERE 
+id = '$idActividad' 
+AND trimestre = '$trimestre' 
+AND actividad_vinculada = '$actividad' 
+AND usr_vinculado = '$id' 
+AND cuenta = '$cuenta'";
 $result = $conn->query($sql);
 $row = $result->fetch_assoc();
 
 echo '
     <form method="post" action="prcd/proceso_editar_evidencia_datos.php">
     
-    <input type="hidden" name="trimestre" id="trimestre" value="'.$row['trimestre'].'">
     <input type="hidden" name="actividad" id="actividad" value="'.$row['actividad_vinculada'].'">
+    <input type="hidden" name="trimestre" id="trimestre" value="'.$row['trimestre'].'">
     <input type="hidden" name="cuenta" id="cuenta" value="'.$row['cuenta'].'">
     <input type="hidden" name="annio" id="annio" value="'.$annio.'">
                 

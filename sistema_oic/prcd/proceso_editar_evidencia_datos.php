@@ -31,6 +31,10 @@ $fecha_final = $_POST['fecha_finalizacion'];
 $annio = $_POST['annio'];
 $cuenta = $_POST['cuenta'];
 $fecha_sistema = strftime("%Y-%m-%d,%H:%M:%S");
+echo "trimestre: " . $trimestre ;
+echo "actividad: " . $actividad ;
+echo "annio: " . $annio ;
+echo "cuenta: " . $cuenta ;
 
 $sql_2 = "UPDATE bitacora SET 
 descripcion = '$descripcion', 
@@ -46,7 +50,14 @@ $resultado2= $conn->query($sql_2);
 
  if($resultado2){
    
-  echo "resulktado";
+  echo "<script type=\"text/javascript\">
+  Swal.fire({
+    icon: 'success',
+    title: 'Registro editado',
+    text: 'Bitácora agregada',
+    footer: 'INJUVENTUD</a>'
+  }).then(function(){window.location='../tablero_usr.php';});</script>";
+
  }
 
  else{
