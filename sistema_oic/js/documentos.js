@@ -6,7 +6,7 @@ function documentosUsr() {
 
     $.ajax({
         type: "POST",
-        url: "query/query_actividadTrim.php",
+        url: "query/query_ActividadTrim.php",
         data: {
             trimestre:trimestre,
             actividad:actividad,
