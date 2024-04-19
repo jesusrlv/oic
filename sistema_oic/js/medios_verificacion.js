@@ -127,3 +127,14 @@ function medioQuery(){
             }
         });
  }
+
+ function annio(){
+    $.ajax({
+        type: "POST",
+        url: "query/query_annio.php",
+        dataType: "html",
+        success: function(data) {
+            $('#annio').fadeIn(1000).html(data)
+        }
+    });
+}

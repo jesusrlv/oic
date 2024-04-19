@@ -78,7 +78,7 @@ $nombre = $_SESSION['nombre'];
     <!-- Custom styles for this template -->
     <link href="css/dashboard.css" rel="stylesheet">
   </head>
-  <body onload="medioQuery()">
+  <body onload="medioQuery();annio()">
     <!-- <nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow"> -->
     <nav class="navbar navbar-light sticky-top flex-md-nowrap p-0 text-white" style="background-color:#83272b;">
         <a class="navbar-brand col-md-3 col-lg-2 mr-0 px-3 text-center text-light" href="#">
@@ -152,18 +152,27 @@ $nombre = $_SESSION['nombre'];
           <!-- <form action="prcd/proceso_agregar_usr.php" method="POST"> -->
           
               <div class="row">
-                  <div class="col-6">
+                  <div class="col-4">
                     <div class="form-group">
                       <label for="exampleInputEmail1">Medio de verificación</label>
                       <input type="text" class="form-control" aria-describedby="Text" name="medioN" id="medioN" REQUIRED>
                       <small id="emailHelp" class="form-text text-muted">Medio de verificación</small>
                   </div>
                 </div>
-                <div class="col-6">
+                <div class="col-4">
                   <div class="form-group">
                       <label for="exampleInputEmail1">Descripción</label>
                       <input type="text" class="form-control" aria-describedby="Text" name="descripcionM" id="descripcionM" REQUIRED>
                       <small id="emailHelp" class="form-text text-muted">Texto descriptivo</small>
+                  </div>
+                </div>
+                <div class="col-4">
+                  <div class="form-group">
+                      <label for="exampleInputEmail1">Año</label>
+                      <select class="form-control" aria-label="Default select example" id="annio" name="annio" REQUIRED>
+                
+                      </select>
+                      <small id="emailHelp" class="form-text text-muted">Selección ...</small>
                   </div>
                 </div>
                 
@@ -241,4 +250,3 @@ $nombre = $_SESSION['nombre'];
     </div>
   </div>
 </div>
-
