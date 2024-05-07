@@ -189,7 +189,6 @@ $nombre = $_SESSION['nombre'];
                   <tr>
                     <th scope="col">#</th>
                     <th scope="col">Nombre</th>
-                    <th scope="col">Descripción</th>
                     <th scope="col">Editar</th>
                     <th scope="col">Eliminar</th>
                   </tr>

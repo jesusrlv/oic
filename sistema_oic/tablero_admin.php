@@ -161,6 +161,23 @@ $nombre = $_SESSION['nombre'];
        Modificar
      </a>
    </li>
+
+
+   
+                
+   <hr class="bg-dark">
+   <li class="nav-item">
+        <a class="nav-link active" href="#" onclick="">
+        <i class="bi bi-align-end"></i> 
+       2024 
+     </a>
+   </li>
+   <li>
+   <span><i class="bi bi-clipboard-check-fill"></i> Departamento de desarrollo juvenil</span>
+                    <a class="link-secondary" aria-label="Colapsar listado" data-bs-toggle="collapse" href="#collapse1" aria-expanded="true" aria-controls="collapseExample">
+                        <svg class="bi"><use xlink:href="#plus-circle"></use></svg>
+                    </a>
+   </li>
  </ul>   
       </div>
     </nav>

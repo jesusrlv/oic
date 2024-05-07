@@ -1,6 +1,6 @@
 <?php
     include ('../prcd/conn.php');
-    $sqlMedios = "SELECT * FROM medio_verificacion ORDER BY id DESC";
+    $sqlMedios = "SELECT * FROM medio_verificacion ORDER BY id ASC";
     $resultadoMedios = $conn->query($sqlMedios);
     $x=0;
     while(
@@ -12,7 +12,7 @@
         <tr>
             <th>'.$x.'</th>
             <td>'.$rowMedios['medio'].'</td>
-            <td>'.$rowMedios['descripcion'].'</td>';
+        ';
             
 
         echo '
