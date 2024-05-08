@@ -175,7 +175,7 @@ $nombre = $_SESSION['nombre'];
                 </div>
                 <div class="col-6"> 
                   <div class="form-group">
-                    <label for="exampleFormControlSelect1">Seleccionar responsable de la actividad</label>
+                    <label for="exampleFormControlSelect1">Seleccionar el área</label>
                     <select class="form-control" id="area" name="area" REQUIRED>
                     <option value="">Seleccionar...</option>
                     <?php
@@ -188,6 +188,7 @@ $nombre = $_SESSION['nombre'];
                             echo '<option value="'.($row['id'].'">'.$row['area']).'</option>';
                     }
                 ?>
+                    <option value="0">Pendiente de asignar</option>
 
                     </select>
                   </div>
