@@ -169,15 +169,15 @@ $nombre = $_SESSION['nombre'];
    <ul class="nav flex-column mb-auto" id="queryColaboradoresDashboard">
             
      <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-body-secondary text-uppercase">
-          <span><i class="bi bi-clipboard-check-fill"></i>2024</span>
+          <span class="text-primary"><i class="bi bi-clipboard-check-fill"></i>2024</span>
           <a class="link-secondary" aria-label="Colapsar listado" data-bs-toggle="collapse" href="#collapse" aria-expanded="false" aria-controls="collapseExample">
-          <i class="bi bi-plus-circle-dotted"></i>
+          <i class="bi bi-plus-circle-dotted text-primary"></i>
           </a>
       </h6>
      
      <div id="collapse" class="panel-collapse show">
           <li class="nav-item">
-            <a class="nav-link d-flex align-items-center gap-2" href="#" onclick="()">
+            <a class="nav-link d-flex align-items-center gap-2" href="#" onclick="trimestre1(this.value);">
             <span class="badge rounded-pill text-dark" style="">
             <i class="bi bi-arrow-right-short h5"></i>
             </span>
@@ -234,9 +234,9 @@ $nombre = $_SESSION['nombre'];
         </div>
       </div>
 
-      <h2>Revisar tableros</h2>
+      <h4 hidden>Revisar tableros</h4>
 
-      <div class="input-group mb-3">
+      <div class="input-group mb-5" hidden>
         <label class="input-group-text" for="inputGroupSelect01"><i class="bi bi-stack"></i></label>
         <select class="form-select" id="selectAnnio" onchange="trimestre1(this.value);trimestre2(this.value);trimestre3(this.value);trimestre4(this.value);">
           
