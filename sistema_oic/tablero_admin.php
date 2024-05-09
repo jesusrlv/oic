@@ -166,18 +166,53 @@ $nombre = $_SESSION['nombre'];
    
                 
    <hr class="bg-dark">
-   <li class="nav-item">
-        <a class="nav-link active" href="#" onclick="">
-        <i class="bi bi-align-end"></i> 
-       2024 
-     </a>
-   </li>
-   <li>
-   <span><i class="bi bi-clipboard-check-fill"></i> Departamento de desarrollo juvenil</span>
-                    <a class="link-secondary" aria-label="Colapsar listado" data-bs-toggle="collapse" href="#collapse1" aria-expanded="true" aria-controls="collapseExample">
-                        <svg class="bi"><use xlink:href="#plus-circle"></use></svg>
-                    </a>
-   </li>
+   <ul class="nav flex-column mb-auto" id="queryColaboradoresDashboard">
+            
+     <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-body-secondary text-uppercase">
+          <span><i class="bi bi-clipboard-check-fill"></i>2024</span>
+          <a class="link-secondary" aria-label="Colapsar listado" data-bs-toggle="collapse" href="#collapse" aria-expanded="false" aria-controls="collapseExample">
+          <i class="bi bi-plus-circle-dotted"></i>
+          </a>
+      </h6>
+     
+     <div id="collapse" class="panel-collapse show">
+          <li class="nav-item">
+            <a class="nav-link d-flex align-items-center gap-2" href="#" onclick="()">
+            <span class="badge rounded-pill text-dark" style="">
+            <i class="bi bi-arrow-right-short h5"></i>
+            </span>
+            <span class="badge rounded-pill text-dark" style="">Primer trimestre</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link d-flex align-items-center gap-2" href="#" onclick="()">
+            <span class="badge rounded-pill text-dark" style="">
+            <i class="bi bi-arrow-right-short h5"></i>
+            </span>
+            <span class="badge rounded-pill text-dark" style="">Segundo trimestre</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link d-flex align-items-center gap-2" href="#" onclick="()">
+            <span class="badge rounded-pill text-dark" style="">
+            <i class="bi bi-arrow-right-short h5"></i>
+            </span>
+            <span class="badge rounded-pill text-dark" style="">Tercer trimestre</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link d-flex align-items-center gap-2" href="#" onclick="()">
+            <span class="badge rounded-pill text-dark" style="">
+            <i class="bi bi-arrow-right-short h5"></i>
+            </span>
+            <span class="badge rounded-pill text-dark" style="">Cuarto trimestre</span>
+            </a>
+          </li>
+      </div>
+            
+  </ul>
+
+   
  </ul>   
       </div>
     </nav>
@@ -207,6 +242,7 @@ $nombre = $_SESSION['nombre'];
           
         </select>
       </div>
+      <h2>Primer trimestre</h2>
 
       <hr style="color: dimgrey;">
         <div class="table-responsive">  
@@ -234,7 +270,7 @@ $nombre = $_SESSION['nombre'];
 
       </div> <!-- div table-responsive -->
       
-      <h2>Segundo trimestre 2023</h2>
+      <h2>Segundo trimestre</h2>
 
       <hr style="color: dimgrey;">
       <h2></h2>
@@ -263,7 +299,7 @@ $nombre = $_SESSION['nombre'];
 
       </div> <!-- div table-responsive -->
 
-      <h2>Tercer trimestre 2023</h2>
+      <h2>Tercer trimestre</h2>
 
 <hr style="color: dimgrey;">
 <h2></h2>
@@ -292,7 +328,7 @@ $nombre = $_SESSION['nombre'];
 
 </div> <!-- div table-responsive -->
 
-<h2>Cuarto trimestre 2023</h2>
+<h2>Cuarto trimestre</h2>
 
       <hr style="color: dimgrey;">
       <h2></h2>
