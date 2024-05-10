@@ -101,7 +101,7 @@ $nombre = $_SESSION['nombre'];
     <!-- Custom styles for this template -->
     <link href="css/dashboard.css" rel="stylesheet">
   </head>
-  <body onload="annio()">
+  <body onload="annio();trimestreInicial();">
     <nav class="navbar navbar-light sticky-top flex-md-nowrap p-0 text-white" style="background-color:#83272b;">
         <a class="navbar-brand col-md-3 col-lg-2 mr-0 px-3 text-center text-light" href="#">
     <h6 class="text-center text-light display-7">OIC</h6>
