@@ -12,8 +12,8 @@
         <tr>
             <th>'.$x.'</th>
             <td>'.$rowArea['area'].'</td>';
-            $resp = $rowArea['resp'];
-            $sqlResp = "SELECT * FROM usr WHERE id = '$resp'";
+            $resp = $rowArea['id'];
+            $sqlResp = "SELECT * FROM usr WHERE area = '$resp'";
             $resultadoResp = $conn->query($sqlResp);
             $rowResp = $resultadoResp->fetch_assoc();
 
