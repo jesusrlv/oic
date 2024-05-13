@@ -193,7 +193,7 @@ $nombre = $_SESSION['nombre'];
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link d-flex align-items-center gap-2" href="#" onclick="trimestre3(2023);">
+            <a class="nav-link d-flex align-items-center gap-2" href="#" onclick="trimestre3(2024);">
             <span class="badge rounded-pill text-dark" style="">
             <i class="bi bi-arrow-right-short h5"></i>
             </span>
@@ -201,7 +201,7 @@ $nombre = $_SESSION['nombre'];
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link d-flex align-items-center gap-2" href="#" onclick="trimestre4(2023);">
+            <a class="nav-link d-flex align-items-center gap-2" href="#" onclick="trimestre4(2024);">
             <span class="badge rounded-pill text-dark" style="">
             <i class="bi bi-arrow-right-short h5"></i>
             </span>
