@@ -171,7 +171,7 @@ $nombre = $_SESSION['nombre'];
                     while($row = $resultadotabla->fetch_assoc()){
                         $numero++;
 
-                            echo '<option value="'.($row['id'].'">'.$row['usr']).'</option>';
+                            echo '<option value="'.($row['id'].'">'.$row['nombre']).'</option>';
                     }
                 ?>
 
