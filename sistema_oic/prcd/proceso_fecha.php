@@ -17,7 +17,12 @@ $fecha_final = $_POST['fecha_finalizacion'];
 $id = $_POST['idFecha'];
 
     if($trimestre==1){
-        $update = "UPDATE actividad SET fecha_inicio='$fecha_inicio',fecha_final='$fecha_final' WHERE id='$id'";
+
+        $update = "UPDATE actividad SET 
+        fecha_inicio='$fecha_inicio',
+        fecha_final='$fecha_final' 
+        WHERE id='$id'";
+
         $resultado= $conn->query($update);
 
         if($resultado){
@@ -26,7 +31,7 @@ $id = $_POST['idFecha'];
                 icon: 'success',
                 title: 'Acción correcta',
                 text: 'Fechas modificadas',
-                footer: 'INJUVENTUD</a>'
+                footer: 'INJUVENTUD'
             }).then(function(){window.location='../tablero_usr.php';});</script>";
         }
         else{
@@ -44,7 +49,7 @@ $id = $_POST['idFecha'];
                 icon: 'success',
                 title: 'Acción correcta',
                 text: 'Fechas modificadas',
-                footer: 'INJUVENTUD</a>'
+                footer: 'INJUVENTUD'
             }).then(function(){window.location='../tablero_usr.php';});</script>";
         }
         else{
@@ -62,7 +67,7 @@ $id = $_POST['idFecha'];
                 icon: 'success',
                 title: 'Acción correcta',
                 text: 'Fechas modificadas',
-                footer: 'INJUVENTUD</a>'
+                footer: 'INJUVENTUD'
             }).then(function(){window.location='../tablero_usr.php';});</script>";
         }
         else{
@@ -80,7 +85,7 @@ $id = $_POST['idFecha'];
                 icon: 'success',
                 title: 'Acción correcta',
                 text: 'Fechas modificadas',
-                footer: 'INJUVENTUD</a>'
+                footer: 'INJUVENTUD'
             }).then(function(){window.location='../tablero_usr.php';});</script>";
         }
         else{

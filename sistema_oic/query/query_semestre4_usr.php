@@ -13,7 +13,9 @@ $tabla="SELECT * FROM actividad WHERE responsable = '$id' AND annio = '$annio' A
                         $verificacion=$row['medio_verificacion'];
                         $id_act=$row['id'];
                         
-                        echo '<tr>';
+                        echo '<tr>
+                          <td>'.$numero.'</td>
+                        ';
 
                             echo ('<td><center>'.$row['actividad'].'</center></td>');
 

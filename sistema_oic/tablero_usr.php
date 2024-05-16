@@ -67,6 +67,8 @@ else{
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
 
     <!-- Bootstrap core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -77,8 +79,6 @@ else{
      <script src="css/bootstrap.bundle.min.js"></script>
      <script src="js/querys.js"></script>         
      <script src="js/tablero_usr.js"></script>         
-
-    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.3.2/dist/chart.umd.js" integrity="sha384-eI7PSr3L1XLISH8JdDII5YN/njoSsxfbrkCTnJrzXt+ENP5MOVBxD+l6sEG4zoLp" crossorigin="anonymous"></script><script src="css/dashboard.js"></script>
     <?php
 
 echo
@@ -197,6 +197,7 @@ echo
         <table class="table table-bordered table-hover table-striped table-sm align-middle" style="text-align: center;">
           <thead class="bg-dark text-light">
             <tr>
+              <th>#</th>
               <th>Nombre actividad</th>
               <th>Responsable</th>
               <th>Medio verificación</th>
@@ -218,6 +219,7 @@ echo
         <table class="table table-bordered table-hover table-striped table-sm align-middle" style="text-align: center;">
           <thead class="bg-dark text-light">
             <tr>
+              <th>#</th>
               <th>Nombre actividad</th>
               <th>Responsable</th>
               <th>Medio verificación</th>
@@ -239,6 +241,7 @@ echo
         <table class="table table-bordered table-hover table-striped table-sm align-middle" style="text-align: center;">
           <thead class="bg-dark text-light">
             <tr>
+              <th>#</th>
               <th>Nombre actividad</th>
               <th>Responsable</th>
               <th>Medio verificación</th>
@@ -260,6 +263,7 @@ echo
         <table class="table table-bordered table-hover table-striped table-sm align-middle" style="text-align: center;">
           <thead class="bg-dark text-light">
             <tr>
+              <th>#</th>
               <th>Nombre actividad</th>
               <th>Responsable</th>
               <th>Medio verificación</th>

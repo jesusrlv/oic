@@ -8,7 +8,7 @@ $annio = $_POST['annio'];
 
 $id = $_SESSION['id'];
 
-    $tabla="SELECT * FROM bitacora WHERE usr_vinculado='$id' AND trimestre = '$ev' AND actividad_vinculada = '$act'";
+    $tabla="SELECT * FROM bitacora WHERE usr_vinculado = '$id' AND trimestre = '$ev' AND actividad_vinculada = '$act' AND annio = '$annio'";
     // $tabla="SELECT * FROM usr INNER JOIN archivos ON usr.codigo = archivos.codigo_usr WHERE usr.priv = 1 AND usr.tematica=1 ORDER BY usr.id ASC";
     $resultadotabla = $conn->query($tabla);
     $numero=0;

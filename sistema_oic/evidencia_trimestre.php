@@ -49,15 +49,22 @@ include('prcd/conn.php');
     <title>Dashboard | OIC</title>
 
     <link rel="icon" type="image/png" href="../icon.ico"/>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
     <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/dashboard/">
     <script src="https://kit.fontawesome.com/4d63b5ef28.js" crossorigin="anonymous"></script>
 
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     
     <!-- Bootstrap core CSS -->
     <link href="css/bootstrap.css" rel="stylesheet">
+
     <script src="js/documentos.js"></script>
     <script src="js/evidencia.js"></script>
     <script src="js/eliminar.js"></script>
@@ -81,7 +88,7 @@ include('prcd/conn.php');
     <!-- Custom styles for this template -->
     <link href="css/dashboard.css" rel="stylesheet">
   </head>
-  <body onload="documentosUsr()">
+  <body onload="documentosUsr();">
 
   <input type="text" value="<?php echo $ev ?>" id="trimestre" hidden>
   <input type="text" value="<?php echo $act ?>" id="actividad" hidden>
@@ -180,22 +187,46 @@ include('prcd/conn.php');
 <?php
 
 if($ev==1){
-    echo '<h2>Primer Trimestre</h2>';
+    echo '<h2 class="text-center">Primer Trimestre</h2>';
 }
 elseif($ev==2){
-    echo '<h2>Segundo Trimestre</h2>';
+    echo '<h2 class="text-center">Segundo Trimestre</h2>';
 }
 elseif($ev==3){
-    echo '<h2>Tercer Trimestre</h2>';
+    echo '<h2 class="text-center">Tercer Trimestre</h2>';
 }
 elseif($ev==4){
-    echo '<h2>Cuarto Trimestre</h2>';
+    echo '<h2 class="text-center">Cuarto Trimestre</h2>';
 }
 
 ?>
       <hr style="color: dimgrey;">
-      <h2></h2>
-      <div class="table-responsive">
+
+      <h4>Agregar evidencia</h4>
+
+      <div class="mb-3">
+        <label for="basic-url" class="form-label text-secondary">Redacta texto sobre la evidencia:</label>
+        <div class="input-group">
+          <span class="input-group-text" id="basic-addon3">Observaciones</span>
+          <input type="text" class="form-control" id="observacionesCargar" aria-describedby="basic-addon3 basic-addon4">
+        </div>
+        <!-- <div class="form-text" id="basic-addon4">Example help text goes outside the input group.</div> -->
+      </div>
+
+      <form id="upload_form" enctype="multipart/form-data" method="post">
+
+        <input type="file" name="file" id="file" accept="application/pdf" class="h6 w-100 mt-3"><br>
+        <progress id="progressBar" value="0" max="100" style="width:300px;"></progress>
+        <small id="status"></small>
+        <p id="loaded_n_total"></p>
+        
+        <div class="d-grid gap-2">
+          <button class="btn btn-primary w-100" id="btnEvidencia" type="button" onclick="uploadFile()"><i class="bi bi-plus-circle-fill"></i> Registrar documento</button>
+        </div>
+
+      </form>
+
+      <div class="table-responsive mt-3">
         <table class="table table-bordered table-hover table-striped table-md align-middle" style="text-align: center;">
           <thead class="bg-dark text-light">
             <tr>
@@ -244,9 +275,6 @@ elseif($ev==4){
 
 </div>
 
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.9.0/feather.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.min.js"></script>
         <script src="css/dashboard.js"></script></body>
 </html>
