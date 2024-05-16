@@ -245,6 +245,25 @@ $nombre = $_SESSION['nombre'];
               <h3>Actividades agregadas</h3>
             </div>
 
+            <div class="form-group w-25">
+                  <label for="exampleFormControlSelect1"><i class="bi bi-funnel"></i> Filtro</label>
+                  <select class="form-control" id="annio2" name="annio2" onchange="queryActividadAnnio(this.value)">
+                  <option value="">Seleccionar...</option>
+                  <?php
+                  $tabla="SELECT * FROM annio ORDER BY id ASC";
+                  $resultadotabla = $conn->query($tabla);
+                  $numero=0;
+                  while($row = $resultadotabla->fetch_assoc()){
+                      $numero++;
+
+                          echo '<option value="'.($row['annio'].'">'.$row['annio']).'</option>';
+                  }
+                    ?> <!-- fin loop tabla -->
+                  </select>
+              </div>
+
+
+
             <div class="table-responsive">
           
                 <table class="table table-bordered table-hover table-striped table-md" style="text-align: center;">

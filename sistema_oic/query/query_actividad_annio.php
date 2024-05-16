@@ -4,8 +4,10 @@ date_default_timezone_set('America/Mexico_City');
 setlocale(LC_TIME, 'es_MX.UTF-8');
 $fechaSistema = strftime("%Y-%m-%d");
 
+
+
 $mes = date('m', strtotime($fechaSistema));
-$annio =  date('Y', strtotime($fechaSistema));
+$annio =  $_POST['annio'];
     $tabla="SELECT * FROM actividad WHERE annio = '$annio' ORDER BY estatus DESC";
             $resultadotabla = $conn->query($tabla);
             $numero=0;

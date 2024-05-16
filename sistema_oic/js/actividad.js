@@ -152,6 +152,20 @@ function areaQuery(){
         }
     });
  }
+ function queryActividadAnnio(annio){
+    $.ajax({
+        type: "POST",
+        data:{
+            annio:annio
+        },
+        url: "query/query_actividad_annio.php",
+        dataType: "html",
+        success: function(data) {
+            document.getElementById("actividad").innerHTML = "";
+            $('#actividad').fadeIn(1000).html(data);
+        }
+    });
+ }
 
  function agregarActividad2(){
         var nombre_actv = document.getElementById('nombre_actv').value;
