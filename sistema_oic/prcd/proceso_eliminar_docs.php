@@ -26,7 +26,7 @@ if ($result) {
     AND id = '$idRegistro'
     AND cuenta = '$cuenta'";
 
-    unlink('../'.$row['url_doc']);
+    unlink('../files/'.$row['url_doc']);
 
     $resultado2= $conn->query($sql_2);
 
