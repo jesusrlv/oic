@@ -221,6 +221,7 @@ elseif($ev==4){
         <p id="loaded_n_total"></p>
         
         <div class="d-grid gap-2">
+          <button class="btn btn-warning w-100 mb-2" id="btnEvidenciaNuevo" type="button" onclick="nuevoRegistro()" hidden><i class="bi bi-plus-circle-fill"></i> Nuevo registro</button>
           <button class="btn btn-primary w-100" id="btnEvidencia" type="button" onclick="uploadFile()"><i class="bi bi-plus-circle-fill"></i> Registrar documento</button>
         </div>
 

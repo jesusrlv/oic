@@ -72,9 +72,12 @@ function _(el) {
             icon:'success',
             title: 'Acción correcta',
           });
-        document.getElementById('registroDoc').disabled = true;
-        document.getElementById('registroDoc').setAttribute('style','color: #59c965')
-        document.getElementById('btnEvidencia').disabled = true;
+        // document.getElementById('registroDoc').disabled = true;
+        // document.getElementById('registroDoc').setAttribute('style','color: #59c965')
+        // document.getElementById('btnEvidencia').disabled = true;
+        document.getElementById('btnEvidenciaNuevo').hidden = false;
+        document.getElementById('btnEvidencia').hidden = true;
+
         $(".bloqueo").attr("disabled", true);
 
       }
@@ -136,8 +139,8 @@ function _(el) {
             icon:'success',
             title: 'Acción correcta',
           });
-        document.getElementById('registroDoc').disabled = true;
-        document.getElementById('registroDoc').setAttribute('style','color: #59c965')
+        // document.getElementById('registroDoc').disabled = true;
+        // document.getElementById('registroDoc').setAttribute('style','color: #59c965')
         document.getElementById('btnEvidencia').disabled = true;
         $(".bloqueo").attr("disabled", true);
 
@@ -151,4 +154,19 @@ function _(el) {
         _("status").innerHTML = "Fallo en la subida";
       }
     
+  }
+
+  function nuevoRegistro(){
+      document.getElementById('btnEvidenciaNuevo').hidden = true;
+      document.getElementById('btnEvidencia').hidden = false;
+      document.getElementById('observacionesCargar').focus();
+
+      document.getElementById('btnEvidencia').disabled = false;
+        $(".bloqueo").attr("disabled", false);
+
+        _("file").style.display='inline';
+        _("progressBar").style.display='inline';
+        _("progressBar").value = 0;
+        _("loaded_n_total").innerHTML = "Cargado 0";
+        _("file").value = "";
   }
