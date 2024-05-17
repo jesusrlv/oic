@@ -258,16 +258,15 @@ elseif($ev==4){
   <div class="modal-dialog modal-lg">
     <div class="modal-content">
       <div class="modal-header">
-        <h1 class="modal-title fs-5" id="staticBackdropLabel">Editar</h1>
+        <h1 class="modal-title fs-5" id="staticBackdropLabel">Editar documento</h1>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body" id="evidenciaEdit">
      
-
       </div>
       <div class="modal-footer">
-        <!-- <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-        <button type="submit" class="btn btn-primary">Actualizar</button> -->
+        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
+        <button type="submit" class="btn btn-primary" onclick="actualizarFile() ">Actualizar</button>
       </div>
     </div>
   </div>
