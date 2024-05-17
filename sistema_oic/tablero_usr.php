@@ -199,7 +199,6 @@ echo
             <tr>
               <th>#</th>
               <th>Nombre actividad</th>
-              <th>Responsable</th>
               <th>Medio verificación</th>
               <th># de evidencias</th>
               <th>% avance</th>
@@ -220,7 +219,6 @@ echo
             <tr>
               <th>#</th>
               <th>Nombre actividad</th>
-              <th>Responsable</th>
               <th>Medio verificación</th>
               <th># de evidencias</th>
               <th>% avance</th>
@@ -241,7 +239,6 @@ echo
             <tr>
               <th>#</th>
               <th>Nombre actividad</th>
-              <th>Responsable</th>
               <th>Medio verificación</th>
               <th># de evidencias</th>
               <th>% avance</th>
@@ -262,7 +259,6 @@ echo
             <tr>
               <th>#</th>
               <th>Nombre actividad</th>
-              <th>Responsable</th>
               <th>Medio verificación</th>
               <th># de evidencias</th>
               <th>% avance</th>

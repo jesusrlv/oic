@@ -22,7 +22,7 @@ $tabla="SELECT * FROM actividad WHERE responsable='$id' AND annio = '$annio' AND
                             $consulta1="SELECT id,nombre FROM usr WHERE id = '$responsable'";
                             $resultado_consulta1 = $conn->query($consulta1);
                             $trabajador_resultado = $resultado_consulta1->fetch_assoc();
-                            echo ('<td><center>'.$trabajador_resultado['nombre'].'</center></td>');
+                            // echo ('<td><center>'.$trabajador_resultado['nombre'].'</center></td>');
             
                             $consulta2="SELECT id,medio FROM medio_verificacion WHERE id = '$verificacion'";
                             $resultado_consulta2 = $conn->query($consulta2);

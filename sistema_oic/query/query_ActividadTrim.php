@@ -18,7 +18,7 @@ $id = $_SESSION['id'];
             echo '<td class="align-middle">'.$numero.'</td>';
             echo '<td class="align-middle"><center>'.$row['descripcion'].'</center></td>';
             echo '<td class="align-middle"><center>'.$row['fecha'].'</center></td>';
-            echo ('<td class="align-middle"><a href="./'.$row['url_doc'].'" class="badge badge-primary" target="_blank"><i class="fas fa-eye"></i></a></td>');
+            echo ('<td class="align-middle"><a href="files/'.$row['url_doc'].'" class="badge badge-primary" target="_blank"><i class="fas fa-eye"></i></a></td>');
             echo ('<td class="align-middle">
                 <button onclick="editarFile('.$row['usr_vinculado'].','.$row['trimestre'].','.$row['actividad_vinculada'].','.$row['id'].','.$row['cuenta'].','.$annio.')" class="btn btn-outline-warning btn-sm" target="_blank"><i class="bi bi-pencil-square"></i></button>
             </td>');
