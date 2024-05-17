@@ -29,13 +29,13 @@ $tabla="SELECT * FROM actividad WHERE responsable='$id' AND annio = '$annio' AND
                             $medio_resultado = $resultado_consulta2->fetch_assoc();
                             echo ('<td><center>'.$medio_resultado['medio'].'</center></td>');
 
-                            if($row['porcentaje2']!=100){
-                              echo ('<td class="text-dark"><a href="agregar_archivos.php?id=2&act='.$row['id'].'"><span class="badge rounded-pill text-bg-primary"><i class="bi bi-file-earmark-medical"></i> Evidencia</span>
-                              </a></td>');
-                            }
-                            else{
-                              echo '<td><span class="badge rounded-pill text-bg-success">Completado 100%</span></td>';
-                            }
+                            // if($row['porcentaje2']!=100){
+                            //   echo ('<td class="text-dark"><a href="agregar_archivos.php?id=2&act='.$row['id'].'"><span class="badge rounded-pill text-bg-primary"><i class="bi bi-file-earmark-medical"></i> Evidencia</span>
+                            //   </a></td>');
+                            // }
+                            // else{
+                            //   echo '<td><span class="badge rounded-pill text-bg-success">Completado 100%</span></td>';
+                            // }
                             
                             $tabla_cont="SELECT count(*) AS total FROM bitacora WHERE usr_vinculado = '$id' AND trimestre = 2 AND actividad_vinculada = '$id_act'";
                             $resultadotabla_cont = $conn->query($tabla_cont);
