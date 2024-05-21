@@ -290,5 +290,6 @@ elseif($ev==4){
 </div>
 
 
-        <!-- <script src="css/dashboard.js"></script></body> -->
+        <!-- <script src="css/dashboard.js"></script>-->
+      </body> 
 </html>
