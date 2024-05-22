@@ -197,13 +197,13 @@ echo
         <table class="table table-bordered table-hover table-striped table-sm align-middle" style="text-align: center;">
           <thead class="bg-dark text-light">
             <tr>
-              <th>#</th>
-              <th>Nombre actividad</th>
-              <th>Medio verificación</th>
+              <th colspan="6">Nombre de la actividad</th>
+              <!-- <th>Nombre actividad</th> -->
+              <!-- <th>Medio verificación</th>
               <th># de evidencias</th>
               <th>% avance</th>
               <th>Fecha inicio / fin</th>
-              <th>Observaciones</th>
+              <th>Observaciones</th> -->
             </tr>
           </thead>
           <tbody id="semestre1">
