@@ -85,7 +85,7 @@ include('prcd/conn.php');
       }
     </style>
     <!-- Custom styles for this template -->
-    <link href="css/dashboard.css" rel="stylesheet">
+    <!-- <link href="css/dashboard.css" rel="stylesheet"> -->
   </head>
   <body onload="documentosUsr();">
 
@@ -258,30 +258,53 @@ elseif($ev==4){
   <div class="modal-dialog modal-lg">
     <div class="modal-content">
       <div class="modal-header">
-        <h1 class="modal-title fs-5" id="staticBackdropLabel">Editar documento</h1>
+        <h4 class="modal-title fs-5" id="staticBackdropLabel">Editar</h4>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
-      <div class="modal-body" id="evidenciaEdit">
+      <div class="modal-body">
 
-      <ul class="nav nav-tabs">
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Active</a>
+      <ul class="nav nav-tabs" id="myTab" role="tablist">
+        <li class="nav-item" role="presentation">
+          <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home-tab-pane" type="button" role="tab" aria-controls="home-tab-pane" aria-selected="true">Datos</button>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Link</a>
+        <li class="nav-item" role="presentation">
+          <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile-tab-pane" type="button" role="tab" aria-controls="profile-tab-pane" aria-selected="false">Documento</button>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Link</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link disabled" aria-disabled="true">Disabled</a>
-        </li>
+        
       </ul>
+      <div class="tab-content" id="myTabContent">
+        <div class="tab-pane fade show active" id="home-tab-pane" role="tabpanel" aria-labelledby="home-tab" tabindex="0">
+          <div class="container" id="evidenciaEdit">
+
+          </div>
+
+        </div>
+        <div class="tab-pane fade" id="profile-tab-pane" role="tabpanel" aria-labelledby="profile-tab" tabindex="0">
+          <div class="container mt-2" id="evidenciaDocumentos">
+          <hr class="my-4">
+            <form id="upload_form" enctype="multipart/form-data" method="post">
+            <label for="exampleFormControlFile1"><h5><i class="fas fa-file-pdf"></i> Actualizar documento</h5></label>
+                <div class="input-group mb-3">
+                    <input type="file" name="fileActualizar" id="fileActualizar" accept="application/pdf" class="form-control" value="'.$row['url_doc'].'">
+                </div>
+                <div class="progress" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" value="0">
+                    <div class="progress-bar progress-bar" style="background-color:#917799" id="progressBar1" value="0" max="100" style="height: 20px">
+                    <p id="loaded_n_total1"></p>
+                    </div>
+                </div>
+                <small id="status1"></small>
+            </form>
+
+            <button class="btn btn-primary w-100" onclick="">Actualizar documento</button>
+          </div>
+        </div>
+      </div>
+
 
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
-        <button type="submit" class="btn btn-primary" onclick="actualizarFile() ">Actualizar</button>
+        <!-- <button type="submit" class="btn btn-primary" onclick="editarActividad() ">Actualizar</button> -->
       </div>
     </div>
   </div>

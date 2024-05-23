@@ -252,10 +252,10 @@ elseif($ev==4){
           </div>
           ';
       }
-      elseif($perfil==2){
+      else if($perfil==2){
           echo '
           <div class="d-grid gap-2">
-            <a href="" class="btn btn-primary" type="button">Regresar</a>
+            <a href="tablero_admin.php" class="btn btn-primary" type="button">Regresar</a>
           </div>
           ';
       }

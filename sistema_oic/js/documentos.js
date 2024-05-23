@@ -171,3 +171,7 @@ function _(el) {
         _("loaded_n_total").innerHTML = "Cargado 0";
         _("file").value = "";
   }
+
+  function actualizarDatosEvidencia() {
+    
+  }

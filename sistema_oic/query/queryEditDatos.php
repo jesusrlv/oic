@@ -19,8 +19,9 @@ $result = $conn->query($sql);
 $row = $result->fetch_assoc();
 
 echo '
-    <form method="post" action="prcd/proceso_editar_evidencia_datos.php">
-    
+<hr class="my-4">
+    <form method="post" action="prcd/proceso_editar_evidencia_datos.php" class="mt-2">
+    <label for="exampleFormControlFile1"><h5><i class="bi bi-person-up"></i> Actualizar datos</h5></label>
     <input type="hidden" name="actividad" id="actividad" value="'.$row['id'].'">
     <input type="hidden" name="actividad" id="actividad" value="'.$row['actividad_vinculada'].'">
     <input type="hidden" name="trimestre" id="trimestreActualizar" value="'.$row['trimestre'].'">
@@ -33,21 +34,10 @@ echo '
     </div>
 
     
-    </form>';
-
-    echo ' 
-    <hr class="my-4">
-    <form id="upload_form" enctype="multipart/form-data" method="post">
-    <label for="exampleFormControlFile1"><h5><i class="fas fa-file-pdf"></i> Actualizar documento</h5></label>
-        <div class="input-group mb-3">
-            <input type="file" name="fileActualizar" id="fileActualizar" accept="application/pdf" class="form-control" value="'.$row['url_doc'].'">
-        </div>
-        <div class="progress" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" value="0">
-            <div class="progress-bar progress-bar" style="background-color:#917799" id="progressBar1" value="0" max="100" style="height: 20px">
-            <p id="loaded_n_total1"></p>
-            </div>
-        </div>
-        <small id="status1"></small>
     </form>
     
-';
+    <button class="btn btn-primary w-100" onclick="actualizarDatosEvidencia()">Actualizar datos</button>
+    ';
+
+
+    ?>
