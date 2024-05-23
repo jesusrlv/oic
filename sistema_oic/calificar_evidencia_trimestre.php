@@ -9,6 +9,7 @@ if (isset($_SESSION['usr'])) {
         // header('Location: javascript: history.go(-1)');
     }
     elseif($_SESSION['perfil']==3){
+
         // header('Location: javascript: history.go(-1)');
     }
     else{
@@ -48,13 +49,26 @@ include('prcd/conn.php');
     <title>Dashboard | OIC</title>
 
     <link rel="icon" type="image/png" href="../icon.ico"/>
-    <link rel="canonical" href="https://getbootstrap.com/docs/4.5/examples/dashboard/">
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/dashboard/">
+
+    <!-- bootstrap -->
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css">
     
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css">
+    <!-- jquery -->
+    <!-- <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script> -->
+
+    <!-- ajax -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    
+    <!-- fontawasome -->
     <script src="https://kit.fontawesome.com/4d63b5ef28.js" crossorigin="anonymous"></script>
 
+    <!-- Bootstrap core CSS -->
+    <link href="assets/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css">
     <!-- Bootstrap core CSS -->
     <link href="css/bootstrap.css" rel="stylesheet">
 
@@ -205,21 +219,28 @@ elseif($ev==4){
           </tbody>
         </table>
         <?php
-          if($perfil == 3 || $perfil == 4){
-            echo '<form action="prcd/proceso_calificar_trimestre.php" method="POST" hidden>'; 
+          if($perfil == 3){
+            echo '
+            <script>
+            window.onload = function() {
+              hiddenF();
+            }
+            </script>
+            
+            '; 
           }
-          else{
-            echo '<form action="prcd/proceso_calificar_trimestre.php" method="POST">';
-          }
+          // else{
+          //   echo '<form action="prcd/proceso_calificar_trimestre.php" method="POST">';
+          // }
           ?>
         
             <form action="prcd/proceso_calificar_trimestre.php" method="POST">
-            <p><input type="text" name="observaciones" class="form-control w-50" placeholder="Observaciones" aria-label="Observaciones" aria-describedby="Observaciones" required></p>
+            <p><input type="text" name="observaciones" id="observaciones" class="form-control w-50" placeholder="Observaciones" aria-label="Observaciones" aria-describedby="Observaciones" required hidden></p>
             <div class="input-group mb-3 w-25">
-            <input type="text" name="act" hidden value="<?php echo $act ?>">
-            <input type="text" name="ev" hidden value="<?php echo $ev ?>">
-                <input type="number" name="calificacion" class="form-control w-25" placeholder="Calificar" aria-label="Calificar" aria-describedby="Calificar" required>
-                <button class="btn btn-outline-info" type="submit" id="button-addon2"><i class="bi bi-bullseye"></i> Calificar</button>
+            <input type="text" name="act" id="act" value="<?php echo $act ?>" hidden>
+            <input type="text" name="ev" id="ev" value="<?php echo $ev ?>" hidden>
+                <input type="number" name="calificacion" id="calificacion" class="form-control w-25" placeholder="Calificar" aria-label="Calificar" aria-describedby="Calificar" required hidden>
+                <button class="btn btn-outline-info" type="submit" id="btnSub" hidden><i class="bi bi-bullseye"></i> Calificar</button>
             </div>
             </form>
       
@@ -243,9 +264,17 @@ elseif($ev==4){
     </main>
   </div>
 </div>
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-      <script>window.jQuery || document.write('<script src="../assets/js/vendor/jquery.slim.min.js"><\/script>')</script><script src="css/bootstrap.bundle.js"></script>
+<!-- <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script> -->
+      <!-- <script>window.jQuery || document.write('<script src="../assets/js/vendor/jquery.slim.min.js"><\/script>')</script><script src="css/bootstrap.bundle.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.9.0/feather.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.min.js"></script> -->
         <script src="css/dashboard.js"></script></body>
+
+        <script>
+      function hiddenF(){
+        document.getElementById("observaciones").hidden = false;
+        document.getElementById("calificacion").hidden = false;
+        document.getElementById("btnSub").hidden = false;
+      }
+      </script>
 </html>
