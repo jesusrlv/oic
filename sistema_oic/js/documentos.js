@@ -77,6 +77,7 @@ function _(el) {
         // document.getElementById('btnEvidencia').disabled = true;
         document.getElementById('btnEvidenciaNuevo').hidden = false;
         document.getElementById('btnEvidencia').hidden = true;
+        document.getElementById('observacionesCargar').value = "";
 
         $(".bloqueo").attr("disabled", true);
 

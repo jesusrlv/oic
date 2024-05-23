@@ -198,6 +198,7 @@ function areaQuery(){
                 }
                 else{
                     alert("No se agregó actividad");
+                    console.log(jsonData.error);
                 }
     
             }

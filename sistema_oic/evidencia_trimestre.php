@@ -207,7 +207,7 @@ elseif($ev==4){
         <label for="basic-url" class="form-label text-secondary">Redacta texto sobre la evidencia:</label>
         <div class="input-group">
           <span class="input-group-text" id="basic-addon3">Observaciones</span>
-          <input type="text" class="form-control" id="observacionesCargar" aria-describedby="basic-addon3 basic-addon4">
+          <input type="text" class="form-control" id="observacionesCargar" aria-describedby="basic-addon3 basic-addon4" placeholder="Escribe descripción de la evidencia">
         </div>
         <!-- <div class="form-text" id="basic-addon4">Example help text goes outside the input group.</div> -->
       </div>

@@ -46,9 +46,11 @@ if($resultado2){
 
 else{
 
+    $error = $conn->error;
     /* echo 'No se registró la actividad'; */
     echo json_encode(array(
-        'success'=>0
+        'success'=>0,
+        'error'=> $error
     ));
 }
 ?>
