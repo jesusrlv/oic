@@ -101,7 +101,7 @@ function _(el) {
     formdata.append("file", file);
     // variables post
     formdata.append("url", url);
-    var ajax = new XMLHttpRequest();
+    var ajax = new XMLHttpRequest();  
     ajax.upload.addEventListener("progress", progressHandler, false);
     ajax.addEventListener("load", completeHandler, false);
     ajax.addEventListener("error", errorHandler, false);
