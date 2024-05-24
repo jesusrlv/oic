@@ -32,6 +32,11 @@ $tabla="SELECT * FROM actividad WHERE responsable='$id' AND annio = '$annio' AND
                       $num_rows = $cont_resultado['total'];
 
 
+                      $fecha1 = $row['fecha_inicio3'];
+                      $fecha2 = $row['fecha_final3'];
+                      $fechaIni = date("d/m/Y", strtotime($fecha1));
+                      $fechaFin = date("d/m/Y", strtotime($fecha2));
+
                       echo'
                       
                       <div class="accordion-item mt-1">
@@ -80,10 +85,10 @@ $tabla="SELECT * FROM actividad WHERE responsable='$id' AND annio = '$annio' AND
                                 </div>
                               </div>
                               <div class="col-2 border">
-                              5
+                              '.$fechaIni.' | '.$fechaFin.'
                               </div>
                               <div class="col-2 border">
-                              6
+                              '.$row['observaciones'].'
                               </div>
                             </div>
 
