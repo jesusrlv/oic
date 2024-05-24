@@ -288,14 +288,14 @@ elseif($ev==4){
                     <input type="file" name="fileActualizar" id="fileActualizar" accept="application/pdf" class="form-control" value="'.$row['url_doc'].'">
                 </div>
                 <div class="progress" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" value="0">
-                    <div class="progress-bar progress-bar" style="background-color:#917799" id="progressBar1" value="0" max="100" style="height: 20px">
-                    <p id="loaded_n_total1"></p>
+                    <div class="progress-bar progress-bar" style="background-color:#917799" id="progressBarAct" value="0" max="100" style="height: 20px">
+                    <p id="loaded_n_totalAct"></p>
                     </div>
                 </div>
-                <small id="status1"></small>
+                <small id="statusAct"></small>
             </form>
 
-            <button class="btn btn-primary w-100" onclick="">Actualizar documento</button>
+            <button class="btn btn-primary w-100 mt-2" onclick="actualizarFile()">Actualizar documento</button>
           </div>
         </div>
       </div>

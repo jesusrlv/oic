@@ -29,7 +29,37 @@ function editarFile(id2,trimestre2,actividad2,idActividad2,cuenta2,annio2){
 
 }
 
-function actualizarEvidencia(){
+function actualizarDatosEvidencia(){
 
-    $('#editarFiles').modal('hide'); 
+    var id = document.getElementById('idActualizar').value;
+    var trimestre = document.getElementById('trimestreActualizar').value;
+    var actividad = document.getElementById('actividadActualizar').value;
+    var annio = document.getElementById('annioActualizar').value;
+    var observaciones = document.getElementById('observacionesActualizar').value;
+
+    $.ajax({
+        type: "POST",
+        url: "prcd/proceso_editar_evidencia_datos.php",
+        data: {
+            id:id,
+            trimestre:trimestre,
+            actividad:actividad,
+            annio:annio,
+            observaciones:observaciones
+        },
+        dataType: "json",
+        success: function(data) {
+            var jsonData = JSON.parse(JSON.stringify(data));
+            if(jsonData.success = 1){
+                alert("Se actualizó la evidencia");
+                $('#editarFiles').modal('hide'); 
+                documentosUsr();
+            }
+            else{
+                alert("No se actualizó la evidencia");
+            }
+        }
+    });
+
+    
 }

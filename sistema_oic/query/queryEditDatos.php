@@ -22,8 +22,9 @@ echo '
 <hr class="my-4">
     <form method="post" action="prcd/proceso_editar_evidencia_datos.php" class="mt-2">
     <label for="exampleFormControlFile1"><h5><i class="bi bi-person-up"></i> Actualizar datos</h5></label>
-    <input type="hidden" name="actividad" id="actividad" value="'.$row['id'].'">
-    <input type="hidden" name="actividad" id="actividad" value="'.$row['actividad_vinculada'].'">
+    <input type="hidden" id="urlAct" value="'.$row['url_doc'].'">
+    <input type="hidden" id="idActualizar" value="'.$row['id'].'">
+    <input type="hidden" id="actividadActualizar" value="'.$row['actividad_vinculada'].'">
     <input type="hidden" name="trimestre" id="trimestreActualizar" value="'.$row['trimestre'].'">
     <input type="hidden" name="cuentaActualizar" id="cuentaActualizar" value="'.$row['cuenta'].'">
     <input type="hidden" name="annioActualizar" id="annioActualizar" value="'.$annio.'">
