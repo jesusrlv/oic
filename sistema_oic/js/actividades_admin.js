@@ -7,7 +7,8 @@ function trimestre1(annio){
         },
         dataType: "html",
         success: function(data) {
-            $('#semestre1').fadeIn(1000).html(data)
+            $('#semestreAdmin').fadeIn(1000).html(data)
+            document.getElementById('trimestreTxt').innerText = "Primer trimestre";
         }
     });
 }
@@ -21,7 +22,8 @@ function trimestre2(annio){
         },
         dataType: "html",
         success: function(data) {
-            $('#semestre2').fadeIn(1000).html(data)
+            $('#semestreAdmin').fadeIn(1000).html(data)
+            document.getElementById('trimestreTxt').innerText = "Segundo trimestre";
         }
     });
 }
@@ -35,7 +37,8 @@ function trimestre3(annio){
         },
         dataType: "html",
         success: function(data) {
-            $('#semestre3').fadeIn(1000).html(data)
+            $('#semestreAdmin').fadeIn(1000).html(data)
+            document.getElementById('trimestreTxt').innerText = "Tercer trimestre";
         }
     });
 }
@@ -49,7 +52,10 @@ function trimestre4(annio){
         },
         dataType: "html",
         success: function(data) {
-            $('#semestre4').fadeIn(1000).html(data)
+            $('#semestreAdmin').fadeIn(1000).html(data);
+
+            document.getElementById('trimestreTxt').innerText = "Cuarto trimestre";
+            document.getElementById('trimestreTxt').style.opacity = 1;
         }
     });
 }

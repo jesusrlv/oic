@@ -242,7 +242,7 @@ $nombre = $_SESSION['nombre'];
           
         </select>
       </div>
-      <h2>Primer trimestre</h2>
+      <h2 id="trimestreTxt">Primer trimestre</h2>
 
       <hr style="color: dimgrey;">
         <div class="table-responsive">  
@@ -263,100 +263,14 @@ $nombre = $_SESSION['nombre'];
                 <th scope="col" class="align-middle">Observaciones</th>
               </tr>
             </thead>
-            <tbody id="semestre1">
+            <tbody id="semestreAdmin">
              
             </tbody>
           </table>
 
       </div> <!-- div table-responsive -->
       
-      <h2>Segundo trimestre</h2>
-
-      <hr style="color: dimgrey;">
-      <h2></h2>
-        <div class="table-responsive">
-          <table class="table table-bordered table-hover table-striped table-md align-middle table-sm" style="text-align: center;">
-          <thead class="bg-dark text-light">
-              <tr class="align-middle">
-                <th scope="col" class="align-middle">#</th>
-                <th scope="col" class="align-middle">Nombre de la actividad</th>
-                <th scope="col" class="align-middle">Responsable</th>
-                <th scope="col" class="align-middle">Descripción</th>
-                <th scope="col" class="align-middle">Trimestre</th>
-                <th scope="col" class="align-middle">Fecha de inicio</th>
-                <th scope="col" class="align-middle">Fecha de finalización</th>
-                <th scope="col" class="align-middle">% Avance</th>
-                <th scope="col" class="align-middle"># Docs</th>
-                <th scope="col" class="align-middle">Acción</th>
-                <th scope="col" class="align-middle">Medio Verificación</th>
-                <th scope="col" class="align-middle">Observaciones</th>
-              </tr>
-            </thead>
-            <tbody id="semestre2">
-             
-            </tbody>
-          </table>
-
-      </div> <!-- div table-responsive -->
-
-      <h2>Tercer trimestre</h2>
-
-<hr style="color: dimgrey;">
-<h2></h2>
-  <div class="table-responsive">
-    <table class="table table-bordered table-hover table-striped table-md align-middle table-sm" style="text-align: center;">
-    <thead class="bg-dark text-light">
-        <tr class="align-middle">
-          <th scope="col" class="align-middle">#</th>
-          <th scope="col" class="align-middle">Nombre de la actividad</th>
-          <th scope="col" class="align-middle">Responsable</th>
-          <th scope="col" class="align-middle">Descripción</th>
-          <th scope="col" class="align-middle">Trimestre</th>
-          <th scope="col" class="align-middle">Fecha de inicio</th>
-          <th scope="col" class="align-middle">Fecha de finalización</th>
-          <th scope="col" class="align-middle">% Avance</th>
-          <th scope="col" class="align-middle"># Docs</th>
-          <th scope="col" class="align-middle">Acción</th>
-          <th scope="col" class="align-middle">Medio Verificación</th>
-          <th scope="col" class="align-middle">Observaciones</th>
-        </tr>
-      </thead>
-      <tbody id="semestre3">
-       
-      </tbody>
-    </table>
-
-</div> <!-- div table-responsive -->
-
-<h2>Cuarto trimestre</h2>
-
-      <hr style="color: dimgrey;">
-      <h2></h2>
-        <div class="table-responsive">
-   
-          <table class="table table-bordered table-hover table-striped table-md align-middle table-sm" style="text-align: center;">
-          <thead class="bg-dark text-light">
-              <tr class="align-middle">
-                <th scope="col" class="align-middle">#</th>
-                <th scope="col" class="align-middle">Nombre de la actividad</th>
-                <th scope="col" class="align-middle">Responsable</th>
-                <th scope="col" class="align-middle">Descripción</th>
-                <th scope="col" class="align-middle">Trimestre</th>
-                <th scope="col" class="align-middle">Fecha de inicio</th>
-                <th scope="col" class="align-middle">Fecha de finalización</th>
-                <th scope="col" class="align-middle">% Avance</th>
-                <th scope="col" class="align-middle"># Docs</th>
-                <th scope="col" class="align-middle">Acción</th>
-                <th scope="col" class="align-middle">Medio Verificación</th>
-                <th scope="col" class="align-middle">Observaciones</th>
-              </tr>
-            </thead>
-            <tbody id="semestre4">
-                        
-            </tbody>
-          </table>
-
-      </div> <!-- div table-responsive -->
+     
 
       </div><!-- class="d-flex -->
 
